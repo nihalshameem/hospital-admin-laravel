@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', 'App\Http\Controllers\EresadminController@dashboard_1');
+Route::get('/dashboard_1', 'App\Http\Controllers\EresadminController@dashboard_1');
 Route::get('/index', 'App\Http\Controllers\EresadminController@dashboard_1');
 Route::get('/doctor-detail', 'App\Http\Controllers\EresadminController@doctor_detail');
 Route::get('/doctor-list', 'App\Http\Controllers\EresadminController@doctor_list');
@@ -86,3 +86,6 @@ Route::get('/ui-progressbar', 'App\Http\Controllers\EresadminController@ui_progr
 Route::get('/ui-tab', 'App\Http\Controllers\EresadminController@ui_tab');
 Route::get('/ui-typography', 'App\Http\Controllers\EresadminController@ui_typography');
 Route::get('/widget-basic', 'App\Http\Controllers\EresadminController@widget_basic');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
