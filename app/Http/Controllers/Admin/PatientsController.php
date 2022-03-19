@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
 
 class PatientsController extends Controller
 {
@@ -35,11 +37,16 @@ class PatientsController extends Controller
     
     public function patient_add()
     {
-        $page_title = 'Form Element';
-        $page_description = 'Some description for the page';
+        $page_title = 'Patient Registration';
+        $page_description = 'Patient Registration Form';
 		
 		$action = __FUNCTION__;
 
         return view('modules.patient.patient_add', compact('page_title', 'page_description','action'));
+    }
+    
+    public function patient_add_submit(Request $request)
+    {
+        return $request;
     }
 }
