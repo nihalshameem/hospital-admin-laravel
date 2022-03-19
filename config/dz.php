@@ -151,6 +151,9 @@ return [
 				'form_validation_jquery' => [
               'vendor/bootstrap-select/dist/css/bootstrap-select.min.css',
 				],
+				'patient_add' => [
+              'vendor/bootstrap-select/dist/css/bootstrap-select.min.css',
+				],
 				'form_wizard' => [
               'vendor/bootstrap-select/dist/css/bootstrap-select.min.css',
 							'vendor/jquery-steps/css/jquery.steps.css',
@@ -458,6 +461,13 @@ return [
               'js/deznav-init.js',
 				],
 				'form_validation_jquery' => [
+              'vendor/bootstrap-select/dist/js/bootstrap-select.min.js',
+							'vendor/jquery-validation/jquery.validate.min.js',
+							'js/plugins-init/jquery.validate-init.js',
+              'js/custom.min.js',
+              'js/deznav-init.js',
+				],
+				'patient_add' => [
               'vendor/bootstrap-select/dist/js/bootstrap-select.min.js',
 							'vendor/jquery-validation/jquery.validate.min.js',
 							'js/plugins-init/jquery.validate-init.js',
