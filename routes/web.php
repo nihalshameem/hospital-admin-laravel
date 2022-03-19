@@ -88,7 +88,13 @@ Route::get('/ui-typography', 'App\Http\Controllers\EresadminController@ui_typogr
 Route::get('/widget-basic', 'App\Http\Controllers\EresadminController@widget_basic');
 Auth::routes();
 
+// Admin Dashboard
 Route::get('/home', 'App\Http\Controllers\HomeController@dashboard_1')->name('home');
+
+// Patient
+Route::get('/patient', 'App\Http\Controllers\Admin\PatientsController@patient_list');
+Route::get('/patient/add', 'App\Http\Controllers\Admin\PatientsController@patient_add');
+Route::post('/patient/add', 'App\Http\Controllers\Admin\PatientsController@patient_add_submit');
 
 Route::get('/', function () {
     if (Auth::check()) {
