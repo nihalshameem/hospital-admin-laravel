@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class HomeController extends Controller
 {
     /**
@@ -21,8 +19,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function dashboard_1()
     {
-        return view('home');
+        $page_title = 'Dashboard';
+        $page_description = 'Some description for the page';
+        $logo = "images/logo.png";
+        $logoText = "images/logo-text.png";
+        $action = __FUNCTION__;
+
+        return view('home', compact('page_title', 'page_description', 'action', 'logo', 'logoText'));
     }
 }
