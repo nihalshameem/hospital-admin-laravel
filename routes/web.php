@@ -88,4 +88,13 @@ Route::get('/ui-typography', 'App\Http\Controllers\EresadminController@ui_typogr
 Route::get('/widget-basic', 'App\Http\Controllers\EresadminController@widget_basic');
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', 'App\Http\Controllers\HomeController@dashboard_1')->name('home');
+
+Route::get('/', function () {
+    if (Auth::check()) {
+        return redirect('/home');
+    } else {
+        return redirect('/login');
+    }
+});
+

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Eres Laravel'),
+    'name' => env('APP_NAME', 'Hospital Laravel'),
 
 
     'public' => [
@@ -36,6 +36,11 @@ return [
 		'pagelevel' => [
 			'css' => [
 				'dashboard_1' => [
+							'vendor/bootstrap-select/dist/css/bootstrap-select.min.css',
+							'https://cdn.lineicons.com/2.0/LineIcons.css',
+							'vendor/owl-carousel/owl.carousel.css',
+				],
+				'home' => [
 							'vendor/bootstrap-select/dist/css/bootstrap-select.min.css',
 							'https://cdn.lineicons.com/2.0/LineIcons.css',
 							'vendor/owl-carousel/owl.carousel.css',
@@ -243,6 +248,15 @@ return [
 			],
 			'js' => [
 				'dashboard_1' => [
+							'vendor/bootstrap-select/dist/js/bootstrap-select.min.js',
+							'vendor/chart.js/Chart.bundle.min.js',
+							'vendor/owl-carousel/owl.carousel.js',
+							'vendor/apexchart/apexchart.js',
+							'js/dashboard/dashboard-1.js',
+							'js/custom.min.js',
+							'js/deznav-init.js',
+				],
+				'home' => [
 							'vendor/bootstrap-select/dist/js/bootstrap-select.min.js',
 							'vendor/chart.js/Chart.bundle.min.js',
 							'vendor/owl-carousel/owl.carousel.js',
