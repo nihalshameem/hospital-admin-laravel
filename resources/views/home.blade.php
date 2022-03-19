@@ -1,5 +1,5 @@
 {{-- Extends layout --}}
-@extends('layout.default')
+@extends('layouts.app')
 
 
 
@@ -9,8 +9,8 @@
     <div class="container-fluid">
         <div class="form-head d-flex mb-3 mb-md-4 align-items-start">
             <div class="mr-auto d-none d-lg-block">
-                <h3 class="text-black font-w600">Welcome to Eres!</h3>
-                <p class="mb-0 fs-18">Hospital Admin Dashboard Template</p>
+                <h3 class="text-black font-w600">Welcome to Hospital Management!</h3>
+                <p class="mb-0 fs-18">Hospital Admin Dashboard</p>
             </div>
 
             <div class="input-group search-area ml-auto d-inline-flex">
