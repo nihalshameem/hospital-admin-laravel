@@ -1,5 +1,5 @@
 {{-- Extends layout --}}
-@extends('layout.fullwidth')
+@extends('layouts.fullwidth')
 
 
 
