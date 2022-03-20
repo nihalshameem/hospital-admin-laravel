@@ -2,6 +2,12 @@
     "use strict"
 
     // Daterange picker
+    $(".input-yearrange-datepicker").daterangepicker({
+        buttonClasses: ["btn", "btn-sm"],
+        format: "YYYY",
+        applyClass: "btn-danger",
+        cancelClass: "btn-inverse",
+    });
     $('.input-daterange-datepicker').daterangepicker({
         buttonClasses: ['btn', 'btn-sm'],
         applyClass: 'btn-danger',

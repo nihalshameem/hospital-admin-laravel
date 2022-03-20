@@ -1,7 +1,8 @@
-(function($) {
-    "use strict"
+(function ($) {
+    "use strict";
 
     //date picker classic default
-    $('.datepicker-default').pickadate();
-
+    $(".datepicker-default").pickadate({
+        format: "yy/mm/dd",
+    });
 })(jQuery);
