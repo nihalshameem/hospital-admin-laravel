@@ -11,14 +11,11 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 /* Route::get('/', function () {
-    return view('welcome');
+return view('welcome');
 }); */
-
-
-
 
 Route::get('/dashboard_1', 'App\Http\Controllers\EresadminController@dashboard_1');
 Route::get('/index', 'App\Http\Controllers\EresadminController@dashboard_1');
@@ -98,6 +95,7 @@ Route::post('/patient/add', 'App\Http\Controllers\Admin\PatientsController@patie
 Route::get('/patient/{id}', 'App\Http\Controllers\Admin\PatientsController@patient_edit');
 Route::post('/patient/{id}', 'App\Http\Controllers\Admin\PatientsController@patient_update');
 
+// Home Redirection
 Route::get('/', function () {
     if (Auth::check()) {
         return redirect('/home');
@@ -106,3 +104,11 @@ Route::get('/', function () {
     }
 });
 
+// Cache Clearing
+Route::get('/clear-cache', function () {
+    Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+    Artisan::call('view:clear');
+    Artisan::call('config:cache');
+    return "Cache is cleared";
+});
