@@ -28,7 +28,7 @@ class CreatePatientsTable extends Migration
             $table->string('husband_mobile')->nullable();
             $table->integer('living_children')->default(0);
             $table->enum('cast', ['ST', 'SC', 'Others']);
-            $table->enum('religion', ['Christian', 'Muslim', 'Hindu', 'Others']);
+            $table->enum('religion', ['Christian', 'Muslim', 'Hindu', 'Others'])->nullable();
             $table->date('dob')->nullable();
             $table->integer('gravida')->default(0);
             $table->integer('para')->default(0);

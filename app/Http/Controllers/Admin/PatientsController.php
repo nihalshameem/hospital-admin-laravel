@@ -82,9 +82,8 @@ class PatientsController extends Controller
         if ($request->submit_btn == 'save') {
             return redirect('patient');
         } else {
-            return redirect('mother_medical');
+            return redirect('patient/mother_medical/'.$patient->id);
         }
-        // return redirect()->back()->with('message', 'your message,here')->with('type','success')->with('heading','Added Successfully');
 
     }
 }
