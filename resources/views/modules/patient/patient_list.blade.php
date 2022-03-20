@@ -50,4 +50,33 @@
             </div>
         </div>
     </div>
+
+    {{-- Edit Modal --}}
+    <div class="modal fade" id="editModal">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Form Selection</h5>
+                    <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <label class="col-lg-4 col-form-label" for="form_select">Select Form
+                        </label>
+                        <div class="col-lg-6">
+                            <select class="form-control" id="form_select" name="form_select">
+                                <option value="/patient/">Registration</option>
+                                <option value="/patient/mother-medical/" disabled>Mother Medical</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger light" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="selected-edit">Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
