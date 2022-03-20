@@ -308,6 +308,8 @@ return [
                     'vendor/chart.js/Chart.bundle.min.js',
                     'vendor/owl-carousel/owl.carousel.js',
                     'vendor/datatables/js/jquery.dataTables.min.js',
+                    'vendor/toastr/js/toastr.min.js',
+                    'js/plugins-init/toastr-init.js',
                     'js/custom.min.js',
                     'js/deznav-init.js',
                 ],

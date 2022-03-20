@@ -46,11 +46,10 @@ class PatientsController extends Controller
                     return $checkbox;
                 })
                 ->addColumn('edit', function ($row) {
-                    $edit = '<a href="' . url('patient/' . $row->id) . '">
-												<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    $edit = '
+                    <button type="button" class="btn btn-link mb-2 editModalBtn" data-id="' . $row->id . '"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 													<path d="M17 3C17.2626 2.73735 17.5744 2.52901 17.9176 2.38687C18.2608 2.24473 18.6286 2.17157 19 2.17157C19.3714 2.17157 19.7392 2.24473 20.0824 2.38687C20.4256 2.52901 20.7374 2.73735 21 3C21.2626 3.26264 21.471 3.57444 21.6131 3.9176C21.7553 4.26077 21.8284 4.62856 21.8284 5C21.8284 5.37143 21.7553 5.73923 21.6131 6.08239C21.471 6.42555 21.2626 6.73735 21 7L7.5 20.5L2 22L3.5 16.5L17 3Z" stroke="#3E4954" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-												</svg>
-											</a>';
+												</svg></button>';
                     return $edit;
                 })
                 ->addColumn('delete', function ($row) {
@@ -116,7 +115,66 @@ class PatientsController extends Controller
         if ($request->submit_btn == 'save') {
             return redirect('patient');
         } else {
-            return redirect('patient/mother_medical/' . $patient->id);
+            return redirect('patient/mother-medical/' . $patient->id);
+        }
+
+    }
+
+    public function patient_edit($id)
+    {
+        try {
+            $patient = Patient::find($id);
+        } catch (\Exception$e) {
+            return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
+        }
+        $page_title = 'Patient Registration';
+        $page_description = 'Registered Patients Edit';
+        $logo = "images/logo.png";
+        $logoText = "images/logo-text.png";
+
+        $action = 'patient_add';
+        return view('modules.patient.patient_edit', compact('page_title', 'page_description', 'action', 'logo', 'logoText', 'patient'));
+
+    }
+
+    public function patient_update(Request $request,$id)
+    {
+        try {
+            $patient = Patient::find($id);
+            $patient->hsc_id = $request->hsc_id;
+            $patient->rch_id = $request->rch_id;
+            $patient->anc_number = $request->anc_number;
+            $patient->ec_reg_date = $request->ec_reg_date;
+            $patient->financial_year = $request->financial_year;
+            $patient->an_mother = $request->an_mother;
+            $patient->husband_name = $request->husband_name;
+            $patient->address = $request->address;
+            $patient->whom_mobile = $request->whom_mobile;
+            $patient->mobile = $request->mobile;
+            $patient->husband_mobile = $request->husband_mobile;
+            $patient->living_children = $request->living_children;
+            $patient->cast = $request->cast;
+            $patient->religion = $request->religion;
+            $patient->dob = $request->dob;
+            $patient->gravida = $request->gravida;
+            $patient->para = $request->para;
+            $patient->pw_height = $request->pw_height;
+            $patient->mother_weight = $request->mother_weight;
+            $patient->bp_systolic = $request->bp_systolic;
+            $patient->bp_diastolic = $request->bp_diastolic;
+            $patient->bpl_apl = $request->bpl_apl;
+            $patient->last_visit_date_ec_tracking = $request->last_visit_date_ec_tracking;
+            $patient->an_reg_date = $request->an_reg_date;
+            $patient->age = $request->age;
+            $patient->save();
+        } catch (\Exception$e) {
+            return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
+        }
+
+        if ($request->submit_btn == 'save') {
+            return redirect('patient')->with('message', 'Patient details uodated')->with('type', 'success')->with('heading', 'Updated Successfully');
+        } else {
+            return redirect('patient/mother-medical/' . $patient->id)->with('message', 'Patient Registration updated')->with('type', 'success')->with('heading', 'Updated Successfully');
         }
 
     }

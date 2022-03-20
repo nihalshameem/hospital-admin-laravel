@@ -14,3 +14,11 @@
         @endforeach
     </ol>
 </div>
+
+@if (\Session::has('message'))
+    <span id="taster-box" class="d-none">
+        <input id="taoster-heading" value="{!! \Session::get('heading') !!}" />
+        <input id="taoster-message" value="{!! \Session::get('message') !!}" />
+        <input id="taoster-type" value="{!! \Session::get('type') !!}" />
+    </span>
+@endif
