@@ -58,7 +58,7 @@
 			@if(!empty($logo))
 				<img class="logo-abbr" src="{{ asset($logo) }}" alt="">
 			@else
-                <img class="logo-abbr" src="{{ asset('images/logo.png') }}" alt="">
+                <img class="logo-abbr" src="{{ asset('images/tn_logo.png') }}" alt="">
 			@endif
 			@if(!empty($logoText))
                 <img class="logo-compact" src="{{ asset($logoText) }}" alt="">

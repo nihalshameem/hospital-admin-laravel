@@ -28,8 +28,6 @@ class PatientsController extends Controller
     {
         $page_title = 'Patient List';
         $page_description = 'Registered Patients List';
-        $logo = "images/logo.png";
-        $logoText = "images/logo-text.png";
 
         $action = __FUNCTION__;
 
@@ -65,7 +63,7 @@ class PatientsController extends Controller
                 ->make(true);
         }
 
-        return view('modules.patient.patient_list', compact('page_title', 'page_description', 'action', 'logo', 'logoText'));
+        return view('modules.patient.patient_list', compact('page_title', 'page_description', 'action'));
     }
 
     public function patient_add()
@@ -129,11 +127,9 @@ class PatientsController extends Controller
         }
         $page_title = 'Patient Registration';
         $page_description = 'Registered Patients Edit';
-        $logo = "images/logo.png";
-        $logoText = "images/logo-text.png";
 
         $action = 'patient_add';
-        return view('modules.patient.patient_edit', compact('page_title', 'page_description', 'action', 'logo', 'logoText', 'patient'));
+        return view('modules.patient.patient_edit', compact('page_title', 'page_description', 'action', 'patient'));
 
     }
 
