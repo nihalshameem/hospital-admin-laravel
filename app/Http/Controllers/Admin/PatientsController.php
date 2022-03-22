@@ -106,7 +106,7 @@ class PatientsController extends Controller
                 'an_reg_date' => $request->an_reg_date,
                 'age' => $request->age,
             ]);
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
 
@@ -122,7 +122,7 @@ class PatientsController extends Controller
     {
         try {
             $patient = Patient::find($id);
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
         $page_title = 'Patient Registration';
@@ -133,7 +133,7 @@ class PatientsController extends Controller
 
     }
 
-    public function patient_update(Request $request,$id)
+    public function patient_update(Request $request, $id)
     {
         try {
             $patient = Patient::find($id);
@@ -163,7 +163,7 @@ class PatientsController extends Controller
             $patient->an_reg_date = $request->an_reg_date;
             $patient->age = $request->age;
             $patient->save();
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
 
@@ -173,5 +173,16 @@ class PatientsController extends Controller
             return redirect('patient/mother-medical/' . $patient->id)->with('message', 'Patient Registration updated')->with('type', 'success')->with('heading', 'Updated Successfully');
         }
 
+    }
+
+    public function patient_delete($id)
+    {
+        try {
+            $patient = Patient::find($id);
+            $patient->delete();
+        } catch (\Exception $e) {
+            return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
+        }
+        return redirect('patient')->with('message', 'Patient deleted')->with('type', 'success')->with('heading', 'Deleted Successfully');
     }
 }
