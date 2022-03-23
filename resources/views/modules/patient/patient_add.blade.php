@@ -14,7 +14,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Patient Registration</h4>
+                        <h4 class="card-title">Mother Registration</h4>
                     </div>
                     <div class="card-body">
                         <div class="form-validation">
@@ -43,7 +43,7 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <select class="form-control" id="rch_id" name="rch_id">
-                                                    <option value="">Please select</option>
+                                                    <option value="">Please Select</option>
                                                     <option value="8625493243">8625493243</option>
                                                     <option value="91723684933">91723684933</option>
                                                     <option value="98264734823">98264734823</option>

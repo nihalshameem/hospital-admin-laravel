@@ -33,7 +33,7 @@
                                         </div>
                                     </div>
                                 </th>
-                                <th>Patient ID</th>
+                                <th>Mother ID</th>
                                 <th>HSC Name</th>
                                 <th>RCH ID</th>
                                 <th>PW Height</th>

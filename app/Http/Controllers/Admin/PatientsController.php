@@ -26,8 +26,8 @@ class PatientsController extends Controller
      */
     public function patient_list(Request $request)
     {
-        $page_title = 'Patient List';
-        $page_description = 'Registered Patients List';
+        $page_title = 'Mother Registration';
+        $page_description = 'Mother Registration List';
 
         $action = __FUNCTION__;
 
@@ -68,8 +68,8 @@ class PatientsController extends Controller
 
     public function patient_add()
     {
-        $page_title = 'Patient Registration';
-        $page_description = 'Patient Registration Form';
+        $page_title = 'Mother Registration';
+        $page_description = 'Mother Registration Form';
 
         $action = __FUNCTION__;
 
@@ -106,7 +106,7 @@ class PatientsController extends Controller
                 'an_reg_date' => $request->an_reg_date,
                 'age' => $request->age,
             ]);
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
 
@@ -122,18 +122,18 @@ class PatientsController extends Controller
     {
         try {
             $patient = Patient::find($id);
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
-        $page_title = 'Patient Registration';
-        $page_description = 'Registered Patients Edit';
+        $page_title = 'Mother Registration';
+        $page_description = 'Mother Registration Edit';
 
         $action = 'patient_add';
         return view('modules.patient.patient_edit', compact('page_title', 'page_description', 'action', 'patient'));
 
     }
 
-    public function patient_update(Request $request, $id)
+    public function patient_update(Request $request,$id)
     {
         try {
             $patient = Patient::find($id);
@@ -163,7 +163,7 @@ class PatientsController extends Controller
             $patient->an_reg_date = $request->an_reg_date;
             $patient->age = $request->age;
             $patient->save();
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
 
@@ -173,16 +173,5 @@ class PatientsController extends Controller
             return redirect('patient/mother-medical/' . $patient->id)->with('message', 'Patient Registration updated')->with('type', 'success')->with('heading', 'Updated Successfully');
         }
 
-    }
-
-    public function patient_delete($id)
-    {
-        try {
-            $patient = Patient::find($id);
-            $patient->delete();
-        } catch (\Exception $e) {
-            return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
-        }
-        return redirect('patient')->with('message', 'Patient deleted')->with('type', 'success')->with('heading', 'Deleted Successfully');
     }
 }
