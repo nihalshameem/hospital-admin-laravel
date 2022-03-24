@@ -174,4 +174,19 @@ class PatientsController extends Controller
         }
 
     }
+
+    public function moher_medical($id)
+    {
+        try {
+            $patient = Patient::find($id);
+        } catch (\Exception$e) {
+            return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
+        }
+        $page_title = 'Mother Medical';
+        $page_description = 'Mother Medical Form';
+
+        $action = 'patient_add';
+        return view('modules.patient.mother_medical', compact('page_title', 'page_description', 'action', 'patient'));
+
+    }
 }
