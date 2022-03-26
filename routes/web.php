@@ -88,13 +88,16 @@ Auth::routes();
 // Admin Dashboard
 Route::get('/home', 'App\Http\Controllers\HomeController@dashboard_1')->name('home');
 
-// Patient
+// mother register
 Route::get('/patient', 'App\Http\Controllers\Admin\PatientsController@patient_list');
 Route::get('/patient/add', 'App\Http\Controllers\Admin\PatientsController@patient_add');
 Route::post('/patient/add', 'App\Http\Controllers\Admin\PatientsController@patient_add_submit');
 Route::get('/patient/{id}', 'App\Http\Controllers\Admin\PatientsController@patient_edit');
 Route::post('/patient/{id}', 'App\Http\Controllers\Admin\PatientsController@patient_update');
 Route::post('/patient/delete/{id}', 'App\Http\Controllers\Admin\PatientsController@patient_delete');
+
+// mother register
+Route::get('/patient/mother-medical/{id}', 'App\Http\Controllers\Admin\PatientsController@moher_medical');
 
 
 // Home Redirection

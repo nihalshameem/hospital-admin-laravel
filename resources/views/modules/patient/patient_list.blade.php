@@ -67,7 +67,7 @@
                         <div class="col-lg-6">
                             <select class="form-control" id="form_select" name="form_select">
                                 <option value="/">Registration</option>
-                                <option value="/mother-medical/" disabled>Mother Medical</option>
+                                <option value="/mother-medical/">Mother Medical</option>
                             </select>
                         </div>
                     </div>

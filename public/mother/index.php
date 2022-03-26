@@ -7,25 +7,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Laravel | Mother Medical Registration</title>
-	
+
 	<meta name="description" content="Mother Medical Registration"/>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="https://lingamexports.in/public/images/favicon.png">
-	
-	
-	
-	 
+
+
+
+
 						<link href="https://lingamexports.in/public/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet" type="text/css"/>
 						<link href="https://lingamexports.in/public/vendor/toastr/css/toastr.min.css" rel="stylesheet" type="text/css"/>
 						<link href="https://lingamexports.in/public/vendor/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css"/>
 						<link href="https://lingamexports.in/public/vendor/pickadate/themes/default.css" rel="stylesheet" type="text/css"/>
 						<link href="https://lingamexports.in/public/vendor/pickadate/themes/default.date.css" rel="stylesheet" type="text/css"/>
-				
 
-	
-	 
+
+
+
 					<link href="https://lingamexports.in/public/css/style.css" rel="stylesheet" type="text/css"/>
-				
+
 
 
 </head>
@@ -59,7 +59,7 @@
 			                <img class="logo-abbr" src="https://lingamexports.in/public/images/tn_logo.png" alt="">
 						                <img class="logo-compact" src="https://lingamexports.in/public/images/logo-text.png" alt="">
                 <img class="brand-title" src="https://lingamexports.in/public/images/logo-text.png" alt="">
-				
+
             </a>
 
             <div class="nav-control">
@@ -75,7 +75,7 @@
         <!--**********************************
             Header start
         ***********************************-->
-        
+
 		<div class="chatbox">
     <div class="chatbox-close"></div>
     <div class="custom-tab-1">
@@ -710,7 +710,7 @@
                 </div>
 
                 <ul class="navbar-nav header-right">
-                    
+
                     <li class="nav-item dropdown header-profile">
                         <a class="nav-link" href="javascript:;" role="button" data-toggle="dropdown">
                             <img src="https://lingamexports.in/public/images/tn_logo.png" width="20" alt="" />
@@ -761,8 +761,8 @@
         </nav>
     </div>
 </div>
-		
-		
+
+
         <!--**********************************
             Header end ti-comment-alt
         ***********************************-->
@@ -784,21 +784,21 @@
                         <li><a href="https://lingamexports.in/public/mother/">Mother Medical</a></li>
                             <li><a href="https://lingamexports.in/public/visit/">Mother AN Visit</a></li>
                                 <li><a href="#">Reports</a></li>
-                                
+
                 </ul>
             </li>
 
         </ul>
 
-      
+
     </div>
 </div>
         <!--**********************************
             Sidebar end
         ***********************************-->
 
-		
-		
+
+
         <!--**********************************
             Content body start
         ***********************************-->
@@ -806,7 +806,7 @@
             <!-- row -->
                 <div class="container-fluid">
         <div class="page-titles">
-  
+
 </div>
 
 
@@ -821,9 +821,9 @@
                     <div class="card-body">
                         <div class="form-validation">
                             <form class="patient-form" action="https://lingamexports.in/public/patient/add" method="POST">
-                                <input type="hidden" name="_token" value="TENxsm8YlUYrqIVu2jFM1FuNz7gieDl9GlrTjXhb">                                
+                                <input type="hidden" name="_token" value="TENxsm8YlUYrqIVu2jFM1FuNz7gieDl9GlrTjXhb">
                                 <div class="row">
-                               
+
                                     <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="rch_id">RCH ID
@@ -895,8 +895,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                
-                                
+
+
                                  <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
@@ -923,7 +923,7 @@
                                             </div>
                                         </div>
                                     </div></div>
-                                
+
                                  <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
@@ -950,8 +950,8 @@
                                             </div>
                                         </div>
                                     </div></div>
-                                
-                                
+
+
                                  <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
@@ -978,8 +978,8 @@
                                             </div>
                                         </div>
                                     </div></div>
-                                
-                                
+
+
                                 <div class="row">
                                      <div class="col-xl-6">
                                         <div class="form-group row">
@@ -1011,10 +1011,10 @@
                                             </div>
                                         </div>
                                     </div>
-      
+
                                     </div>
-                                
-                                
+
+
                                            <div class="row">
                                      <div class="col-xl-6">
                                         <div class="form-group row">
@@ -1040,17 +1040,17 @@
                                                 <select class="form-control" id="rch_id" name="rch_id">
                                                     <option value="">Yes</option>
                                                     <option value="A+">No</option>
-                                                   
+
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
-      
+
                                     </div>
-                                
-                                
-                                
-                                
+
+
+
+
                                        <div class="row">
                                      <div class="col-xl-6">
                                         <div class="form-group row">
@@ -1067,17 +1067,17 @@
                                             </div>
                                         </div>
                                     </div>
-                                
-      
-                                    </div>   
-                                
+
+
+                                    </div>
+
                            <hr>
                                 <center>
-                                   <h3><b>HIV Test</b></h3> 
+                                   <h3><b>HIV Test</b></h3>
                                 </center>
-                                
-                                
-                                      
+
+
+
                                            <div class="row">
                                      <div class="col-xl-6">
                                         <div class="form-group row">
@@ -1105,21 +1105,21 @@
                                                   <option value="A+">Select 1</option>
                                                     <option value="A-">Select 2</option>
                                                     <option value="O+">Select 3</option>
-                                                   
+
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
-      
-                                    </div>      
 
-                                
-                                
+                                    </div>
+
+
+
                                  <hr>
                                 <center>
-                                   <h3><b>Past Obstetric History</b></h3> 
+                                   <h3><b>Past Obstetric History</b></h3>
                                 </center>
-                                
+
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
@@ -1130,15 +1130,15 @@
                                                     name="husband_name">
                                             </div>
                                         </div>
-                                    </div></div>  
-                                
+                                    </div></div>
+
                                 <hr>
                                       <center>
-                                   <h3><b>Details Of Last Two Pregnancy</b></h3> 
+                                   <h3><b>Details Of Last Two Pregnancy</b></h3>
                                 </center>
-                                
-                                
-                                      
+
+
+
                                            <div class="row">
                                      <div class="col-xl-6">
                                         <div class="form-group row">
@@ -1166,25 +1166,25 @@
                                                   <option value="A+">Select 1</option>
                                                     <option value="A-">Select 2</option>
                                                     <option value="O+">Select 3</option>
-                                                   
+
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
-      
-                                    </div>      
 
-                                
-                                
+                                    </div>
+
+
+
                                  <hr>
-                                
-                                
+
+
                                    <center>
-                                   <h3><b>Suggested Place Of Delivery</b></h3> 
+                                   <h3><b>Suggested Place Of Delivery</b></h3>
                                 </center>
-                                
-                                
-                                      
+
+
+
                                            <div class="row">
                                      <div class="col-xl-6">
                                         <div class="form-group row">
@@ -1212,12 +1212,12 @@
                                                   <option value="A+">Select 1</option>
                                                     <option value="A-">Select 2</option>
                                                     <option value="O+">Select 3</option>
-                                                   
+
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                          <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="rch_id">Name of Hospital
@@ -1229,24 +1229,24 @@
                                                   <option value="A+">Select 1</option>
                                                     <option value="A-">Select 2</option>
                                                     <option value="O+">Select 3</option>
-                                                   
+
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
-      
-                                    </div>      
 
-                                
-                                
-                                 <hr>  
-                                
-                                
-                                
-                                
-                                
-                             
-                                
+                                    </div>
+
+
+
+                                 <hr>
+
+
+
+
+
+
+
                             </form>
                         </div>
                     </div>
@@ -1263,12 +1263,12 @@
         <!--**********************************
             Footer start
         ***********************************-->
-        
+
 		<div class="footer">
 	<div class="copyright">
 		<p>Copyright © Developed by <a href="#" target="_blank">Demo Panel</a> 2022</p>
 	</div>
-</div>		
+</div>
         <!--**********************************
             Footer end
         ***********************************-->
@@ -1307,6 +1307,6 @@
 				<script src="https://lingamexports.in/public/js/deznav-init.js" type="text/javascript"></script>
 		<!--		<script src="https://lingamexports.in/public/js/custom.min.js" type="text/javascript"></script>
 			<script src="https://lingamexports.in/public/js/deznav-init.js" type="text/javascript"></script> -->
-<!--	
+<!--
  	--></body>
 </html>
