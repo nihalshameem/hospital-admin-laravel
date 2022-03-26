@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\MotherMedical;
+use App\Models\Pastillness;
 use App\Models\Patient;
 use DataTables;
 use Illuminate\Http\Request;
@@ -133,7 +135,7 @@ class PatientsController extends Controller
 
     }
 
-    public function patient_update(Request $request,$id)
+    public function patient_update(Request $request, $id)
     {
         try {
             $patient = Patient::find($id);
@@ -177,16 +179,18 @@ class PatientsController extends Controller
 
     public function moher_medical($id)
     {
+        $page_title = 'Mother Medical';
+        $page_description = 'Mother Medical Form';
         try {
             $patient = Patient::find($id);
         } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
-        $page_title = 'Mother Medical';
-        $page_description = 'Mother Medical Form';
+        $mother_medical = MotherMedical::where('patient_id', $id)->first();
+        $past_illnesses = PastIllness::all();
 
         $action = 'patient_add';
-        return view('modules.patient.mother_medical', compact('page_title', 'page_description', 'action', 'patient'));
+        return view('modules.patient.mother_medical', compact('page_title', 'page_description', 'action', 'patient', 'mother_medical', 'past_illnesses'));
 
     }
 }
