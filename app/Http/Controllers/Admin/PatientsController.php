@@ -170,14 +170,14 @@ class PatientsController extends Controller
         }
 
         if ($request->submit_btn == 'save') {
-            return redirect('patient')->with('message', 'Patient details uodated')->with('type', 'success')->with('heading', 'Updated Successfully');
+            return redirect('patient')->with('message', 'Patient details updated')->with('type', 'success')->with('heading', 'Updated Successfully');
         } else {
             return redirect('patient/mother-medical/' . $patient->id)->with('message', 'Patient Registration updated')->with('type', 'success')->with('heading', 'Updated Successfully');
         }
 
     }
 
-    public function moher_medical($id)
+    public function mother_medical($id)
     {
         $page_title = 'Mother Medical';
         $page_description = 'Mother Medical Form';
@@ -191,6 +191,110 @@ class PatientsController extends Controller
 
         $action = 'patient_add';
         return view('modules.patient.mother_medical', compact('page_title', 'page_description', 'action', 'patient', 'mother_medical', 'past_illnesses'));
+
+    }
+
+    public function mother_medical_update($id, Request $request)
+    {
+        $patient_id = $id;
+        $pw_rch_reg_number = $request->pw_rch_reg_number;
+        $an_reg_date = $request->an_reg_date;
+        $financial_year = $request->financial_year;
+        $mother_name = $request->mother_name;
+        $lmp_date = $request->lmp_date;
+        $within_pregnancy_week = $request->within_pregnancy_week;
+        $edd_date = $request->edd_date;
+        $mother_blood_grp_status = $request->mother_blood_grp_status;
+        $blood_grp = $request->blood_grp;
+        $past_illness_id = $request->past_illness_id;
+        $other_past_illness = $request->other_past_illness;
+        $is_vdrl_rpp = $request->is_vdrl_rpp;
+        $vdrl_date = $request->vdrl_date;
+        $vdrl_result = $request->vdrl_result;
+        $eligible_for_mrmbs = $request->eligible_for_mrmbs;
+        $hbsag_done = $request->hbsag_done;
+        $hbsag_status = $request->hbsag_status;
+        $wife_hiv_screening = $request->wife_hiv_screening;
+        $wife_hiv_screeing_date = $request->wife_hiv_screeing_date;
+        $wife_hiv_screeing_result = $request->wife_hiv_screeing_result;
+        $husband_hiv_screening = $request->husband_hiv_screening;
+        $husband_hiv_screeing_date = $request->husband_hiv_screeing_date;
+        $husband_hiv_screeing_result = $request->husband_hiv_screeing_result;
+
+        $mother_medical = MotherMedical::where('patient_id', $id)->first();
+        if ($mother_medical) {
+            try {
+                $mother_medical->patient_id = $patient_id;
+                $mother_medical->pw_rch_reg_number = $pw_rch_reg_number;
+                $mother_medical->an_reg_date = $an_reg_date;
+                $mother_medical->financial_year = $financial_year;
+                $mother_medical->mother_name = $mother_name;
+                $mother_medical->lmp_date = $lmp_date;
+                $mother_medical->within_pregnancy_week = $within_pregnancy_week;
+                $mother_medical->edd_date = $edd_date;
+                $mother_medical->mother_blood_grp_status = $mother_blood_grp_status;
+                $mother_medical->blood_grp = $blood_grp;
+                $mother_medical->past_illness_id = $past_illness_id;
+                $mother_medical->other_past_illness = $other_past_illness;
+                $mother_medical->is_vdrl_rpp = $is_vdrl_rpp;
+                $mother_medical->vdrl_date = $vdrl_date;
+                $mother_medical->vdrl_result = $vdrl_result;
+                $mother_medical->eligible_for_mrmbs = $eligible_for_mrmbs;
+                $mother_medical->hbsag_done = $hbsag_done;
+                $mother_medical->hbsag_status = $hbsag_status;
+                $mother_medical->wife_hiv_screening = $wife_hiv_screening;
+                $mother_medical->wife_hiv_screeing_date = $wife_hiv_screeing_date;
+                $mother_medical->wife_hiv_screeing_result = $wife_hiv_screeing_result;
+                $mother_medical->husband_hiv_screening = $husband_hiv_screening;
+                $mother_medical->husband_hiv_screeing_date = $husband_hiv_screeing_date;
+                $mother_medical->husband_hiv_screeing_result = $husband_hiv_screeing_result;
+                $mother_medical->save();
+
+            } catch (\Exception$e) {
+                return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
+            }
+
+        } else {
+            try {
+                $mother_medical = MotherMedical::create([
+                    'patient_id' => $patient_id,
+                    'pw_rch_reg_number' => $pw_rch_reg_number,
+                    'an_reg_date' => $an_reg_date,
+                    'financial_year' => $financial_year,
+                    'mother_name' => $mother_name,
+                    'lmp_date' => $lmp_date,
+                    'within_pregnancy_week' => $within_pregnancy_week,
+                    'edd_date' => $edd_date,
+                    'mother_blood_grp_status' => $mother_blood_grp_status,
+                    'blood_grp' => $blood_grp,
+                    'past_illness_id' => $past_illness_id,
+                    'other_past_illness' => $other_past_illness,
+                    'is_vdrl_rpp' => $is_vdrl_rpp,
+                    'vdrl_date' => $vdrl_date,
+                    'vdrl_result' => $vdrl_result,
+                    'eligible_for_mrmbs' => $eligible_for_mrmbs,
+                    'hbsag_done' => $hbsag_done,
+                    'hbsag_status' => $hbsag_status,
+                    'wife_hiv_screening' => $wife_hiv_screening,
+                    'wife_hiv_screeing_date' => $wife_hiv_screeing_date,
+                    'wife_hiv_screeing_result' => $wife_hiv_screeing_result,
+                    'husband_hiv_screening' => $husband_hiv_screening,
+                    'husband_hiv_screeing_date' => $husband_hiv_screeing_date,
+                    'husband_hiv_screeing_result' => $husband_hiv_screeing_result,
+                ]);
+
+            } catch (\Exception$e) {
+                return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
+            }
+
+        }
+        $message = 'Mother medical details updated';
+        $title = 'Updated Successfully';
+        if ($request->submit_btn == 'save') {
+            return redirect('patient')->with('message', $message)->with('type', 'success')->with('heading', $title);
+        } else {
+            return redirect('patient/mother-medical/' . $id)->with('message', $message)->with('type', 'success')->with('heading', $title);
+        }
 
     }
 }

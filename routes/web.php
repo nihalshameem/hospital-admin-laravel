@@ -97,7 +97,8 @@ Route::post('/patient/{id}', 'App\Http\Controllers\Admin\PatientsController@pati
 Route::post('/patient/delete/{id}', 'App\Http\Controllers\Admin\PatientsController@patient_delete');
 
 // mother register
-Route::get('/patient/mother-medical/{id}', 'App\Http\Controllers\Admin\PatientsController@moher_medical');
+Route::get('/patient/mother-medical/{id}', 'App\Http\Controllers\Admin\PatientsController@mother_medical');
+Route::post('/patient/mother-medical/{id}', 'App\Http\Controllers\Admin\PatientsController@mother_medical_update');
 
 
 // Home Redirection
