@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\MotherMedical;
-use App\Models\Pastillness;
+use App\Models\PastIllness;
 use App\Models\Patient;
 use DataTables;
 use Illuminate\Http\Request;
