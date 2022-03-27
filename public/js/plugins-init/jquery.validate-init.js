@@ -1,75 +1,177 @@
 // patient form validation
 jQuery(".patient-form").validate({
     rules: {
-        "hsc_id": {
+        hsc_id: {
             required: !0,
         },
-        "anc_number":{
+        anc_number: {
             required: !0,
         },
-        "gravida":{
+        gravida: {
             required: !0,
-            range: [0,10],
+            range: [0, 10],
         },
-        "pw_height":{
-            required: !0,
-        },
-        "bp_systolic":{
-            required: !0,
-            range: [70,190],
-        },
-        "an_reg_date":{
+        pw_height: {
             required: !0,
         },
-        "rch_id":{
+        bp_systolic: {
+            required: !0,
+            range: [70, 190],
+        },
+        an_reg_date: {
             required: !0,
         },
-        "para":{
-            required: !0,
-            range: [0,10],
-        },
-        "mother_weight":{
+        rch_id: {
             required: !0,
         },
-        "bp_diastolic":{
+        para: {
             required: !0,
-            range: [40,100],
+            range: [0, 10],
+        },
+        mother_weight: {
+            required: !0,
+        },
+        bp_diastolic: {
+            required: !0,
+            range: [40, 100],
         },
     },
     messages: {
-        "hsc_id": {
+        hsc_id: {
             required: "Please Select a HSC Name",
         },
-        "anc_number":{
-            required: "Please Enter SL.No of ANC"
+        anc_number: {
+            required: "Please Enter SL.No of ANC",
         },
-        "gravida":{
+        gravida: {
             required: "Please Enter a Gravida Range",
             range: "The range must between 0 to 10",
         },
-        "pw_height":{
+        pw_height: {
             required: "Please Enter a PW Height",
         },
-        "bp_systolic":{
+        bp_systolic: {
             required: "Please Enter a BP Systolic",
             range: "The range must between 70 to 190",
         },
-        "an_reg_date":{
+        an_reg_date: {
             required: "Please Select a date",
         },
-        "rch_id":{
+        rch_id: {
             required: "Please Select RCH ID",
         },
-        "para":{
+        para: {
             required: "Please Enter a Para Range",
             range: "The range must between 0 to 10",
         },
-        "mother_weight":{
+        mother_weight: {
             required: "Please Enter a Mother's Weight",
         },
-        "bp_diastolic":{
+        bp_diastolic: {
             required: "Please Enter a BP Diastolic",
             range: "The range must between 40 to 100",
+        },
+    },
+
+    ignore: [],
+    errorClass: "invalid-feedback animated fadeInUp",
+    errorElement: "div",
+    errorPlacement: function (e, a) {
+        jQuery(a).parents(".form-group > div").append(e);
+    },
+    highlight: function (e) {
+        jQuery(e)
+            .closest(".form-group")
+            .removeClass("is-invalid")
+            .addClass("is-invalid");
+    },
+    success: function (e) {
+        jQuery(e).closest(".form-group").removeClass("is-invalid"),
+            jQuery(e).remove();
+    },
+});
+// mother medical form validation
+jQuery(".mother-medical-form").validate({
+    rules: {
+        hsc_id: {
+            required: !0,
+        },
+        rch_id: {
+            required: !0,
+        },
+        lmp_date: {
+            required: !0,
+        },
+        is_vdrl_rpp: {
+            required: !0,
+        },
+        eligible_for_mrmbs: {
+            required: !0,
+        },
+        hbsag_done: {
+            required: !0,
+        },
+        hbsag_status: {
+            required: !0,
+        },
+        wife_hiv_screening: {
+            required: !0,
+        },
+        wife_hiv_screeing_date: {
+            required: !0,
+        },
+        wife_hiv_screeing_result: {
+            required: !0,
+        },
+        husband_hiv_screening: {
+            required: !0,
+        },
+        husband_hiv_screeing_date: {
+            required: !0,
+        },
+        husband_hiv_screeing_result: {
+            required: !0,
+        },
+    },
+    messages: {
+        hsc_id: {
+            required: "Please Select a HSC Name",
+        },
+        rch_id: {
+            required: "Please Select RCH ID",
+        },
+        lmp_date: {
+            required: "Please Select LMP Date",
+        },
+        is_vdrl_rpp: {
+            required: "Please Select a VDRL/RPP",
+        },
+        eligible_for_mrmbs: {
+            required: "Please Select a Mother's Eligibility for MRMBS",
+        },
+        hbsag_done: {
+            required: "Please Select HBsAg Done",
+        },
+        hbsag_status: {
+            required: "Please Select HBsAg Status",
+        },
+        wife_hiv_screening: {
+            required: "Please Select Wife HIV Screening Test",
+        },
+        wife_hiv_screeing_date: {
+            required: "Please Select Wife HIV Screening Date",
+        },
+        wife_hiv_screeing_result: {
+            required: "Please Select Wife HIV Screening Result",
+        },
+        husband_hiv_screening: {
+            required: "Please Select Husband HIV Screening Test",
+        },
+        husband_hiv_screeing_date: {
+            required: "Please Select Husband HIV Screening Date",
+        },
+        husband_hiv_screeing_result: {
+            required: "Please Select Husband HIV Screening Result",
         },
     },
 

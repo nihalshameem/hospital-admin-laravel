@@ -30,5 +30,7 @@ class MotherMedical extends Model
         'vdrl_date',
         'vdrl_result',
         'eligible_for_mrmbs',
+        'hbsag_done',
+        'hbsag_status',
     ];
 }

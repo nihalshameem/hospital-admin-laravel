@@ -21,11 +21,12 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Mother Registration</h4>
+                        <h4 class="card-title">General Details</h4>
                     </div>
                     <div class="card-body">
                         <div class="form-validation">
-                            <form class="patient-form" action="{{ url('patient/' . $patient->id) }}" method="POST">
+                            <form class="mother-medical-form" action="{{ url('patient/mother-medical/' . $patient->id) }}"
+                                method="POST">
                                 @csrf
                                 {{-- all inputs --}}
                                 <div class="row">
@@ -80,7 +81,6 @@
                                             <label class="col-lg-4 col-form-label" for="pw_rch_reg_number">SL.No of PW in
                                                 RCH
                                                 Register
-                                                <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="pw_rch_reg_number"
@@ -129,7 +129,8 @@
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="lmp_date">LMP Date
+                                            <label class="col-lg-4 col-form-label" for="lmp_date">LMP Date<span
+                                                    class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="datepicker-default form-control" id="lmp_date"
@@ -147,11 +148,11 @@
                                                 <select class="form-control" id="within_pregnancy_week"
                                                     name="within_pregnancy_week">
                                                     <option value="">Please Select</option>
-                                                    <option value="Yes"
-                                                        {{ @$mother_medical->within_pregnancy_week == 'Yes' ? 'selected' : '' }}>
+                                                    <option value="yes"
+                                                        {{ @$mother_medical->within_pregnancy_week == 'yes' ? 'selected' : '' }}>
                                                         Yes</option>
-                                                    <option value="No"
-                                                        {{ @$mother_medical->within_pregnancy_week == 'No' ? 'selected' : '' }}>
+                                                    <option value="no"
+                                                        {{ @$mother_medical->within_pregnancy_week == 'no' ? 'selected' : '' }}>
                                                         No</option>
                                                 </select>
                                             </div>
@@ -295,11 +296,11 @@
                                                 <select class="form-control" id="is_vdrl_rpp" name="is_vdrl_rpp">
                                                     <option value="yes"
                                                         {{ @$mother_medical->is_vdrl_rpp == 'yes' ? 'selected' : '' }}>
-                                                        Yes
+                                                        Done
                                                     </option>
                                                     <option value="no"
                                                         {{ @$mother_medical->is_vdrl_rpp == 'no' ? 'selected' : '' }}>
-                                                        No</option>
+                                                        Not Done</option>
 
                                                 </select>
                                             </div>
@@ -361,56 +362,176 @@
                                                         {{ @$mother_medical->eligible_for_mrmbs == 'yes' ? 'selected' : '' }}>
                                                         Yes</option>
                                                     <option value="no"
-                                                        {{ @$mother_medical->eligible_for_mrmbs == 'no' ? 'selected' : '' }}>No
+                                                        {{ @$mother_medical->eligible_for_mrmbs == 'no' ? 'selected' : '' }}>
+                                                        No
                                                     </option>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
-
-
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="hbsag_done">HBsAg Done
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <div class="form-group mb-0">
+                                                    <label class="radio-inline mr-3"><input type="radio" name="hbsag_done"
+                                                            value="yes"
+                                                            {{ @$mother_medical->hbsag_done == 'yes' ? 'checked' : '' }}>
+                                                        Yes</label>
+                                                    <label class="radio-inline mr-3"><input type="radio" name="hbsag_done"
+                                                            value="no"
+                                                            {{ @$mother_medical->hbsag_done == 'no' ? 'checked' : '' }}>
+                                                        No</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="offset-xl-6 col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="hbsag_status">HBsAg Status
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <div class="form-group mb-0">
+                                                    <label class="radio-inline mr-3"><input type="radio"
+                                                            name="hbsag_status" value="positive"
+                                                            {{ @$mother_medical->hbsag_status == 'positive' ? 'checked' : '' }}>
+                                                        Positive</label>
+                                                    <label class="radio-inline mr-3"><input type="radio"
+                                                            name="hbsag_status" value="negative"
+                                                            {{ @$mother_medical->hbsag_status == 'negative' ? 'checked' : '' }}>
+                                                        Negative</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <hr>
                                 <center>
                                     <h3><b>HIV Test</b></h3>
                                 </center>
-
-
-
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="rch_id">Wife HIV Screen Test
+                                            <label class="col-lg-4 col-form-label" for="wife_hiv_screening">Wife HIV Screen
+                                                Test
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <select class="form-control" id="rch_id" name="rch_id">
+                                                <select class="form-control" id="wife_hiv_screening"
+                                                    name="wife_hiv_screening">
                                                     <option value="">Select </option>
-                                                    <option value="A+">Select 1</option>
-                                                    <option value="A-">Select 2</option>
-                                                    <option value="O+">Select 3</option>
+                                                    <option value="yes"
+                                                        {{ @$mother_medical->wife_hiv_screening == 'yes' ? 'selected' : '' }}>
+                                                        Yes</option>
+                                                    <option value="no"
+                                                        {{ @$mother_medical->wife_hiv_screening == 'no' ? 'selected' : '' }}>
+                                                        No
+                                                    </option>
                                                 </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="wife_hiv_screeing_date">Date of HIV
+                                                Screening Test Conducted
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="datepicker-default form-control"
+                                                    id="wife_hiv_screeing_date" name="wife_hiv_screeing_date"
+                                                    value="{{ @$mother_medical->wife_hiv_screeing_date }}">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="rch_id">Husband HIV Screening Test
+                                            <label class="col-lg-4 col-form-label" for="wife_hiv_screeing_result">HIV
+                                                Screeing Test Result
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <select class="form-control" id="rch_id" name="rch_id">
-                                                    <option value="">Select</option>
-                                                    <option value="A+">Select 1</option>
-                                                    <option value="A-">Select 2</option>
-                                                    <option value="O+">Select 3</option>
-
+                                                <select class="form-control" id="wife_hiv_screeing_result"
+                                                    name="wife_hiv_screeing_result">
+                                                    <option value="">Select </option>
+                                                    <option value="positive"
+                                                        {{ @$mother_medical->wife_hiv_screeing_result == 'positive' ? 'selected' : '' }}>
+                                                        +ve</option>
+                                                    <option value="negative"
+                                                        {{ @$mother_medical->wife_hiv_screeing_result == 'negative' ? 'selected' : '' }}>
+                                                        -ve</option>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
-
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="husband_hiv_screening">Husband HIV
+                                                Screen
+                                                Test
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <select class="form-control" id="husband_hiv_screening"
+                                                    name="husband_hiv_screening">
+                                                    <option value="">Select </option>
+                                                    <option value="yes"
+                                                        {{ @$mother_medical->husband_hiv_screening == 'yes' ? 'selected' : '' }}>
+                                                        Yes</option>
+                                                    <option value="no"
+                                                        {{ @$mother_medical->husband_hiv_screening == 'no' ? 'selected' : '' }}>
+                                                        No
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="husband_hiv_screeing_date">Date of
+                                                HIV
+                                                Screening Test Conducted
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="datepicker-default form-control"
+                                                    id="husband_hiv_screeing_date" name="husband_hiv_screeing_date"
+                                                    value="{{ @$mother_medical->husband_hiv_screeing_date }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="husband_hiv_screeing_result">HIV
+                                                Screeing Test Result
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <select class="form-control" id="husband_hiv_screeing_result"
+                                                    name="husband_hiv_screeing_result">
+                                                    <option value="">Select </option>
+                                                    <option value="positive"
+                                                        {{ @$mother_medical->husband_hiv_screeing_result == 'positive' ? 'selected' : '' }}>
+                                                        +ve</option>
+                                                    <option value="negative"
+                                                        {{ @$mother_medical->husband_hiv_screeing_result == 'negative' ? 'selected' : '' }}>
+                                                        -ve</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
 
@@ -423,12 +544,11 @@
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="husband_name">Total No Of Pregnancy
+                                            <label class="col-lg-4 col-form-label" for="">Total No Of Pregnancy
                                                 (Provious)
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="husband_name"
-                                                    name="husband_name">
+                                                <input type="text" class="form-control" id="" name="">
                                             </div>
                                         </div>
                                     </div>
@@ -444,11 +564,11 @@
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="rch_id">Last Pregnancy
+                                            <label class="col-lg-4 col-form-label" for="">Last Pregnancy
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <select class="form-control" id="rch_id" name="rch_id">
+                                                <select class="form-control" id="" name="">
                                                     <option value="">Select </option>
                                                     <option value="A+">Select 1</option>
                                                     <option value="A-">Select 2</option>
@@ -459,11 +579,11 @@
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="rch_id">Present Pregnancy
+                                            <label class="col-lg-4 col-form-label" for="">Present Pregnancy
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <select class="form-control" id="rch_id" name="rch_id">
+                                                <select class="form-control" id="" name="">
                                                     <option value="">Select</option>
                                                     <option value="A+">Select 1</option>
                                                     <option value="A-">Select 2</option>
@@ -490,11 +610,11 @@
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="rch_id">District
+                                            <label class="col-lg-4 col-form-label" for="">District
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <select class="form-control" id="rch_id" name="rch_id" disabled>
+                                                <select class="form-control" id="" name="" disabled>
                                                     <option value="">Select </option>
                                                     <option value="A+">Select 1</option>
                                                     <option value="A-">Select 2</option>
@@ -505,11 +625,11 @@
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="rch_id">Type of Hospital
+                                            <label class="col-lg-4 col-form-label" for="">Type of Hospital
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <select class="form-control" id="rch_id" name="rch_id">
+                                                <select class="form-control" id="" name="">
                                                     <option value="">Select</option>
                                                     <option value="A+">Select 1</option>
                                                     <option value="A-">Select 2</option>
@@ -522,11 +642,11 @@
 
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="rch_id">Name of Hospital
+                                            <label class="col-lg-4 col-form-label" for="">Name of Hospital
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <select class="form-control" id="rch_id" name="rch_id">
+                                                <select class="form-control" id="" name="">
                                                     <option value="">Select</option>
                                                     <option value="A+">Select 1</option>
                                                     <option value="A-">Select 2</option>
@@ -542,6 +662,16 @@
 
 
                                 <hr>
+                                <div class="offset-xl-6 col-xl-6">
+                                    <div class="form-group row">
+                                        <div class="col-lg-8 ml-auto">
+                                            <button type="submit" value="save" name="submit_btn"
+                                                class="btn btn-primary">Save</button>
+                                            <button type="submit" value="continue" name="submit_btn"
+                                                class="btn btn-primary">Save & Continue</button>
+                                        </div>
+                                    </div>
+                                </div>
                                 {{-- all inputs --}}
                             </form>
                         </div>
