@@ -132,6 +132,9 @@ jQuery(".mother-medical-form").validate({
         husband_hiv_screeing_result: {
             required: !0,
         },
+        hospital_type_id: {
+            required: !0,
+        },
     },
     messages: {
         hsc_id: {
@@ -172,6 +175,9 @@ jQuery(".mother-medical-form").validate({
         },
         husband_hiv_screeing_result: {
             required: "Please Select Husband HIV Screening Result",
+        },
+        hospital_type_id: {
+            required: "Please Select the Type of Hospital",
         },
     },
 
