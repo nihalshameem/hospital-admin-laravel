@@ -3,9 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\DeliveryPlace;
+use App\Models\HospitalType;
 use App\Models\MotherMedical;
 use App\Models\PastIllness;
+use App\Models\PastObstetricHistory;
 use App\Models\Patient;
+use App\Models\PregnancyComplication;
+use App\Models\PregnancyOutcome;
 use DataTables;
 use Illuminate\Http\Request;
 
@@ -108,7 +113,7 @@ class PatientsController extends Controller
                 'an_reg_date' => $request->an_reg_date,
                 'age' => $request->age,
             ]);
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
 
@@ -124,7 +129,7 @@ class PatientsController extends Controller
     {
         try {
             $patient = Patient::find($id);
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
         $page_title = 'Mother Registration';
@@ -165,7 +170,7 @@ class PatientsController extends Controller
             $patient->an_reg_date = $request->an_reg_date;
             $patient->age = $request->age;
             $patient->save();
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
 
@@ -183,14 +188,19 @@ class PatientsController extends Controller
         $page_description = 'Mother Medical Form';
         try {
             $patient = Patient::find($id);
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
         $mother_medical = MotherMedical::where('patient_id', $id)->first();
+        $obstetric = PastObstetricHistory::where('patient_id', $id)->first();
+        $delivery_place = DeliveryPlace::where('patient_id', $id)->first();
         $past_illnesses = PastIllness::all();
+        $complications = PregnancyComplication::all();
+        $outcomes = PregnancyOutcome::all();
+        $hospital_types = HospitalType::all();
 
         $action = 'patient_add';
-        return view('modules.patient.mother_medical', compact('page_title', 'page_description', 'action', 'patient', 'mother_medical', 'past_illnesses'));
+        return view('modules.patient.mother_medical', compact('page_title', 'page_description', 'action', 'patient', 'mother_medical', 'past_illnesses', 'obstetric', 'complications', 'outcomes', 'delivery_place', 'hospital_types'));
 
     }
 
@@ -221,9 +231,23 @@ class PatientsController extends Controller
         $husband_hiv_screeing_date = $request->husband_hiv_screeing_date;
         $husband_hiv_screeing_result = $request->husband_hiv_screeing_result;
 
+        $total_pregnancy = $request->total_pregnancy;
+        $last_complication_id = $request->last_complication_id;
+        $last_other_complication = $request->last_other_complication;
+        $present_complication_id = $request->present_complication_id;
+        $present_other_complication = $request->present_other_complication;
+        $outcome_id = $request->outcome_id;
+
+        $district = $request->district;
+        $hospital_type_id = $request->hospital_type_id;
+        $hospital_name = $request->hospital_name;
+
         $mother_medical = MotherMedical::where('patient_id', $id)->first();
-        if ($mother_medical) {
-            try {
+        $obstetric = PastObstetricHistory::where('patient_id', $id)->first();
+        $delivery_place = DeliveryPlace::where('patient_id', $id)->first();
+
+        try {
+            if ($mother_medical) {
                 $mother_medical->patient_id = $patient_id;
                 $mother_medical->pw_rch_reg_number = $pw_rch_reg_number;
                 $mother_medical->an_reg_date = $an_reg_date;
@@ -250,12 +274,7 @@ class PatientsController extends Controller
                 $mother_medical->husband_hiv_screeing_result = $husband_hiv_screeing_result;
                 $mother_medical->save();
 
-            } catch (\Exception$e) {
-                return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
-            }
-
-        } else {
-            try {
+            } else {
                 $mother_medical = MotherMedical::create([
                     'patient_id' => $patient_id,
                     'pw_rch_reg_number' => $pw_rch_reg_number,
@@ -282,12 +301,45 @@ class PatientsController extends Controller
                     'husband_hiv_screeing_date' => $husband_hiv_screeing_date,
                     'husband_hiv_screeing_result' => $husband_hiv_screeing_result,
                 ]);
-
-            } catch (\Exception$e) {
-                return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
             }
 
+            if ($obstetric) {
+                $obstetric->total_pregnancy = $total_pregnancy;
+                $obstetric->last_complication_id = $last_complication_id;
+                $obstetric->last_other_complication = $last_other_complication;
+                $obstetric->present_complication_id = $present_complication_id;
+                $obstetric->present_other_complication = $present_other_complication;
+                $obstetric->outcome_id = $outcome_id;
+                $obstetric->save();
+            } else {
+                $obstetric = PastObstetricHistory::create([
+                    'patient_id' => $id,
+                    'total_pregnancy' => $total_pregnancy,
+                    'last_complication_id' => $last_complication_id,
+                    'last_other_complication' => $last_other_complication,
+                    'present_complication_id' => $present_complication_id,
+                    'present_other_complication' => $present_other_complication,
+                    'outcome_id' => $outcome_id,
+                ]);
+            }
+            if ($delivery_place) {
+                $delivery_place->district = $district;
+                $delivery_place->hospital_type_id = $hospital_type_id;
+                $delivery_place->hospital_name = $hospital_name;
+                $delivery_place->save();
+            } else {
+                $delivery_place = DeliveryPlace::create([
+                    'patient_id' => $id,
+                    'district' => $district,
+                    'hospital_type_id' => $hospital_type_id,
+                    'hospital_name' => $hospital_name,
+                ]);
+            }
+
+        } catch (\Exception $e) {
+            return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
+
         $message = 'Mother medical details updated';
         $title = 'Updated Successfully';
         if ($request->submit_btn == 'save') {

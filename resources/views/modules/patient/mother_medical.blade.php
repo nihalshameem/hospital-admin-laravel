@@ -542,13 +542,15 @@
                                 </center>
 
                                 <div class="row">
-                                    <div class="col-xl-6">
+                                    <div class="offest-xl-2 col-xl-10">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="">Total No Of Pregnancy
+                                            <label class="col-lg-4 col-form-label" for="total_pregnancy">Total No Of
+                                                Pregnancy
                                                 (Provious)
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="" name="">
+                                                <input type="number" class="form-control" name="total_pregnancy"
+                                                    value="{{ @$obstetric->total_pregnancy }}">
                                             </div>
                                         </div>
                                     </div>
@@ -564,31 +566,60 @@
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="">Last Pregnancy
-                                                <span class="text-danger">*</span>
+                                            <label class="col-lg-4 col-form-label" for="last_complication_id">Last
+                                                Pregnancy Complication
                                             </label>
-                                            <div class="col-lg-6">
-                                                <select class="form-control" id="" name="">
+                                            <div class="col-lg-8">
+                                                <select class="form-control" id="last_complication_id"
+                                                    name="last_complication_id">
                                                     <option value="">Select </option>
-                                                    <option value="A+">Select 1</option>
-                                                    <option value="A-">Select 2</option>
-                                                    <option value="O+">Select 3</option>
+                                                    @foreach ($complications as $item)
+                                                        <option value="{{ $item->id }}"
+                                                            {{ @$obstetric->last_complication_id == $item->id ? 'selected' : '' }}>
+                                                            {{ $item->name }}</option>
+                                                    @endforeach
                                                 </select>
+                                                <input type="text" class="form-control mt-2" name="last_other_complication"
+                                                    value="{{ @$obstetric->last_other_complication }}">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="">Present Pregnancy
-                                                <span class="text-danger">*</span>
+                                            <label class="col-lg-4 col-form-label" for="present_complication_id">Present
+                                                Pregnancy Complication
                                             </label>
-                                            <div class="col-lg-6">
-                                                <select class="form-control" id="" name="">
-                                                    <option value="">Select</option>
-                                                    <option value="A+">Select 1</option>
-                                                    <option value="A-">Select 2</option>
-                                                    <option value="O+">Select 3</option>
+                                            <div class="col-lg-8">
+                                                <select class="form-control" id="present_complication_id"
+                                                    name="present_complication_id">
+                                                    <option value="">Select </option>
+                                                    @foreach ($complications as $item)
+                                                        <option value="{{ $item->id }}"
+                                                            {{ @$obstetric->present_complication_id == $item->id ? 'selected' : '' }}>
+                                                            {{ $item->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                                <input type="text" class="form-control mt-2"
+                                                    name="present_other_complication"
+                                                    value="{{ @$obstetric->present_other_complication }}">
+                                            </div>
+                                        </div>
+                                    </div>
 
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="outcome_id">Outcome of pregnancy
+                                            </label>
+                                            <div class="col-lg-8">
+                                                <select class="form-control" id="outcome_id" name="outcome_id">
+                                                    <option value="">Select </option>
+                                                    @foreach ($outcomes as $item)
+                                                        <option value="{{ $item->id }}"
+                                                            {{ @$obstetric->outcome_id == $item->id ? 'selected' : '' }}>
+                                                            {{ $item->name }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -610,48 +641,64 @@
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="">District
-                                                <span class="text-danger">*</span>
+                                            <label class="col-lg-4 col-form-label" for="district">Distric
                                             </label>
-                                            <div class="col-lg-6">
-                                                <select class="form-control" id="" name="" disabled>
+                                            <div class="col-lg-8">
+                                                <select class="form-control" id="district" name="district">
                                                     <option value="">Select </option>
-                                                    <option value="A+">Select 1</option>
-                                                    <option value="A-">Select 2</option>
-                                                    <option value="O+">Select 3</option>
+                                                    <option value="1"
+                                                        {{ @$delivery_place->district == '1' ? 'selected' : '' }}>select
+                                                        1
+                                                    </option>
+                                                    <option value="2"
+                                                        {{ @$delivery_place->district == '2' ? 'selected' : '' }}>select
+                                                        2
+                                                    </option>
+                                                    <option value="3"
+                                                        {{ @$delivery_place->district == '3' ? 'selected' : '' }}>select
+                                                        3
+                                                    </option>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="">Type of Hospital
+                                            <label class="col-lg-4 col-form-label" for="hospital_type_id">Type of Hospital
                                                 <span class="text-danger">*</span>
                                             </label>
-                                            <div class="col-lg-6">
-                                                <select class="form-control" id="" name="">
-                                                    <option value="">Select</option>
-                                                    <option value="A+">Select 1</option>
-                                                    <option value="A-">Select 2</option>
-                                                    <option value="O+">Select 3</option>
-
+                                            <div class="col-lg-8">
+                                                <select class="form-control" id="hospital_type_id"
+                                                    name="hospital_type_id">
+                                                    <option value="">Select </option>
+                                                    @foreach ($hospital_types as $item)
+                                                        <option value="{{ $item->id }}"
+                                                            {{ @$delivery_place->hospital_type_id == $item->id ? 'selected' : '' }}>
+                                                            {{ $item->name }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="">Name of Hospital
-                                                <span class="text-danger">*</span>
+                                            <label class="col-lg-4 col-form-label" for="hospital_name">Name of Hospital
                                             </label>
-                                            <div class="col-lg-6">
-                                                <select class="form-control" id="" name="">
-                                                    <option value="">Select</option>
-                                                    <option value="A+">Select 1</option>
-                                                    <option value="A-">Select 2</option>
-                                                    <option value="O+">Select 3</option>
-
+                                            <div class="col-lg-8">
+                                                <select class="form-control" id="hospital_name" name="hospital_name">
+                                                    <option value="">Select </option>
+                                                    <option value="1"
+                                                        {{ @$delivery_place->hospital_name == '1' ? 'selected' : '' }}>
+                                                        select 1
+                                                    </option>
+                                                    <option value="2"
+                                                        {{ @$delivery_place->hospital_name == '2' ? 'selected' : '' }}>
+                                                        select 2
+                                                    </option>
+                                                    <option value="3"
+                                                        {{ @$delivery_place->hospital_name == '3' ? 'selected' : '' }}>
+                                                        select 3
+                                                    </option>
                                                 </select>
                                             </div>
                                         </div>
