@@ -10,6 +10,7 @@ use App\Models\PastIllness;
 use App\Models\PastObstetricHistory;
 use App\Models\Patient;
 use App\Models\PregnancyComplication;
+use App\Models\MotherCheckup;
 use App\Models\PregnancyOutcome;
 use DataTables;
 use Illuminate\Http\Request;
@@ -347,6 +348,30 @@ class PatientsController extends Controller
         } else {
             return redirect('patient/mother-medical/' . $id)->with('message', $message)->with('type', 'success')->with('heading', $title);
         }
+
+    }
+
+    public function mother_visit($id)
+    {
+        $page_title = 'AN Mother Visit\'s';
+        $page_description = 'AN Mother Visit\'s Form';
+        try {
+            $patient = Patient::find($id);
+        } catch (\Exception $e) {
+            return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
+        }
+        $mother_medical = MotherMedical::where('patient_id', $id)->first();
+        $obstetric = PastObstetricHistory::where('patient_id', $id)->first();
+        $delivery_place = DeliveryPlace::where('patient_id', $id)->first();
+        $past_illnesses = PastIllness::all();
+        $complications = PregnancyComplication::all();
+        $outcomes = PregnancyOutcome::all();
+        $hospital_types = HospitalType::all();
+
+        $mother_checkups = MotherCheckup::all();
+
+        $action = 'patient_add';
+        return view('modules.patient.mother_visit', compact('page_title', 'page_description', 'action', 'patient','mother_checkups', 'mother_medical', 'past_illnesses', 'obstetric', 'complications', 'outcomes', 'delivery_place', 'hospital_types'));
 
     }
 }
