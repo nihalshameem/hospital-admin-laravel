@@ -102,7 +102,7 @@ Route::post('/patient/mother-medical/{id}', 'App\Http\Controllers\Admin\Patients
 
 // an mother visits
 Route::get('/patient/an-mother-visit/{id}', 'App\Http\Controllers\Admin\PatientsController@mother_visit');
-Route::post('/patient/an-mother-visit/{id}', 'App\Http\Controllers\Admin\PatientsController@mother_visit_update');
+Route::post('/patient/an-mother-visit/{id}', 'App\Http\Controllers\Admin\PatientsController@mother_visit_add');
 
 
 // Home Redirection

@@ -35,10 +35,12 @@
                                     <div class="col-lg-6">
                                         <div class="form-group mb-0">
                                             <label class="radio-inline mr-3"><input type="radio" name="visit_type"
-                                                    value="resident" checked>
+                                                    value="resident"
+                                                    {{ @$mother_medical->visit_type == 'resident' || @$mother_medical ? 'checked' : '' }}>
                                                 Resident Mother</label>
                                             <label class="radio-inline mr-3"><input type="radio" name="visit_type"
-                                                    value="visitor">
+                                                    value="visitor"
+                                                    {{ @$mother_medical->visit_type == 'visitor' ? 'checked' : '' }}>
                                                 Visitor Mother</label>
                                         </div>
                                     </div>
@@ -74,7 +76,8 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="rch_number" name="rch_number">
+                                                <input type="text" class="form-control" id="rch_number" name="rch_number"
+                                                    value="{{ @$mother_medical->rch_number }}">
                                             </div>
                                         </div>
                                     </div>
@@ -88,7 +91,7 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="datepicker-default form-control" id="an_reg_date"
-                                                    name="an_reg_date">
+                                                    name="an_reg_date" value="{{ @$mother_medical->an_reg_date }}">
                                             </div>
                                         </div>
                                     </div>
@@ -99,7 +102,8 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="financial_year"
-                                                    name="financial_year" placeholder="YYYY - YYYY">
+                                                    name="financial_year" placeholder="YYYY - YYYY"
+                                                    value="{{ @$mother_medical->financial_year }}">
                                             </div>
                                         </div>
                                     </div>
@@ -113,7 +117,8 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="an_visit_mother_name"
-                                                    name="an_visit_mother_name">
+                                                    name="an_visit_mother_name"
+                                                    value="{{ @$mother_medical->an_visit_mother_name }}">
                                             </div>
                                         </div>
                                     </div>
@@ -123,7 +128,8 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="datepicker-default form-control" id="lmp_date">
+                                                <input type="text" class="datepicker-default form-control" id="lmp_date"
+                                                    name="lmp_date" value="{{ @$mother_medical->lmp_date }}">
                                             </div>
                                         </div>
                                     </div>
@@ -138,7 +144,7 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="datepicker-default form-control" id="edd_date"
-                                                    name="edd_date">
+                                                    name="edd_date" value="{{ @$mother_medical->edd_date }}">
                                             </div>
                                         </div>
                                     </div>
@@ -152,9 +158,11 @@
                                                 <select class="form-control" id="within_pregnancy_week"
                                                     name="within_pregnancy_week">
                                                     <option value="">Please Select</option>
-                                                    <option value="yes">
+                                                    <option value="yes"
+                                                        {{ @$mother_medical->within_pregnancy_week == 'yes' ? 'selected' : '' }}>
                                                         Yes</option>
-                                                    <option value="no">
+                                                    <option value="no"
+                                                        {{ @$mother_medical->within_pregnancy_week == 'no' ? 'selected' : '' }}>
                                                         No</option>
                                                 </select>
                                             </div>
@@ -171,13 +179,16 @@
                                             <div class="col-lg-6">
                                                 <select class="form-control" id="district" name="district">
                                                     <option value="">Select </option>
-                                                    <option value="1">select
+                                                    <option value="1"
+                                                        {{ @$delivery_place->district == '1' ? 'selected' : '' }}>select
                                                         1
                                                     </option>
-                                                    <option value="2">select
+                                                    <option value="2"
+                                                        {{ @$delivery_place->district == '2' ? 'selected' : '' }}>select
                                                         2
                                                     </option>
-                                                    <option value="3">select
+                                                    <option value="3"
+                                                        {{ @$delivery_place->district == '3' ? 'selected' : '' }}>select
                                                         3
                                                     </option>
                                                 </select>
@@ -194,7 +205,8 @@
                                                 <select class="form-control" id="checkup_place" name="checkup_place">
                                                     <option value="">Select</option>
                                                     @foreach ($mother_checkups as $item)
-                                                        <option value="{{ $item->id }}">
+                                                        <option value="{{ $item->id }}"
+                                                            {{ @$mother_medical->checkup_place == $item->id ? 'selected' : '' }}>
                                                             {{ $item->name }}</option>
                                                     @endforeach
                                                 </select>
@@ -210,7 +222,8 @@
                                             <label class="col-lg-4 col-form-label" for="place_name">Place Name
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="place_name" name="place_name">
+                                                <input type="text" class="form-control" id="place_name" name="place_name"
+                                                    value="{{ @$mother_medical->place_name }}">
                                             </div>
                                         </div>
                                     </div>
@@ -231,10 +244,12 @@
                                             <div class="col-lg-6">
                                                 <select class="form-control" id="abortion_if_any" name="abortion_if_any">
                                                     <option value="">Select</option>
-                                                    <option value="yes">
+                                                    <option value="yes"
+                                                        {{ @$mother_medical->abortion_if_any == 'yes' ? 'selected' : '' }}>
                                                         Yes
                                                     </option>
-                                                    <option value="no">
+                                                    <option value="no"
+                                                        {{ @$mother_medical->abortion_if_any == 'no' ? 'selected' : '' }}>
                                                         No</option>
 
                                                 </select>
@@ -260,7 +275,8 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="datepicker-default form-control"
-                                                    id="abortion_date" name="abortion_date">
+                                                    id="abortion_date" name="abortion_date"
+                                                    value="{{ @$mother_medical->abortion_date }}">
                                             </div>
                                         </div>
                                     </div>
@@ -271,9 +287,11 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <select class="form-control" id="abortion_type" name="abortion_type">
-                                                    <option value="Induced">
+                                                    <option value="Induced"
+                                                        {{ @$mother_medical->abortion_type == 'Induced' ? 'selected' : '' }}>
                                                         Induced</option>
-                                                    <option value="Spontaneous">
+                                                    <option value="Spontaneous"
+                                                        {{ @$mother_medical->abortion_type == 'Spontaneous' ? 'selected' : '' }}>
                                                         Spontaneous</option>
 
                                                 </select>
@@ -295,15 +313,18 @@
                                                 <select class="form-control" id="abortion_district"
                                                     name="abortion_district">
                                                     <option value="">Select </option>
-                                                    <option value="1">
+                                                    <option value="1"
+                                                        {{ @$delivery_place->abortion_district == '1' ? 'selected' : '' }}>
                                                         select
                                                         1
                                                     </option>
-                                                    <option value="2">
+                                                    <option value="2"
+                                                        {{ @$delivery_place->abortion_district == '2' ? 'selected' : '' }}>
                                                         select
                                                         2
                                                     </option>
-                                                    <option value="3">
+                                                    <option value="3"
+                                                        {{ @$delivery_place->abortion_district == '3' ? 'selected' : '' }}>
                                                         select
                                                         3
                                                     </option>
@@ -321,15 +342,18 @@
                                                     <select class="form-control" id="abortion_facility"
                                                         name="abortion_facility">
                                                         <option value="">Select </option>
-                                                        <option value="1">
+                                                        <option value="1"
+                                                            {{ @$delivery_place->abortion_facility == '1' ? 'selected' : '' }}>
                                                             select
                                                             1
                                                         </option>
-                                                        <option value="2">
+                                                        <option value="2"
+                                                            {{ @$delivery_place->abortion_facility == '2' ? 'selected' : '' }}>
                                                             select
                                                             2
                                                         </option>
-                                                        <option value="3">
+                                                        <option value="3"
+                                                            {{ @$delivery_place->abortion_facility == '3' ? 'selected' : '' }}>
                                                             select
                                                             3
                                                         </option>
@@ -348,7 +372,8 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="abortion_pregnancy_week"
-                                                    name="abortion_pregnancy_week">
+                                                    name="abortion_pregnancy_week"
+                                                    value="{{ @$mother_medical->abortion_pregnancy_week }}">
                                             </div>
                                         </div>
                                     </div>
@@ -361,7 +386,8 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="datepicker-default form-control"
-                                                    id="an_visit_date" name="an_visit_date">
+                                                    id="an_visit_date" name="an_visit_date"
+                                                    value="{{ @$mother_medical->an_visit_date }}">
                                             </div>
                                         </div>
                                     </div>
@@ -371,8 +397,8 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="anc_period"
-                                                    name="anc_period">
+                                                <input type="text" class="form-control" id="anc_period" name="anc_period"
+                                                    value="{{ @$mother_medical->anc_period }}">
                                             </div>
                                         </div>
                                     </div>
@@ -385,7 +411,7 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="pregnancy_week"
-                                                    name="pregnancy_week">
+                                                    name="pregnancy_week" value="{{ @$mother_medical->pregnancy_week }}">
                                             </div>
                                         </div>
                                     </div>
@@ -397,7 +423,8 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="number" class="form-control" placeholder="Range 25 to 150"
-                                                    id="an_mother_weight" name="an_mother_weight">
+                                                    id="an_mother_weight" name="an_mother_weight"
+                                                    value="{{ @$mother_medical->an_mother_weight }}">
                                             </div>
                                         </div>
                                     </div>
@@ -410,7 +437,8 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="number" class="form-control" id="bp_systolic"
-                                                    name="bp_systolic" placeholder="Range 70 to 100">
+                                                    name="bp_systolic" placeholder="Range 70 to 100"
+                                                    value="{{ @$mother_medical->bp_systolic }}">
                                             </div>
                                         </div>
                                     </div>
@@ -422,7 +450,8 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="number" class="form-control" id="bp_diastolic"
-                                                    name="bp_diastolic" placeholder="Range 40 to 100">
+                                                    name="bp_diastolic" placeholder="Range 40 to 100"
+                                                    value="{{ @$mother_medical->bp_diastolic }}">
                                             </div>
                                         </div>
                                     </div>
@@ -435,7 +464,7 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="number" class="form-control" id="hb" name="hb"
-                                                    placeholder="Range 3 to 18">
+                                                    placeholder="Range 3 to 18" value="{{ @$mother_medical->hb }}">
                                             </div>
                                         </div>
                                     </div>
@@ -448,10 +477,12 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <select class="form-control" id="urine_test" name="urine_test">
-                                                    <option value="Done">
+                                                    <option value="Done"
+                                                        {{ @$mother_medical->urine_test == 'Done' ? 'selected' : '' }}>
                                                         Done
                                                     </option>
-                                                    <option value="Not Done">
+                                                    <option value="Not Done"
+                                                        {{ @$mother_medical->urine_test == 'Not Done' ? 'selected' : '' }}>
                                                         Not Done</option>
                                                 </select>
                                             </div>
@@ -464,10 +495,12 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <select class="form-control" id="urine_sugar" name="urine_sugar">
-                                                    <option value="Absent">
+                                                    <option value="Absent"
+                                                        {{ @$mother_medical->urine_sugar == 'Absent' ? 'selected' : '' }}>
                                                         Absent
                                                     </option>
-                                                    <option value="Present">
+                                                    <option value="Present"
+                                                        {{ @$mother_medical->urine_sugar == 'Present' ? 'selected' : '' }}>
                                                         Present</option>
                                                 </select>
                                             </div>
@@ -482,13 +515,16 @@
                                             <div class="col-lg-6">
                                                 <select class="form-control" id="urine_albumin" name="urine_albumin">
                                                     <option value="">Select </option>
-                                                    <option value="1">
+                                                    <option value="1"
+                                                        {{ @$delivery_place->urine_albumin == '1' ? 'selected' : '' }}>
                                                         select 1
                                                     </option>
-                                                    <option value="2">
+                                                    <option value="2"
+                                                        {{ @$delivery_place->urine_albumin == '2' ? 'selected' : '' }}>
                                                         select 2
                                                     </option>
-                                                    <option value="3">
+                                                    <option value="3"
+                                                        {{ @$delivery_place->urine_albumin == '3' ? 'selected' : '' }}>
                                                         select 3
                                                     </option>
                                                 </select>
@@ -505,10 +541,12 @@
                                             <div class="col-lg-6">
                                                 <select class="form-control" id="blood_sugar_test"
                                                     name="blood_sugar_test">
-                                                    <option value="Done">
+                                                    <option value="Done"
+                                                        {{ @$mother_medical->blood_sugar_test == 'Done' ? 'selected' : '' }}>
                                                         Done
                                                     </option>
-                                                    <option value="Not Done">
+                                                    <option value="Not Done"
+                                                        {{ @$mother_medical->blood_sugar_test == 'Not Done' ? 'selected' : '' }}>
                                                         Not Done</option>
                                                 </select>
                                             </div>
@@ -520,7 +558,7 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="number" class="form-control" placeholder="Range 30 to 600"
-                                                    id="fasting" name="fasting">
+                                                    id="fasting" name="fasting" value="{{ @$mother_medical->fasting }}">
                                             </div>
                                         </div>
                                     </div>
@@ -533,7 +571,8 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="number" class="form-control" placeholder="Range 30 to 600"
-                                                    id="post_prandial" name="post_prandial">
+                                                    id="post_prandial" name="post_prandial"
+                                                    value="{{ @$mother_medical->post_prandial }}">
                                             </div>
                                         </div>
                                     </div>
@@ -545,10 +584,12 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <select class="form-control" id="gct" name="gct">
-                                                    <option value="Done">
+                                                    <option value="Done"
+                                                        {{ @$mother_medical->gct == 'Done' ? 'selected' : '' }}>
                                                         Done
                                                     </option>
-                                                    <option value="Not Done">
+                                                    <option value="Not Done"
+                                                        {{ @$mother_medical->gct == 'Not Done' ? 'selected' : '' }}>
                                                         Not Done</option>
                                                 </select>
                                             </div>
@@ -559,8 +600,8 @@
                                             <label class="col-lg-4 col-form-label" for="gct_value">GCT value
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="number" class="form-control" id="gct_value"
-                                                    name="gct_value">
+                                                <input type="number" class="form-control" id="gct_value" name="gct_value"
+                                                    value="{{ @$mother_medical->fasting }}">
                                             </div>
                                         </div>
                                     </div>
@@ -572,12 +613,15 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <select class="form-control" id="tt_dose" name="tt_dose">
-                                                    <option value="TT1">
+                                                    <option value="TT1"
+                                                        {{ @$mother_medical->gct == 'TT1' ? 'selected' : '' }}>
                                                         TT1
                                                     </option>
-                                                    <option value="TT2">
+                                                    <option value="TT2"
+                                                        {{ @$mother_medical->gct == 'TT2' ? 'selected' : '' }}>
                                                         TT2</option>
-                                                    <option value="TT BOOSTER">
+                                                    <option value="TT BOOSTER"
+                                                        {{ @$mother_medical->gct == 'TT BOOSTER' ? 'selected' : '' }}>
                                                         TT BOOSTER</option>
                                                 </select>
                                             </div>
@@ -589,7 +633,7 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="datepicker-default form-control" id="tt_date"
-                                                    name="tt_date">
+                                                    name="tt_date" value="{{ @$mother_medical->tt_date }}">
                                             </div>
                                         </div>
                                     </div>
@@ -601,7 +645,8 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="datepicker-default form-control"
-                                                    id="albendazole_date" name="albendazole_date">
+                                                    id="albendazole_date" name="albendazole_date"
+                                                    value="{{ @$mother_medical->albendazole_date }}">
                                             </div>
                                         </div>
                                     </div>
@@ -611,7 +656,7 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="datepicker-default form-control" id="ifa_date"
-                                                    name="ifa_date">
+                                                    name="ifa_date" value="{{ @$mother_medical->ifa_date }}">
                                             </div>
                                         </div>
                                     </div>
@@ -624,7 +669,8 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="number" class="form-control" placeholder="with 42 weeks"
-                                                    id="fundal_size" name="fundal_size">
+                                                    id="fundal_size" name="fundal_size"
+                                                    value="{{ @$mother_medical->fundal_size }}">
                                             </div>
                                         </div>
                                     </div>
@@ -634,7 +680,8 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="number" class="form-control" placeholder="14 to 40 weeks"
-                                                    id="calcium_tablet" name="calcium_tablet">
+                                                    id="calcium_tablet" name="calcium_tablet"
+                                                    value="{{ @$mother_medical->calcium_tablet }}">
                                             </div>
                                         </div>
                                     </div>
@@ -646,7 +693,8 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="datepicker-default form-control"
-                                                    id="calcium_date" name="calcium_date">
+                                                    id="calcium_date" name="calcium_date"
+                                                    value="{{ @$mother_medical->calcium_date }}">
                                             </div>
                                         </div>
                                     </div>
@@ -659,7 +707,8 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="number" class="form-control" placeholder="Range 70 to 200"
-                                                    id="foetal_heart_rate" name="foetal_heart_rate">
+                                                    id="foetal_heart_rate" name="foetal_heart_rate"
+                                                    value="{{ @$mother_medical->foetal_heart_rate }}">
                                             </div>
                                         </div>
                                     </div>
@@ -672,10 +721,12 @@
                                             <div class="col-lg-6">
                                                 <select class="form-control" id="foetal_position" name="foetal_position">
                                                     <option value="">Select</option>
-                                                    <option value="Normal">
+                                                    <option value="Normal"
+                                                        {{ @$mother_medical->foetal_position == 'Normal' ? 'selected' : '' }}>
                                                         Normal
                                                     </option>
-                                                    <option value="Abnormal">
+                                                    <option value="Abnormal"
+                                                        {{ @$mother_medical->foetal_position == 'Abnormal' ? 'selected' : '' }}>
                                                         Abnormal</option>
 
                                                 </select>
@@ -692,14 +743,18 @@
                                             <div class="col-lg-6">
                                                 <select class="form-control" id="foetal_movement" name="foetal_movement">
                                                     <option value="">Select</option>
-                                                    <option value="Normal">
+                                                    <option value="Normal"
+                                                        {{ @$mother_medical->foetal_movement == 'Normal' ? 'selected' : '' }}>
                                                         Normal
                                                     </option>
-                                                    <option value="Increase">
+                                                    <option value="Increase"
+                                                        {{ @$mother_medical->foetal_movement == 'Increase' ? 'selected' : '' }}>
                                                         Increase</option>
-                                                    <option value="Decrease">
+                                                    <option value="Decrease"
+                                                        {{ @$mother_medical->foetal_movement == 'Decrease' ? 'selected' : '' }}>
                                                         Decrease</option>
-                                                    <option value="Absent">
+                                                    <option value="Absent"
+                                                        {{ @$mother_medical->foetal_movement == 'Absent' ? 'selected' : '' }}>
                                                         Absent</option>
                                                 </select>
                                             </div>
@@ -716,7 +771,8 @@
                                                 <select class="form-control" id="post_partum" name="post_partum">
                                                     <option value="">Select</option>
                                                     @foreach ($post_partums as $item)
-                                                        <option value="{{ $item->id }}">
+                                                        <option value="{{ $item->id }}"
+                                                            {{ @$mother_medical->post_partum == $item->id ? 'selected' : '' }}>
                                                             {{ $item->name }}</option>
                                                     @endforeach
                                                 </select>
@@ -729,7 +785,7 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="partum_other"
-                                                    name="partum_other">
+                                                    name="partum_other" value="{{ @$mother_medical->partum_other }}">
                                             </div>
                                         </div>
                                     </div>
@@ -745,7 +801,8 @@
                                                 <select class="form-control" id="high_risk" name="high_risk">
                                                     <option value="">Select</option>
                                                     @foreach ($high_risks as $item)
-                                                        <option value="{{ $item->id }}">
+                                                        <option value="{{ $item->id }}"
+                                                            {{ @$mother_medical->high_risk == $item->id ? 'selected' : '' }}>
                                                             {{ $item->name }}</option>
                                                     @endforeach
                                                 </select>
@@ -757,7 +814,8 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="high_risk_other"
-                                                    name="high_risk_other">
+                                                    name="high_risk_other"
+                                                    value="{{ @$mother_medical->high_risk_other }}">
                                             </div>
                                         </div>
                                     </div>
@@ -770,7 +828,8 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="datepicker-default form-control"
-                                                    id="referral_date" name="referral_date">
+                                                    id="referral_date" name="referral_date"
+                                                    value="{{ @$mother_medical->referral_date }}">
                                             </div>
                                         </div>
                                     </div>
@@ -783,15 +842,18 @@
                                                 <select class="form-control" id="referral_district"
                                                     name="referral_district">
                                                     <option value="">Select </option>
-                                                    <option value="1">
+                                                    <option value="1"
+                                                        {{ @$delivery_place->referral_district == '1' ? 'selected' : '' }}>
                                                         select
                                                         1
                                                     </option>
-                                                    <option value="2">
+                                                    <option value="2"
+                                                        {{ @$delivery_place->referral_district == '2' ? 'selected' : '' }}>
                                                         select
                                                         2
                                                     </option>
-                                                    <option value="3">
+                                                    <option value="3"
+                                                        {{ @$delivery_place->referral_district == '3' ? 'selected' : '' }}>
                                                         select
                                                         3
                                                     </option>
@@ -811,15 +873,18 @@
                                                 <select class="form-control" id="referral_facility"
                                                     name="referral_facility">
                                                     <option value="">Select </option>
-                                                    <option value="1">
+                                                    <option value="1"
+                                                        {{ @$delivery_place->referral_facility == '1' ? 'selected' : '' }}>
                                                         select
                                                         1
                                                     </option>
-                                                    <option value="2">
+                                                    <option value="2"
+                                                        {{ @$delivery_place->referral_facility == '2' ? 'selected' : '' }}>
                                                         select
                                                         2
                                                     </option>
-                                                    <option value="3">
+                                                    <option value="3"
+                                                        {{ @$delivery_place->referral_facility == '3' ? 'selected' : '' }}>
                                                         select
                                                         3
                                                     </option>
@@ -834,7 +899,7 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="referral_place"
-                                                    name="referral_place">
+                                                    name="referral_place" value="{{ @$mother_medical->referral_place }}">
                                             </div>
                                         </div>
                                     </div>
@@ -852,10 +917,12 @@
                                             <div class="col-lg-6">
                                                 <select class="form-control" id="ultrasonogram" name="ultrasonogram">
                                                     <option value="">Select </option>
-                                                    <option value="Yes">
+                                                    <option value="Yes"
+                                                        {{ @$delivery_place->ultrasonogram == 'Yes' ? 'selected' : '' }}>
                                                         Yes
                                                     </option>
-                                                    <option value="No">
+                                                    <option value="No"
+                                                        {{ @$delivery_place->ultrasonogram == 'No' ? 'selected' : '' }}>
                                                         No
                                                     </option>
                                                 </select>
@@ -870,7 +937,8 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="datepicker-default form-control"
-                                                    id="ultrasonogram_date" name="ultrasonogram_date">
+                                                    id="ultrasonogram_date" name="ultrasonogram_date"
+                                                    value="{{ @$mother_medical->ultrasonogram_date }}">
                                             </div>
                                         </div>
                                     </div>
@@ -883,7 +951,7 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="datepicker-default form-control" id="scan_edd"
-                                                    name="scan_edd">
+                                                    name="scan_edd" value="{{ @$mother_medical->scan_edd }}">
                                             </div>
                                         </div>
                                     </div>
@@ -893,7 +961,8 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="trimester" name="trimester">
+                                                <input type="text" class="form-control" id="trimester" name="trimester"
+                                                    value="{{ @$mother_medical->trimester }}">
                                             </div>
                                         </div>
                                     </div>
@@ -907,7 +976,8 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="number" class="form-control" placeholder="with 42 weeks"
-                                                    id="ultrasonogram_fundal_size" name="ultrasonogram_fundal_size">
+                                                    id="ultrasonogram_fundal_size" name="ultrasonogram_fundal_size"
+                                                    value="{{ @$mother_medical->ultrasonogram_fundal_size }}">
                                             </div>
                                         </div>
                                     </div>
@@ -919,7 +989,8 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="number" class="form-control" placeholder="Range 70 to 200"
-                                                    id="ultrasonogram__heart_rate" name="ultrasonogram__heart_rate">
+                                                    id="ultrasonogram__heart_rate" name="ultrasonogram__heart_rate"
+                                                    value="{{ @$mother_medical->ultrasonogram__heart_rate }}">
                                             </div>
                                         </div>
                                     </div>
@@ -935,10 +1006,12 @@
                                                 <select class="form-control" id="ultrasonogram_position"
                                                     name="ultrasonogram_position">
                                                     <option value="">Select</option>
-                                                    <option value="Normal">
+                                                    <option value="Normal"
+                                                        {{ @$mother_medical->ultrasonogram_position == 'Normal' ? 'selected' : '' }}>
                                                         Normal
                                                     </option>
-                                                    <option value="Abnormal">
+                                                    <option value="Abnormal"
+                                                        {{ @$mother_medical->ultrasonogram_position == 'Abnormal' ? 'selected' : '' }}>
                                                         Abnormal</option>
 
                                                 </select>
@@ -954,14 +1027,18 @@
                                                 <select class="form-control" id="ultrasonogram_movement"
                                                     name="ultrasonogram_movement">
                                                     <option value="">Select</option>
-                                                    <option value="Normal">
+                                                    <option value="Normal"
+                                                        {{ @$mother_medical->ultrasonogram_movement == 'Normal' ? 'selected' : '' }}>
                                                         Normal
                                                     </option>
-                                                    <option value="Increase">
+                                                    <option value="Increase"
+                                                        {{ @$mother_medical->ultrasonogram_movement == 'Increase' ? 'selected' : '' }}>
                                                         Increase</option>
-                                                    <option value="Decrease">
+                                                    <option value="Decrease"
+                                                        {{ @$mother_medical->ultrasonogram_movement == 'Decrease' ? 'selected' : '' }}>
                                                         Decrease</option>
-                                                    <option value="Absent">
+                                                    <option value="Absent"
+                                                        {{ @$mother_medical->ultrasonogram_movement == 'Absent' ? 'selected' : '' }}>
                                                         Absent</option>
                                                 </select>
                                             </div>
@@ -975,7 +1052,8 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="remark" name="remark">
+                                                <input type="text" class="form-control" id="remark" name="remark"
+                                                    value="{{ @$mother_medical->remark }}">
                                             </div>
                                         </div>
                                     </div>
@@ -986,13 +1064,16 @@
                                             <div class="col-lg-6">
                                                 <select class="form-control" id="result" name="result">
                                                     <option value="">Select </option>
-                                                    <option value="1">
+                                                    <option value="1"
+                                                        {{ @$delivery_place->result == '1' ? 'selected' : '' }}>
                                                         select 1
                                                     </option>
-                                                    <option value="2">
+                                                    <option value="2"
+                                                        {{ @$delivery_place->result == '2' ? 'selected' : '' }}>
                                                         select 2
                                                     </option>
-                                                    <option value="3">
+                                                    <option value="3"
+                                                        {{ @$delivery_place->result == '3' ? 'selected' : '' }}>
                                                         select 3
                                                     </option>
                                                 </select>
@@ -1007,8 +1088,6 @@
                                         <div class="col-lg-8 ml-auto">
                                             <button type="submit" value="save" name="submit_btn"
                                                 class="btn btn-primary">Save</button>
-                                            <button type="submit" value="continue" name="submit_btn"
-                                                class="btn btn-primary">Save & Continue</button>
                                         </div>
                                     </div>
                                 </div>
