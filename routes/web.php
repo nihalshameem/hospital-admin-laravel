@@ -100,6 +100,10 @@ Route::post('/patient/delete/{id}', 'App\Http\Controllers\Admin\PatientsControll
 Route::get('/patient/mother-medical/{id}', 'App\Http\Controllers\Admin\PatientsController@mother_medical');
 Route::post('/patient/mother-medical/{id}', 'App\Http\Controllers\Admin\PatientsController@mother_medical_update');
 
+// an mother visits
+Route::get('/patient/an-mother-visit/{id}', 'App\Http\Controllers\Admin\PatientsController@mother_visit');
+Route::post('/patient/an-mother-visit/{id}', 'App\Http\Controllers\Admin\PatientsController@mother_visit_add');
+
 
 // Home Redirection
 Route::get('/', function () {
