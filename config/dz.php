@@ -72,6 +72,7 @@ return [
                     'vendor/datatables/css/jquery.dataTables.min.css',
                     'vendor/bootstrap-select/dist/css/bootstrap-select.min.css',
                     'https://cdn.lineicons.com/2.0/LineIcons.css',
+                    'vendor/select2/css/select2.min.css',
                     'vendor/owl-carousel/owl.carousel.css',
                 ],
                 'app_calender' => [
@@ -310,6 +311,8 @@ return [
                     'vendor/datatables/js/jquery.dataTables.min.js',
                     'vendor/toastr/js/toastr.min.js',
                     'js/plugins-init/toastr-init.js',
+                    'vendor/select2/js/select2.full.min.js',
+                    'js/plugins-init/select2-init.js',
                     'js/custom.min.js',
                     'js/deznav-init.js',
                 ],
