@@ -10,9 +10,9 @@
                     
                     <li><a href="{!! url('https://lingamexports.in/public/mupload/') !!}">Mother Upload</a></li>
                     
-                    <li><a href="{!! url('/patient') !!}">Mother Registration</a></li>
+                    <li><a href="{!! url('patient') !!}">Mother Registration</a></li>
                         <li><a href="{!! url('mother-medical') !!}">Mother Medical</a></li>
-                            <li><a href="{!! url('https://lingamexports.in/public/visit/') !!}">Mother AN Visit</a></li>
+                            <li><a href="{!! url('an-mother-visit') !!}">Mother AN Visit</a></li>
                                 <li><a href="{!! url('#') !!}">Reports</a></li>
                                 
                 </ul>

@@ -1007,8 +1007,8 @@
                                         <div class="col-lg-8 ml-auto">
                                             <button type="submit" value="save" name="submit_btn"
                                                 class="btn btn-primary">Save</button>
-                                            <button type="submit" value="continue" name="submit_btn"
-                                                class="btn btn-primary">Save & Continue</button>
+                                            {{-- <button type="submit" value="continue" name="submit_btn"
+                                                class="btn btn-primary">Save & Continue</button> --}}
                                         </div>
                                     </div>
                                 </div>
