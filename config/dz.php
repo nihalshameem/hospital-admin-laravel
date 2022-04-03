@@ -153,6 +153,7 @@ return [
                 ],
                 'patient_add' => [
                     'vendor/bootstrap-select/dist/css/bootstrap-select.min.css',
+                    'vendor/datatables/css/jquery.dataTables.min.css',
                     'vendor/toastr/css/toastr.min.css',
                     'vendor/bootstrap-daterangepicker/daterangepicker.css',
                     'vendor/pickadate/themes/default.css',
@@ -486,6 +487,7 @@ return [
                     'vendor/pickadate/picker.js',
                     'vendor/pickadate/picker.time.js',
                     'vendor/pickadate/picker.date.js',
+                    'vendor/datatables/js/jquery.dataTables.min.js',
                     'js/plugins-init/bs-daterange-picker-init.js',
                     'js/plugins-init/pickadate-init.js',
                     'js/custom.min.js',

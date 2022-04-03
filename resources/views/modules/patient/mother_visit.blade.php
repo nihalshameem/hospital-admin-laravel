@@ -1019,5 +1019,39 @@
                 </div>
             </div>
         </div>
+        <hr>
+        <center>
+            <h3><b>Visit Details</b></h3>
+        </center>
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="table-responsive">
+                    <table id="mother-visit-table" class="table table-striped patient-list mb-4 dataTablesCard fs-14">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <div class="checkbox text-right align-self-center">
+                                        <div class="custom-control custom-checkbox ">
+                                            <input type="checkbox" class="custom-control-input" id="checkAll" required="">
+                                            <label class="custom-control-label" for="checkAll"></label>
+                                        </div>
+                                    </div>
+                                </th>
+                                <th>Mother ID</th>
+                                <th>Visit Type</th>
+                                <th>Mother Name</th>
+                                <th>Financial Year</th>
+                                <th>Remark</th>
+                                <th>Result</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
