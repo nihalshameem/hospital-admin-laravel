@@ -17,7 +17,7 @@ class CreateDeliveryPlacesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('patient_id');
             $table->foreign('patient_id')->references('id')->on('patients');
-            $table->unsignedBigInteger('hospital_type_id');
+            $table->unsignedBigInteger('hospital_type_id')->nullable();
             $table->foreign('hospital_type_id')->references('id')->on('hospital_types');
             $table->integer('district')->nullable();
             $table->integer('hospital_name')->nullable();

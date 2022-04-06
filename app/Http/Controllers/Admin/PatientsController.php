@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\DeliveryPlace;
+use App\Models\District;
 use App\Models\HighRisk;
 use App\Models\HospitalType;
+use App\Models\HSC;
 use App\Models\MotherCheckup;
 use App\Models\MotherMedical;
 use App\Models\MotherVisit;
@@ -16,6 +18,7 @@ use App\Models\PostPartum;
 use App\Models\PregnancyComplication;
 use App\Models\PregnancyOutcome;
 use DataTables;
+use Excel;
 use Illuminate\Http\Request;
 
 class PatientsController extends Controller
@@ -117,7 +120,7 @@ class PatientsController extends Controller
                 'an_reg_date' => $request->an_reg_date,
                 'age' => $request->age,
             ]);
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
 
@@ -133,7 +136,7 @@ class PatientsController extends Controller
     {
         try {
             $patient = Patient::find($id);
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
         $page_title = 'Mother Registration';
@@ -174,7 +177,7 @@ class PatientsController extends Controller
             $patient->an_reg_date = $request->an_reg_date;
             $patient->age = $request->age;
             $patient->save();
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
 
@@ -192,7 +195,7 @@ class PatientsController extends Controller
         $page_description = 'Mother Medical Form';
         try {
             $patient = Patient::find($id);
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
         $mother_medical = MotherMedical::where('patient_id', $id)->first();
@@ -340,7 +343,7 @@ class PatientsController extends Controller
                 ]);
             }
 
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
 
@@ -361,7 +364,7 @@ class PatientsController extends Controller
         $page_description = 'AN Mother Visit\'s Form';
         try {
             $patient = Patient::find($id);
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
 
@@ -476,7 +479,7 @@ class PatientsController extends Controller
                 'remark' => $request->remark,
                 'result' => $request->result,
             ]);
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
         $message = 'Mother Visit Added';
@@ -597,5 +600,72 @@ class PatientsController extends Controller
         $high_risks = HighRisk::all();
 
         return view('modules.patient.mother_visit_edit', compact('page_title', 'page_description', 'action', 'mother_visit', 'patient', 'mother_checkups', 'post_partums', 'high_risks'));
+    }
+
+    public function mother_upload()
+    {
+        $page_title = 'Mother Upload';
+        $page_description = 'Mother Upload Form';
+
+        $action = 'patient_add';
+
+        return view('modules.patient.mother_upload', compact('page_title', 'page_description', 'action'));
+    }
+
+    // excel upload new
+    public function excel_upload(Request $request)
+    {
+        $this->validate($request, [
+            'uploaded_file' => 'required|mimes:xls,xlsx',
+        ]);
+
+        try {
+            $path = $request->file('uploaded_file')->getRealPath();
+            ini_set('max_execution_time', 180);
+
+            $data = Excel::toArray([], $path);
+
+            if (count($data) > 0) {
+                foreach ($data as $key => $value) {
+                    foreach ($value as $k2 => $row) {
+                        if ($k2 > 3) {
+                            $district = District::where('name', $row[1])->first();
+                            if (!$district) {
+                                $district = District::create(['name' => $row[1]]);
+                            }
+                            $hsc = HSC::where('name', $row[3])->first();
+                            if (!$hsc) {
+                                $hsc = HSC::create(['name' => $row[3]]);
+                            }
+                            // return $hsc->id;
+
+                            $patient_data = array(
+                                'hsc_id' => $hsc->id,
+                                'rch_id' => $row[4],
+                                'an_mother' => $row[5],
+                                'husband_name' => $row[6],
+                                'gravida' => $row[7],
+                                'gravida' => $row[8],
+                                'mobile' => $row[9],
+                                'an_reg_date' => date('Y-m-d', strtotime($row[10])),
+                            );
+
+                            if (!empty($patient_data)) {
+                                $patient = Patient::create($patient_data);
+                                DeliveryPlace::create(['patient_id' => $patient->id, 'district' => $district->id]);
+                                MotherMedical::create(['patient_id' => $patient->id, 'lmp_date' => date('Y-m-d', strtotime($row[11])), 'edd_date' => date('Y-m-d', strtotime($row[12]))]);
+                            }
+
+                        }
+                    }
+                }
+            }
+
+            ini_set('max_execution_time', 60);
+
+        } catch (\Exception $e) {
+            return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
+        }
+        return redirect()->back()->with('message', 'Records Added')->with('type', 'success')->with('heading', 'New Record');
     }
 }

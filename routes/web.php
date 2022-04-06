@@ -108,6 +108,10 @@ Route::post('/patient/an-mother-visit/{id}', 'App\Http\Controllers\Admin\Patient
 Route::get('/patient/mother-visit/edit/{id}', 'App\Http\Controllers\Admin\PatientsController@mother_visit_edit');
 Route::post('/patient/mother-visit/edit/{id}', 'App\Http\Controllers\Admin\PatientsController@mother_visit_update');
 
+// upload
+Route::get('/mother-upload', 'App\Http\Controllers\Admin\PatientsController@mother_upload');
+Route::post('/mother-upload', 'App\Http\Controllers\Admin\PatientsController@excel_upload');
+
 // Home Redirection
 Route::get('/', function () {
     if (Auth::check()) {
