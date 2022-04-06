@@ -110,7 +110,7 @@ Route::post('/patient/mother-visit/edit/{id}', 'App\Http\Controllers\Admin\Patie
 
 // upload
 Route::get('/mother-upload', 'App\Http\Controllers\Admin\PatientsController@mother_upload');
-Route::post('/mother-upload', 'App\Http\Controllers\Admin\PatientsController@uploadContent');
+Route::post('/mother-upload', 'App\Http\Controllers\Admin\PatientsController@excel_upload');
 
 // Home Redirection
 Route::get('/', function () {

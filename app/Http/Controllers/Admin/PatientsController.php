@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\DeliveryPlace;
+use App\Models\District;
 use App\Models\HighRisk;
 use App\Models\HospitalType;
+use App\Models\HSC;
 use App\Models\MotherCheckup;
 use App\Models\MotherMedical;
 use App\Models\MotherVisit;
@@ -16,6 +18,7 @@ use App\Models\PostPartum;
 use App\Models\PregnancyComplication;
 use App\Models\PregnancyOutcome;
 use DataTables;
+use Excel;
 use Illuminate\Http\Request;
 
 class PatientsController extends Controller
@@ -609,84 +612,60 @@ class PatientsController extends Controller
         return view('modules.patient.mother_upload', compact('page_title', 'page_description', 'action'));
     }
 
-    public function uploadContent(Request $request)
+    // excel upload new
+    public function excel_upload(Request $request)
     {
-        $file = $request->file('uploaded_file');
-        if ($file) {
-            $filename = $file->getClientOriginalName();
-            $extension = $file->getClientOriginalExtension(); //Get extension of uploaded file
-            $tempPath = $file->getRealPath();
-            $fileSize = $file->getSize(); //Get size of uploaded file in bytes
-            //Check for file extension and size
-            $this->checkUploadedFileProperties($extension, $fileSize);
+        $this->validate($request, [
+            'uploaded_file' => 'required|mimes:xls,xlsx',
+        ]);
 
-            //Where uploaded file will be stored on the server
-            $location = 'uploads'; //Created an "uploads" folder for that
-            // Upload file
-            $file->move($location, $filename);
+        try {
+            $path = $request->file('uploaded_file')->getRealPath();
+            ini_set('max_execution_time', 180);
 
-            // In case the uploaded file path is to be stored in the database
-            $filepath = public_path($location . "/" . $filename);
+            $data = Excel::toArray([], $path);
 
-            // Reading file
-            $file = fopen($filepath, "r");
-            $importData_arr = array(); // Read through the file and store the contents as an array
-            $i = 0;
+            if (count($data) > 0) {
+                foreach ($data as $key => $value) {
+                    foreach ($value as $k2 => $row) {
+                        if ($k2 > 3) {
+                            $district = District::where('name', $row[1])->first();
+                            if (!$district) {
+                                $district = District::create(['name' => $row[1]]);
+                            }
+                            $hsc = HSC::where('name', $row[3])->first();
+                            if (!$hsc) {
+                                $hsc = HSC::create(['name' => $row[3]]);
+                            }
+                            // return $hsc->id;
 
-            //Read the contents of the uploaded file
-            while (($filedata = fgetcsv($file, 1000, ",")) !== false) {
-                $num = count($filedata);
-                // Skip first row (Remove below comment if you want to skip the first row)
-                if ($i < 5) {
-                    $i++;
-                    continue;
-                }
-                for ($c = 0; $c < $num; $c++) {
-                    $importData_arr[$i][] = $filedata[$c];
-                }
-                $i++;
-            }
-            fclose($file); //Close after reading
-            $j = 0;
-            $importData_arr =  mb_convert_encoding($importData_arr,'UTF-8','utf-8');
-            foreach ($importData_arr as $importData) {
-                $name = $importData[1]; //Get user names
-                $email = $importData[3]; //Get the user emails
-                $j++;
-                try {
-                    DB::beginTransaction();
-                    Player::create([
-                        'name' => $importData[1],
-                        'club' => $importData[2],
-                        'email' => $importData[3],
-                        'position' => $importData[4],
-                        'age' => $importData[5],
-                        'salary' => $importData[6],
-                    ]);
-                } catch (\Exception $e) {
-                    //throw $th;
-                    DB::rollBack();
+                            $patient_data = array(
+                                'hsc_id' => $hsc->id,
+                                'rch_id' => $row[4],
+                                'an_mother' => $row[5],
+                                'husband_name' => $row[6],
+                                'gravida' => $row[7],
+                                'gravida' => $row[8],
+                                'mobile' => $row[9],
+                                'an_reg_date' => date('Y-m-d', strtotime($row[10])),
+                            );
+
+                            if (!empty($patient_data)) {
+                                $patient = Patient::create($patient_data);
+                                DeliveryPlace::create(['patient_id' => $patient->id, 'district' => $district->id]);
+                                MotherMedical::create(['patient_id' => $patient->id, 'lmp_date' => date('Y-m-d', strtotime($row[11])), 'edd_date' => date('Y-m-d', strtotime($row[12]))]);
+                            }
+
+                        }
+                    }
                 }
             }
-            return response()->json([
-                'message' => "$j records successfully uploaded",
-            ]);
-        } else {
-            //no file was uploaded
-            throw new \Exception('No file was uploaded', 400);
+
+            ini_set('max_execution_time', 60);
+
+        } catch (\Exception $e) {
+            return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
-    }
-    public function checkUploadedFileProperties($extension, $fileSize)
-    {
-        $valid_extension = array("csv", "xlsx"); //Only want csv and excel files
-        $maxFileSize = 2097152; // Uploaded file size limit is 2mb
-        if (in_array(strtolower($extension), $valid_extension)) {
-            if ($fileSize <= $maxFileSize) {
-            } else {
-                throw new \Exception('No file was uploaded', Response::HTTP_REQUEST_ENTITY_TOO_LARGE); //413 error
-            }
-        } else {
-            throw new \Exception('Invalid file extension', Response::HTTP_UNSUPPORTED_MEDIA_TYPE); //415 error
-        }
+        return redirect()->back()->with('message', 'Records Added')->with('type', 'success')->with('heading', 'New Record');
     }
 }
