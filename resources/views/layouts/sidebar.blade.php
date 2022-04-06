@@ -8,7 +8,7 @@
                 <ul aria-expanded="false">
                     <li><a href="{!! url('/home') !!}">Dashboard</a></li>
                     
-                    <li><a href="{!! url('https://lingamexports.in/public/mupload/') !!}">Mother Upload</a></li>
+                    <li><a href="{!! url('patient/mother-upload') !!}">Mother Upload</a></li>
                     
                     <li><a href="{!! url('patient') !!}">Mother Registration</a></li>
                         <li><a href="{!! url('mother-medical') !!}">Mother Medical</a></li>
