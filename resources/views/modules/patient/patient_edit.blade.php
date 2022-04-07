@@ -36,15 +36,11 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <select class="form-control" id="hsc_id" name="hsc_id">
-                                                    <option value="1" {{ $patient->hsc_id == '1' ? 'selected' : '' }}>
-                                                        select
-                                                        1</option>
-                                                    <option value="2" {{ $patient->hsc_id == '2' ? 'selected' : '' }}>
-                                                        select
-                                                        2</option>
-                                                    <option value="3" {{ $patient->hsc_id == '3' ? 'selected' : '' }}>
-                                                        select
-                                                        3</option>
+                                                    @foreach ($hsc as $item)
+                                                        <option value="{{ $item->id }}"
+                                                            {{ $patient->hsc_id == $item->id ? 'selected' : '' }}>
+                                                            {{ $item->name }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -55,20 +51,8 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <select class="form-control" id="rch_id" name="rch_id">
-                                                    <option value="">Please select</option>
-                                                    <option value="8625493243"
-                                                        {{ $patient->rch_id == '8625493243' ? 'selected' : '' }}>
-                                                        8625493243</option>
-                                                    <option value="91723684933"
-                                                        {{ $patient->rch_id == '91723684933' ? 'selected' : '' }}>
-                                                        91723684933
-                                                    </option>
-                                                    <option value="98264734823"
-                                                        {{ $patient->rch_id == '98264734823' ? 'selected' : '' }}>
-                                                        98264734823
-                                                    </option>
-                                                </select>
+                                                <input type="text" class="form-control" id="rch_id" name="rch_id"
+                                                    value="{{ $patient->rch_id }}" disabled>
                                             </div>
                                         </div>
                                     </div>

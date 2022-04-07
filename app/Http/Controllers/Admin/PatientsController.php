@@ -18,6 +18,7 @@ use App\Models\PostPartum;
 use App\Models\PregnancyComplication;
 use App\Models\PregnancyOutcome;
 use DataTables;
+use DB;
 use Excel;
 use Illuminate\Http\Request;
 
@@ -46,7 +47,11 @@ class PatientsController extends Controller
         $action = __FUNCTION__;
 
         if ($request->ajax()) {
-            $data = Patient::select('id', 'hsc_id', 'rch_id', 'pw_height', 'mother_weight', 'an_reg_date')->get();
+            // $data = Patient::select('id', 'hsc_id', 'rch_id', 'pw_height', 'mother_weight', 'an_reg_date')->get();
+            $data = DB::table('patients')
+                ->select('patients.id', 'patients.hsc_id', 'patients.rch_id', 'patients.pw_height', 'patients.mother_weight', 'patients.an_reg_date', 'hsc.name as hsc_name')
+                ->join('h_s_c_s as hsc', 'hsc.id', '=', 'patients.hsc_id')
+                ->get();
             return Datatables::of($data)->addIndexColumn()
                 ->addColumn('checkbox', function ($row) {
                     $checkbox = '<div class="checkbox text-right align-self-center">
@@ -86,8 +91,9 @@ class PatientsController extends Controller
         $page_description = 'Mother Registration Form';
 
         $action = __FUNCTION__;
+        $hsc = HSC::all();
 
-        return view('modules.patient.patient_add', compact('page_title', 'page_description', 'action'));
+        return view('modules.patient.patient_add', compact('page_title', 'page_description', 'action', 'hsc'));
     }
 
     public function patient_add_submit(Request $request)
@@ -120,7 +126,7 @@ class PatientsController extends Controller
                 'an_reg_date' => $request->an_reg_date,
                 'age' => $request->age,
             ]);
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
 
@@ -136,14 +142,15 @@ class PatientsController extends Controller
     {
         try {
             $patient = Patient::find($id);
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
         $page_title = 'Mother Registration';
         $page_description = 'Mother Registration Edit';
+        $hsc = HSC::all();
 
         $action = 'patient_add';
-        return view('modules.patient.patient_edit', compact('page_title', 'page_description', 'action', 'patient'));
+        return view('modules.patient.patient_edit', compact('page_title', 'page_description', 'action', 'patient', 'hsc'));
 
     }
 
@@ -177,7 +184,7 @@ class PatientsController extends Controller
             $patient->an_reg_date = $request->an_reg_date;
             $patient->age = $request->age;
             $patient->save();
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
 
@@ -195,7 +202,7 @@ class PatientsController extends Controller
         $page_description = 'Mother Medical Form';
         try {
             $patient = Patient::find($id);
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
         $mother_medical = MotherMedical::where('patient_id', $id)->first();
@@ -205,9 +212,10 @@ class PatientsController extends Controller
         $complications = PregnancyComplication::all();
         $outcomes = PregnancyOutcome::all();
         $hospital_types = HospitalType::all();
+        $hsc = HSC::all();
 
         $action = 'patient_add';
-        return view('modules.patient.mother_medical', compact('page_title', 'page_description', 'action', 'patient', 'mother_medical', 'past_illnesses', 'obstetric', 'complications', 'outcomes', 'delivery_place', 'hospital_types'));
+        return view('modules.patient.mother_medical', compact('page_title', 'page_description', 'action', 'patient', 'mother_medical', 'past_illnesses', 'obstetric', 'complications', 'outcomes', 'delivery_place', 'hospital_types', 'hsc'));
 
     }
 
@@ -343,7 +351,7 @@ class PatientsController extends Controller
                 ]);
             }
 
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
 
@@ -357,14 +365,14 @@ class PatientsController extends Controller
 
     }
 
-    // an mother visit and form and datatable
+    // an mother visit add form and datatable
     public function mother_visit($id, Request $request)
     {
         $page_title = 'AN Mother Visit\'s';
         $page_description = 'AN Mother Visit\'s Form';
         try {
             $patient = Patient::find($id);
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
 
@@ -479,11 +487,93 @@ class PatientsController extends Controller
                 'remark' => $request->remark,
                 'result' => $request->result,
             ]);
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
         $message = 'Mother Visit Added';
         $title = 'Added Successfully';
+
+        if ($request->submit_btn == 'save') {
+            return redirect('patient/an-mother-visit/' . $id)->with('message', $message)->with('type', 'success')->with('heading', $title);
+        } else {
+            return redirect('patient/mother-medical/' . $id)->with('message', $message)->with('type', 'success')->with('heading', $title);
+        }
+
+    }
+
+    // an mother visit update
+    public function mother_visit_update(Request $request, $id)
+    {
+        try {
+            $visit = MotherVisit::find($id);                
+            $visit->patient_id = $id
+            $visit->visit_type = $request->visit_type
+            $visit->rch_number = $request->rch_number
+            $visit->an_reg_date = $request->an_reg_date
+            $visit->financial_year = $request->financial_year
+            $visit->an_visit_mother_name = $request->an_visit_mother_name
+            $visit->lmp_date = $request->lmp_date
+            $visit->edd_date = $request->edd_date
+            $visit->within_pregnancy_week = $request->within_pregnancy_week
+            $visit->district = $request->district
+            $visit->checkup_place = $request->checkup_place
+            $visit->place_name = $request->place_name
+            $visit->abortion_if_any = $request->abortion_if_any
+            $visit->abortion_date = $request->abortion_date
+            $visit->abortion_type = $request->abortion_type
+            $visit->abortion_district = $request->abortion_district
+            $visit->abortion_facility = $request->abortion_facility
+            $visit->abortion_pregnancy_week = $request->abortion_pregnancy_week
+            $visit->an_visit_date = $request->an_visit_date
+            $visit->anc_period = $request->anc_period
+            $visit->pregnancy_week = $request->pregnancy_week
+            $visit->an_mother_weight = $request->an_mother_weight
+            $visit->bp_systolic = $request->bp_systolic
+            $visit->bp_diastolic = $request->bp_diastolic
+            $visit->hb = $request->hb
+            $visit->urine_test = $request->urine_test
+            $visit->urine_sugar = $request->urine_sugar
+            $visit->urine_albumin = $request->urine_albumin
+            $visit->blood_sugar_test = $request->blood_sugar_test
+            $visit->fasting = $request->fasting
+            $visit->post_prandial = $request->post_prandial
+            $visit->gct = $request->gct
+            $visit->gct_value = $request->gct_value
+            $visit->tt_dose = $request->tt_dose
+            $visit->tt_date = $request->tt_date
+            $visit->albendazole_date = $request->albendazole_date
+            $visit->ifa_date = $request->ifa_date
+            $visit->fundal_size = $request->fundal_size
+            $visit->calcium_tablet = $request->calcium_tablet
+            $visit->calcium_date = $request->calcium_date
+            $visit->foetal_heart_rate = $request->foetal_heart_rate
+            $visit->foetal_position = $request->foetal_position
+            $visit->foetal_movement = $request->foetal_movement
+            $visit->post_partum = $request->post_partum
+            $visit->partum_other = $request->partum_other
+            $visit->high_risk = $request->high_risk
+            $visit->high_risk_other = $request->high_risk_other
+            $visit->referral_date = $request->referral_date
+            $visit->referral_district = $request->referral_district
+            $visit->referral_facility = $request->referral_facility
+            $visit->referral_place = $request->referral_place
+            $visit->ultrasonogram = $request->ultrasonogram
+            $visit->ultrasonogram_date = $request->ultrasonogram_date
+            $visit->scan_edd = $request->scan_edd
+            $visit->trimester = $request->trimester
+            $visit->ultrasonogram_fundal_size = $request->ultrasonogram_fundal_size
+            $visit->ultrasonogram__heart_rate = $request->ultrasonogram__heart_rate
+            $visit->ultrasonogram_position = $request->ultrasonogram_position
+            $visit->ultrasonogram_movement = $request->ultrasonogram_movement
+            $visit->remark = $request->remark
+            $visit->result = $request->result
+            $visit->save();
+
+        } catch (\Exception $e) {
+            return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
+        }
+        $message = 'Mother Visit Updated';
+        $title = 'Updated Successfully';
 
         if ($request->submit_btn == 'save') {
             return redirect('patient/an-mother-visit/' . $id)->with('message', $message)->with('type', 'success')->with('heading', $title);
@@ -665,7 +755,7 @@ class PatientsController extends Controller
 
             ini_set('max_execution_time', 60);
 
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
         return redirect()->back()->with('message', 'Records Added')->with('type', 'success')->with('heading', 'New Record');
