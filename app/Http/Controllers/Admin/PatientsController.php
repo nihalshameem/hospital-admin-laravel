@@ -120,7 +120,7 @@ class PatientsController extends Controller
                 'an_reg_date' => $request->an_reg_date,
                 'age' => $request->age,
             ]);
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
 
@@ -136,7 +136,7 @@ class PatientsController extends Controller
     {
         try {
             $patient = Patient::find($id);
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
         $page_title = 'Mother Registration';
@@ -177,7 +177,7 @@ class PatientsController extends Controller
             $patient->an_reg_date = $request->an_reg_date;
             $patient->age = $request->age;
             $patient->save();
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
 
@@ -195,7 +195,7 @@ class PatientsController extends Controller
         $page_description = 'Mother Medical Form';
         try {
             $patient = Patient::find($id);
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
         $mother_medical = MotherMedical::where('patient_id', $id)->first();
@@ -343,7 +343,7 @@ class PatientsController extends Controller
                 ]);
             }
 
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
 
@@ -364,7 +364,7 @@ class PatientsController extends Controller
         $page_description = 'AN Mother Visit\'s Form';
         try {
             $patient = Patient::find($id);
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
 
@@ -479,7 +479,7 @@ class PatientsController extends Controller
                 'remark' => $request->remark,
                 'result' => $request->result,
             ]);
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
         $message = 'Mother Visit Added';
@@ -620,7 +620,9 @@ class PatientsController extends Controller
         ]);
 
         try {
-            $path = $request->file('uploaded_file')->getRealPath();
+            // $path = $request->file('uploaded_file')->getRealPath();
+            $path1 = $request->file('uploaded_file')->store('temp');
+            $path = storage_path('app') . '/' . $path1;
             ini_set('max_execution_time', 180);
 
             $data = Excel::toArray([], $path);
@@ -641,7 +643,7 @@ class PatientsController extends Controller
 
                             $patient_data = array(
                                 'hsc_id' => $hsc->id,
-                                'rch_id' => $row[4],
+                                'rch_id' => (string) $row[4],
                                 'an_mother' => $row[5],
                                 'husband_name' => $row[6],
                                 'gravida' => $row[7],
@@ -663,7 +665,7 @@ class PatientsController extends Controller
 
             ini_set('max_execution_time', 60);
 
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
         return redirect()->back()->with('message', 'Records Added')->with('type', 'success')->with('heading', 'New Record');
