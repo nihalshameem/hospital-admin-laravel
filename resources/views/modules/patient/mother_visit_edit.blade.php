@@ -53,20 +53,8 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <select class="form-control" id="rch_id" name="rch_id" disabled>
-                                                    <option value="">Please select</option>
-                                                    <option value="8625493243"
-                                                        {{ $patient->rch_id == '8625493243' ? 'selected' : '' }}>
-                                                        8625493243</option>
-                                                    <option value="91723684933"
-                                                        {{ $patient->rch_id == '91723684933' ? 'selected' : '' }}>
-                                                        91723684933
-                                                    </option>
-                                                    <option value="98264734823"
-                                                        {{ $patient->rch_id == '98264734823' ? 'selected' : '' }}>
-                                                        98264734823
-                                                    </option>
-                                                </select>
+                                                <input type="text" class="form-control" id="rch_id" name="rch_id"
+                                                    value="{{ $patient->rch_id }}" disabled>
                                             </div>
                                         </div>
                                     </div>

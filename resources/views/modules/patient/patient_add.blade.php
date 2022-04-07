@@ -29,9 +29,9 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <select class="form-control" id="hsc_id" name="hsc_id">
-                                                    <option value="1">select 1</option>
-                                                    <option value="2">select 2</option>
-                                                    <option value="3">select 3</option>
+                                                    @foreach ($hsc as $item)
+                                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -42,12 +42,7 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <select class="form-control" id="rch_id" name="rch_id">
-                                                    <option value="">Please Select</option>
-                                                    <option value="8625493243">8625493243</option>
-                                                    <option value="91723684933">91723684933</option>
-                                                    <option value="98264734823">98264734823</option>
-                                                </select>
+                                                <input type="text" class="form-control" id="rch_id" name="rch_id">
                                             </div>
                                         </div>
                                     </div>
@@ -69,8 +64,8 @@
                                             <label class="col-lg-4 col-form-label" for="ec_reg_date">Date of EC Registration
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="date" class="datepicker-default form-control"
-                                                    id="ec_reg_date" name="ec_reg_date">
+                                                <input type="date" class="datepicker-default form-control" id="ec_reg_date"
+                                                    name="ec_reg_date">
                                             </div>
                                         </div>
                                     </div>
@@ -327,8 +322,8 @@
                                                 Registeration <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="date" class="datepicker-default form-control"
-                                                    id="an_reg_date" name="an_reg_date">
+                                                <input type="date" class="datepicker-default form-control" id="an_reg_date"
+                                                    name="an_reg_date">
                                             </div>
                                         </div>
                                     </div>
