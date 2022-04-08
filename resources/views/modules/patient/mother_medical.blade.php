@@ -172,7 +172,7 @@
                                                         Not Done</option>
                                                 </select>
                                             </div>
-                                            <div class="col-lg-3">
+                                            <div class="col-lg-3" id="blood_grp">
                                                 <select class="form-control" id="blood_grp" name="blood_grp">
                                                     <option value="">Please Select</option>
                                                     <option value="A+ve"
@@ -422,7 +422,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row" id="wife_hiv_screening_div">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="wife_hiv_screeing_date">Date of HIV
@@ -481,7 +481,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row" id="husband_hiv_screening_div">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="husband_hiv_screeing_date">Date of

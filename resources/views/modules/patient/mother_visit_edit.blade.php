@@ -244,10 +244,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6">
+                                    <div class="col-xl-6" id="week_preg_div">
                                         <div class="form-group row">
                                             <label class="col-lg-12 col-form-label text-danger" for="">Note: Week of
-                                                pregnancy should be less than28
+                                                pregnancy should be less than 28
                                             </label>
                                         </div>
                                     </div>
@@ -255,7 +255,7 @@
                                 </div>
 
 
-                                <div class="row">
+                                <div class="row" id="ab_date_div">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="abortion_date">Abortion Date
@@ -292,7 +292,7 @@
 
 
 
-                                <div class="row">
+                                <div class="row" id="dist_faci_div">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="abortion_district">Distric
@@ -351,7 +351,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row" id="week_preg_inp_div">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="abortion_pregnancy_week">Week of
@@ -476,7 +476,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6">
+                                    <div class="col-xl-6" id="urine_sugar_div">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="urine_sugar">Urine Sugar<span
                                                     class="text-danger">*</span>
@@ -495,7 +495,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row" id="urine_albumin_div">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="urine_albumin">Urine Albumin
@@ -540,7 +540,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6">
+                                    <div class="col-xl-6" id="fasting_div">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="fasting">Fasting
                                             </label>
@@ -551,7 +551,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row" id="post_prandial_div">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="post_prandial">Post
@@ -583,7 +583,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6">
+                                    <div class="col-xl-6" id="gct_value_div">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="gct_value">GCT value
                                             </label>
@@ -916,7 +916,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6">
+                                    <div class="col-xl-6" id="ultrasonogram_date_div">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="ultrasonogram_date">Ultrasonogram
                                                 Date
@@ -930,6 +930,7 @@
                                         </div>
                                     </div>
                                 </div>
+                            <div id="ultrasonogram_div">
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
@@ -1067,6 +1068,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
                                 </div>
 
                                 <hr>
