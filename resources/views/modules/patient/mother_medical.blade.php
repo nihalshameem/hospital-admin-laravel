@@ -630,18 +630,12 @@
                                             <div class="col-lg-8">
                                                 <select class="form-control" id="district" name="district">
                                                     <option value="">Select </option>
-                                                    <option value="1"
-                                                        {{ @$delivery_place->district == '1' ? 'selected' : '' }}>select
-                                                        1
-                                                    </option>
-                                                    <option value="2"
-                                                        {{ @$delivery_place->district == '2' ? 'selected' : '' }}>select
-                                                        2
-                                                    </option>
-                                                    <option value="3"
-                                                        {{ @$delivery_place->district == '3' ? 'selected' : '' }}>select
-                                                        3
-                                                    </option>
+                                                    @foreach ($districts as $item)
+                                                        <option value="{{ $item->id }}"
+                                                            {{ @$delivery_place->district == $item->id ? 'selected' : '' }}>
+                                                            {{ $item->name }}
+                                                        </option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>

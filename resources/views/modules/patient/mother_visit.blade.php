@@ -159,15 +159,11 @@
                                             <div class="col-lg-6">
                                                 <select class="form-control" id="district" name="district">
                                                     <option value="">Select </option>
-                                                    <option value="1">select
-                                                        1
-                                                    </option>
-                                                    <option value="2">select
-                                                        2
-                                                    </option>
-                                                    <option value="3">select
-                                                        3
-                                                    </option>
+                                                    @foreach ($districts as $item)
+                                                        <option value="{{ $item->id }}">
+                                                            {{ $item->name }}
+                                                        </option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -283,23 +279,16 @@
                                                 <select class="form-control" id="abortion_district"
                                                     name="abortion_district">
                                                     <option value="">Select </option>
-                                                    <option value="1">
-                                                        select
-                                                        1
-                                                    </option>
-                                                    <option value="2">
-                                                        select
-                                                        2
-                                                    </option>
-                                                    <option value="3">
-                                                        select
-                                                        3
-                                                    </option>
+                                                    @foreach ($districts as $item)
+                                                        <option value="{{ $item->id }}">
+                                                            {{ $item->name }}
+                                                        </option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6" >
+                                    <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="abortion_facility">Facility
                                                 <span class="text-danger">*</span>
@@ -771,18 +760,11 @@
                                                 <select class="form-control" id="referral_district"
                                                     name="referral_district">
                                                     <option value="">Select </option>
-                                                    <option value="1">
-                                                        select
-                                                        1
-                                                    </option>
-                                                    <option value="2">
-                                                        select
-                                                        2
-                                                    </option>
-                                                    <option value="3">
-                                                        select
-                                                        3
-                                                    </option>
+                                                    @foreach ($districts as $item)
+                                                        <option value="{{ $item->id }}">
+                                                            {{ $item->name }}
+                                                        </option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -863,133 +845,138 @@
                                         </div>
                                     </div>
                                 </div>
-                            <div id="ultrasonogram_div">
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="scan_edd">Scan EDD
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="text" class="datepicker-default form-control" id="scan_edd"
-                                                    name="scan_edd">
+                                <div id="ultrasonogram_div">
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="scan_edd">Scan EDD
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="datepicker-default form-control"
+                                                        id="scan_edd" name="scan_edd">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="trimester">Trimester
+                                                    (1st/2nd/3rd)
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control" id="trimester"
+                                                        name="trimester">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="trimester">Trimester (1st/2nd/3rd)
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="trimester" name="trimester">
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label"
+                                                    for="ultrasonogram_fundal_size">Fundal
+                                                    Height/Size of
+                                                    the uterus(in week)
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="number" class="form-control" placeholder="with 42 weeks"
+                                                        id="ultrasonogram_fundal_size" name="ultrasonogram_fundal_size">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label"
+                                                    for="ultrasonogram__heart_rate">Foetal
+                                                    Heart
+                                                    rate(per min)
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="number" class="form-control"
+                                                        placeholder="Range 70 to 200" id="ultrasonogram__heart_rate"
+                                                        name="ultrasonogram__heart_rate">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="ultrasonogram_fundal_size">Fundal
-                                                Height/Size of
-                                                the uterus(in week)
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="number" class="form-control" placeholder="with 42 weeks"
-                                                    id="ultrasonogram_fundal_size" name="ultrasonogram_fundal_size">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="ultrasonogram__heart_rate">Foetal
-                                                Heart
-                                                rate(per min)
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="number" class="form-control" placeholder="Range 70 to 200"
-                                                    id="ultrasonogram__heart_rate" name="ultrasonogram__heart_rate">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="ultrasonogram_position">Foetal
-                                                Presentation/Position
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <select class="form-control" id="ultrasonogram_position"
-                                                    name="ultrasonogram_position">
-                                                    <option value="">Select</option>
-                                                    <option value="Normal">
-                                                        Normal
-                                                    </option>
-                                                    <option value="Abnormal">
-                                                        Abnormal</option>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="ultrasonogram_position">Foetal
+                                                    Presentation/Position
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <select class="form-control" id="ultrasonogram_position"
+                                                        name="ultrasonogram_position">
+                                                        <option value="">Select</option>
+                                                        <option value="Normal">
+                                                            Normal
+                                                        </option>
+                                                        <option value="Abnormal">
+                                                            Abnormal</option>
 
-                                                </select>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="ultrasonogram_movement">Foetal
+                                                    Movement
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <select class="form-control" id="ultrasonogram_movement"
+                                                        name="ultrasonogram_movement">
+                                                        <option value="">Select</option>
+                                                        <option value="Normal">
+                                                            Normal
+                                                        </option>
+                                                        <option value="Increase">
+                                                            Increase</option>
+                                                        <option value="Decrease">
+                                                            Decrease</option>
+                                                        <option value="Absent">
+                                                            Absent</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="ultrasonogram_movement">Foetal
-                                                Movement
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <select class="form-control" id="ultrasonogram_movement"
-                                                    name="ultrasonogram_movement">
-                                                    <option value="">Select</option>
-                                                    <option value="Normal">
-                                                        Normal
-                                                    </option>
-                                                    <option value="Increase">
-                                                        Increase</option>
-                                                    <option value="Decrease">
-                                                        Decrease</option>
-                                                    <option value="Absent">
-                                                        Absent</option>
-                                                </select>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="remark">Finding/Remarks
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control" id="remark" name="remark">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="result">Result
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <select class="form-control" id="result" name="result">
+                                                        <option value="">Select </option>
+                                                        <option value="1">
+                                                            select 1
+                                                        </option>
+                                                        <option value="2">
+                                                            select 2
+                                                        </option>
+                                                        <option value="3">
+                                                            select 3
+                                                        </option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="remark">Finding/Remarks
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="remark" name="remark">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="result">Result
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <select class="form-control" id="result" name="result">
-                                                    <option value="">Select </option>
-                                                    <option value="1">
-                                                        select 1
-                                                    </option>
-                                                    <option value="2">
-                                                        select 2
-                                                    </option>
-                                                    <option value="3">
-                                                        select 3
-                                                    </option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
                                 <hr>
                                 <div class="offset-xl-6 col-xl-6">
