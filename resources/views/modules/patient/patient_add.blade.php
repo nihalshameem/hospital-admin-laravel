@@ -115,36 +115,10 @@
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="whom_mobile">Mobile No of Whom
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <select class="form-control" id="whom_mobile" name="whom_mobile">
-                                                    <option value="">Please select</option>
-                                                    <option value="1">select 1</option>
-                                                    <option value="2">select 2</option>
-                                                    <option value="3">select 3</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="mobile">Mobile No
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="mobile" name="mobile">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="husband_mobile">Mobile No-Husband
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="husband_mobile"
-                                                    name="husband_mobile">
                                             </div>
                                         </div>
                                     </div>
