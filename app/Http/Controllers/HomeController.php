@@ -32,9 +32,9 @@ class HomeController extends Controller
         $end = date('Y-m-d', strtotime($start . '+ 7 days'));
 
         $active_an_mother = Patient::count();
-        $an_high_risk = DB::table('patients as p')->join('mother_visits as v', 'p.id', '=', 'v.patient_id')->whereIn('v.high_risk', [1, 2, 3, 4, 5, 6, 7, 8])->groupBy('p.id')->count();
+        $an_high_risk = count(DB::table('patients as p')->join('mother_visits as v', 'p.id', '=', 'v.patient_id')->join('h_s_c_s as hsc', 'hsc.id', '=', 'p.hsc_id')->whereIn('v.high_risk', [1, 2, 3, 4, 5, 6, 7, 8])->select('p.id')->groupBy('p.id')->get());
 
-        $an_risk_and_edd = DB::table('patients as p')->join('mother_visits as v', 'p.id', '=', 'v.patient_id')->join('mother_medicals as m', 'p.id', '=', 'm.patient_id')->whereBetween('m.edd_date', [$start, $end])->whereIn('v.high_risk', [1, 2, 3, 4, 5, 6, 7, 8])->groupBy('p.id')->count();
+        $an_risk_and_edd = count(DB::table('patients as p')->join('mother_visits as v', 'p.id', '=', 'v.patient_id')->join('mother_medicals as m', 'p.id', '=', 'm.patient_id')->whereBetween('m.edd_date', [$start, $end])->whereIn('v.high_risk', [1, 2, 3, 4, 5, 6, 7, 8])->groupBy('p.id')->select('p.id')->get());
 
         $edd = MotherMedical::whereBetween('edd_date', [$start, $end])->count();
 
