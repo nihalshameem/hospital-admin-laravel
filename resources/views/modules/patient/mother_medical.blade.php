@@ -534,7 +534,7 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="number" class="form-control" name="total_pregnancy"
-                                                    value="{{ @$obstetric->total_pregnancy }}">
+                                                    value="{{ $obstetric && $obstetric->total_pregnancy != null ? $obstetric->total_pregnancy : 0 }}">
                                             </div>
                                         </div>
                                     </div>

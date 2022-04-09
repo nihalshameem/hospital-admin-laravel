@@ -15,8 +15,8 @@ class CreatePatientsTable extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('hsc_id');
-            $table->string('rch_id',200);
+            $table->bigInteger('hsc_id')->nullable();
+            $table->string('rch_id', 200)->nullable();
             $table->string('anc_number', 100)->nullable();
             $table->date('ec_reg_date')->nullable();
             $table->string('financial_year', 100)->nullable();
@@ -26,12 +26,12 @@ class CreatePatientsTable extends Migration
             $table->string('whom_mobile')->nullable();
             $table->string('mobile')->nullable();
             $table->string('husband_mobile')->nullable();
-            $table->integer('living_children')->default(0);
-            $table->enum('cast', ['ST', 'SC', 'Others']);
+            $table->integer('living_children')->default(0)->nullable();
+            $table->enum('cast', ['ST', 'SC', 'Others'])->nullable();
             $table->enum('religion', ['Christian', 'Muslim', 'Hindu', 'Others'])->nullable();
             $table->date('dob')->nullable();
-            $table->integer('gravida')->default(0);
-            $table->integer('para')->default(0);
+            $table->integer('gravida')->default(0)->nullable();
+            $table->integer('para')->default(0)->nullable();
             $table->float('pw_height', 8, 2)->nullable();
             $table->float('mother_weight', 8, 2)->nullable();
             $table->float('bp_systolic', 8, 2)->nullable();
