@@ -9,7 +9,7 @@
             @endif
             <?php $segments .= '/' . $segment; ?>
             <li class="breadcrumb-item {{ $last_segment == true ? 'active' : '' }}">
-                <a href="{{ $segments }}">{{ $segment }}</a>
+                <a href="{{ url('').substr($segments, 1) }}">{{ $segment }}</a>
             </li>
         @endforeach
     </ol>
