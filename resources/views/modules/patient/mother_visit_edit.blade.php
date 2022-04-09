@@ -167,18 +167,12 @@
                                             <div class="col-lg-6">
                                                 <select class="form-control" id="district" name="district">
                                                     <option value="">Select </option>
-                                                    <option value="1"
-                                                        {{ @$delivery_place->district == '1' ? 'selected' : '' }}>select
-                                                        1
-                                                    </option>
-                                                    <option value="2"
-                                                        {{ @$delivery_place->district == '2' ? 'selected' : '' }}>select
-                                                        2
-                                                    </option>
-                                                    <option value="3"
-                                                        {{ @$delivery_place->district == '3' ? 'selected' : '' }}>select
-                                                        3
-                                                    </option>
+                                                    @foreach ($districts as $item)
+                                                        <option value="{{ $item->id }}"
+                                                            {{ @$mother_visit->district == $item->id ? 'selected' : '' }}>
+                                                            {{ $item->name }}
+                                                        </option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -301,21 +295,12 @@
                                                 <select class="form-control" id="abortion_district"
                                                     name="abortion_district">
                                                     <option value="">Select </option>
-                                                    <option value="1"
-                                                        {{ @$delivery_place->abortion_district == '1' ? 'selected' : '' }}>
-                                                        select
-                                                        1
-                                                    </option>
-                                                    <option value="2"
-                                                        {{ @$delivery_place->abortion_district == '2' ? 'selected' : '' }}>
-                                                        select
-                                                        2
-                                                    </option>
-                                                    <option value="3"
-                                                        {{ @$delivery_place->abortion_district == '3' ? 'selected' : '' }}>
-                                                        select
-                                                        3
-                                                    </option>
+                                                    @foreach ($districts as $item)
+                                                        <option value="{{ $item->id }}"
+                                                            {{ @$delivery_place->abortion_district == $item->id ? 'selected' : '' }}>
+                                                            {{ $item->name }}
+                                                        </option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -829,21 +814,12 @@
                                                 <select class="form-control" id="referral_district"
                                                     name="referral_district">
                                                     <option value="">Select </option>
-                                                    <option value="1"
-                                                        {{ @$delivery_place->referral_district == '1' ? 'selected' : '' }}>
-                                                        select
-                                                        1
-                                                    </option>
-                                                    <option value="2"
-                                                        {{ @$delivery_place->referral_district == '2' ? 'selected' : '' }}>
-                                                        select
-                                                        2
-                                                    </option>
-                                                    <option value="3"
-                                                        {{ @$delivery_place->referral_district == '3' ? 'selected' : '' }}>
-                                                        select
-                                                        3
-                                                    </option>
+                                                    @foreach ($districts as $item)
+                                                        <option value="{{ $item->id }}"
+                                                            {{ @$delivery_place->referral_district == $item->id ? 'selected' : '' }}>
+                                                            {{ $item->name }}
+                                                        </option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -930,145 +906,150 @@
                                         </div>
                                     </div>
                                 </div>
-                            <div id="ultrasonogram_div">
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="scan_edd">Scan EDD
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="text" class="datepicker-default form-control" id="scan_edd"
-                                                    name="scan_edd" value="{{ @$mother_visit->scan_edd }}">
+                                <div id="ultrasonogram_div">
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="scan_edd">Scan EDD
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="datepicker-default form-control"
+                                                        id="scan_edd" name="scan_edd"
+                                                        value="{{ @$mother_visit->scan_edd }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="trimester">Trimester
+                                                    (1st/2nd/3rd)
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control" id="trimester"
+                                                        name="trimester" value="{{ @$mother_visit->trimester }}">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="trimester">Trimester (1st/2nd/3rd)
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="trimester" name="trimester"
-                                                    value="{{ @$mother_visit->trimester }}">
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label"
+                                                    for="ultrasonogram_fundal_size">Fundal
+                                                    Height/Size of
+                                                    the uterus(in week)
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="number" class="form-control" placeholder="with 42 weeks"
+                                                        id="ultrasonogram_fundal_size" name="ultrasonogram_fundal_size"
+                                                        value="{{ @$mother_visit->ultrasonogram_fundal_size }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label"
+                                                    for="ultrasonogram__heart_rate">Foetal
+                                                    Heart
+                                                    rate(per min)
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="number" class="form-control"
+                                                        placeholder="Range 70 to 200" id="ultrasonogram__heart_rate"
+                                                        name="ultrasonogram__heart_rate"
+                                                        value="{{ @$mother_visit->ultrasonogram__heart_rate }}">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="ultrasonogram_fundal_size">Fundal
-                                                Height/Size of
-                                                the uterus(in week)
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="number" class="form-control" placeholder="with 42 weeks"
-                                                    id="ultrasonogram_fundal_size" name="ultrasonogram_fundal_size"
-                                                    value="{{ @$mother_visit->ultrasonogram_fundal_size }}">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="ultrasonogram__heart_rate">Foetal
-                                                Heart
-                                                rate(per min)
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="number" class="form-control" placeholder="Range 70 to 200"
-                                                    id="ultrasonogram__heart_rate" name="ultrasonogram__heart_rate"
-                                                    value="{{ @$mother_visit->ultrasonogram__heart_rate }}">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="ultrasonogram_position">Foetal
-                                                Presentation/Position
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <select class="form-control" id="ultrasonogram_position"
-                                                    name="ultrasonogram_position">
-                                                    <option value="">Select</option>
-                                                    <option value="Normal"
-                                                        {{ @$mother_visit->ultrasonogram_position == 'Normal' ? 'selected' : '' }}>
-                                                        Normal
-                                                    </option>
-                                                    <option value="Abnormal"
-                                                        {{ @$mother_visit->ultrasonogram_position == 'Abnormal' ? 'selected' : '' }}>
-                                                        Abnormal</option>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="ultrasonogram_position">Foetal
+                                                    Presentation/Position
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <select class="form-control" id="ultrasonogram_position"
+                                                        name="ultrasonogram_position">
+                                                        <option value="">Select</option>
+                                                        <option value="Normal"
+                                                            {{ @$mother_visit->ultrasonogram_position == 'Normal' ? 'selected' : '' }}>
+                                                            Normal
+                                                        </option>
+                                                        <option value="Abnormal"
+                                                            {{ @$mother_visit->ultrasonogram_position == 'Abnormal' ? 'selected' : '' }}>
+                                                            Abnormal</option>
 
-                                                </select>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="ultrasonogram_movement">Foetal
+                                                    Movement
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <select class="form-control" id="ultrasonogram_movement"
+                                                        name="ultrasonogram_movement">
+                                                        <option value="">Select</option>
+                                                        <option value="Normal"
+                                                            {{ @$mother_visit->ultrasonogram_movement == 'Normal' ? 'selected' : '' }}>
+                                                            Normal
+                                                        </option>
+                                                        <option value="Increase"
+                                                            {{ @$mother_visit->ultrasonogram_movement == 'Increase' ? 'selected' : '' }}>
+                                                            Increase</option>
+                                                        <option value="Decrease"
+                                                            {{ @$mother_visit->ultrasonogram_movement == 'Decrease' ? 'selected' : '' }}>
+                                                            Decrease</option>
+                                                        <option value="Absent"
+                                                            {{ @$mother_visit->ultrasonogram_movement == 'Absent' ? 'selected' : '' }}>
+                                                            Absent</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="ultrasonogram_movement">Foetal
-                                                Movement
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <select class="form-control" id="ultrasonogram_movement"
-                                                    name="ultrasonogram_movement">
-                                                    <option value="">Select</option>
-                                                    <option value="Normal"
-                                                        {{ @$mother_visit->ultrasonogram_movement == 'Normal' ? 'selected' : '' }}>
-                                                        Normal
-                                                    </option>
-                                                    <option value="Increase"
-                                                        {{ @$mother_visit->ultrasonogram_movement == 'Increase' ? 'selected' : '' }}>
-                                                        Increase</option>
-                                                    <option value="Decrease"
-                                                        {{ @$mother_visit->ultrasonogram_movement == 'Decrease' ? 'selected' : '' }}>
-                                                        Decrease</option>
-                                                    <option value="Absent"
-                                                        {{ @$mother_visit->ultrasonogram_movement == 'Absent' ? 'selected' : '' }}>
-                                                        Absent</option>
-                                                </select>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="remark">Finding/Remarks
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control" id="remark" name="remark"
+                                                        value="{{ @$mother_visit->remark }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="result">Result
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <select class="form-control" id="result" name="result">
+                                                        <option value="">Select </option>
+                                                        <option value="1"
+                                                            {{ @$delivery_place->result == '1' ? 'selected' : '' }}>
+                                                            select 1
+                                                        </option>
+                                                        <option value="2"
+                                                            {{ @$delivery_place->result == '2' ? 'selected' : '' }}>
+                                                            select 2
+                                                        </option>
+                                                        <option value="3"
+                                                            {{ @$delivery_place->result == '3' ? 'selected' : '' }}>
+                                                            select 3
+                                                        </option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="remark">Finding/Remarks
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="remark" name="remark"
-                                                    value="{{ @$mother_visit->remark }}">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="result">Result
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <select class="form-control" id="result" name="result">
-                                                    <option value="">Select </option>
-                                                    <option value="1"
-                                                        {{ @$delivery_place->result == '1' ? 'selected' : '' }}>
-                                                        select 1
-                                                    </option>
-                                                    <option value="2"
-                                                        {{ @$delivery_place->result == '2' ? 'selected' : '' }}>
-                                                        select 2
-                                                    </option>
-                                                    <option value="3"
-                                                        {{ @$delivery_place->result == '3' ? 'selected' : '' }}>
-                                                        select 3
-                                                    </option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                                 </div>
 
                                 <hr>

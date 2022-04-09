@@ -23,7 +23,7 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="table-responsive">
-                    <table id="mother-visit-table" class="table table-striped patient-list mb-4 dataTablesCard fs-14">
+                    <table id="mother-visit-all-table" class="table table-striped patient-list mb-4 dataTablesCard fs-14">
                         <thead>
                             <tr>
                                 <th>
@@ -34,13 +34,10 @@
                                         </div>
                                     </div>
                                 </th>
-                                <th>Mother ID</th>
-                                <th>Visit Type</th>
+                                <th>RCH ID</th>
                                 <th>Mother Name</th>
-                                <th>Financial Year</th>
-                                <th>Remark</th>
-                                <th>Result</th>
-                                <th></th>
+                                <th>HSC Name</th>
+                                <th>Visit COunt</th>
                                 <th></th>
                             </tr>
                         </thead>

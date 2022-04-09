@@ -36,8 +36,8 @@
                                 <th>Mother ID</th>
                                 <th>HSC Name</th>
                                 <th>RCH ID</th>
-                                <th>PW Height</th>
-                                <th>Mother Weight</th>
+                                <th>AN Mother</th>
+                                <th>Husband</th>
                                 <th>AN Reg</th>
                                 <th></th>
                                 <th></th>
