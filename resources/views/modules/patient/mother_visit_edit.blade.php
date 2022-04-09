@@ -25,7 +25,7 @@
                     </div>
                     <div class="card-body">
                         <div class="form-validation">
-                            <form class="mother-medical-form"
+                            <form class="mother-visit-form"
                                 action="{{ url('patient/mother-visit/edit/' . $mother_visit->id) }}" method="POST">
                                 @csrf
                                 {{-- all inputs --}}

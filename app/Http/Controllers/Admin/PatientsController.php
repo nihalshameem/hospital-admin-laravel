@@ -49,7 +49,7 @@ class PatientsController extends Controller
         if ($request->ajax()) {
             // $data = Patient::select('id', 'hsc_id', 'rch_id', 'pw_height', 'mother_weight', 'an_reg_date')->get();
             $data = DB::table('patients')
-                ->select('patients.id', 'patients.hsc_id', 'patients.rch_id', 'patients.pw_height', 'patients.mother_weight', 'patients.an_reg_date', 'hsc.name as hsc_name')
+                ->select('patients.id', 'patients.hsc_id', 'patients.rch_id', 'patients.an_mother', 'patients.husband_name', 'patients.an_reg_date', 'hsc.name as hsc_name')
                 ->join('h_s_c_s as hsc', 'hsc.id', '=', 'patients.hsc_id')
                 ->get();
             return Datatables::of($data)->addIndexColumn()
@@ -126,7 +126,7 @@ class PatientsController extends Controller
                 'an_reg_date' => $request->an_reg_date,
                 'age' => $request->age,
             ]);
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
 
@@ -142,7 +142,7 @@ class PatientsController extends Controller
     {
         try {
             $patient = Patient::find($id);
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
         $page_title = 'Mother Registration';
@@ -184,7 +184,7 @@ class PatientsController extends Controller
             $patient->an_reg_date = $request->an_reg_date;
             $patient->age = $request->age;
             $patient->save();
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
 
@@ -202,7 +202,7 @@ class PatientsController extends Controller
         $page_description = 'Mother Medical Form';
         try {
             $patient = Patient::find($id);
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
         $mother_medical = MotherMedical::where('patient_id', $id)->first();
@@ -351,7 +351,7 @@ class PatientsController extends Controller
                 ]);
             }
 
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
 
@@ -372,7 +372,7 @@ class PatientsController extends Controller
         $page_description = 'AN Mother Visit\'s Form';
         try {
             $patient = Patient::find($id);
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
 
@@ -487,7 +487,7 @@ class PatientsController extends Controller
                 'remark' => $request->remark,
                 'result' => $request->result,
             ]);
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
         $message = 'Mother Visit Added';
@@ -505,8 +505,7 @@ class PatientsController extends Controller
     public function mother_visit_update(Request $request, $id)
     {
         try {
-            $visit = MotherVisit::find($id);                
-            $visit->patient_id = $id;
+            $visit = MotherVisit::find($id);
             $visit->visit_type = $request->visit_type;
             $visit->rch_number = $request->rch_number;
             $visit->an_reg_date = $request->an_reg_date;
@@ -569,7 +568,7 @@ class PatientsController extends Controller
             $visit->result = $request->result;
             $visit->save();
 
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
         $message = 'Mother Visit Updated';
@@ -590,6 +589,7 @@ class PatientsController extends Controller
         $page_description = 'Mother Medical List';
 
         $action = 'patient_list';
+        $districts = District::all();
 
         if ($request->ajax()) {
             $data = MotherMedical::select('id', 'patient_id', 'pw_rch_reg_number', 'financial_year', 'mother_name', 'eligible_for_mrmbs', 'an_reg_date')->get();
@@ -624,7 +624,7 @@ class PatientsController extends Controller
                 ->make(true);
         }
 
-        return view('modules.patient.mother_medical_list', compact('page_title', 'page_description', 'action'));
+        return view('modules.patient.mother_medical_list', compact('page_title', 'page_description', 'action', 'districts'));
     }
 
     // an mother visits list
@@ -729,7 +729,6 @@ class PatientsController extends Controller
                             if (!$hsc) {
                                 $hsc = HSC::create(['name' => $row[3]]);
                             }
-                            // return $hsc->id;
 
                             $patient_data = array(
                                 'hsc_id' => $hsc->id,
@@ -739,13 +738,13 @@ class PatientsController extends Controller
                                 'gravida' => $row[7],
                                 'gravida' => $row[8],
                                 'mobile' => $row[9],
-                                'an_reg_date' => date('Y-m-d', strtotime($row[10])),
+                                'an_reg_date' => date('Y-m-d 00:00:00', strtotime($row[10])),
                             );
 
                             if (!empty($patient_data)) {
                                 $patient = Patient::create($patient_data);
                                 DeliveryPlace::create(['patient_id' => $patient->id, 'district' => $district->id]);
-                                MotherMedical::create(['patient_id' => $patient->id, 'lmp_date' => date('Y-m-d', strtotime($row[11])), 'edd_date' => date('Y-m-d', strtotime($row[12]))]);
+                                MotherMedical::create(['patient_id' => $patient->id, 'lmp_date' => date('Y-m-d 00:00:00', strtotime($row[11])), 'edd_date' => date('Y-m-d 00:00:00', strtotime($row[12]))]);
                             }
 
                         }
@@ -755,7 +754,7 @@ class PatientsController extends Controller
 
             ini_set('max_execution_time', 60);
 
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
         return redirect()->back()->with('message', 'Records Added')->with('type', 'success')->with('heading', 'New Record');

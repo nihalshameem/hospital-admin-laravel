@@ -331,7 +331,7 @@
                                 <p class="mb-1"> High Risk EDD</p>
                                 <span>this week</span>
                                 <div class="d-flex flex-wrap">
-                                    <h2 class="fs-40 font-w600 text-white mb-0 mr-3">5</h2>
+                                    <h2 class="fs-40 font-w600 text-white mb-0 mr-3">{{ $an_risk_and_edd }}</h2>
                                     <div>
                                         <svg width="28" height="19" viewBox="0 0 28 19" fill="none"
                                             xmlns="http://www.w3.org/2000/svg">
