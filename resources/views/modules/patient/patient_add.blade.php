@@ -28,7 +28,7 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <select class="form-control" id="hsc_id" name="hsc_id">
+                                                <select class="form-control" id="hsc_id" name="hsc_id" disabled>
                                                     @foreach ($hsc as $item)
                                                         <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                     @endforeach
@@ -42,13 +42,13 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="rch_id" name="rch_id">
+                                                <input type="text" disabled class="form-control" id="rch_id" name="rch_id">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xl-6">
+                                    <div class="col-xl-6" style="display: none !important;">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="anc_number">SL.No of ANC in RCH
                                                 Register
@@ -59,13 +59,24 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6">
+                                    <div class="col-xl-6" style="display: none !important;">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="ec_reg_date">Date of EC Registration
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="date" class="datepicker-default form-control" id="ec_reg_date"
                                                     name="ec_reg_date">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="an_reg_date">Date of AN
+                                                Registeration <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="date" class="datepicker-default form-control" id="an_reg_date"
+                                                    name="an_reg_date">
                                             </div>
                                         </div>
                                     </div>
@@ -211,7 +222,7 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="number" class="form-control" id="mother_weight"
-                                                    name="mother_weight" min="0" step="1">
+                                                    name="mother_weight">
                                             </div>
                                         </div>
                                     </div>
@@ -223,8 +234,7 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="number" class="form-control" id="pw_height" name="pw_height"
-                                                    min="0" step="1">
+                                                <input type="number" class="form-control" id="pw_height" name="pw_height">
                                             </div>
                                         </div>
                                     </div>
@@ -255,6 +265,16 @@
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="age">Age
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="number" class="form-control" id="age" name="age" value="0"
+                                                    min="0" step="1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6" style="display: none !important">
+                                        <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="last_visit_date_ec_tracking">Last
                                                 Visit Date of EC Tracking
                                             </label>
@@ -266,7 +286,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xl-6">
+                                    <div class="col-xl-6" style="display: none !important">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="bpl_apl">BPL/APL
                                             </label>
@@ -278,19 +298,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="age">Age
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="number" class="form-control" id="age" name="age" value="0"
-                                                    min="0" step="1">
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                                 <div class="row">
-                                    <div class="col-xl-6">
+                                    <div class="col-xl-6" style="display: none !important">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="an_reg_date">Date of AN
                                                 Registeration <span class="text-danger">*</span>
