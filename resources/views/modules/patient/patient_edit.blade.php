@@ -58,7 +58,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xl-6">
+                                    <div class="col-xl-6" style="display: none !important;">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="anc_number">SL.No of ANC in RCH
                                                 Register
@@ -70,7 +70,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6">
+                                    <div class="col-xl-6" style="display: none !important;">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="ec_reg_date">Date of EC Registration
                                             </label>
@@ -78,6 +78,18 @@
                                                 <input type="text" class="datepicker-default form-control" id="ec_reg_date"
                                                     name="ec_reg_date"
                                                     value="{{ date('y/m/d', strtotime($patient->ec_reg_date)) }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="an_reg_date">Date of AN
+                                                Registeration <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="datepicker-default form-control" id="an_reg_date"
+                                                    name="an_reg_date"
+                                                    value="{{ date('yy/m/d', strtotime($patient->an_reg_date)) }}">
                                             </div>
                                         </div>
                                     </div>
@@ -291,6 +303,16 @@
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="age">Age
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="number" class="form-control" id="age" name="age"
+                                                    value="{{ $patient->age }}" min="0" step="1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6" style="display: none !important;">
+                                        <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="last_visit_date_ec_tracking">Last
                                                 Visit Date of EC Tracking
                                             </label>
@@ -303,7 +325,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xl-6">
+                                    <div class="col-xl-6" style="display: none !important;">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="bpl_apl">BPL/APL
                                             </label>
@@ -319,19 +341,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="age">Age
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="number" class="form-control" id="age" name="age"
-                                                    value="{{ $patient->age }}" min="0" step="1">
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
                                 <div class="row">
-                                    <div class="col-xl-6">
+                                    <div class="col-xl-6" style="display: none !important;">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="an_reg_date">Date of AN
                                                 Registeration <span class="text-danger">*</span>

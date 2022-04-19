@@ -58,7 +58,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6">
+                                    <div class="col-xl-6" style="display: none !important;">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="rch_number">SL. No of RCH Register
                                                 <span class="text-danger">*</span>
@@ -173,6 +173,7 @@
                                                             {{ $item->name }}
                                                         </option>
                                                     @endforeach
+                                                    <option value="">Other </option>
                                                 </select>
                                             </div>
                                         </div>
@@ -351,6 +352,7 @@
                                         </div>
                                     </div>
                                 </div>
+                            <div id="noAbortion">
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
@@ -838,18 +840,15 @@
                                                     <option value="">Select </option>
                                                     <option value="1"
                                                         {{ @$delivery_place->referral_facility == '1' ? 'selected' : '' }}>
-                                                        select
-                                                        1
+                                                        PHC
                                                     </option>
                                                     <option value="2"
                                                         {{ @$delivery_place->referral_facility == '2' ? 'selected' : '' }}>
-                                                        select
-                                                        2
+                                                        GH
                                                     </option>
                                                     <option value="3"
                                                         {{ @$delivery_place->referral_facility == '3' ? 'selected' : '' }}>
-                                                        select
-                                                        3
+                                                        Medical College
                                                     </option>
                                                 </select>
                                             </div>
@@ -1051,6 +1050,7 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
 
                                 <hr>
                                 <div class="offset-xl-6 col-xl-6">

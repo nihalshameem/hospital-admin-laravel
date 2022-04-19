@@ -68,7 +68,7 @@
                             <select class="form-control" id="form_select" name="form_select" data-id="">
                                 <option value="/">Registration</option>
                                 <option value="/mother-medical/">Mother Medical</option>
-                                <option value="/an-mother-visit/">AN Mother Visit's</option>
+                                <!-- <option value="/an-mother-visit/">AN Mother Visit's</option> -->
                             </select>
                         </div>
                     </div>

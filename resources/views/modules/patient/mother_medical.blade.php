@@ -60,7 +60,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xl-6">
+                                    <div class="col-xl-6" style="display: none !important">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="pw_rch_reg_number">SL.No of PW in
                                                 RCH
@@ -331,7 +331,7 @@
 
 
                                 <div class="row">
-                                    <div class="col-xl-6">
+                                    <div class="col-xl-6" style="display:none !important;">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="eligible_for_mrmbs">Whether the
                                                 mother is
@@ -353,7 +353,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6">
+                                    <div class="col-xl-6" style="display: none !important">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="hbsag_done">HBsAg Done
                                                 <span class="text-danger">*</span>
@@ -372,9 +372,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="offset-xl-6 col-xl-6">
+                                    <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="hbsag_status">HBsAg Status
                                                 <span class="text-danger">*</span>
@@ -636,6 +634,7 @@
                                                             {{ $item->name }}
                                                         </option>
                                                     @endforeach
+                                                    <option value="">Others </option>
                                                 </select>
                                             </div>
                                         </div>
