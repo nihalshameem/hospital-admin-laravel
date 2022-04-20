@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\DeliveryPlace;
 use App\Models\District;
 use App\Models\HighRisk;
+use App\Models\Hospital;
 use App\Models\HospitalType;
 use App\Models\HSC;
 use App\Models\MotherCheckup;
@@ -137,7 +138,7 @@ class PatientsController extends Controller
                 'an_reg_date' => $request->an_reg_date,
                 'age' => $request->age,
             ]);
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
 
@@ -153,7 +154,7 @@ class PatientsController extends Controller
     {
         try {
             $patient = Patient::find($id);
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
         $page_title = 'Mother Registration';
@@ -195,7 +196,7 @@ class PatientsController extends Controller
             $patient->an_reg_date = $request->an_reg_date;
             $patient->age = $request->age;
             $patient->save();
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
 
@@ -213,7 +214,7 @@ class PatientsController extends Controller
         $page_description = 'Mother Medical Form';
         try {
             $patient = Patient::find($id);
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
         $mother_medical = MotherMedical::where('patient_id', $id)->first();
@@ -223,11 +224,12 @@ class PatientsController extends Controller
         $complications = PregnancyComplication::all();
         $outcomes = PregnancyOutcome::all();
         $hospital_types = HospitalType::all();
+        $hospitals = Hospital::all();
         $hsc = HSC::all();
         $districts = District::all();
 
         $action = 'patient_add';
-        return view('modules.patient.mother_medical', compact('page_title', 'page_description', 'action', 'patient', 'mother_medical', 'past_illnesses', 'obstetric', 'complications', 'outcomes', 'delivery_place', 'hospital_types', 'hsc', 'districts'));
+        return view('modules.patient.mother_medical', compact('page_title', 'page_description', 'action', 'patient', 'mother_medical', 'past_illnesses', 'obstetric', 'complications', 'outcomes', 'delivery_place', 'hospital_types', 'hsc', 'districts', 'hospitals'));
 
     }
 
@@ -363,7 +365,7 @@ class PatientsController extends Controller
                 ]);
             }
 
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
 
@@ -384,7 +386,7 @@ class PatientsController extends Controller
         $page_description = 'AN Mother Visit\'s Form';
         try {
             $patient = Patient::find($id);
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
 
@@ -499,8 +501,17 @@ class PatientsController extends Controller
                 'ultrasonogram_movement' => $request->ultrasonogram_movement,
                 'remark' => $request->remark,
                 'result' => $request->result,
+                'wife_hiv_screening' => $request->wife_hiv_screening,
+                'wife_hiv_screeing_date' => $request->wife_hiv_screeing_date,
+                'wife_hiv_screeing_result' => $request->wife_hiv_screeing_result,
+                'husband_hiv_screening' => $request->husband_hiv_screening,
+                'husband_hiv_screeing_date' => $request->husband_hiv_screeing_date,
+                'husband_hiv_screeing_result' => $request->husband_hiv_screeing_result,
+                'is_vdrl_rpp' => $request->is_vdrl_rpp,
+                'vdrl_date' => $request->vdrl_date,
+                'vdrl_result' => $request->vdrl_result,
             ]);
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
         $message = 'Mother Visit Added';
@@ -579,9 +590,18 @@ class PatientsController extends Controller
             $visit->ultrasonogram_movement = $request->ultrasonogram_movement;
             $visit->remark = $request->remark;
             $visit->result = $request->result;
+            $visit->wife_hiv_screening = $request->wife_hiv_screening;
+            $visit->wife_hiv_screeing_date = $request->wife_hiv_screeing_date;
+            $visit->wife_hiv_screeing_result = $request->wife_hiv_screeing_result;
+            $visit->husband_hiv_screening = $request->husband_hiv_screening;
+            $visit->husband_hiv_screeing_date = $request->husband_hiv_screeing_date;
+            $visit->husband_hiv_screeing_result = $request->husband_hiv_screeing_result;
+            $visit->is_vdrl_rpp = $request->is_vdrl_rpp;
+            $visit->vdrl_date = $request->vdrl_date;
+            $visit->vdrl_result = $request->vdrl_result;
             $visit->save();
 
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
         $message = 'Mother Visit Updated';
@@ -651,13 +671,9 @@ class PatientsController extends Controller
         $patients = Patient::select(['id', 'an_mother as name'])->get();
 
         if ($request->ajax()) {
-            $data = DB::table('patients as p')->join('mother_visits as v', 'p.id', '=', 'v.patient_id')->join('h_s_c_s as hsc', 'hsc.id', '=', 'p.hsc_id')->select('p.rch_id', 'hsc.name as hsc_name', 'p.an_mother', 'p.id as patient_id')->groupBy('p.id')->get();
+            $data = DB::table('patients as p')->join('mother_visits as v', 'p.id', '=', 'v.patient_id')->join('h_s_c_s as hsc', 'hsc.id', '=', 'p.hsc_id')->select('p.rch_id', 'hsc.name as hsc_name', 'p.an_mother', 'p.id as patient_id', 'p.husband_name', 'p.mobile', 'p.an_reg_date')->groupBy('p.id')->get();
 
             return Datatables::of($data)->addIndexColumn()
-                ->addColumn('visit_count', function ($row) {
-                    $count = MotherVisit::where('patient_id', $row->patient_id)->count();
-                    return $count;
-                })
                 ->addColumn('checkbox', function ($row) {
                     $checkbox = '<div class="checkbox text-right align-self-center">
                                                 <div class="custom-control custom-checkbox ">
@@ -760,9 +776,55 @@ class PatientsController extends Controller
 
             ini_set('max_execution_time', 60);
 
-        } catch (\Exception$e) {
+        } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
         return redirect()->back()->with('message', 'Records Added')->with('type', 'success')->with('heading', 'New Record');
+    }
+
+    public function hospital_upload()
+    {
+        $path = public_path('uploads\hospital_names.xlsx');
+        ini_set('max_execution_time', 180);
+
+        $data = Excel::toArray([], $path);
+
+        if (count($data) > 0) {
+            $types = [];
+            foreach ($data[0] as $key => $item) {
+                if ($key == 0) {
+                    foreach ($item as $type_key => $type_name) {
+                        if ($type_key > 0 && $type_name) {
+                            $type = HospitalType::where('name', $type_name)->first();
+                            if (!$type) {
+                                $type = HospitalType::create(['name' => $type_name]);
+                            }
+                            $types[] = $type->id;
+                        }
+                    }
+                }
+            }
+            foreach ($data[0] as $key => $item) {
+                if ($key > 1) {
+                    foreach ($item as $h_key => $h_name) {
+                        if ($h_name) {
+                            $hospital_data = array(
+                                'district_id' => 1,
+                                'hospital_type_id' => $types[$h_key - 1],
+                                'name' => (string) $h_name,
+                            );
+                            if (!empty($hospital_data)) {
+                                $hospital = Hospital::create($hospital_data);
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+
+        ini_set('max_execution_time', 60);
+
+        return 'done';
     }
 }

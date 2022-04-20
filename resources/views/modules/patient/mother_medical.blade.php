@@ -271,7 +271,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6">
+                                    {{-- <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="is_vdrl_rpp">VDRL/RPP
                                                 <span class="text-danger">*</span>
@@ -289,12 +289,12 @@
                                                 </select>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
                                 </div>
 
 
-                                <div class="row">
+                                {{-- <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="vdrl_date">VDRL Date
@@ -325,7 +325,7 @@
                                         </div>
                                     </div>
 
-                                </div>
+                                </div> --}}
 
 
 
@@ -392,8 +392,7 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <hr>
+                                {{-- <hr>
                                 <center>
                                     <h3><b>HIV Test</b></h3>
                                 </center>
@@ -514,7 +513,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
 
 
 
@@ -664,18 +663,11 @@
                                             <div class="col-lg-8">
                                                 <select class="form-control" id="hospital_name" name="hospital_name">
                                                     <option value="">Select </option>
-                                                    <option value="1"
-                                                        {{ @$delivery_place->hospital_name == '1' ? 'selected' : '' }}>
-                                                        select 1
-                                                    </option>
-                                                    <option value="2"
-                                                        {{ @$delivery_place->hospital_name == '2' ? 'selected' : '' }}>
-                                                        select 2
-                                                    </option>
-                                                    <option value="3"
-                                                        {{ @$delivery_place->hospital_name == '3' ? 'selected' : '' }}>
-                                                        select 3
-                                                    </option>
+                                                    @foreach ($hospitals as $item)
+                                                        <option value="{{ $item->id }}"
+                                                            {{ @$delivery_place->hospital_name == $item->id ? 'selected' : '' }}>
+                                                            {{ $item->name }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>

@@ -330,542 +330,27 @@
                                         </div>
                                     </div>
                                 </div>
-                            <div id="noAbortion">
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="an_visit_date">Date of AN Visit
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="text" class="datepicker-default form-control"
-                                                    id="an_visit_date" name="an_visit_date">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="anc_period">ANC Period
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="anc_period"
-                                                    name="anc_period">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="pregnancy_week">Week of Pregnancy
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="pregnancy_week"
-                                                    name="pregnancy_week">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="an_mother_weight">Weight of AN
-                                                Mother(in Kg)
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="number" class="form-control" placeholder="Range 25 to 150"
-                                                    id="an_mother_weight" name="an_mother_weight">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="bp_systolic">BP Systolic(MM of Hg)
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="number" class="form-control" id="bp_systolic"
-                                                    name="bp_systolic" placeholder="Range 70 to 100">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="bp_diastolic">BP Diastolic(MM of
-                                                Hg)
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="number" class="form-control" id="bp_diastolic"
-                                                    name="bp_diastolic" placeholder="Range 40 to 100">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="hb">Hb(gm%)
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="number" class="form-control" id="hb" name="hb"
-                                                    placeholder="Range 3 to 18">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="urine_test">Urine Test
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <select class="form-control" id="urine_test" name="urine_test">
-                                                    <option value="Done">
-                                                        Done
-                                                    </option>
-                                                    <option value="Not Done">
-                                                        Not Done</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6" id="urine_sugar_div">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="urine_sugar">Urine Sugar<span
-                                                    class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <select class="form-control" id="urine_sugar" name="urine_sugar">
-                                                    <option value="Absent">
-                                                        Absent
-                                                    </option>
-                                                    <option value="Present">
-                                                        Present</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row" id="urine_albumin_div">
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="urine_albumin">Urine Albumin
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <select class="form-control" id="urine_albumin" name="urine_albumin">
-                                                    <option value="">Select </option>
-                                                    <option value="1">
-                                                        select 1
-                                                    </option>
-                                                    <option value="2">
-                                                        select 2
-                                                    </option>
-                                                    <option value="3">
-                                                        select 3
-                                                    </option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="blood_sugar_test">Blood Sugar Test
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <select class="form-control" id="blood_sugar_test"
-                                                    name="blood_sugar_test">
-                                                    <option value="Done">
-                                                        Done
-                                                    </option>
-                                                    <option value="Not Done">
-                                                        Not Done</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6" id="fasting_div">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="fasting">Fasting
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="number" class="form-control" placeholder="Range 30 to 600"
-                                                    id="fasting" name="fasting">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row" id="post_prandial_div">
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="post_prandial">Post
-                                                Prandial/RBS<span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="number" class="form-control" placeholder="Range 30 to 600"
-                                                    id="post_prandial" name="post_prandial">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="gct">GCT Done
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <select class="form-control" id="gct" name="gct">
-                                                    <option value="Done">
-                                                        Done
-                                                    </option>
-                                                    <option value="Not Done">
-                                                        Not Done</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6" id="gct_value_div">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="gct_value">GCT value
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="number" class="form-control" id="gct_value"
-                                                    name="gct_value">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="tt_dose">TT Dose
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <select class="form-control" id="tt_dose" name="tt_dose">
-                                                    <option value="TT1">
-                                                        TT1
-                                                    </option>
-                                                    <option value="TT2">
-                                                        TT2</option>
-                                                    <option value="TT BOOSTER">
-                                                        TT BOOSTER</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="tt_date">TT Date
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="text" class="datepicker-default form-control" id="tt_date"
-                                                    name="tt_date">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="albendazole_date">Albendazole Date
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="text" class="datepicker-default form-control"
-                                                    id="albendazole_date" name="albendazole_date">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="ifa_date">IFA Date
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="text" class="datepicker-default form-control" id="ifa_date"
-                                                    name="ifa_date">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="fundal_size">Fundal Height/Size of
-                                                the uterus(in week)
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="number" class="form-control" placeholder="with 42 weeks"
-                                                    id="fundal_size" name="fundal_size">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="calcium_tablet">Calcium Tablet
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="number" class="form-control" placeholder="14 to 40 weeks"
-                                                    id="calcium_tablet" name="calcium_tablet">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="offset-xl-6 col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="calcium_date">Calcium Date
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="text" class="datepicker-default form-control"
-                                                    id="calcium_date" name="calcium_date">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="foetal_heart_rate">Foetal Heart
-                                                rate(per min)
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="number" class="form-control" placeholder="Range 70 to 200"
-                                                    id="foetal_heart_rate" name="foetal_heart_rate">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="foetal_position">Foetal
-                                                Presentation/Position
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <select class="form-control" id="foetal_position" name="foetal_position">
-                                                    <option value="">Select</option>
-                                                    <option value="Normal">
-                                                        Normal
-                                                    </option>
-                                                    <option value="Abnormal">
-                                                        Abnormal</option>
-
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="foetal_movement">Foetal
-                                                Movement
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <select class="form-control" id="foetal_movement" name="foetal_movement">
-                                                    <option value="">Select</option>
-                                                    <option value="Normal">
-                                                        Normal
-                                                    </option>
-                                                    <option value="Increase">
-                                                        Increase</option>
-                                                    <option value="Decrease">
-                                                        Decrease</option>
-                                                    <option value="Absent">
-                                                        Absent</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label text-danger"
-                                                for="post_partum">Post-Partum
-                                                Method of Contraception
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <select class="form-control" id="post_partum" name="post_partum">
-                                                    <option value="">Select</option>
-                                                    @foreach ($post_partums as $item)
-                                                        <option value="{{ $item->id }}">
-                                                            {{ $item->name }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row mt-2">
-                                            <label class="col-lg-4 col-form-label" for="partum_other">Any Other
-                                                Specify
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="partum_other"
-                                                    name="partum_other">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label text-danger" for="high_risk">Symptoms of
-                                                High Risk
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <select class="form-control" id="high_risk" name="high_risk">
-                                                    <option value="">Select</option>
-                                                    @foreach ($high_risks as $item)
-                                                        <option value="{{ $item->id }}">
-                                                            {{ $item->name }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="high_risk_other">Any Other Specify
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="high_risk_other"
-                                                    name="high_risk_other">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="referral_date">Referral Date
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="text" class="datepicker-default form-control"
-                                                    id="referral_date" name="referral_date">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="referral_district">District
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <select class="form-control" id="referral_district"
-                                                    name="referral_district">
-                                                    <option value="">Select </option>
-                                                    @foreach ($districts as $item)
-                                                        <option value="{{ $item->id }}">
-                                                            {{ $item->name }}
-                                                        </option>
-                                                    @endforeach
-                                                    <option value="">Other </option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="referral_facility">Referral
-                                                Facility
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <select class="form-control" id="referral_facility"
-                                                    name="referral_facility">
-                                                    <option value="">Select </option>
-                                                    <option value="1">
-                                                    PHC
-                                                    </option>
-                                                    <option value="2">
-                                                    GH
-                                                    </option>
-                                                    <option value="3">
-                                                    Medical College
-                                                    </option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="referral_place">Referral Place
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="referral_place"
-                                                    name="referral_place">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr>
-                                <center>
-                                    <h3><b>Ultrasonogram</b></h3>
-                                </center>
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="ultrasonogram">Ultrasonogram
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <select class="form-control" id="ultrasonogram" name="ultrasonogram">
-                                                    <option value="">Select </option>
-                                                    <option value="Yes">
-                                                        Yes
-                                                    </option>
-                                                    <option value="No">
-                                                        No
-                                                    </option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6" id="ultrasonogram_date_div">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="ultrasonogram_date">Ultrasonogram
-                                                Date
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="text" class="datepicker-default form-control"
-                                                    id="ultrasonogram_date" name="ultrasonogram_date">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="ultrasonogram_div">
+                                <div id="noAbortion">
                                     <div class="row">
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="scan_edd">Scan EDD
+                                                <label class="col-lg-4 col-form-label" for="an_visit_date">Date of AN Visit
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <input type="text" class="datepicker-default form-control"
-                                                        id="scan_edd" name="scan_edd">
+                                                        id="an_visit_date" name="an_visit_date">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="trimester">Trimester
-                                                    (1st/2nd/3rd)
+                                                <label class="col-lg-4 col-form-label" for="anc_period">ANC Period
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" class="form-control" id="trimester"
-                                                        name="trimester">
+                                                    <input type="text" class="form-control" id="anc_period"
+                                                        name="anc_period">
                                                 </div>
                                             </div>
                                         </div>
@@ -873,28 +358,26 @@
                                     <div class="row">
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label"
-                                                    for="ultrasonogram_fundal_size">Fundal
-                                                    Height/Size of
-                                                    the uterus(in week)
+                                                <label class="col-lg-4 col-form-label" for="pregnancy_week">Week of
+                                                    Pregnancy
+                                                    <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="number" class="form-control" placeholder="with 42 weeks"
-                                                        id="ultrasonogram_fundal_size" name="ultrasonogram_fundal_size">
+                                                    <input type="text" class="form-control" id="pregnancy_week"
+                                                        name="pregnancy_week">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label"
-                                                    for="ultrasonogram__heart_rate">Foetal
-                                                    Heart
-                                                    rate(per min)
+                                                <label class="col-lg-4 col-form-label" for="an_mother_weight">Weight of AN
+                                                    Mother(in Kg)
+                                                    <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <input type="number" class="form-control"
-                                                        placeholder="Range 70 to 200" id="ultrasonogram__heart_rate"
-                                                        name="ultrasonogram__heart_rate">
+                                                        placeholder="Range 25 to 150" id="an_mother_weight"
+                                                        name="an_mother_weight">
                                                 </div>
                                             </div>
                                         </div>
@@ -902,64 +385,84 @@
                                     <div class="row">
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="ultrasonogram_position">Foetal
-                                                    Presentation/Position
+                                                <label class="col-lg-4 col-form-label" for="bp_systolic">BP Systolic(MM of
+                                                    Hg)
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <select class="form-control" id="ultrasonogram_position"
-                                                        name="ultrasonogram_position">
-                                                        <option value="">Select</option>
-                                                        <option value="Normal">
-                                                            Normal
-                                                        </option>
-                                                        <option value="Abnormal">
-                                                            Abnormal</option>
+                                                    <input type="number" class="form-control" id="bp_systolic"
+                                                        name="bp_systolic" placeholder="Range 70 to 100">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="bp_diastolic">BP Diastolic(MM
+                                                    of
+                                                    Hg)
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="number" class="form-control" id="bp_diastolic"
+                                                        name="bp_diastolic" placeholder="Range 40 to 100">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="hb">Hb(gm%)
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="number" class="form-control" id="hb" name="hb"
+                                                        placeholder="Range 3 to 18">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="urine_test">Urine Test
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <select class="form-control" id="urine_test" name="urine_test">
+                                                        <option value="Done">
+                                                            Done
+                                                        </option>
+                                                        <option value="Not Done">
+                                                            Not Done</option>
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-xl-6">
+                                        <div class="col-xl-6" id="urine_sugar_div">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="ultrasonogram_movement">Foetal
-                                                    Movement
+                                                <label class="col-lg-4 col-form-label" for="urine_sugar">Urine Sugar<span
+                                                        class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <select class="form-control" id="ultrasonogram_movement"
-                                                        name="ultrasonogram_movement">
-                                                        <option value="">Select</option>
-                                                        <option value="Normal">
-                                                            Normal
-                                                        </option>
-                                                        <option value="Increase">
-                                                            Increase</option>
-                                                        <option value="Decrease">
-                                                            Decrease</option>
+                                                    <select class="form-control" id="urine_sugar" name="urine_sugar">
                                                         <option value="Absent">
-                                                            Absent</option>
+                                                            Absent
+                                                        </option>
+                                                        <option value="Present">
+                                                            Present</option>
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
+                                    <div class="row" id="urine_albumin_div">
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="remark">Finding/Remarks
-                                                    <span class="text-danger">*</span>
+                                                <label class="col-lg-4 col-form-label" for="urine_albumin">Urine Albumin
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" class="form-control" id="remark" name="remark">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6">
-                                            <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="result">Result
-                                                </label>
-                                                <div class="col-lg-6">
-                                                    <select class="form-control" id="result" name="result">
+                                                    <select class="form-control" id="urine_albumin" name="urine_albumin">
                                                         <option value="">Select </option>
                                                         <option value="1">
                                                             select 1
@@ -974,9 +477,694 @@
                                                 </div>
                                             </div>
                                         </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="blood_sugar_test">Blood Sugar
+                                                    Test
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <select class="form-control" id="blood_sugar_test"
+                                                        name="blood_sugar_test">
+                                                        <option value="Done">
+                                                            Done
+                                                        </option>
+                                                        <option value="Not Done">
+                                                            Not Done</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6" id="fasting_div">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="fasting">Fasting
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="number" class="form-control"
+                                                        placeholder="Range 30 to 600" id="fasting" name="fasting">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" id="post_prandial_div">
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="post_prandial">Post
+                                                    Prandial/RBS<span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="number" class="form-control"
+                                                        placeholder="Range 30 to 600" id="post_prandial"
+                                                        name="post_prandial">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="gct">GCT Done
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <select class="form-control" id="gct" name="gct">
+                                                        <option value="Done">
+                                                            Done
+                                                        </option>
+                                                        <option value="Not Done">
+                                                            Not Done</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6" id="gct_value_div">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="gct_value">GCT value
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="number" class="form-control" id="gct_value"
+                                                        name="gct_value">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="tt_dose">TT Dose
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <select class="form-control" id="tt_dose" name="tt_dose">
+                                                        <option value="TT1">
+                                                            TT1
+                                                        </option>
+                                                        <option value="TT2">
+                                                            TT2</option>
+                                                        <option value="TT BOOSTER">
+                                                            TT BOOSTER</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="tt_date">TT Date
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="datepicker-default form-control" id="tt_date"
+                                                        name="tt_date">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="albendazole_date">Albendazole
+                                                    Date
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="datepicker-default form-control"
+                                                        id="albendazole_date" name="albendazole_date">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="ifa_date">IFA Date
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="datepicker-default form-control"
+                                                        id="ifa_date" name="ifa_date">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="fundal_size">Fundal Height/Size
+                                                    of
+                                                    the uterus(in week)
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="number" class="form-control" placeholder="with 42 weeks"
+                                                        id="fundal_size" name="fundal_size">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="calcium_tablet">Calcium Tablet
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="number" class="form-control"
+                                                        placeholder="14 to 40 weeks" id="calcium_tablet"
+                                                        name="calcium_tablet">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="offset-xl-6 col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="calcium_date">Calcium Date
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="datepicker-default form-control"
+                                                        id="calcium_date" name="calcium_date">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="foetal_heart_rate">Foetal Heart
+                                                    rate(per min)
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="number" class="form-control"
+                                                        placeholder="Range 70 to 200" id="foetal_heart_rate"
+                                                        name="foetal_heart_rate">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="foetal_position">Foetal
+                                                    Presentation/Position
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <select class="form-control" id="foetal_position"
+                                                        name="foetal_position">
+                                                        <option value="">Select</option>
+                                                        <option value="Normal">
+                                                            Normal
+                                                        </option>
+                                                        <option value="Abnormal">
+                                                            Abnormal</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="foetal_movement">Foetal
+                                                    Movement
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <select class="form-control" id="foetal_movement"
+                                                        name="foetal_movement">
+                                                        <option value="">Select</option>
+                                                        <option value="Normal">
+                                                            Normal
+                                                        </option>
+                                                        <option value="Increase">
+                                                            Increase</option>
+                                                        <option value="Decrease">
+                                                            Decrease</option>
+                                                        <option value="Absent">
+                                                            Absent</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label text-danger"
+                                                    for="post_partum">Post-Partum
+                                                    Method of Contraception
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <select class="form-control" id="post_partum" name="post_partum">
+                                                        <option value="">Select</option>
+                                                        @foreach ($post_partums as $item)
+                                                            <option value="{{ $item->id }}">
+                                                                {{ $item->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row mt-2">
+                                                <label class="col-lg-4 col-form-label" for="partum_other">Any Other
+                                                    Specify
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control" id="partum_other"
+                                                        name="partum_other">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label text-danger" for="high_risk">Symptoms
+                                                    of
+                                                    High Risk
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <select class="form-control" id="high_risk" name="high_risk">
+                                                        <option value="">Select</option>
+                                                        @foreach ($high_risks as $item)
+                                                            <option value="{{ $item->id }}">
+                                                                {{ $item->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="high_risk_other">Any Other
+                                                    Specify
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control" id="high_risk_other"
+                                                        name="high_risk_other">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="referral_date">Referral Date
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="datepicker-default form-control"
+                                                        id="referral_date" name="referral_date">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="referral_district">District
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <select class="form-control" id="referral_district"
+                                                        name="referral_district">
+                                                        <option value="">Select </option>
+                                                        @foreach ($districts as $item)
+                                                            <option value="{{ $item->id }}">
+                                                                {{ $item->name }}
+                                                            </option>
+                                                        @endforeach
+                                                        <option value="">Other </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="referral_facility">Referral
+                                                    Facility
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <select class="form-control" id="referral_facility"
+                                                        name="referral_facility">
+                                                        <option value="">Select </option>
+                                                        <option value="1">
+                                                            PHC
+                                                        </option>
+                                                        <option value="2">
+                                                            GH
+                                                        </option>
+                                                        <option value="3">
+                                                            Medical College
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="referral_place">Referral Place
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control" id="referral_place"
+                                                        name="referral_place">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <center>
+                                        <h3><b>Ultrasonogram</b></h3>
+                                    </center>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="ultrasonogram">Ultrasonogram
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <select class="form-control" id="ultrasonogram" name="ultrasonogram">
+                                                        <option value="">Select </option>
+                                                        <option value="Yes">
+                                                            Yes
+                                                        </option>
+                                                        <option value="No">
+                                                            No
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6" id="ultrasonogram_date_div">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label"
+                                                    for="ultrasonogram_date">Ultrasonogram
+                                                    Date
+                                                    <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="datepicker-default form-control"
+                                                        id="ultrasonogram_date" name="ultrasonogram_date">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="ultrasonogram_div">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="scan_edd">Scan EDD
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <input type="text" class="datepicker-default form-control"
+                                                            id="scan_edd" name="scan_edd">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="trimester">Trimester
+                                                        (1st/2nd/3rd)
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <input type="text" class="form-control" id="trimester"
+                                                            name="trimester">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label"
+                                                        for="ultrasonogram_fundal_size">Fundal
+                                                        Height/Size of
+                                                        the uterus(in week)
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <input type="number" class="form-control"
+                                                            placeholder="with 42 weeks" id="ultrasonogram_fundal_size"
+                                                            name="ultrasonogram_fundal_size">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label"
+                                                        for="ultrasonogram__heart_rate">Foetal
+                                                        Heart
+                                                        rate(per min)
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <input type="number" class="form-control"
+                                                            placeholder="Range 70 to 200" id="ultrasonogram__heart_rate"
+                                                            name="ultrasonogram__heart_rate">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label"
+                                                        for="ultrasonogram_position">Foetal
+                                                        Presentation/Position
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <select class="form-control" id="ultrasonogram_position"
+                                                            name="ultrasonogram_position">
+                                                            <option value="">Select</option>
+                                                            <option value="Normal">
+                                                                Normal
+                                                            </option>
+                                                            <option value="Abnormal">
+                                                                Abnormal</option>
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label"
+                                                        for="ultrasonogram_movement">Foetal
+                                                        Movement
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <select class="form-control" id="ultrasonogram_movement"
+                                                            name="ultrasonogram_movement">
+                                                            <option value="">Select</option>
+                                                            <option value="Normal">
+                                                                Normal
+                                                            </option>
+                                                            <option value="Increase">
+                                                                Increase</option>
+                                                            <option value="Decrease">
+                                                                Decrease</option>
+                                                            <option value="Absent">
+                                                                Absent</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="remark">Finding/Remarks
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <input type="text" class="form-control" id="remark"
+                                                            name="remark">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="result">Result
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <select class="form-control" id="result" name="result">
+                                                            <option value="">Select </option>
+                                                            <option value="1">
+                                                                select 1
+                                                            </option>
+                                                            <option value="2">
+                                                                select 2
+                                                            </option>
+                                                            <option value="3">
+                                                                select 3
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <hr>
+                                        <center>
+                                            <h3><b>HIV Test</b></h3>
+                                        </center>
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="wife_hiv_screening">Wife
+                                                        HIV Screen
+                                                        Test
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <select class="form-control" id="wife_hiv_screening"
+                                                            name="wife_hiv_screening">
+                                                            <option value="yes">
+                                                                Yes</option>
+                                                            <option value="no">
+                                                                No
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" id="wife_hiv_screening_div">
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label"
+                                                        for="wife_hiv_screeing_date">Date of HIV
+                                                        Screening Test Conducted
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <input type="text" class="datepicker-default form-control"
+                                                            id="wife_hiv_screeing_date" name="wife_hiv_screeing_date"
+                                                            value="{{ @$mother_medical->wife_hiv_screeing_date }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label"
+                                                        for="wife_hiv_screeing_result">HIV
+                                                        Screeing Test Result
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <select class="form-control" id="wife_hiv_screeing_result"
+                                                            name="wife_hiv_screeing_result">
+                                                            <option value="">Select </option>
+                                                            <option value="positive"
+                                                                {{ @$mother_medical->wife_hiv_screeing_result == 'positive' ? 'selected' : '' }}>
+                                                                +ve</option>
+                                                            <option value="negative"
+                                                                {{ @$mother_medical->wife_hiv_screeing_result == 'negative' ? 'selected' : '' }}>
+                                                                -ve</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label"
+                                                        for="husband_hiv_screening">Husband HIV
+                                                        Screen
+                                                        Test
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <select class="form-control" id="husband_hiv_screening"
+                                                            name="husband_hiv_screening">
+                                                            <option value="yes">
+                                                                Yes</option>
+                                                            <option value="no">
+                                                                No
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" id="husband_hiv_screening_div">
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label"
+                                                        for="husband_hiv_screeing_date">Date of
+                                                        HIV
+                                                        Screening Test Conducted
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <input type="text" class="datepicker-default form-control"
+                                                            id="husband_hiv_screeing_date" name="husband_hiv_screeing_date"
+                                                            value="{{ @$mother_medical->husband_hiv_screeing_date }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label"
+                                                        for="husband_hiv_screeing_result">HIV
+                                                        Screeing Test Result
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <select class="form-control" id="husband_hiv_screeing_result"
+                                                            name="husband_hiv_screeing_result">
+                                                            <option value="">Select </option>
+                                                            <option value="positive"
+                                                                {{ @$mother_medical->husband_hiv_screeing_result == 'positive' ? 'selected' : '' }}>
+                                                                +ve</option>
+                                                            <option value="negative"
+                                                                {{ @$mother_medical->husband_hiv_screeing_result == 'negative' ? 'selected' : '' }}>
+                                                                -ve</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="is_vdrl_rpp">VDRL/RPP
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <select class="form-control" id="is_vdrl_rpp" name="is_vdrl_rpp">
+                                                            <option value="yes">
+                                                                Done
+                                                            </option>
+                                                            <option value="no">
+                                                                Not Done</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" id="vdrl_div">
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="vdrl_date">VDRL Date
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <input type="text" class="datepicker-default form-control"
+                                                            id="vdrl_date" name="vdrl_date">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="vdrl_result">VDRL Result
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <select class="form-control" id="vdrl_result" name="vdrl_result">
+                                                            <option value="Reactive">
+                                                                Reactive</option>
+                                                            <option value="Non-reactive">
+                                                                Non-reactive</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
                                 <hr>
                                 <div class="offset-xl-6 col-xl-6">
