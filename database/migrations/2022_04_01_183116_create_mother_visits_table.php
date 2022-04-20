@@ -80,6 +80,15 @@ class CreateMotherVisitsTable extends Migration
             $table->enum('ultrasonogram_movement', ['Normal', 'Increase', 'Decrease', 'Absent'])->default('Normal')->nullable();
             $table->string('remark')->nullable();
             $table->integer('result')->nullable();
+            $table->enum('wife_hiv_screening', ['yes', 'no'])->nullable()->default('yes');
+            $table->date('wife_hiv_screeing_date')->nullable();
+            $table->enum('wife_hiv_screeing_result', ['positive', 'negative'])->nullable()->default('negative');
+            $table->enum('husband_hiv_screening', ['yes', 'no'])->nullable()->default('yes');
+            $table->date('husband_hiv_screeing_date')->nullable();
+            $table->enum('husband_hiv_screeing_result', ['positive', 'negative'])->nullable()->default('negative');
+            $table->enum('is_vdrl_rpp', ['yes', 'no'])->nullable();
+            $table->date('vdrl_date')->nullable();
+            $table->enum('vdrl_result', ['Reactive', 'Non-reactive'])->nullable();
             $table->timestamps();
         });
     }

@@ -75,5 +75,14 @@ class MotherVisit extends Model
         'ultrasonogram_movement',
         'remark',
         'result',
+        'wife_hiv_screening',
+        'wife_hiv_screeing_date',
+        'wife_hiv_screeing_result',
+        'husband_hiv_screening',
+        'husband_hiv_screeing_date',
+        'husband_hiv_screeing_result',
+        'is_vdrl_rpp',
+        'vdrl_date',
+        'vdrl_result',
     ];
 }

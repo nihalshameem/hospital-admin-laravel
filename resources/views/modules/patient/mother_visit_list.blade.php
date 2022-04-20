@@ -35,9 +35,11 @@
                                     </div>
                                 </th>
                                 <th>RCH ID</th>
-                                <th>Mother Name</th>
                                 <th>HSC Name</th>
-                                <th>Visit COunt</th>
+                                <th>Mother Name</th>
+                                <th>Husband Name</th>
+                                <th>Mobile</th>
+                                <th>Reg Date</th>
                                 <th></th>
                             </tr>
                         </thead>

@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\DeliveryPlace;
 use App\Models\District;
 use App\Models\HighRisk;
-use App\Models\HospitalType;
 use App\Models\Hospital;
+use App\Models\HospitalType;
 use App\Models\HSC;
 use App\Models\MotherCheckup;
 use App\Models\MotherMedical;
@@ -224,11 +224,12 @@ class PatientsController extends Controller
         $complications = PregnancyComplication::all();
         $outcomes = PregnancyOutcome::all();
         $hospital_types = HospitalType::all();
+        $hospitals = Hospital::all();
         $hsc = HSC::all();
         $districts = District::all();
 
         $action = 'patient_add';
-        return view('modules.patient.mother_medical', compact('page_title', 'page_description', 'action', 'patient', 'mother_medical', 'past_illnesses', 'obstetric', 'complications', 'outcomes', 'delivery_place', 'hospital_types', 'hsc', 'districts'));
+        return view('modules.patient.mother_medical', compact('page_title', 'page_description', 'action', 'patient', 'mother_medical', 'past_illnesses', 'obstetric', 'complications', 'outcomes', 'delivery_place', 'hospital_types', 'hsc', 'districts', 'hospitals'));
 
     }
 
@@ -500,6 +501,15 @@ class PatientsController extends Controller
                 'ultrasonogram_movement' => $request->ultrasonogram_movement,
                 'remark' => $request->remark,
                 'result' => $request->result,
+                'wife_hiv_screening' => $request->wife_hiv_screening,
+                'wife_hiv_screeing_date' => $request->wife_hiv_screeing_date,
+                'wife_hiv_screeing_result' => $request->wife_hiv_screeing_result,
+                'husband_hiv_screening' => $request->husband_hiv_screening,
+                'husband_hiv_screeing_date' => $request->husband_hiv_screeing_date,
+                'husband_hiv_screeing_result' => $request->husband_hiv_screeing_result,
+                'is_vdrl_rpp' => $request->is_vdrl_rpp,
+                'vdrl_date' => $request->vdrl_date,
+                'vdrl_result' => $request->vdrl_result,
             ]);
         } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
@@ -580,6 +590,15 @@ class PatientsController extends Controller
             $visit->ultrasonogram_movement = $request->ultrasonogram_movement;
             $visit->remark = $request->remark;
             $visit->result = $request->result;
+            $visit->wife_hiv_screening = $request->wife_hiv_screening;
+            $visit->wife_hiv_screeing_date = $request->wife_hiv_screeing_date;
+            $visit->wife_hiv_screeing_result = $request->wife_hiv_screeing_result;
+            $visit->husband_hiv_screening = $request->husband_hiv_screening;
+            $visit->husband_hiv_screeing_date = $request->husband_hiv_screeing_date;
+            $visit->husband_hiv_screeing_result = $request->husband_hiv_screeing_result;
+            $visit->is_vdrl_rpp = $request->is_vdrl_rpp;
+            $visit->vdrl_date = $request->vdrl_date;
+            $visit->vdrl_result = $request->vdrl_result;
             $visit->save();
 
         } catch (\Exception $e) {
@@ -652,13 +671,9 @@ class PatientsController extends Controller
         $patients = Patient::select(['id', 'an_mother as name'])->get();
 
         if ($request->ajax()) {
-            $data = DB::table('patients as p')->join('mother_visits as v', 'p.id', '=', 'v.patient_id')->join('h_s_c_s as hsc', 'hsc.id', '=', 'p.hsc_id')->select('p.rch_id', 'hsc.name as hsc_name', 'p.an_mother', 'p.id as patient_id')->groupBy('p.id')->get();
+            $data = DB::table('patients as p')->join('mother_visits as v', 'p.id', '=', 'v.patient_id')->join('h_s_c_s as hsc', 'hsc.id', '=', 'p.hsc_id')->select('p.rch_id', 'hsc.name as hsc_name', 'p.an_mother', 'p.id as patient_id', 'p.husband_name', 'p.mobile', 'p.an_reg_date')->groupBy('p.id')->get();
 
             return Datatables::of($data)->addIndexColumn()
-                ->addColumn('visit_count', function ($row) {
-                    $count = MotherVisit::where('patient_id', $row->patient_id)->count();
-                    return $count;
-                })
                 ->addColumn('checkbox', function ($row) {
                     $checkbox = '<div class="checkbox text-right align-self-center">
                                                 <div class="custom-control custom-checkbox ">
