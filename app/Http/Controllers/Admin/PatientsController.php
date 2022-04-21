@@ -374,7 +374,7 @@ class PatientsController extends Controller
         if ($request->submit_btn == 'save') {
             return redirect('patient')->with('message', $message)->with('type', 'success')->with('heading', $title);
         } else {
-            return redirect('patient/mother-medical/' . $id)->with('message', $message)->with('type', 'success')->with('heading', $title);
+            return redirect('patient/an-mother-visit/' . $id)->with('message', $message)->with('type', 'success')->with('heading', $title);
         }
 
     }
