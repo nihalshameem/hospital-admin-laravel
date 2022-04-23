@@ -28,7 +28,7 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <select class="form-control" id="hsc_id" name="hsc_id" disabled>
+                                                <select class="form-control readonly" id="hsc_id" name="hsc_id">
                                                     @foreach ($hsc as $item)
                                                         <option value="{{ $item->id }}">{{ $item->name }}</option>
                                                     @endforeach
@@ -42,7 +42,7 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" disabled class="form-control" id="rch_id" name="rch_id">
+                                                <input type="text" class="form-control readonly" id="rch_id" name="rch_id">
                                             </div>
                                         </div>
                                     </div>

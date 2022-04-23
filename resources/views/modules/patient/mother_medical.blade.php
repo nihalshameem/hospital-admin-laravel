@@ -37,8 +37,8 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="rch_id" name="rch_id"
-                                                    value="{{ $patient->rch_id }}" disabled>
+                                                <input type="text" class="form-control readonly" id="rch_id" name="rch_id"
+                                                    value="{{ $patient->rch_id }}">
                                             </div>
                                         </div>
                                     </div>
@@ -48,7 +48,7 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <select class="form-control" id="hsc_id" name="hsc_id" disabled>
+                                                <select class="form-control" id="hsc_id" name="hsc_id">
                                                     @foreach ($hsc as $item)
                                                         <option value="{{ $item->id }}"
                                                             {{ $patient->hsc_id == $item->id ? 'selected' : '' }}>
@@ -91,9 +91,9 @@
                                             <label class="col-lg-4 col-form-label" for="financial_year">Financial Year
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="financial_year"
+                                                <input type="text" class="form-control readonly" id="financial_year"
                                                     name="financial_year" placeholder="YYYY - YYYY"
-                                                    value="{{ @$mother_medical->financial_year }}">
+                                                    value="{{ @$patient->financial_year }}">
                                             </div>
                                         </div>
                                     </div>
@@ -155,7 +155,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6">
+                                    {{-- <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="mother_blood">Blood Group Of Mother
                                                 <span class="text-danger">*</span>
@@ -222,7 +222,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
 
 
@@ -265,9 +265,8 @@
                                             <label class="col-lg-4 col-form-label" for="living_children">Living Children
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="living_children"
-                                                    name="living_children" value="{{ $patient->living_children }}"
-                                                    disabled>
+                                                <input type="text" class="form-control readonly" id="living_children"
+                                                    name="living_children" value="{{ $patient->living_children }}">
                                             </div>
                                         </div>
                                     </div>
@@ -372,7 +371,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6">
+                                    {{-- <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="hbsag_status">HBsAg Status
                                                 <span class="text-danger">*</span>
@@ -390,7 +389,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 {{-- <hr>
                                 <center>

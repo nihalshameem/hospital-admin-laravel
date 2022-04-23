@@ -84,5 +84,8 @@ class MotherVisit extends Model
         'is_vdrl_rpp',
         'vdrl_date',
         'vdrl_result',
+        'mother_blood_grp_status',
+        'blood_grp',
+        'hbsag_status',
     ];
 }

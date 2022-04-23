@@ -4,9 +4,9 @@ jQuery(".patient-form").validate({
         hsc_id: {
             required: !0,
         },
-        anc_number: {
-            required: !0,
-        },
+        // anc_number: {
+        //     required: !0,
+        // },
         gravida: {
             required: !0,
             range: [0, 10],
@@ -18,9 +18,9 @@ jQuery(".patient-form").validate({
             required: !0,
             range: [70, 190],
         },
-        an_reg_date: {
-            required: !0,
-        },
+        // an_reg_date: {
+        //     required: !0,
+        // },
         rch_id: {
             required: !0,
         },

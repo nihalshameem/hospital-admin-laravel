@@ -51,8 +51,8 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="rch_id" name="rch_id"
-                                                    value="{{ $patient->rch_id }}" disabled>
+                                                <input type="text" class="form-control readonly" id="rch_id" name="rch_id"
+                                                    value="{{ $patient->rch_id }}">
                                             </div>
                                         </div>
                                     </div>
@@ -86,8 +86,9 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="financial_year"
-                                                    name="financial_year" placeholder="YYYY - YYYY">
+                                                <input type="text" class="form-control readonly" id="financial_year"
+                                                    name="financial_year" placeholder="YYYY - YYYY"
+                                                    value="{{ $patient->financial_year }}">
                                             </div>
                                         </div>
                                     </div>
@@ -198,7 +199,59 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="mother_blood">Blood Group Of Mother
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-3">
+                                                <select class="form-control" id="mother_blood"
+                                                    name="mother_blood_grp_status">
+                                                    <option value="Done">
+                                                        Done
+                                                    </option>
+                                                    <option value="Not Done">
+                                                        Not Done</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-lg-3" id="blood_grp">
+                                                <select class="form-control" id="blood_grp" name="blood_grp">
+                                                    <option value="">Please Select</option>
+                                                    <option value="A+ve">A+ve</option>
+                                                    <option value="B+ve">B+ve</option>
+                                                    <option value="AB+ve">AB+ve</option>
+                                                    <option value="O+ve">O+ve</option>
+                                                    <option value="A-ve">A-ve</option>
+                                                    <option value="B-ve">B-ve</option>
+                                                    <option value="AB-ve">AB-ve</option>
+                                                    <option value="O-ve">O-ve</option>
+                                                    <option value="A1+ve">A1+ve</option>
+                                                    <option value="A1-ve">A1-ve</option>
+                                                    <option value="Not Known">Not Known</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
 
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="hbsag_status">HBsAg Status
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <div class="form-group mb-0">
+                                                    <label class="radio-inline mr-3"><input type="radio"
+                                                            name="hbsag_status" value="positive">
+                                                        Positive</label>
+                                                    <label class="radio-inline mr-3"><input type="radio"
+                                                            name="hbsag_status" value="negative">
+                                                        Negative</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <hr>
                                 <center>

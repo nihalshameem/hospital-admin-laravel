@@ -53,8 +53,8 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="rch_id" name="rch_id"
-                                                    value="{{ $patient->rch_id }}" disabled>
+                                                <input type="text" class="form-control readonly" id="rch_id" name="rch_id"
+                                                    value="{{ $patient->rch_id }}">
                                             </div>
                                         </div>
                                     </div>
@@ -89,9 +89,9 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="financial_year"
+                                                <input type="text" class="form-control readonly" id="financial_year"
                                                     name="financial_year" placeholder="YYYY - YYYY"
-                                                    value="{{ @$mother_visit->financial_year }}">
+                                                    value="{{ @$patient->financial_year }}">
                                             </div>
                                         </div>
                                     </div>
@@ -210,7 +210,96 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="mother_blood">Blood Group Of Mother
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-3">
+                                                <select class="form-control" id="mother_blood"
+                                                    name="mother_blood_grp_status">
+                                                    <option value="Done"
+                                                        {{ @$mother_visit->mother_blood == 'Done' ? 'selected' : '' }}>
+                                                        Done
+                                                    </option>
+                                                    <option value="Not Done"
+                                                        {{ @$mother_visit->mother_blood == 'Not Done' ? 'selected' : '' }}>
+                                                        Not Done</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-lg-3" id="blood_grp">
+                                                <select class="form-control" id="blood_grp" name="blood_grp">
+                                                    <option value="">Please Select</option>
+                                                    <option value="A+ve"
+                                                        {{ @$mother_visit->blood_grp == 'A+ve' ? 'selected' : '' }}>
+                                                        A+ve
+                                                    </option>
+                                                    <option value="B+ve"
+                                                        {{ @$mother_visit->blood_grp == 'B+ve' ? 'selected' : '' }}>
+                                                        B+ve
+                                                    </option>
+                                                    <option value="AB+ve"
+                                                        {{ @$mother_visit->blood_grp == 'AB+ve' ? 'selected' : '' }}>
+                                                        AB+ve
+                                                    </option>
+                                                    <option value="O+ve"
+                                                        {{ @$mother_visit->blood_grp == 'O+ve' ? 'selected' : '' }}>
+                                                        O+ve
+                                                    </option>
+                                                    <option value="A-ve"
+                                                        {{ @$mother_visit->blood_grp == 'A-ve' ? 'selected' : '' }}>
+                                                        A-ve
+                                                    </option>
+                                                    <option value="B-ve"
+                                                        {{ @$mother_visit->blood_grp == 'B-ve' ? 'selected' : '' }}>
+                                                        B-ve
+                                                    </option>
+                                                    <option value="AB-ve"
+                                                        {{ @$mother_visit->blood_grp == 'AB-ve' ? 'selected' : '' }}>
+                                                        AB-ve
+                                                    </option>
+                                                    <option value="O-ve"
+                                                        {{ @$mother_visit->blood_grp == 'O-ve' ? 'selected' : '' }}>
+                                                        O-ve
+                                                    </option>
+                                                    <option value="A1+ve"
+                                                        {{ @$mother_visit->blood_grp == 'A1+ve' ? 'selected' : '' }}>
+                                                        A1+ve
+                                                    </option>
+                                                    <option value="A1-ve"
+                                                        {{ @$mother_visit->blood_grp == 'A1-ve' ? 'selected' : '' }}>
+                                                        A1-ve
+                                                    </option>
+                                                    <option value="Not Known"
+                                                        {{ @$mother_visit->blood_grp == 'Not Known' ? 'selected' : '' }}>
+                                                        Not
+                                                        Known</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
 
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="hbsag_status">HBsAg Status
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <div class="form-group mb-0">
+                                                    <label class="radio-inline mr-3"><input type="radio"
+                                                            name="hbsag_status" value="positive"
+                                                            {{ @$mother_visit->hbsag_status == 'positive' ? 'checked' : '' }}>
+                                                        Positive</label>
+                                                    <label class="radio-inline mr-3"><input type="radio"
+                                                            name="hbsag_status" value="negative"
+                                                            {{ @$mother_visit->hbsag_status == 'negative' ? 'checked' : '' }}>
+                                                        Negative</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <hr>
                                 <center>

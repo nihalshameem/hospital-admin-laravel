@@ -35,7 +35,7 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <select class="form-control" id="hsc_id" name="hsc_id">
+                                                <select class="form-control readonly" id="hsc_id" name="hsc_id">
                                                     @foreach ($hsc as $item)
                                                         <option value="{{ $item->id }}"
                                                             {{ $patient->hsc_id == $item->id ? 'selected' : '' }}>
@@ -51,8 +51,8 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="rch_id" name="rch_id"
-                                                    value="{{ $patient->rch_id }}" disabled>
+                                                <input type="text" class="form-control readonly" id="rch_id" name="rch_id"
+                                                    value="{{ $patient->rch_id }}">
                                             </div>
                                         </div>
                                     </div>
@@ -341,7 +341,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-6" style="display: none !important;">
