@@ -129,10 +129,10 @@ class PatientsController extends Controller
                 'dob' => $request->dob,
                 'gravida' => $request->gravida,
                 'para' => $request->para,
-                'pw_height' => $request->pw_height,
-                'mother_weight' => $request->mother_weight,
-                'bp_systolic' => $request->bp_systolic,
-                'bp_diastolic' => $request->bp_diastolic,
+                'pw_height' => (int) $request->pw_height,
+                'mother_weight' => (int) $request->mother_weight,
+                'bp_systolic' => (int) $request->bp_systolic,
+                'bp_diastolic' => (int) $request->bp_diastolic,
                 'bpl_apl' => $request->bpl_apl,
                 'last_visit_date_ec_tracking' => $request->last_visit_date_ec_tracking,
                 'an_reg_date' => $request->an_reg_date,
@@ -187,10 +187,10 @@ class PatientsController extends Controller
             $patient->dob = $request->dob;
             $patient->gravida = $request->gravida;
             $patient->para = $request->para;
-            $patient->pw_height = $request->pw_height;
-            $patient->mother_weight = $request->mother_weight;
-            $patient->bp_systolic = $request->bp_systolic;
-            $patient->bp_diastolic = $request->bp_diastolic;
+            $patient->pw_height = (int) $request->pw_height;
+            $patient->mother_weight = (int) $request->mother_weight;
+            $patient->bp_systolic = (int) $request->bp_systolic;
+            $patient->bp_diastolic = (int) $request->bp_diastolic;
             $patient->bpl_apl = $request->bpl_apl;
             $patient->last_visit_date_ec_tracking = $request->last_visit_date_ec_tracking;
             $patient->an_reg_date = $request->an_reg_date;
@@ -394,6 +394,9 @@ class PatientsController extends Controller
         $high_risks = HighRisk::all();
         $post_partums = PostPartum::all();
         $districts = District::all();
+        $hospital_types = HospitalType::all();
+        $hospitals = Hospital::all();
+        $delivery_place = DeliveryPlace::where('patient_id', $patient->id)->first();
 
         if ($request->ajax()) {
             $data = MotherVisit::select('id', 'patient_id', 'visit_type', 'an_visit_mother_name', 'financial_year', 'remark', 'result')->where('patient_id', $patient->id)->orderBy('updated_at', 'desc')->get();
@@ -413,7 +416,7 @@ class PatientsController extends Controller
                 })
                 ->addColumn('edit', function ($row) {
                     $edit = '
-                    <a href="' . url('patient/mother-visit/edit/' . $row->patient_id) . '" ><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <a href="' . url('patient/mother-visit/edit/' . $row->id) . '" ><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 													<path d="M17 3C17.2626 2.73735 17.5744 2.52901 17.9176 2.38687C18.2608 2.24473 18.6286 2.17157 19 2.17157C19.3714 2.17157 19.7392 2.24473 20.0824 2.38687C20.4256 2.52901 20.7374 2.73735 21 3C21.2626 3.26264 21.471 3.57444 21.6131 3.9176C21.7553 4.26077 21.8284 4.62856 21.8284 5C21.8284 5.37143 21.7553 5.73923 21.6131 6.08239C21.471 6.42555 21.2626 6.73735 21 7L7.5 20.5L2 22L3.5 16.5L17 3Z" stroke="#3E4954" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 												</svg></a>';
                     return $edit;
@@ -432,7 +435,7 @@ class PatientsController extends Controller
         }
 
         $action = 'patient_add';
-        return view('modules.patient.mother_visit', compact('page_title', 'page_description', 'action', 'patient', 'mother_checkups', 'high_risks', 'post_partums', 'districts'));
+        return view('modules.patient.mother_visit', compact('page_title', 'page_description', 'action', 'patient', 'mother_checkups', 'high_risks', 'post_partums', 'districts', 'hospital_types', 'hospitals', 'delivery_place'));
     }
 
     // an mother visit add
@@ -510,6 +513,10 @@ class PatientsController extends Controller
                 'is_vdrl_rpp' => $request->is_vdrl_rpp,
                 'vdrl_date' => $request->vdrl_date,
                 'vdrl_result' => $request->vdrl_result,
+                'mother_blood_grp_status' => $request->mother_blood_grp_status,
+                'blood_grp' => $request->blood_grp,
+                'hbsag_status' => $request->hbsag_status,
+
             ]);
         } catch (\Exception $e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
@@ -599,6 +606,9 @@ class PatientsController extends Controller
             $visit->is_vdrl_rpp = $request->is_vdrl_rpp;
             $visit->vdrl_date = $request->vdrl_date;
             $visit->vdrl_result = $request->vdrl_result;
+            $visit->mother_blood_grp_status = $request->mother_blood_grp_status;
+            $visit->blood_grp = $request->blood_grp;
+            $visit->hbsag_status = $request->hbsag_status;
             $visit->save();
 
         } catch (\Exception $e) {
@@ -608,9 +618,9 @@ class PatientsController extends Controller
         $title = 'Updated Successfully';
 
         if ($request->submit_btn == 'save') {
-            return redirect('patient/an-mother-visit/' . $id)->with('message', $message)->with('type', 'success')->with('heading', $title);
+            return redirect('patient/an-mother-visit/' . $visit->patient_id)->with('message', $message)->with('type', 'success')->with('heading', $title);
         } else {
-            return redirect('patient/mother-medical/' . $id)->with('message', $message)->with('type', 'success')->with('heading', $title);
+            return redirect('patient/mother-visit/edit/' . $id)->with('message', $message)->with('type', 'success')->with('heading', $title);
         }
 
     }
@@ -710,8 +720,10 @@ class PatientsController extends Controller
         $post_partums = PostPartum::all();
         $high_risks = HighRisk::all();
         $districts = District::all();
+        $hospital_types = HospitalType::all();
+        $hospitals = Hospital::all();
 
-        return view('modules.patient.mother_visit_edit', compact('page_title', 'page_description', 'action', 'mother_visit', 'patient', 'mother_checkups', 'post_partums', 'high_risks', 'districts'));
+        return view('modules.patient.mother_visit_edit', compact('page_title', 'page_description', 'action', 'mother_visit', 'patient', 'mother_checkups', 'post_partums', 'high_risks', 'districts', 'hospital_types', 'hospitals'));
     }
 
     public function mother_upload()
@@ -784,8 +796,13 @@ class PatientsController extends Controller
 
     public function hospital_upload()
     {
-        $path = public_path('uploads\hospital_names.xlsx');
+        $path = public_path() . '/uploads/hospital_names.xlsx';
         ini_set('max_execution_time', 180);
+
+        $district = District::find(1);
+        if (!$district) {
+            District::create(['name' => 'Kallakurichi']);
+        }
 
         $data = Excel::toArray([], $path);
 

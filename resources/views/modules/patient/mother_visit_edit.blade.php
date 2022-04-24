@@ -53,8 +53,8 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="rch_id" name="rch_id"
-                                                    value="{{ $patient->rch_id }}" disabled>
+                                                <input type="text" class="form-control readonly" id="rch_id" name="rch_id"
+                                                    value="{{ $patient->rch_id }}">
                                             </div>
                                         </div>
                                     </div>
@@ -89,9 +89,9 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="financial_year"
+                                                <input type="text" class="form-control readonly" id="financial_year"
                                                     name="financial_year" placeholder="YYYY - YYYY"
-                                                    value="{{ @$mother_visit->financial_year }}">
+                                                    value="{{ @$patient->financial_year }}">
                                             </div>
                                         </div>
                                     </div>
@@ -131,7 +131,7 @@
                                                     class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="datepicker-default form-control" id="edd_date"
+                                                <input type="text" class="form-control" id="edd_date" placeholder="YYYY-MM-DD"
                                                     name="edd_date" value="{{ @$mother_visit->edd_date }}">
                                             </div>
                                         </div>
@@ -210,7 +210,96 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="mother_blood">Blood Group Of Mother
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-3">
+                                                <select class="form-control" id="mother_blood"
+                                                    name="mother_blood_grp_status">
+                                                    <option value="Done"
+                                                        {{ @$mother_visit->mother_blood == 'Done' ? 'selected' : '' }}>
+                                                        Done
+                                                    </option>
+                                                    <option value="Not Done"
+                                                        {{ @$mother_visit->mother_blood == 'Not Done' ? 'selected' : '' }}>
+                                                        Not Done</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-lg-3" id="blood_grp">
+                                                <select class="form-control" id="blood_grp" name="blood_grp">
+                                                    <option value="">Please Select</option>
+                                                    <option value="A+ve"
+                                                        {{ @$mother_visit->blood_grp == 'A+ve' ? 'selected' : '' }}>
+                                                        A+ve
+                                                    </option>
+                                                    <option value="B+ve"
+                                                        {{ @$mother_visit->blood_grp == 'B+ve' ? 'selected' : '' }}>
+                                                        B+ve
+                                                    </option>
+                                                    <option value="AB+ve"
+                                                        {{ @$mother_visit->blood_grp == 'AB+ve' ? 'selected' : '' }}>
+                                                        AB+ve
+                                                    </option>
+                                                    <option value="O+ve"
+                                                        {{ @$mother_visit->blood_grp == 'O+ve' ? 'selected' : '' }}>
+                                                        O+ve
+                                                    </option>
+                                                    <option value="A-ve"
+                                                        {{ @$mother_visit->blood_grp == 'A-ve' ? 'selected' : '' }}>
+                                                        A-ve
+                                                    </option>
+                                                    <option value="B-ve"
+                                                        {{ @$mother_visit->blood_grp == 'B-ve' ? 'selected' : '' }}>
+                                                        B-ve
+                                                    </option>
+                                                    <option value="AB-ve"
+                                                        {{ @$mother_visit->blood_grp == 'AB-ve' ? 'selected' : '' }}>
+                                                        AB-ve
+                                                    </option>
+                                                    <option value="O-ve"
+                                                        {{ @$mother_visit->blood_grp == 'O-ve' ? 'selected' : '' }}>
+                                                        O-ve
+                                                    </option>
+                                                    <option value="A1+ve"
+                                                        {{ @$mother_visit->blood_grp == 'A1+ve' ? 'selected' : '' }}>
+                                                        A1+ve
+                                                    </option>
+                                                    <option value="A1-ve"
+                                                        {{ @$mother_visit->blood_grp == 'A1-ve' ? 'selected' : '' }}>
+                                                        A1-ve
+                                                    </option>
+                                                    <option value="Not Known"
+                                                        {{ @$mother_visit->blood_grp == 'Not Known' ? 'selected' : '' }}>
+                                                        Not
+                                                        Known</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
 
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="hbsag_status">HBsAg Status
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <div class="form-group mb-0">
+                                                    <label class="radio-inline mr-3"><input type="radio"
+                                                            name="hbsag_status" value="positive"
+                                                            {{ @$mother_visit->hbsag_status == 'positive' ? 'checked' : '' }}>
+                                                        Positive</label>
+                                                    <label class="radio-inline mr-3"><input type="radio"
+                                                            name="hbsag_status" value="negative"
+                                                            {{ @$mother_visit->hbsag_status == 'negative' ? 'checked' : '' }}>
+                                                        Negative</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <hr>
                                 <center>
@@ -220,19 +309,17 @@
 
                                 <div class="row">
                                     <div class="col-xl-6">
-                                        <div class="form-group row">
+                                        <div class="form-group row d-none">
                                             <label class="col-lg-4 col-form-label" for="abortion_if_any">Abortion id Any
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
                                                 <select class="form-control" id="abortion_if_any" name="abortion_if_any">
                                                     <option value="">Select</option>
-                                                    <option value="yes"
-                                                        {{ @$mother_visit->abortion_if_any == 'yes' ? 'selected' : '' }}>
+                                                    <option value="yes">
                                                         Yes
                                                     </option>
-                                                    <option value="no"
-                                                        {{ @$mother_visit->abortion_if_any == 'no' ? 'selected' : '' }}>
+                                                    <option value="no" selected>
                                                         No</option>
 
                                                 </select>
@@ -298,7 +385,7 @@
                                                     <option value="">Select </option>
                                                     @foreach ($districts as $item)
                                                         <option value="{{ $item->id }}"
-                                                            {{ @$delivery_place->abortion_district == $item->id ? 'selected' : '' }}>
+                                                            {{ @$mother_visit->abortion_district == $item->id ? 'selected' : '' }}>
                                                             {{ $item->name }}
                                                         </option>
                                                     @endforeach
@@ -317,17 +404,17 @@
                                                         name="abortion_facility">
                                                         <option value="">Select </option>
                                                         <option value="1"
-                                                            {{ @$delivery_place->abortion_facility == '1' ? 'selected' : '' }}>
+                                                            {{ @$mother_visit->abortion_facility == '1' ? 'selected' : '' }}>
                                                             select
                                                             1
                                                         </option>
                                                         <option value="2"
-                                                            {{ @$delivery_place->abortion_facility == '2' ? 'selected' : '' }}>
+                                                            {{ @$mother_visit->abortion_facility == '2' ? 'selected' : '' }}>
                                                             select
                                                             2
                                                         </option>
                                                         <option value="3"
-                                                            {{ @$delivery_place->abortion_facility == '3' ? 'selected' : '' }}>
+                                                            {{ @$mother_visit->abortion_facility == '3' ? 'selected' : '' }}>
                                                             select
                                                             3
                                                         </option>
@@ -496,15 +583,15 @@
                                                     <select class="form-control" id="urine_albumin" name="urine_albumin">
                                                         <option value="">Select </option>
                                                         <option value="1"
-                                                            {{ @$delivery_place->urine_albumin == '1' ? 'selected' : '' }}>
+                                                            {{ @$mother_visit->urine_albumin == '1' ? 'selected' : '' }}>
                                                             select 1
                                                         </option>
                                                         <option value="2"
-                                                            {{ @$delivery_place->urine_albumin == '2' ? 'selected' : '' }}>
+                                                            {{ @$mother_visit->urine_albumin == '2' ? 'selected' : '' }}>
                                                             select 2
                                                         </option>
                                                         <option value="3"
-                                                            {{ @$delivery_place->urine_albumin == '3' ? 'selected' : '' }}>
+                                                            {{ @$mother_visit->urine_albumin == '3' ? 'selected' : '' }}>
                                                             select 3
                                                         </option>
                                                     </select>
@@ -827,7 +914,6 @@
                                         <div class="col-xl-6">
                                             <div class="form-group row">
                                                 <label class="col-lg-4 col-form-label" for="referral_district">District
-                                                    <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <select class="form-control" id="referral_district"
@@ -835,10 +921,11 @@
                                                         <option value="">Select </option>
                                                         @foreach ($districts as $item)
                                                             <option value="{{ $item->id }}"
-                                                                {{ @$delivery_place->referral_district == $item->id ? 'selected' : '' }}>
+                                                                {{ @$mother_visit->referral_district == $item->id ? 'selected' : '' }}>
                                                                 {{ $item->name }}
                                                             </option>
                                                         @endforeach
+                                                        <option value="">Others </option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -847,39 +934,38 @@
                                     <div class="row">
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="referral_facility">Referral
-                                                    Facility
+                                                <label class="col-lg-4 col-form-label" for="referral_facility">Type of
+                                                    Hospital
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <select class="form-control" id="referral_facility"
                                                         name="referral_facility">
                                                         <option value="">Select </option>
-                                                        <option value="1"
-                                                            {{ @$delivery_place->referral_facility == '1' ? 'selected' : '' }}>
-                                                            PHC
-                                                        </option>
-                                                        <option value="2"
-                                                            {{ @$delivery_place->referral_facility == '2' ? 'selected' : '' }}>
-                                                            GH
-                                                        </option>
-                                                        <option value="3"
-                                                            {{ @$delivery_place->referral_facility == '3' ? 'selected' : '' }}>
-                                                            Medical College
-                                                        </option>
+                                                        @foreach ($hospital_types as $item)
+                                                            <option value="{{ $item->id }}"
+                                                                {{ @$mother_visit->referral_facility == $item->id ? 'selected' : '' }}>
+                                                                {{ $item->name }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="referral_place">Referral Place
-                                                    <span class="text-danger">*</span>
+                                                <label class="col-lg-4 col-form-label" for="referral_place">Name of
+                                                    Hospital
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" class="form-control" id="referral_place"
-                                                        name="referral_place"
-                                                        value="{{ @$mother_visit->referral_place }}">
+                                                    <select class="form-control" id="referral_place"
+                                                        name="referral_place">
+                                                        <option value="">Select </option>
+                                                        @foreach ($hospitals as $item)
+                                                            <option value="{{ $item->id }}"
+                                                                {{ @$mother_visit->referral_place == $item->id ? 'selected' : '' }}>
+                                                                {{ $item->name }}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -898,11 +984,11 @@
                                                     <select class="form-control" id="ultrasonogram" name="ultrasonogram">
                                                         <option value="">Select </option>
                                                         <option value="Yes"
-                                                            {{ @$delivery_place->ultrasonogram == 'Yes' ? 'selected' : '' }}>
+                                                            {{ @$mother_visit->ultrasonogram == 'Yes' ? 'selected' : '' }}>
                                                             Yes
                                                         </option>
                                                         <option value="No"
-                                                            {{ @$delivery_place->ultrasonogram == 'No' ? 'selected' : '' }}>
+                                                            {{ @$mother_visit->ultrasonogram == 'No' ? 'selected' : '' }}>
                                                             No
                                                         </option>
                                                     </select>
@@ -1055,15 +1141,15 @@
                                                         <select class="form-control" id="result" name="result">
                                                             <option value="">Select </option>
                                                             <option value="1"
-                                                                {{ @$delivery_place->result == '1' ? 'selected' : '' }}>
+                                                                {{ @$mother_visit->result == '1' ? 'selected' : '' }}>
                                                                 select 1
                                                             </option>
                                                             <option value="2"
-                                                                {{ @$delivery_place->result == '2' ? 'selected' : '' }}>
+                                                                {{ @$mother_visit->result == '2' ? 'selected' : '' }}>
                                                                 select 2
                                                             </option>
                                                             <option value="3"
-                                                                {{ @$delivery_place->result == '3' ? 'selected' : '' }}>
+                                                                {{ @$mother_visit->result == '3' ? 'selected' : '' }}>
                                                                 select 3
                                                             </option>
                                                         </select>

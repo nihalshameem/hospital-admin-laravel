@@ -89,6 +89,9 @@ class CreateMotherVisitsTable extends Migration
             $table->enum('is_vdrl_rpp', ['yes', 'no'])->nullable();
             $table->date('vdrl_date')->nullable();
             $table->enum('vdrl_result', ['Reactive', 'Non-reactive'])->nullable();
+            $table->enum('hbsag_status', ['positive', 'negative'])->nullable()->default('positive');
+            $table->string('mother_blood_grp_status', 50)->nullable();
+            $table->string('blood_grp', 50)->nullable();
             $table->timestamps();
         });
     }
