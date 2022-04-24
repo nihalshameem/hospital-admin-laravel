@@ -48,7 +48,7 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <select class="form-control" id="hsc_id" name="hsc_id">
+                                                <select class="form-control readonly" id="hsc_id" name="hsc_id">
                                                     @foreach ($hsc as $item)
                                                         <option value="{{ $item->id }}"
                                                             {{ $patient->hsc_id == $item->id ? 'selected' : '' }}>
