@@ -126,7 +126,7 @@
                                                     class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="datepicker-default form-control" id="edd_date"
+                                                <input type="text" class="form-control" id="edd_date" placeholder="YYYY-MM-DD"
                                                     name="edd_date">
                                             </div>
                                         </div>
@@ -261,7 +261,7 @@
 
                                 <div class="row">
                                     <div class="col-xl-6">
-                                        <div class="form-group row">
+                                        <div class="form-group row d-none">
                                             <label class="col-lg-4 col-form-label" for="abortion_if_any">Abortion id Any
                                                 <span class="text-danger">*</span>
                                             </label>
@@ -271,7 +271,7 @@
                                                     <option value="yes">
                                                         Yes
                                                     </option>
-                                                    <option value="no">
+                                                    <option value="no" selected>
                                                         No</option>
 
                                                 </select>
@@ -822,18 +822,17 @@
                                         <div class="col-xl-6">
                                             <div class="form-group row">
                                                 <label class="col-lg-4 col-form-label" for="referral_district">District
-                                                    <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <select class="form-control" id="referral_district"
-                                                        name="referral_district">
+                                                    <select class="form-control" id="referral_district" name="referral_district">
                                                         <option value="">Select </option>
                                                         @foreach ($districts as $item)
-                                                            <option value="{{ $item->id }}">
+                                                            <option value="{{ $item->id }}"
+                                                                {{ @$delivery_place->district == $item->id ? 'selected' : '' }}>
                                                                 {{ $item->name }}
                                                             </option>
                                                         @endforeach
-                                                        <option value="">Other </option>
+                                                        <option value="">Others </option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -842,35 +841,36 @@
                                     <div class="row">
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="referral_facility">Referral
-                                                    Facility
+                                                <label class="col-lg-4 col-form-label" for="referral_facility">Type of
+                                                    Hospital
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <select class="form-control" id="referral_facility"
                                                         name="referral_facility">
                                                         <option value="">Select </option>
-                                                        <option value="1">
-                                                            PHC
-                                                        </option>
-                                                        <option value="2">
-                                                            GH
-                                                        </option>
-                                                        <option value="3">
-                                                            Medical College
-                                                        </option>
+                                                        @foreach ($hospital_types as $item)
+                                                            <option value="{{ $item->id }}"
+                                                                {{ @$delivery_place->hospital_type_id == $item->id ? 'selected' : '' }}>
+                                                                {{ $item->name }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="referral_place">Referral Place
-                                                    <span class="text-danger">*</span>
+                                                <label class="col-lg-4 col-form-label" for="referral_place">Name of Hospital
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" class="form-control" id="referral_place"
-                                                        name="referral_place">
+                                                    <select class="form-control" id="referral_place" name="referral_place">
+                                                        <option value="">Select </option>
+                                                        @foreach ($hospitals as $item)
+                                                            <option value="{{ $item->id }}"
+                                                                {{ @$delivery_place->hospital_name == $item->id ? 'selected' : '' }}>
+                                                                {{ $item->name }}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>

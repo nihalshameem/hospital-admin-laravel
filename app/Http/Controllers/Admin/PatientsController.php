@@ -394,6 +394,9 @@ class PatientsController extends Controller
         $high_risks = HighRisk::all();
         $post_partums = PostPartum::all();
         $districts = District::all();
+        $hospital_types = HospitalType::all();
+        $hospitals = Hospital::all();
+        $delivery_place = DeliveryPlace::where('patient_id', $patient->id)->first();
 
         if ($request->ajax()) {
             $data = MotherVisit::select('id', 'patient_id', 'visit_type', 'an_visit_mother_name', 'financial_year', 'remark', 'result')->where('patient_id', $patient->id)->orderBy('updated_at', 'desc')->get();
@@ -432,7 +435,7 @@ class PatientsController extends Controller
         }
 
         $action = 'patient_add';
-        return view('modules.patient.mother_visit', compact('page_title', 'page_description', 'action', 'patient', 'mother_checkups', 'high_risks', 'post_partums', 'districts'));
+        return view('modules.patient.mother_visit', compact('page_title', 'page_description', 'action', 'patient', 'mother_checkups', 'high_risks', 'post_partums', 'districts', 'hospital_types', 'hospitals', 'delivery_place'));
     }
 
     // an mother visit add
@@ -615,9 +618,9 @@ class PatientsController extends Controller
         $title = 'Updated Successfully';
 
         if ($request->submit_btn == 'save') {
-            return redirect('patient/an-mother-visit/' . $id)->with('message', $message)->with('type', 'success')->with('heading', $title);
+            return redirect('patient/an-mother-visit/' . $visit->patient_id)->with('message', $message)->with('type', 'success')->with('heading', $title);
         } else {
-            return redirect('patient/mother-medical/' . $id)->with('message', $message)->with('type', 'success')->with('heading', $title);
+            return redirect('patient/mother-visit/edit/' . $id)->with('message', $message)->with('type', 'success')->with('heading', $title);
         }
 
     }
@@ -717,8 +720,10 @@ class PatientsController extends Controller
         $post_partums = PostPartum::all();
         $high_risks = HighRisk::all();
         $districts = District::all();
+        $hospital_types = HospitalType::all();
+        $hospitals = Hospital::all();
 
-        return view('modules.patient.mother_visit_edit', compact('page_title', 'page_description', 'action', 'mother_visit', 'patient', 'mother_checkups', 'post_partums', 'high_risks', 'districts'));
+        return view('modules.patient.mother_visit_edit', compact('page_title', 'page_description', 'action', 'mother_visit', 'patient', 'mother_checkups', 'post_partums', 'high_risks', 'districts', 'hospital_types', 'hospitals'));
     }
 
     public function mother_upload()
@@ -793,6 +798,11 @@ class PatientsController extends Controller
     {
         $path = public_path() . '/uploads/hospital_names.xlsx';
         ini_set('max_execution_time', 180);
+
+        $district = District::find(1);
+        if (!$district) {
+            District::create(['name' => 'Kallakurichi']);
+        }
 
         $data = Excel::toArray([], $path);
 

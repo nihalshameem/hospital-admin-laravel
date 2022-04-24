@@ -150,7 +150,7 @@
                                             <label class="col-lg-4 col-form-label" for="edd_date">EDD Date
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="datepicker-default form-control" id="edd_date"
+                                                <input type="text" class="form-control" id="edd_date" placeholder="YYYY-MM-DD"
                                                     name="edd_date" value="{{ @$mother_medical->edd_date }}">
                                             </div>
                                         </div>
@@ -621,7 +621,7 @@
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="district">Distric
+                                            <label class="col-lg-4 col-form-label" for="district">District
                                             </label>
                                             <div class="col-lg-8">
                                                 <select class="form-control" id="district" name="district">
