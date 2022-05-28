@@ -14,9 +14,9 @@
             </div>
 
             <div class="input-group search-area ml-auto d-inline-flex mr-3">
-                <input type="text" class="form-control" placeholder="Search here">
+                 <input type="text" name="search_rch" onchange="search_btn()" id="search_rch" class="form-control" placeholder="Search here">
                 <div class="input-group-append">
-                    <button type="button" class="input-group-text"><i class="flaticon-381-search-2"></i></button>
+                    <button type="button" onclick="search_btn()" class="input-group-text"><i class="flaticon-381-search-2"></i></button>
                 </div>
             </div>
         </div>
@@ -83,3 +83,68 @@
         </div>
     </div>
 @endsection
+<script>
+
+        function search_btn(){
+             var search_rch = $('#search_rch').val();
+
+        
+            $('#mother-visit-all-table').DataTable().destroy();
+            patient_datatable(search_rch);
+        };
+        
+        function patient_datatable(search_rch = ''){
+            console.log(search_rch);
+        if (jQuery("#mother-visit-all-table").length > 0) {
+            var table = $("#mother-visit-all-table").DataTable({
+                searching: false,
+                paging: true,
+                select: false,
+                //info: false,
+                lengthChange: false,
+                processing: true,
+                serverSide: true,
+                ajax:{
+                    url: window.location.href,
+                    data:{search_rch:search_rch}
+                },
+                columns: [
+                    {
+                        data: "checkbox",
+                        name: "checkbox",
+                    },
+                    {
+                        data: "rch_id",
+                        name: "rch_id",
+                    },
+                    {
+                        data: "hsc_name",
+                        name: "hsc_name",
+                    },
+                    {
+                        data: "an_mother",
+                        name: "an_mother",
+                    },
+                    {
+                        data: "husband_name",
+                        name: "husband_name",
+                    },
+                    {
+                        data: "mobile",
+                        name: "mobile",
+                    },
+                    {
+                        data: "an_reg_date",
+                        name: "an_reg_date",
+                    },
+                    {
+                        data: "edit",
+                        name: "edit",
+                        orderable: false,
+                        searchable: false,
+                    },
+                ],
+            });
+        }
+    }
+    </script>

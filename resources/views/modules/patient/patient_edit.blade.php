@@ -17,25 +17,27 @@
 
 
         <!-- row -->
-        <div class="row">
-            <div class="col-lg-12">
+        <div class="row" >
+            <div class="col-lg-12" >
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header" style="background-color: #ffb800;">
                         <h4 class="card-title">Mother Registration</h4>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" >
                         <div class="form-validation">
                             <form class="patient-form" action="{{ url('patient/' . $patient->id) }}" method="POST">
                                 @csrf
                                 {{-- all inputs --}}
-                                <div class="row">
+                            <div class="row" style="border: solid 3px #ffb800;padding: 20px;">
+                                 <div class="col-md-12">
+                                        <div class="row">
                                     <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="hsc_id">HSC Name
+                                        <div class="form-group row" >
+                                            <label class="col-lg-4 col-form-label" for="hsc_id" style="font-size: 16px;font-weight: 600;color: black;">HSC Name
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <select class="form-control readonly" id="hsc_id" name="hsc_id">
+                                                <select class="form-control readonly" id="hsc_id" name="hsc_id" style="font-size: 16px;font-weight: 400;color: black;">
                                                     @foreach ($hsc as $item)
                                                         <option value="{{ $item->id }}"
                                                             {{ $patient->hsc_id == $item->id ? 'selected' : '' }}>
@@ -47,26 +49,28 @@
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="rch_id">RCH ID
+                                            <label class="col-lg-4 col-form-label" for="rch_id" style="font-size: 16px;font-weight: 600;color: black;">RCH ID
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control readonly" id="rch_id" name="rch_id"
-                                                    value="{{ $patient->rch_id }}">
+                                                    value="{{ $patient->rch_id }}"  style="font-size: 16px;font-weight: 400;color: black;">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
+                               
                                 <div class="row">
                                     <div class="col-xl-6" style="display: none !important;">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="anc_number">SL.No of ANC in RCH
+                                            <label class="col-lg-4 col-form-label" for="anc_number"  >SL.No of ANC in RCH
                                                 Register
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="anc_number" name="anc_number"
-                                                    value="{{ $patient->anc_number }}">
+                                                    value="{{ $patient->anc_number }}" style="font-size: 16px;font-weight: 400;color: black;">
                                             </div>
                                         </div>
                                     </div>
@@ -75,105 +79,123 @@
                                             <label class="col-lg-4 col-form-label" for="ec_reg_date">Date of EC Registration
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="datepicker-default form-control" id="ec_reg_date"
+                                                <input type="text" class="default form-control" id="ec_reg_date"
                                                     name="ec_reg_date"
-                                                    value="{{ date('y/m/d', strtotime($patient->ec_reg_date)) }}">
+                                                    value="{{ $patient->ec_reg_date }}" style="font-size: 16px;font-weight: 400;color: black;">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="an_reg_date">Date of AN
+                                            <label class="col-lg-4 col-form-label" for="an_reg_date" style="font-size: 16px;font-weight: 600;color: black;">Date of AN
                                                 Registeration <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="datepicker-default form-control" id="an_reg_date"
-                                                    name="an_reg_date"
-                                                    value="{{ date('yy/m/d', strtotime($patient->an_reg_date)) }}">
+                                                <input type="text" class="default form-control" placeholder="dd-mm-yyyy" id="an_reg_date"
+                                                    name="an_reg_date" 
+                                                    value="{{ $patient->an_reg_date }}" style="font-size: 16px;font-weight: 400;color: black;">
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="financial_year">Financial Year
+                                            <label class="col-lg-4 col-form-label" for="financial_year" style="font-size: 16px;font-weight: 600;color: black;">Financial Year
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="financial_year"
                                                     name="financial_year" placeholder="YYYY - YYYY"
-                                                    value="{{ $patient->financial_year }}">
+                                                    value="{{ $patient->financial_year }}" style="font-size: 16px;font-weight: 400;color: black;">
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                               </div>
+                            </div>  
+                            <br>
+                            
+                            <div class="row" style="border: solid 3px #ffb800;padding: 20px;">
+                                 <div class="col-md-12">
+                                <div class="row">
+                                    
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="an_mother">AN Mother
+                                            <label class="col-lg-4 col-form-label" for="an_mother" style="font-size: 16px;font-weight: 600;color: black;">AN Mother
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="an_mother" name="an_mother"
-                                                    value="{{ $patient->an_mother }}">
+                                                    value="{{ $patient->an_mother }}" style="font-size: 16px;font-weight: 400;color: black;">
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-6">
+                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="husband_name">Name of Husband
+                                            <label class="col-lg-4 col-form-label" for="husband_name" style="font-size: 16px;font-weight: 600;color: black;">Name of Husband
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="husband_name"
-                                                    name="husband_name" value="{{ $patient->husband_name }}">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="address">Address
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <textarea class="form-control" id="address" name="address" rows="5">{{ $patient->address }}</textarea>
+                                                    name="husband_name" value="{{ $patient->husband_name }}" style="font-size: 16px;font-weight: 400;color: black;">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
+                                   
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="mobile">Mobile No
+                                            <label class="col-lg-4 col-form-label" for="address" style="font-size: 16px;font-weight: 600;color: black;">Address
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <textarea class="form-control" id="address" name="address" rows="5" style="font-size: 16px;font-weight: 400;color: black;">{{ $patient->address }}</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                     <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="mobile" style="font-size: 16px;font-weight: 600;color: black;">Mobile No
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="mobile" name="mobile"
-                                                    value="{{ $patient->mobile }}">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="living_children">Living Children
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="number" class="form-control" id="living_children"
-                                                    name="living_children" value="{{ $patient->living_children }}"
-                                                    min="0" step="1">
+                                                    value="{{ $patient->mobile }}" style="font-size: 16px;font-weight: 400;color: black;">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xl-6">
+                                   <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="cast">Cast
+                                            <label class="col-lg-4 col-form-label" for="dob" style="font-size: 16px;font-weight: 600;color: black;">Date of Birth
                                             </label>
                                             <div class="col-lg-6">
-                                                <select class="form-control" id="cast" name="cast">
-                                                    <option value="Others"
+                                                <input type="text" class="default form-control" placeholder="dd-mm-yyyy" id="dob"
+                                                    name="dob" value="{{ $patient->dob }}" style="font-size: 16px;font-weight: 400;color: black;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="age" style="font-size: 16px;font-weight: 600;color: black;">Age
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="number" class="form-control" id="age" name="age"
+                                                    value="{{ $patient->age }}" min="0" step="1" style="font-size: 16px;font-weight: 400;color: black;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="cast" style="font-size: 16px;font-weight: 600;color: black;">Cast
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <select class="form-control" id="cast" name="cast" style="font-size: 16px;font-weight: 400;color: black;" >
+                                                    <option style="font-size: 16px;font-weight: 400;color: black;" value="Others"
                                                         {{ $patient->cast == 'Others' ? 'selected' : '' }}>Others
                                                     </option>
-                                                    <option value="ST" {{ $patient->cast == 'ST' ? 'selected' : '' }}>ST
+                                                    <option style="font-size: 16px;font-weight: 400;color: black;" value="ST" {{ $patient->cast == 'ST' ? 'selected' : '' }}>ST
                                                     </option>
-                                                    <option value="SC" {{ $patient->cast == 'SC' ? 'selected' : '' }}>SC
+                                                    <option style="font-size: 16px;font-weight: 400;color: black;" value="SC" {{ $patient->cast == 'SC' ? 'selected' : '' }}>SC
                                                     </option>
                                                 </select>
                                             </div>
@@ -181,22 +203,22 @@
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="religion">Religion
+                                            <label class="col-lg-4 col-form-label" for="religion" style="font-size: 16px;font-weight: 600;color: black;">Religion
                                             </label>
                                             <div class="col-lg-6">
-                                                <select class="form-control" id="religion" name="religion">
+                                                <select class="form-control" id="religion" name="religion" style="font-size: 16px;font-weight: 400;color: black;">
                                                     <option value="">Please select</option>
-                                                    <option value="Christian"
-                                                        {{ $patient->religion == 'Christian' ? 'selected' : '' }}>
+                                                    <option  style="font-size: 16px;font-weight: 400;color: black;" value="Christian"
+                                                        {{ $patient->religion == 'Christian' ? 'selected' : '' }} >
                                                         Christian
                                                     </option>
-                                                    <option value="Muslim"
+                                                    <option style="font-size: 16px;font-weight: 400;color: black;"  value="Muslim"
                                                         {{ $patient->religion == 'Muslim' ? 'selected' : '' }}>Muslim
                                                     </option>
-                                                    <option value="Hindu"
+                                                    <option style="font-size: 16px;font-weight: 400;color: black;" value="Hindu"
                                                         {{ $patient->religion == 'Hindu' ? 'selected' : '' }}>Hindu
                                                     </option>
-                                                    <option value="Others"
+                                                    <option style="font-size: 16px;font-weight: 400;color: black;" value="Others"
                                                         {{ $patient->religion == 'Others' ? 'selected' : '' }}>Others
                                                     </option>
                                                 </select>
@@ -204,26 +226,22 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <br>
+                             <div class="row" style="border: solid 3px #ffb800;padding: 20px;">
+                                 <div class="col-md-12">    
                                 <div class="row">
+                                    
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="dob">Date of Birth
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="datepicker" class="datepicker-default form-control" id="dob"
-                                                    name="dob" value="{{ date('y/m/d', strtotime($patient->dob)) }}">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="para">Para <span
+                                            <label class="col-lg-4 col-form-label" for="para" style="font-size: 16px;font-weight: 600;color: black;">Para <span
                                                     class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <select class="form-control" id="para" name="para">
+                                                <select class="form-control" id="para" name="para" style="font-size: 16px;font-weight: 400;color: black;">
                                                     @for ($i = 0; $i <= 10; $i++)
-                                                        <option value="{{ $i }}"
+                                                        <option style="font-size: 16px;font-weight: 400;color: black;" value="{{ $i }}"
                                                             {{ $patient->para == $i ? 'selected' : '' }}>
                                                             {{ $i }}</option>
                                                     @endfor
@@ -231,17 +249,15 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="gravida">Gravida <span
+                                            <label class="col-lg-4 col-form-label" for="gravida" style="font-size: 16px;font-weight: 600;color: black;">Gravida <span
                                                     class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <select class="form-control" id="gravida" name="gravida">
+                                                <select class="form-control" id="gravida" name="gravida" style="font-size: 16px;font-weight: 400;color: black;">
                                                     @for ($i = 0; $i <= 10; $i++)
-                                                        <option value="{{ $i }}"
+                                                        <option style="font-size: 16px;font-weight: 400;color: black;" value="{{ $i }}"
                                                             {{ $patient->gravida == $i ? 'selected' : '' }}>
                                                             {{ $i }}</option>
                                                     @endfor
@@ -249,77 +265,94 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6">
+                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="mother_weight">Weight of Mother(in
+                                            <label class="col-lg-4 col-form-label" for="living_children" style="font-size: 16px;font-weight: 600;color: black;">Living Children
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="number" class="form-control" id="living_children"
+                                                    name="living_children" value="{{ $patient->living_children }}"
+                                                    min="0" step="1" style="font-size: 16px;font-weight: 400;color: black;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                      </div>    
+                      <br>
+                      <div class="row" style="border: solid 3px #ffb800;padding: 20px;">
+                           <div class="col-md-12"> 
+                                    <div class="row">
+                                    
+                                       <div class="col-xl-6">
+                                           <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="mother_weight" style="font-size: 16px;font-weight: 600;color: black;">Weight of Mother(in
                                                 Kg) <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="number" class="form-control" id="mother_weight"
                                                     name="mother_weight" min="0" step="1"
-                                                    value="{{ $patient->mother_weight }}">
+                                                    value="{{ $patient->mother_weight }}" style="font-size: 16px;font-weight: 400;color: black;">
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-6">
+                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="pw_height">Height of PW(in cm)
+                                            <label class="col-lg-4 col-form-label" for="pw_height" style="font-size: 16px;font-weight: 600;color: black;">Height of PW(in cm)
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="number" class="form-control" id="pw_height" name="pw_height"
-                                                    min="0" step="1" value="{{ $patient->pw_height }}">
+                                                    min="0" step="1" value="{{ $patient->pw_height }}" style="font-size: 16px;font-weight: 400;color: black;">
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                                
+                                <div class="row">
+                                   
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="bp_diastolic">BP Diastolic(MM of
+                                            <label class="col-lg-4 col-form-label" for="bp_diastolic" style="font-size: 16px;font-weight: 600;color: black;">BP Diastolic(MM of
                                                 Hg)
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="number" class="form-control" id="bp_diastolic"
                                                     name="bp_diastolic" min="40" max="100" placeholder="Range 40 to 100"
-                                                    value="{{ $patient->bp_diastolic }}">
+                                                    value="{{ $patient->bp_diastolic }}" style="font-size: 16px;font-weight: 400;color: black;">
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-6">
+                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="bp_systolic">BP Systolic(MM of Hg)
+                                            <label class="col-lg-4 col-form-label" for="bp_systolic" style="font-size: 16px;font-weight: 600;color: black;">BP Systolic(MM of Hg)
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="number" class="form-control" id="bp_systolic"
                                                     name="bp_systolic" min="70" max="190" placeholder="Range 70 to 190"
-                                                    value="{{ $patient->bp_systolic }}">
+                                                    value="{{ $patient->bp_systolic }}" style="font-size: 16px;font-weight: 400;color: black;">
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-6">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="age">Age
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="number" class="form-control" id="age" name="age"
-                                                    value="{{ $patient->age }}" min="0" step="1">
-                                            </div>
-                                        </div>
-                                    </div>
+                                </div>
+                        </div>
+                    </div>   
+                    <br>
+                                <div class="row">
+                                   
+                                   
+                                    
                                     <div class="col-xl-6" style="display: none !important;">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="last_visit_date_ec_tracking">Last
                                                 Visit Date of EC Tracking
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="datepicker" class="datepicker-default form-control"
+                                                <input type="text" class="form-control"
                                                     id="last_visit_date_ec_tracking" name="last_visit_date_ec_tracking"
-                                                    value="{{ date('y/m/d', strtotime($patient->last_visit_date_ec_tracking)) }}">
+                                                    value="{{ $patient->last_visit_date_ec_tracking }}">
                                             </div>
                                         </div>
                                     </div>
@@ -329,7 +362,7 @@
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="bpl_apl">BPL/APL
                                             </label>
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-6" >
                                                 <select class="form-control" id="bpl_apl" name="bpl_apl">
                                                     <option value="BPL"
                                                         {{ $patient->bpl_apl == 'BPL' ? 'selected' : '' }}>
@@ -344,18 +377,8 @@
 
                                 </div>
                                 <div class="row">
-                                    <div class="col-xl-6" style="display: none !important;">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="an_reg_date">Date of AN
-                                                Registeration <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="text" class="datepicker-default form-control" id="an_reg_date"
-                                                    name="an_reg_date"
-                                                    value="{{ date('yy/m/d', strtotime($patient->an_reg_date)) }}">
-                                            </div>
-                                        </div>
-                                    </div>
+                                   
+                                    
                                     <div class="col-xl-6">
                                         <div class="form-group row">
                                             <div class="col-lg-8 ml-auto">

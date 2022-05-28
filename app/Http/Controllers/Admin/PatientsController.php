@@ -46,8 +46,11 @@ class PatientsController extends Controller
         $page_description = 'Mother Registration List';
 
         $action = __FUNCTION__;
-
+//  echo $request->search_rch;
+//             echo die();
         if ($request->ajax()) {
+            // echo $request->search_rch;
+            // echo die();
             $start = date('Y-m-d');
             $end = date('Y-m-d', strtotime($start . '+ 7 days'));
 
@@ -57,7 +60,16 @@ class PatientsController extends Controller
                 $data = DB::table('patients as p')->join('mother_medicals as m', 'p.id', '=', 'm.patient_id')->join('h_s_c_s as hsc', 'hsc.id', '=', 'p.hsc_id')->whereBetween('m.edd_date', [$start, $end])->select('p.id', 'p.hsc_id', 'p.rch_id', 'p.an_mother', 'p.husband_name', 'p.an_reg_date', 'hsc.name as hsc_name')->groupBy('p.id')->get();
             } elseif ($request->q == 'high_risk_edd') {
                 $data = DB::table('patients as p')->join('mother_visits as v', 'p.id', '=', 'v.patient_id')->join('mother_medicals as m', 'p.id', '=', 'm.patient_id')->join('h_s_c_s as hsc', 'hsc.id', '=', 'p.hsc_id')->whereBetween('m.edd_date', [$start, $end])->whereIn('v.high_risk', [1, 2, 3, 4, 5, 6, 7, 8])->groupBy('p.id')->select('p.id', 'p.hsc_id', 'p.rch_id', 'p.an_mother', 'p.husband_name', 'p.an_reg_date', 'hsc.name as hsc_name')->get();
-            } else {
+            } 
+            else if(!empty($request->search_rch)) {
+                 $data = DB::table('patients')
+                    ->select('patients.id', 'patients.hsc_id', 'patients.rch_id', 'patients.an_mother', 'patients.husband_name', 'patients.an_reg_date', 'hsc.name as hsc_name')
+                    ->join('h_s_c_s as hsc', 'hsc.id', '=', 'patients.hsc_id')
+                    ->where('patients.rch_id', $request->search_rch)
+                    ->orWhere('patients.rch_id', 'like', '%' . $request->search_rch . '%')
+                    ->get();
+            } 
+            else {
                 $data = DB::table('patients')
                     ->select('patients.id', 'patients.hsc_id', 'patients.rch_id', 'patients.an_mother', 'patients.husband_name', 'patients.an_reg_date', 'hsc.name as hsc_name')
                     ->join('h_s_c_s as hsc', 'hsc.id', '=', 'patients.hsc_id')
@@ -170,6 +182,7 @@ class PatientsController extends Controller
     {
         try {
             $patient = Patient::find($id);
+            
             $patient->hsc_id = $request->hsc_id;
             $patient->rch_id = $request->rch_id;
             $patient->anc_number = $request->anc_number;
@@ -196,15 +209,71 @@ class PatientsController extends Controller
             $patient->an_reg_date = $request->an_reg_date;
             $patient->age = $request->age;
             $patient->save();
-        } catch (\Exception $e) {
-            return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
-        }
-
-        if ($request->submit_btn == 'save') {
+            if ($request->submit_btn == 'save') {
             return redirect('patient')->with('message', 'Patient details updated')->with('type', 'success')->with('heading', 'Updated Successfully');
         } else {
             return redirect('patient/mother-medical/' . $patient->id)->with('message', 'Patient Registration updated')->with('type', 'success')->with('heading', 'Updated Successfully');
         }
+        } catch (\Exception $e) {
+            return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
+        }
+
+        
+
+    }
+    
+     public function patient_delete(Request $request, $id)
+    {
+        try {
+            $patient = Patient::where('id',$id)->delete();
+            $patient = DeliveryPlace::where('patient_id',$id)->delete();
+            $patient = MotherMedical::where('patient_id',$id)->delete();
+            $patient = MotherVisit::where('patient_id',$id)->delete();
+            $patient = PastObstetricHistory::where('patient_id',$id)->delete();
+            
+            
+            
+            return redirect('patient')->with('message', 'Patient details deleted')->with('type', 'success')->with('heading', 'Deleted Successfully');
+       
+        } catch (\Exception $e) {
+            return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
+        }
+
+        
+
+    }
+    
+     public function patient_mother_medical_delete(Request $request, $id)
+    {
+        try {
+            $patient = MotherMedical::where('id',$id)->delete();
+            
+            
+            
+            return redirect('patient')->with('message', 'Patient details deleted')->with('type', 'success')->with('heading', 'Deleted Successfully');
+       
+        } catch (\Exception $e) {
+            return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
+        }
+
+        
+
+    }
+    
+     public function patient_mother_visit_delete(Request $request, $id)
+    {
+        try {
+            $patient = MotherVisit::where('id',$id)->delete();
+            
+            
+            
+            return redirect('patient')->with('message', 'Patient details deleted')->with('type', 'success')->with('heading', 'Deleted Successfully');
+       
+        } catch (\Exception $e) {
+            return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
+        }
+
+        
 
     }
 
@@ -396,6 +465,7 @@ class PatientsController extends Controller
         $districts = District::all();
         $hospital_types = HospitalType::all();
         $hospitals = Hospital::all();
+        $mother_medical = MotherMedical::where('patient_id',$id)->first();
         $delivery_place = DeliveryPlace::where('patient_id', $patient->id)->first();
 
         if ($request->ajax()) {
@@ -435,12 +505,13 @@ class PatientsController extends Controller
         }
 
         $action = 'patient_add';
-        return view('modules.patient.mother_visit', compact('page_title', 'page_description', 'action', 'patient', 'mother_checkups', 'high_risks', 'post_partums', 'districts', 'hospital_types', 'hospitals', 'delivery_place'));
+        return view('modules.patient.mother_visit', compact('page_title', 'page_description', 'action', 'patient', 'mother_checkups', 'high_risks', 'post_partums', 'districts', 'hospital_types', 'hospitals', 'delivery_place','mother_medical'));
     }
 
     // an mother visit add
     public function mother_visit_add(Request $request, $id)
     {
+        // return $request;
         try {
             MotherVisit::create([
                 'patient_id' => $id,
@@ -480,6 +551,9 @@ class PatientsController extends Controller
                 'tt_date' => $request->tt_date,
                 'albendazole_date' => $request->albendazole_date,
                 'ifa_date' => $request->ifa_date,
+                'ifa_tablet' => $request->ifa_tablet,
+                'fa_date' => $request->fa_date,
+                'fa_tablet' => $request->fa_tablet,
                 'fundal_size' => $request->fundal_size,
                 'calcium_tablet' => $request->calcium_tablet,
                 'calcium_date' => $request->calcium_date,
@@ -573,6 +647,9 @@ class PatientsController extends Controller
             $visit->tt_date = $request->tt_date;
             $visit->albendazole_date = $request->albendazole_date;
             $visit->ifa_date = $request->ifa_date;
+            $visit->ifa_tablet = $request->ifa_tablet;
+            $visit->fa_date = $request->fa_date;
+            $visit->fa_tablet = $request->fa_tablet;
             $visit->fundal_size = $request->fundal_size;
             $visit->calcium_tablet = $request->calcium_tablet;
             $visit->calcium_date = $request->calcium_date;
@@ -636,6 +713,7 @@ class PatientsController extends Controller
 
         if ($request->ajax()) {
             $data = MotherMedical::select('id', 'patient_id', 'pw_rch_reg_number', 'financial_year', 'mother_name', 'eligible_for_mrmbs', 'an_reg_date')->get();
+            // $data =DB::table('patients as p')->join('mother_visits as v', 'p.id', '=', 'v.patient_id')->join('h_s_c_s as hsc', 'hsc.id', '=', 'p.hsc_id')->select('p.rch_id', 'hsc.name as hsc_name', 'p.an_mother', 'p.id as patient_id', 'p.husband_name', 'p.mobile', 'p.an_reg_date')
 
             return Datatables::of($data)->addIndexColumn()
                 ->addColumn('checkbox', function ($row) {
@@ -682,7 +760,13 @@ class PatientsController extends Controller
 
         if ($request->ajax()) {
             $data = DB::table('patients as p')->join('mother_visits as v', 'p.id', '=', 'v.patient_id')->join('h_s_c_s as hsc', 'hsc.id', '=', 'p.hsc_id')->select('p.rch_id', 'hsc.name as hsc_name', 'p.an_mother', 'p.id as patient_id', 'p.husband_name', 'p.mobile', 'p.an_reg_date')->groupBy('p.id')->get();
-
+            if(!empty($request->search_rch)) {
+                 $data =DB::table('patients as p')->join('mother_visits as v', 'p.id', '=', 'v.patient_id')->join('h_s_c_s as hsc', 'hsc.id', '=', 'p.hsc_id')->select('p.rch_id', 'hsc.name as hsc_name', 'p.an_mother', 'p.id as patient_id', 'p.husband_name', 'p.mobile', 'p.an_reg_date')
+                    ->where('p.rch_id', $request->search_rch)
+                    ->orWhere('p.rch_id', 'like', '%' . $request->search_rch . '%')
+                    ->groupBy('p.id')
+                    ->get();
+            } 
             return Datatables::of($data)->addIndexColumn()
                 ->addColumn('checkbox', function ($row) {
                     $checkbox = '<div class="checkbox text-right align-self-center">
@@ -740,7 +824,7 @@ class PatientsController extends Controller
     public function excel_upload(Request $request)
     {
         $this->validate($request, [
-            'uploaded_file' => 'required|mimes:xls,xlsx',
+            'uploaded_file' => 'required|mimes:xls,xlsx,csv',
         ]);
 
         try {
@@ -748,9 +832,10 @@ class PatientsController extends Controller
             $path1 = $request->file('uploaded_file')->store('temp');
             $path = storage_path('app') . '/' . $path1;
             ini_set('max_execution_time', 180);
-
+ 
             $data = Excel::toArray([], $path);
-
+// echo $data;
+//         echo die();
             if (count($data) > 0) {
                 foreach ($data as $key => $value) {
                     foreach ($value as $k2 => $row) {

@@ -18,7 +18,7 @@ class CreatePatientsTable extends Migration
             $table->bigInteger('hsc_id')->nullable();
             $table->string('rch_id', 200)->nullable();
             $table->string('anc_number', 100)->nullable();
-            $table->date('ec_reg_date')->nullable();
+            $table->string('ec_reg_date', 190)->nullable();
             $table->string('financial_year', 100)->nullable();
             $table->string('an_mother', 200)->nullable();
             $table->string('husband_name', 200)->nullable();
@@ -29,7 +29,7 @@ class CreatePatientsTable extends Migration
             $table->integer('living_children')->default(0)->nullable();
             $table->enum('cast', ['ST', 'SC', 'Others'])->nullable();
             $table->enum('religion', ['Christian', 'Muslim', 'Hindu', 'Others'])->nullable();
-            $table->date('dob')->nullable();
+            $table->string('dob', 190)->nullable();
             $table->integer('gravida')->default(0)->nullable();
             $table->integer('para')->default(0)->nullable();
             $table->float('pw_height', 8, 2)->nullable();
@@ -37,8 +37,8 @@ class CreatePatientsTable extends Migration
             $table->float('bp_systolic', 8, 2)->nullable();
             $table->float('bp_diastolic', 8, 2)->nullable();
             $table->string('bpl_apl')->nullable();
-            $table->date('last_visit_date_ec_tracking')->nullable();
-            $table->date('an_reg_date')->nullable();
+            $table->string('last_visit_date_ec_tracking', 190)->nullable();
+            $table->string('an_reg_date', 190)->nullable();
             $table->integer('age')->nullable();
             $table->timestamps();
         });

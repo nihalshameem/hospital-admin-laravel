@@ -13,9 +13,9 @@
             </div> --}}
 
             <div class="input-group search-area ml-auto d-inline-flex mr-3">
-                <input type="text" class="form-control" placeholder="Search here">
+                <input type="text" name="search_rch" onchange="search_btn()" id="search_rch" class="form-control" placeholder="Search here">
                 <div class="input-group-append">
-                    <button type="button" class="input-group-text"><i class="flaticon-381-search-2"></i></button>
+                    <button type="button" onclick="search_btn()" class="input-group-text"><i class="flaticon-381-search-2"></i></button>
                 </div>
             </div>
         </div>
@@ -81,3 +81,74 @@
         </div>
     </div>
 @endsection
+<script>
+
+        function search_btn(){
+             var search_rch = $('#search_rch').val();
+
+        
+            $('#mother-medical-table').DataTable().destroy();
+            patient_datatable(search_rch);
+        };
+        
+        function patient_datatable(search_rch = ''){
+            console.log(search_rch);
+         if (jQuery("#mother-medical-table").length > 0) {
+            var table = $("#mother-medical-table").DataTable({
+                searching: false,
+                paging: true,
+                select: false,
+                //info: false,
+                lengthChange: false,
+                processing: true,
+                serverSide: true,
+                ajax:{
+                    url: window.location.href,
+                    data:{search_rch:search_rch}
+                },
+                columns: [
+                    {
+                        data: "checkbox",
+                        name: "checkbox",
+                    },
+                    {
+                        data: "patient_id",
+                        name: "patient_id",
+                    },
+                    {
+                        data: "pw_rch_reg_number",
+                        name: "pw_rch_reg_number",
+                    },
+                    {
+                        data: "financial_year",
+                        name: "financial_year",
+                    },
+                    {
+                        data: "mother_name",
+                        name: "mother_name",
+                    },
+                    {
+                        data: "eligible_for_mrmbs",
+                        name: "eligible_for_mrmbs",
+                    },
+                    {
+                        data: "an_reg_date",
+                        name: "an_reg_date",
+                    },
+                    {
+                        data: "edit",
+                        name: "edit",
+                        orderable: false,
+                        searchable: false,
+                    },
+                    {
+                        data: "delete",
+                        name: "delete",
+                        orderable: false,
+                        searchable: false,
+                    },
+                ],
+            });
+        }
+    }
+    </script>

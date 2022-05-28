@@ -6,16 +6,16 @@
 {{-- Content --}}
 @section('content')
     <!-- row -->
-    <div class="container-fluid">
+    <div class="container-fluid" style="background-color: #ffb800;">
         <div class="form-head d-flex mb-3 mb-md-4 align-items-start">
             <div class="mr-auto d-none d-lg-block">
-                <a href="{!! url('/patient/add') !!}" class="btn btn-primary btn-rounded">+ Add New</a>
+                <a href="{!! url('/patient/add') !!}" class="btn btn-primary btn-rounded" style="background: black;">+ Add New</a>
             </div>
 
             <div class="input-group search-area ml-auto d-inline-flex mr-3">
-                <input type="text" class="form-control" placeholder="Search here">
+                <input type="text" name="search_rch" onchange="search_btn()" id="search_rch" class="form-control" placeholder="Search here">
                 <div class="input-group-append">
-                    <button type="button" class="input-group-text"><i class="flaticon-381-search-2"></i></button>
+                    <button type="button" onclick="search_btn()" class="input-group-text"><i class="flaticon-381-search-2"></i></button>
                 </div>
             </div>
         </div>
@@ -80,4 +80,78 @@
             </div>
         </div>
     </div>
+    
 @endsection
+<script>
+
+        function search_btn(){
+             var search_rch = $('#search_rch').val();
+
+        
+            $('#patient-table').DataTable().destroy();
+            patient_datatable(search_rch);
+        };
+        
+        function patient_datatable(search_rch = ''){
+            console.log(search_rch);
+        if (jQuery("#patient-table").length > 0) {
+            var table = $("#patient-table").DataTable({
+                searching: false,
+                paging: true,
+                select: false,
+                //info: false,
+                lengthChange: false,
+                processing: true,
+                serverSide: true,
+                // ajax: window.location.href,
+                ajax:{
+                    url: window.location.href,
+                    data:{search_rch:search_rch}
+                },
+                columns: [
+                    {
+                        data: "checkbox",
+                        name: "checkbox",
+                    },
+                    {
+                        data: "id",
+                        name: "id",
+                    },
+                    {
+                        data: "hsc_name",
+                        name: "hsc_name",
+                    },
+                    {
+                        data: "rch_id",
+                        name: "rch_id",
+                    },
+                    {
+                        data: "an_mother",
+                        name: "an_mother",
+                    },
+                    {
+                        data: "husband_name",
+                        name: "husband_name",
+                    },
+                    {
+                        data: "an_reg_date",
+                        name: "an_reg_date",
+                    },
+                    {
+                        data: "edit",
+                        name: "edit",
+                        orderable: false,
+                        searchable: false,
+                    },
+                    {
+                        data: "delete",
+                        name: "delete",
+                        orderable: false,
+                        searchable: false,
+                    },
+                ],
+            });
+        }
+    }
+    </script>
+
