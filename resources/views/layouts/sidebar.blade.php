@@ -8,7 +8,12 @@
                 <ul aria-expanded="false">
                     <li><a href="{!! url('/home') !!}">Dashboard</a></li>
                     
+                    
+                       <li><a href=" https://niraisool.com/excel/index.php">Excel File Upload</a></li>
+                   
+                    <!----------
                     <li><a href="{!! url('mother-upload') !!}">Mother Upload</a></li>
+                    !---->
                     
                     <li><a href="{!! url('patient') !!}">Mother Registration</a></li>
                         <li><a href="{!! url('mother-medical') !!}">Mother Medical</a></li>

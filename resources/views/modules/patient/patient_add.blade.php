@@ -64,7 +64,7 @@
                                             <label class="col-lg-4 col-form-label" for="ec_reg_date">Date of EC Registration
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="date" class="datepicker-default form-control" id="ec_reg_date"
+                                                <input type="text" class=" form-control" id="ec_reg_date"
                                                     name="ec_reg_date">
                                             </div>
                                         </div>
@@ -75,7 +75,7 @@
                                                 Registeration <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="date" class="datepicker-default form-control" id="an_reg_date"
+                                                <input type="text" class="form-control" id="an_reg_date"
                                                     name="an_reg_date">
                                             </div>
                                         </div>
@@ -180,7 +180,7 @@
                                             <label class="col-lg-4 col-form-label" for="dob">Date of Birth
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="datepicker" class="datepicker-default form-control" id="dob"
+                                                <input type="text" class="form-control" id="dob"
                                                     name="dob">
                                             </div>
                                         </div>
@@ -279,7 +279,7 @@
                                                 Visit Date of EC Tracking
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="datepicker" class="datepicker-default form-control"
+                                                <input type="text" class="form-control"
                                                     id="last_visit_date_ec_tracking" name="last_visit_date_ec_tracking">
                                             </div>
                                         </div>
@@ -301,17 +301,7 @@
                                     
                                 </div>
                                 <div class="row">
-                                    <div class="col-xl-6" style="display: none !important">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="an_reg_date">Date of AN
-                                                Registeration <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <input type="date" class="datepicker-default form-control" id="an_reg_date"
-                                                    name="an_reg_date">
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                     <div class="col-xl-6">
                                         <div class="form-group row">
                                             <div class="col-lg-8 ml-auto">

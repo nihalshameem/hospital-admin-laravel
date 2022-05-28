@@ -94,12 +94,13 @@ Route::get('/patient/add', 'App\Http\Controllers\Admin\PatientsController@patien
 Route::post('/patient/add', 'App\Http\Controllers\Admin\PatientsController@patient_add_submit');
 Route::get('/patient/{id}', 'App\Http\Controllers\Admin\PatientsController@patient_edit');
 Route::post('/patient/{id}', 'App\Http\Controllers\Admin\PatientsController@patient_update');
-Route::post('/patient/delete/{id}', 'App\Http\Controllers\Admin\PatientsController@patient_delete');
+Route::get('/patient/delete/{id}', 'App\Http\Controllers\Admin\PatientsController@patient_delete');
 
 // mother register
 Route::get('/mother-medical', 'App\Http\Controllers\Admin\PatientsController@mother_medical_list');
 Route::get('/patient/mother-medical/{id}', 'App\Http\Controllers\Admin\PatientsController@mother_medical');
 Route::post('/patient/mother-medical/{id}', 'App\Http\Controllers\Admin\PatientsController@mother_medical_update');
+Route::get('/patient/mother-medical/delete/{id}', 'App\Http\Controllers\Admin\PatientsController@patient_mother_medical_delete');
 
 // an mother visits
 Route::get('/an-mother-visit', 'App\Http\Controllers\Admin\PatientsController@mother_visit_list');
@@ -107,6 +108,8 @@ Route::get('/patient/an-mother-visit/{id}', 'App\Http\Controllers\Admin\Patients
 Route::post('/patient/an-mother-visit/{id}', 'App\Http\Controllers\Admin\PatientsController@mother_visit_add');
 Route::get('/patient/mother-visit/edit/{id}', 'App\Http\Controllers\Admin\PatientsController@mother_visit_edit');
 Route::post('/patient/mother-visit/edit/{id}', 'App\Http\Controllers\Admin\PatientsController@mother_visit_update');
+Route::get('/patient/mother-visit/delete/{id}', 'App\Http\Controllers\Admin\PatientsController@patient_mother_visit_delete');
+
 
 // upload
 Route::get('/mother-upload', 'App\Http\Controllers\Admin\PatientsController@mother_upload');

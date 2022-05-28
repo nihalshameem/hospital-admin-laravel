@@ -19,11 +19,11 @@
         <!-- row -->
         <div class="row">
             <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header">
+                <div class="card" >
+                    <div class="card-header" style="background-color: #ffb800;">
                         <h4 class="card-title">General Details</h4>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" style="border: solid 3px #ffb800;padding: 20px;">
                         <div class="form-validation">
                             <form class="mother-visit-form" action="{{ url('patient/an-mother-visit/' . $patient->id) }}"
                                 method="POST">
@@ -47,7 +47,7 @@
 
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="rch_id">RCH ID
+                                            <label class="col-lg-4 col-form-label" for="rch_id" style="font-size: 16px;font-weight: 600;color: black;">RCH ID
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
@@ -58,7 +58,7 @@
                                     </div>
                                     <div class="col-xl-6" style="display: none !important;">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="rch_number">SL. No of RCH Register
+                                            <label class="col-lg-4 col-form-label" for="rch_number"style="font-size: 16px;font-weight: 600;color: black;">SL. No of RCH Register
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
@@ -70,19 +70,19 @@
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="an_reg_date">Date of AN
+                                            <label class="col-lg-4 col-form-label" for="an_reg_date"style="font-size: 16px;font-weight: 600;color: black;">Date of AN
                                                 Registration
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="datepicker-default form-control" id="an_reg_date"
-                                                    name="an_reg_date">
+                                                <input type="text" class="form-control" id="an_reg_date"
+                                                    name="an_reg_date" value="{{$patient->an_reg_date }}">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="financial_year">Financial Year
+                                            <label class="col-lg-4 col-form-label" for="financial_year"style="font-size: 16px;font-weight: 600;color: black;">Financial Year
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
@@ -96,23 +96,23 @@
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="an_visit_mother_name">AN Visit
+                                            <label class="col-lg-4 col-form-label" for="an_visit_mother_name"style="font-size: 16px;font-weight: 600;color: black;">AN Visit
                                                 Mother Name
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="an_visit_mother_name"
-                                                    name="an_visit_mother_name">
+                                                    name="an_visit_mother_name" value="{{ $patient->an_mother }}">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="lmp_date">LMP Date
+                                            <label class="col-lg-4 col-form-label" for="lmp_date"style="font-size: 16px;font-weight: 600;color: black;">LMP Date
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="datepicker-default form-control" id="lmp_date">
+                                                <input type="text" class="form-control" id="lmp_date" name="lmp_date" value="{{ @$mother_medical->lmp_date }}">
                                             </div>
                                         </div>
                                     </div>
@@ -122,18 +122,18 @@
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="edd_date">EDD Date<span
+                                            <label class="col-lg-4 col-form-label" for="edd_date"style="font-size: 16px;font-weight: 600;color: black;">EDD Date<span
                                                     class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="edd_date" placeholder="YYYY-MM-DD"
-                                                    name="edd_date">
+                                                    name="edd_date" value="{{ @$mother_medical->edd_date }}">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="within_pregnancy_week">Physically
+                                            <label class="col-lg-4 col-form-label" for="within_pregnancy_week"style="font-size: 16px;font-weight: 600;color: black;">Physically
                                                 present during the Visit
                                                 <span class="text-danger">*</span>
                                             </label>
@@ -154,7 +154,7 @@
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="district">District
+                                            <label class="col-lg-4 col-form-label" for="district"style="font-size: 16px;font-weight: 600;color: black;">District
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
@@ -171,7 +171,7 @@
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="checkup_place">Facility/Place/Site
+                                            <label class="col-lg-4 col-form-label" for="checkup_place"style="font-size: 16px;font-weight: 600;color: black;">Facility/Place/Site
                                                 of ANC Checkup
                                                 <span class="text-danger">*</span>
                                             </label>
@@ -192,7 +192,7 @@
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="place_name">Place Name
+                                            <label class="col-lg-4 col-form-label" for="place_name"style="font-size: 16px;font-weight: 600;color: black;">Place Name
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="form-control" id="place_name" name="place_name">
@@ -201,7 +201,7 @@
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="mother_blood">Blood Group Of Mother
+                                            <label class="col-lg-4 col-form-label" for="mother_blood"style="font-size: 16px;font-weight: 600;color: black;">Blood Group Of Mother
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-3">
@@ -237,7 +237,7 @@
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="hbsag_status">HBsAg Status
+                                            <label class="col-lg-4 col-form-label" for="hbsag_status"style="font-size: 16px;font-weight: 600;color: black;">HBsAg Status
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
@@ -262,7 +262,7 @@
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row d-none">
-                                            <label class="col-lg-4 col-form-label" for="abortion_if_any">Abortion id Any
+                                            <label class="col-lg-4 col-form-label" for="abortion_if_any"style="font-size: 16px;font-weight: 600;color: black;">Abortion id Any
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
@@ -280,7 +280,7 @@
                                     </div>
                                     <div class="col-xl-6" id="week_preg_div">
                                         <div class="form-group row">
-                                            <label class="col-lg-12 col-form-label text-danger" for="">Note: Week of
+                                            <label class="col-lg-12 col-form-label text-danger" for=""style="font-size: 16px;font-weight: 600;color: black;">Note: Week of
                                                 pregnancy should be less than 28
                                             </label>
                                         </div>
@@ -292,18 +292,18 @@
                                 <div class="row" id="ab_date_div">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="abortion_date">Abortion Date
+                                            <label class="col-lg-4 col-form-label" for="abortion_date"style="font-size: 16px;font-weight: 600;color: black;">Abortion Date
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="datepicker-default form-control"
+                                                <input type="text" class="form-control"
                                                     id="abortion_date" name="abortion_date">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="abortion_type">Abortion Type
+                                            <label class="col-lg-4 col-form-label" for="abortion_type" style="font-size: 16px;font-weight: 600;color: black;">Abortion Type
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
@@ -326,7 +326,7 @@
                                 <div class="row" id="dist_faci_div">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="abortion_district">Distric
+                                            <label class="col-lg-4 col-form-label" for="abortion_district" style="font-size: 16px;font-weight: 600;color: black;">Distric
                                             </label>
                                             <div class="col-lg-6">
                                                 <select class="form-control" id="abortion_district"
@@ -343,7 +343,7 @@
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="abortion_facility">Facility
+                                            <label class="col-lg-4 col-form-label" for="abortion_facility" style="font-size: 16px;font-weight: 600;color: black;">Facility
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
@@ -372,7 +372,7 @@
                                 <div class="row" id="week_preg_inp_div">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="abortion_pregnancy_week">Week of
+                                            <label class="col-lg-4 col-form-label" for="abortion_pregnancy_week" style="font-size: 16px;font-weight: 600;color: black;">Week of
                                                 Pregnancy
                                                 <span class="text-danger">*</span>
                                             </label>
@@ -387,18 +387,18 @@
                                     <div class="row">
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="an_visit_date">Date of AN Visit
+                                                <label class="col-lg-4 col-form-label" for="an_visit_date" style="font-size: 16px;font-weight: 600;color: black;">Date of AN Visit
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" class="datepicker-default form-control"
+                                                    <input type="text" class="form-control"
                                                         id="an_visit_date" name="an_visit_date">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="anc_period">ANC Period
+                                                <label class="col-lg-4 col-form-label" for="anc_period" style="font-size: 16px;font-weight: 600;color: black;">ANC Period
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
@@ -411,7 +411,7 @@
                                     <div class="row">
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="pregnancy_week">Week of
+                                                <label class="col-lg-4 col-form-label" for="pregnancy_week" style="font-size: 16px;font-weight: 600;color: black;">Week of
                                                     Pregnancy
                                                     <span class="text-danger">*</span>
                                                 </label>
@@ -423,7 +423,7 @@
                                         </div>
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="an_mother_weight">Weight of AN
+                                                <label class="col-lg-4 col-form-label" for="an_mother_weight" style="font-size: 16px;font-weight: 600;color: black;">Weight of AN
                                                     Mother(in Kg)
                                                     <span class="text-danger">*</span>
                                                 </label>
@@ -438,7 +438,7 @@
                                     <div class="row">
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="bp_systolic">BP Systolic(MM of
+                                                <label class="col-lg-4 col-form-label" for="bp_systolic" style="font-size: 16px;font-weight: 600;color: black;">BP Systolic(MM of
                                                     Hg)
                                                     <span class="text-danger">*</span>
                                                 </label>
@@ -450,7 +450,7 @@
                                         </div>
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="bp_diastolic">BP Diastolic(MM
+                                                <label class="col-lg-4 col-form-label" for="bp_diastolic" style="font-size: 16px;font-weight: 600;color: black;">BP Diastolic(MM
                                                     of
                                                     Hg)
                                                     <span class="text-danger">*</span>
@@ -465,7 +465,7 @@
                                     <div class="row">
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="hb">Hb(gm%)
+                                                <label class="col-lg-4 col-form-label" for="hb" style="font-size: 16px;font-weight: 600;color: black;">Hb(gm%)
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
@@ -479,7 +479,7 @@
                                     <div class="row">
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="urine_test">Urine Test
+                                                <label class="col-lg-4 col-form-label" for="urine_test" style="font-size: 16px;font-weight: 600;color: black;">Urine Test
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <select class="form-control" id="urine_test" name="urine_test">
@@ -494,7 +494,7 @@
                                         </div>
                                         <div class="col-xl-6" id="urine_sugar_div">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="urine_sugar">Urine Sugar<span
+                                                <label class="col-lg-4 col-form-label" for="urine_sugar" style="font-size: 16px;font-weight: 600;color: black;">Urine Sugar<span
                                                         class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
@@ -512,19 +512,16 @@
                                     <div class="row" id="urine_albumin_div">
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="urine_albumin">Urine Albumin
+                                                <label class="col-lg-4 col-form-label" for="urine_albumin" style="font-size: 16px;font-weight: 600;color: black;">Urine Albumin
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <select class="form-control" id="urine_albumin" name="urine_albumin">
                                                         <option value="">Select </option>
                                                         <option value="1">
-                                                            select 1
+                                                            Absent
                                                         </option>
                                                         <option value="2">
-                                                            select 2
-                                                        </option>
-                                                        <option value="3">
-                                                            select 3
+                                                            Present
                                                         </option>
                                                     </select>
                                                 </div>
@@ -535,7 +532,7 @@
                                     <div class="row">
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="blood_sugar_test">Blood Sugar
+                                                <label class="col-lg-4 col-form-label" for="blood_sugar_test" style="font-size: 16px;font-weight: 600;color: black;">Blood Sugar
                                                     Test
                                                 </label>
                                                 <div class="col-lg-6">
@@ -552,7 +549,7 @@
                                         </div>
                                         <div class="col-xl-6" id="fasting_div">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="fasting">Fasting
+                                                <label class="col-lg-4 col-form-label" for="fasting" style="font-size: 16px;font-weight: 600;color: black;">Fasting
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <input type="number" class="form-control"
@@ -564,7 +561,7 @@
                                     <div class="row" id="post_prandial_div">
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="post_prandial">Post
+                                                <label class="col-lg-4 col-form-label" for="post_prandial" style="font-size: 16px;font-weight: 600;color: black;">Post
                                                     Prandial/RBS<span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
@@ -578,7 +575,7 @@
                                     <div class="row">
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="gct">GCT Done
+                                                <label class="col-lg-4 col-form-label" for="gct" style="font-size: 16px;font-weight: 600;color: black;">GCT Done
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <select class="form-control" id="gct" name="gct">
@@ -593,7 +590,7 @@
                                         </div>
                                         <div class="col-xl-6" id="gct_value_div">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="gct_value">GCT value
+                                                <label class="col-lg-4 col-form-label" for="gct_value" style="font-size: 16px;font-weight: 600;color: black;">GCT value
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <input type="number" class="form-control" id="gct_value"
@@ -605,7 +602,7 @@
                                     <div class="row">
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="tt_dose">TT Dose
+                                                <label class="col-lg-4 col-form-label" for="tt_dose" style="font-size: 16px;font-weight: 600;color: black;">TT Dose
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <select class="form-control" id="tt_dose" name="tt_dose">
@@ -622,10 +619,10 @@
                                         </div>
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="tt_date">TT Date
+                                                <label class="col-lg-4 col-form-label" for="tt_date" style="font-size: 16px;font-weight: 600;color: black;">TT Date
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" class="datepicker-default form-control" id="tt_date"
+                                                    <input type="text" class="form-control" id="tt_date"
                                                         name="tt_date">
                                                 </div>
                                             </div>
@@ -634,22 +631,12 @@
                                     <div class="row">
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="albendazole_date">Albendazole
+                                                <label class="col-lg-4 col-form-label" for="albendazole_date" style="font-size: 16px;font-weight: 600;color: black;">Albendazole
                                                     Date
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" class="datepicker-default form-control"
+                                                    <input type="text" class="form-control"
                                                         id="albendazole_date" name="albendazole_date">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6">
-                                            <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="ifa_date">IFA Date
-                                                </label>
-                                                <div class="col-lg-6">
-                                                    <input type="text" class="datepicker-default form-control"
-                                                        id="ifa_date" name="ifa_date">
                                                 </div>
                                             </div>
                                         </div>
@@ -657,7 +644,51 @@
                                     <div class="row">
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="fundal_size">Fundal Height/Size
+                                                <label class="col-lg-4 col-form-label" for="ifa_date" style="font-size: 16px;font-weight: 600;color: black;">IFA Date
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control"
+                                                        id="ifa_date" name="ifa_date">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="ifa_tablet" style="font-size: 16px;font-weight: 600;color: black;">IFA Tablet
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control"
+                                                        id="ifa_tablet" name="ifa_tablet" placeholder="12-14 weeks">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="fa_date" style="font-size: 16px;font-weight: 600;color: black;">FA Date
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control"
+                                                        id="fa_date" name="fa_date">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="fa_tablet" style="font-size: 16px;font-weight: 600;color: black;">FA Tablet
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control"
+                                                        id="fa_tablet" name="fa_tablet" placeholder="1-12 weeks">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="fundal_size" style="font-size: 16px;font-weight: 600;color: black;">Fundal Height/Size
                                                     of
                                                     the uterus(in week)
                                                 </label>
@@ -669,7 +700,7 @@
                                         </div>
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="calcium_tablet">Calcium Tablet
+                                                <label class="col-lg-4 col-form-label" for="calcium_tablet" style="font-size: 16px;font-weight: 600;color: black;">Calcium Tablet
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <input type="number" class="form-control"
@@ -682,10 +713,10 @@
                                     <div class="row">
                                         <div class="offset-xl-6 col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="calcium_date">Calcium Date
+                                                <label class="col-lg-4 col-form-label" for="calcium_date" style="font-size: 16px;font-weight: 600;color: black;">Calcium Date
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" class="datepicker-default form-control"
+                                                    <input type="text" class="form-control"
                                                         id="calcium_date" name="calcium_date">
                                                 </div>
                                             </div>
@@ -694,7 +725,7 @@
                                     <div class="row">
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="foetal_heart_rate">Foetal Heart
+                                                <label class="col-lg-4 col-form-label" for="foetal_heart_rate" style="font-size: 16px;font-weight: 600;color: black;">Foetal Heart
                                                     rate(per min)
                                                 </label>
                                                 <div class="col-lg-6">
@@ -706,7 +737,7 @@
                                         </div>
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="foetal_position">Foetal
+                                                <label class="col-lg-4 col-form-label" for="foetal_position" style="font-size: 16px;font-weight: 600;color: black;">Foetal
                                                     Presentation/Position
                                                     <span class="text-danger">*</span>
                                                 </label>
@@ -728,7 +759,7 @@
                                     <div class="row">
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="foetal_movement">Foetal
+                                                <label class="col-lg-4 col-form-label" for="foetal_movement" style="font-size: 16px;font-weight: 600;color: black;">Foetal
                                                     Movement
                                                 </label>
                                                 <div class="col-lg-6">
@@ -751,7 +782,7 @@
                                         <div class="col-xl-6">
                                             <div class="form-group row">
                                                 <label class="col-lg-4 col-form-label text-danger"
-                                                    for="post_partum">Post-Partum
+                                                    for="post_partum" style="font-size: 16px;font-weight: 600;color: black;">Post-Partum
                                                     Method of Contraception
                                                     <span class="text-danger">*</span>
                                                 </label>
@@ -766,7 +797,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row mt-2">
-                                                <label class="col-lg-4 col-form-label" for="partum_other">Any Other
+                                                <label class="col-lg-4 col-form-label" for="partum_other" style="font-size: 16px;font-weight: 600;color: black;">Any Other
                                                     Specify
                                                     <span class="text-danger">*</span>
                                                 </label>
@@ -780,7 +811,7 @@
                                     <div class="row">
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label text-danger" for="high_risk">Symptoms
+                                                <label class="col-lg-4 col-form-label text-danger" for="high_risk" style="font-size: 16px;font-weight: 600;color: black;">Symptoms
                                                     of
                                                     High Risk
                                                     <span class="text-danger">*</span>
@@ -796,7 +827,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="high_risk_other">Any Other
+                                                <label class="col-lg-4 col-form-label" for="high_risk_other" style="font-size: 16px;font-weight: 600;color: black;">Any Other
                                                     Specify
                                                     <span class="text-danger">*</span>
                                                 </label>
@@ -810,18 +841,18 @@
                                     <div class="row">
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="referral_date">Referral Date
+                                                <label class="col-lg-4 col-form-label" for="referral_date" style="font-size: 16px;font-weight: 600;color: black;">Referral Date
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" class="datepicker-default form-control"
+                                                    <input type="text" class="form-control"
                                                         id="referral_date" name="referral_date">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="referral_district">District
+                                                <label class="col-lg-4 col-form-label" for="referral_district" style="font-size: 16px;font-weight: 600;color: black;">District
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <select class="form-control" id="referral_district" name="referral_district">
@@ -841,7 +872,7 @@
                                     <div class="row">
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="referral_facility">Type of
+                                                <label class="col-lg-4 col-form-label" for="referral_facility" style="font-size: 16px;font-weight: 600;color: black;">Type of
                                                     Hospital
                                                     <span class="text-danger">*</span>
                                                 </label>
@@ -860,7 +891,7 @@
                                         </div>
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="referral_place">Name of Hospital
+                                                <label class="col-lg-4 col-form-label" for="referral_place" style="font-size: 16px;font-weight: 600;color: black;">Name of Hospital
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <select class="form-control" id="referral_place" name="referral_place">
@@ -882,7 +913,7 @@
                                     <div class="row">
                                         <div class="col-xl-6">
                                             <div class="form-group row">
-                                                <label class="col-lg-4 col-form-label" for="ultrasonogram">Ultrasonogram
+                                                <label class="col-lg-4 col-form-label" for="ultrasonogram" style="font-size: 16px;font-weight: 600;color: black;">Ultrasonogram
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
@@ -901,12 +932,12 @@
                                         <div class="col-xl-6" id="ultrasonogram_date_div">
                                             <div class="form-group row">
                                                 <label class="col-lg-4 col-form-label"
-                                                    for="ultrasonogram_date">Ultrasonogram
+                                                    for="ultrasonogram_date" style="font-size: 16px;font-weight: 600;color: black;">Ultrasonogram
                                                     Date
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" class="datepicker-default form-control"
+                                                    <input type="text" class="form-control"
                                                         id="ultrasonogram_date" name="ultrasonogram_date">
                                                 </div>
                                             </div>
@@ -916,7 +947,7 @@
                                         <div class="row">
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="scan_edd">Scan EDD
+                                                    <label class="col-lg-4 col-form-label" for="scan_edd" style="font-size: 16px;font-weight: 600;color: black;">Scan EDD
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
@@ -942,7 +973,7 @@
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label"
-                                                        for="ultrasonogram_fundal_size">Fundal
+                                                        for="ultrasonogram_fundal_size" style="font-size: 16px;font-weight: 600;color: black;">Fundal
                                                         Height/Size of
                                                         the uterus(in week)
                                                     </label>
@@ -956,7 +987,7 @@
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label"
-                                                        for="ultrasonogram__heart_rate">Foetal
+                                                        for="ultrasonogram__heart_rate" style="font-size: 16px;font-weight: 600;color: black;">Foetal
                                                         Heart
                                                         rate(per min)
                                                     </label>
@@ -972,7 +1003,7 @@
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label"
-                                                        for="ultrasonogram_position">Foetal
+                                                        for="ultrasonogram_position" style="font-size: 16px;font-weight: 600;color: black;">Foetal
                                                         Presentation/Position
                                                         <span class="text-danger">*</span>
                                                     </label>
@@ -993,7 +1024,7 @@
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label"
-                                                        for="ultrasonogram_movement">Foetal
+                                                        for="ultrasonogram_movement" style="font-size: 16px;font-weight: 600;color: black;">Foetal
                                                         Movement
                                                     </label>
                                                     <div class="col-lg-6">
@@ -1017,7 +1048,7 @@
                                         <div class="row">
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="remark">Finding/Remarks
+                                                    <label class="col-lg-4 col-form-label" for="remark" style="font-size: 16px;font-weight: 600;color: black;">Finding/Remarks
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
@@ -1028,25 +1059,24 @@
                                             </div>
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="result">Result
+                                                    <label class="col-lg-4 col-form-label" for="result" style="font-size: 16px;font-weight: 600;color: black;">Result
                                                     </label>
                                                     <div class="col-lg-6">
                                                         <select class="form-control" id="result" name="result">
                                                             <option value="">Select </option>
                                                             <option value="1">
-                                                                select 1
+                                                                Normal
                                                             </option>
                                                             <option value="2">
-                                                                select 2
+                                                                UpNormal
                                                             </option>
-                                                            <option value="3">
-                                                                select 3
-                                                            </option>
+                                                             
                                                         </select>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
 
                                         <hr>
                                         <center>
@@ -1055,7 +1085,7 @@
                                         <div class="row">
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="wife_hiv_screening">Wife
+                                                    <label class="col-lg-4 col-form-label" for="wife_hiv_screening" style="font-size: 16px;font-weight: 600;color: black;">Wife
                                                         HIV Screen
                                                         Test
                                                         <span class="text-danger">*</span>
@@ -1077,12 +1107,12 @@
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label"
-                                                        for="wife_hiv_screeing_date">Date of HIV
+                                                        for="wife_hiv_screeing_date" style="font-size: 16px;font-weight: 600;color: black;">Date of HIV
                                                         Screening Test Conducted
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="datepicker-default form-control"
+                                                        <input type="text" class="form-control"
                                                             id="wife_hiv_screeing_date" name="wife_hiv_screeing_date"
                                                             value="{{ @$mother_medical->wife_hiv_screeing_date }}">
                                                     </div>
@@ -1091,7 +1121,7 @@
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label"
-                                                        for="wife_hiv_screeing_result">HIV
+                                                        for="wife_hiv_screeing_result" style="font-size: 16px;font-weight: 600;color: black;">HIV
                                                         Screeing Test Result
                                                         <span class="text-danger">*</span>
                                                     </label>
@@ -1114,7 +1144,7 @@
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label"
-                                                        for="husband_hiv_screening">Husband HIV
+                                                        for="husband_hiv_screening" style="font-size: 16px;font-weight: 600;color: black;">Husband HIV
                                                         Screen
                                                         Test
                                                         <span class="text-danger">*</span>
@@ -1136,13 +1166,13 @@
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label"
-                                                        for="husband_hiv_screeing_date">Date of
+                                                        for="husband_hiv_screeing_date" style="font-size: 16px;font-weight: 600;color: black;">Date of
                                                         HIV
                                                         Screening Test Conducted
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="datepicker-default form-control"
+                                                        <input type="text" class="form-control"
                                                             id="husband_hiv_screeing_date" name="husband_hiv_screeing_date"
                                                             value="{{ @$mother_medical->husband_hiv_screeing_date }}">
                                                     </div>
@@ -1151,7 +1181,7 @@
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label"
-                                                        for="husband_hiv_screeing_result">HIV
+                                                        for="husband_hiv_screeing_result" style="font-size: 16px;font-weight: 600;color: black;">HIV
                                                         Screeing Test Result
                                                         <span class="text-danger">*</span>
                                                     </label>
@@ -1173,7 +1203,7 @@
                                         <div class="row">
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="is_vdrl_rpp">VDRL/RPP
+                                                    <label class="col-lg-4 col-form-label" for="is_vdrl_rpp" style="font-size: 16px;font-weight: 600;color: black;">VDRL/RPP
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
@@ -1191,18 +1221,18 @@
                                         <div class="row" id="vdrl_div">
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="vdrl_date">VDRL Date
+                                                    <label class="col-lg-4 col-form-label" for="vdrl_date" style="font-size: 16px;font-weight: 600;color: black;">VDRL Date
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="datepicker-default form-control"
+                                                        <input type="text" class="form-control"
                                                             id="vdrl_date" name="vdrl_date">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="vdrl_result">VDRL Result
+                                                    <label class="col-lg-4 col-form-label" for="vdrl_result" style="font-size: 16px;font-weight: 600;color: black;">VDRL Result
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
@@ -1216,7 +1246,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
                                 </div>
 
                                 <hr>

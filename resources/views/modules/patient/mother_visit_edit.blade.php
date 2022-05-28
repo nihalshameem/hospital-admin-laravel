@@ -17,7 +17,7 @@
 
 
         <!-- row -->
-        <div class="row">
+        <div class="row" >
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header">
@@ -78,7 +78,7 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="datepicker-default form-control" id="an_reg_date"
+                                                <input type="text" class="form-control" id="an_reg_date"
                                                     name="an_reg_date" value="{{ @$mother_visit->an_reg_date }}">
                                             </div>
                                         </div>
@@ -100,7 +100,7 @@
                                     <div class="col-xl-6">
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="an_visit_mother_name">AN Visit
-                                                Mother Name
+                                                Mother Namevv
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
@@ -116,7 +116,7 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="datepicker-default form-control" id="lmp_date"
+                                                <input type="text" class="form-control" id="lmp_date"
                                                     name="lmp_date" value="{{ @$mother_visit->lmp_date }}">
                                             </div>
                                         </div>
@@ -344,7 +344,7 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="datepicker-default form-control"
+                                                <input type="text" class="form-control"
                                                     id="abortion_date" name="abortion_date"
                                                     value="{{ @$mother_visit->abortion_date }}">
                                             </div>
@@ -447,7 +447,7 @@
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" class="datepicker-default form-control"
+                                                    <input type="text" class="form-control"
                                                         id="an_visit_date" name="an_visit_date"
                                                         value="{{ @$mother_visit->an_visit_date }}">
                                                 </div>
@@ -584,15 +584,11 @@
                                                         <option value="">Select </option>
                                                         <option value="1"
                                                             {{ @$mother_visit->urine_albumin == '1' ? 'selected' : '' }}>
-                                                            select 1
+                                                            Absent
                                                         </option>
                                                         <option value="2"
                                                             {{ @$mother_visit->urine_albumin == '2' ? 'selected' : '' }}>
-                                                            select 2
-                                                        </option>
-                                                        <option value="3"
-                                                            {{ @$mother_visit->urine_albumin == '3' ? 'selected' : '' }}>
-                                                            select 3
+                                                            Present
                                                         </option>
                                                     </select>
                                                 </div>
@@ -670,7 +666,7 @@
                                                 </label>
                                                 <div class="col-lg-6">
                                                     <input type="number" class="form-control" id="gct_value"
-                                                        name="gct_value" value="{{ @$mother_visit->fasting }}">
+                                                        name="gct_value" value="{{ @$mother_visit->gct_value }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -701,7 +697,7 @@
                                                 <label class="col-lg-4 col-form-label" for="tt_date">TT Date
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" class="datepicker-default form-control" id="tt_date"
+                                                    <input type="text" class="form-control" id="tt_date"
                                                         name="tt_date" value="{{ @$mother_visit->tt_date }}">
                                                 </div>
                                             </div>
@@ -714,20 +710,57 @@
                                                     Date
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" class="datepicker-default form-control"
+                                                    <input type="text" class="form-control"
                                                         id="albendazole_date" name="albendazole_date"
                                                         value="{{ @$mother_visit->albendazole_date }}">
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-xl-6">
                                             <div class="form-group row">
                                                 <label class="col-lg-4 col-form-label" for="ifa_date">IFA Date
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" class="datepicker-default form-control"
+                                                    <input type="text" class="form-control"
                                                         id="ifa_date" name="ifa_date"
                                                         value="{{ @$mother_visit->ifa_date }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="ifa_tablet">IFA Tablet
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control"
+                                                        id="ifa_tablet" name="ifa_tablet"
+                                                        value="{{ @$mother_visit->ifa_tablet }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="fa_date">FA Date
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control"
+                                                        id="fa_date" name="fa_date"
+                                                        value="{{ @$mother_visit->fa_date }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" for="fa_tablet">FA Tablet
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control"
+                                                        id="fa_tablet" name="fa_tablet"
+                                                        value="{{ @$mother_visit->fa_tablet }}">
                                                 </div>
                                             </div>
                                         </div>
@@ -765,7 +798,7 @@
                                                 <label class="col-lg-4 col-form-label" for="calcium_date">Calcium Date
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" class="datepicker-default form-control"
+                                                    <input type="text" class="form-control"
                                                         id="calcium_date" name="calcium_date"
                                                         value="{{ @$mother_visit->calcium_date }}">
                                                 </div>
@@ -905,7 +938,7 @@
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" class="datepicker-default form-control"
+                                                    <input type="text" class="form-control"
                                                         id="referral_date" name="referral_date"
                                                         value="{{ @$mother_visit->referral_date }}">
                                                 </div>
@@ -1003,7 +1036,7 @@
                                                     <span class="text-danger">*</span>
                                                 </label>
                                                 <div class="col-lg-6">
-                                                    <input type="text" class="datepicker-default form-control"
+                                                    <input type="text" class="form-control"
                                                         id="ultrasonogram_date" name="ultrasonogram_date"
                                                         value="{{ @$mother_visit->ultrasonogram_date }}">
                                                 </div>
@@ -1018,7 +1051,7 @@
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="datepicker-default form-control"
+                                                        <input type="text" class="form-control"
                                                             id="scan_edd" name="scan_edd"
                                                             value="{{ @$mother_visit->scan_edd }}">
                                                     </div>
@@ -1142,21 +1175,19 @@
                                                             <option value="">Select </option>
                                                             <option value="1"
                                                                 {{ @$mother_visit->result == '1' ? 'selected' : '' }}>
-                                                                select 1
+                                                                Normal
                                                             </option>
                                                             <option value="2"
                                                                 {{ @$mother_visit->result == '2' ? 'selected' : '' }}>
-                                                                select 2
+                                                            Ub Normal
                                                             </option>
-                                                            <option value="3"
-                                                                {{ @$mother_visit->result == '3' ? 'selected' : '' }}>
-                                                                select 3
-                                                            </option>
+                                                           
                                                         </select>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
 
                                         <hr>
                                         <center>
@@ -1195,7 +1226,7 @@
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="datepicker-default form-control"
+                                                        <input type="text" class="form-control"
                                                             id="wife_hiv_screeing_date" name="wife_hiv_screeing_date"
                                                             value="{{ @$mother_visit->wife_hiv_screeing_date }}">
                                                     </div>
@@ -1258,7 +1289,7 @@
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="datepicker-default form-control"
+                                                        <input type="text" class="form-control"
                                                             id="husband_hiv_screeing_date" name="husband_hiv_screeing_date"
                                                             value="{{ @$mother_visit->husband_hiv_screeing_date }}">
                                                     </div>
@@ -1313,7 +1344,7 @@
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="datepicker-default form-control"
+                                                        <input type="text" class="form-control"
                                                             id="vdrl_date" name="vdrl_date"
                                                             value="{{ @$mother_visit->vdrl_date }}">
                                                     </div>
@@ -1338,7 +1369,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
                                 </div>
 
                                 <hr>
