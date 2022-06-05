@@ -60,16 +60,14 @@ class PatientsController extends Controller
                 $data = DB::table('patients as p')->join('mother_medicals as m', 'p.id', '=', 'm.patient_id')->join('h_s_c_s as hsc', 'hsc.id', '=', 'p.hsc_id')->whereBetween('m.edd_date', [$start, $end])->select('p.id', 'p.hsc_id', 'p.rch_id', 'p.an_mother', 'p.husband_name', 'p.an_reg_date', 'hsc.name as hsc_name')->groupBy('p.id')->get();
             } elseif ($request->q == 'high_risk_edd') {
                 $data = DB::table('patients as p')->join('mother_visits as v', 'p.id', '=', 'v.patient_id')->join('mother_medicals as m', 'p.id', '=', 'm.patient_id')->join('h_s_c_s as hsc', 'hsc.id', '=', 'p.hsc_id')->whereBetween('m.edd_date', [$start, $end])->whereIn('v.high_risk', [1, 2, 3, 4, 5, 6, 7, 8])->groupBy('p.id')->select('p.id', 'p.hsc_id', 'p.rch_id', 'p.an_mother', 'p.husband_name', 'p.an_reg_date', 'hsc.name as hsc_name')->get();
-            } 
-            else if(!empty($request->search_rch)) {
-                 $data = DB::table('patients')
+            } else if (!empty($request->search_rch)) {
+                $data = DB::table('patients')
                     ->select('patients.id', 'patients.hsc_id', 'patients.rch_id', 'patients.an_mother', 'patients.husband_name', 'patients.an_reg_date', 'hsc.name as hsc_name')
                     ->join('h_s_c_s as hsc', 'hsc.id', '=', 'patients.hsc_id')
                     ->where('patients.rch_id', $request->search_rch)
                     ->orWhere('patients.rch_id', 'like', '%' . $request->search_rch . '%')
                     ->get();
-            } 
-            else {
+            } else {
                 $data = DB::table('patients')
                     ->select('patients.id', 'patients.hsc_id', 'patients.rch_id', 'patients.an_mother', 'patients.husband_name', 'patients.an_reg_date', 'hsc.name as hsc_name')
                     ->join('h_s_c_s as hsc', 'hsc.id', '=', 'patients.hsc_id')
@@ -150,7 +148,7 @@ class PatientsController extends Controller
                 'an_reg_date' => $request->an_reg_date,
                 'age' => $request->age,
             ]);
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
 
@@ -166,7 +164,7 @@ class PatientsController extends Controller
     {
         try {
             $patient = Patient::find($id);
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
         $page_title = 'Mother Registration';
@@ -182,7 +180,7 @@ class PatientsController extends Controller
     {
         try {
             $patient = Patient::find($id);
-            
+
             $patient->hsc_id = $request->hsc_id;
             $patient->rch_id = $request->rch_id;
             $patient->anc_number = $request->anc_number;
@@ -210,70 +208,56 @@ class PatientsController extends Controller
             $patient->age = $request->age;
             $patient->save();
             if ($request->submit_btn == 'save') {
-            return redirect('patient')->with('message', 'Patient details updated')->with('type', 'success')->with('heading', 'Updated Successfully');
-        } else {
-            return redirect('patient/mother-medical/' . $patient->id)->with('message', 'Patient Registration updated')->with('type', 'success')->with('heading', 'Updated Successfully');
-        }
-        } catch (\Exception $e) {
+                return redirect('patient')->with('message', 'Patient details updated')->with('type', 'success')->with('heading', 'Updated Successfully');
+            } else {
+                return redirect('patient/mother-medical/' . $patient->id)->with('message', 'Patient Registration updated')->with('type', 'success')->with('heading', 'Updated Successfully');
+            }
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
-
-        
 
     }
-    
-     public function patient_delete(Request $request, $id)
+
+    public function patient_delete(Request $request, $id)
     {
         try {
-            $patient = Patient::where('id',$id)->delete();
-            $patient = DeliveryPlace::where('patient_id',$id)->delete();
-            $patient = MotherMedical::where('patient_id',$id)->delete();
-            $patient = MotherVisit::where('patient_id',$id)->delete();
-            $patient = PastObstetricHistory::where('patient_id',$id)->delete();
-            
-            
-            
+            $patient = Patient::where('id', $id)->delete();
+            $patient = DeliveryPlace::where('patient_id', $id)->delete();
+            $patient = MotherMedical::where('patient_id', $id)->delete();
+            $patient = MotherVisit::where('patient_id', $id)->delete();
+            $patient = PastObstetricHistory::where('patient_id', $id)->delete();
+
             return redirect('patient')->with('message', 'Patient details deleted')->with('type', 'success')->with('heading', 'Deleted Successfully');
-       
-        } catch (\Exception $e) {
+
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
-
-        
 
     }
-    
-     public function patient_mother_medical_delete(Request $request, $id)
+
+    public function patient_mother_medical_delete(Request $request, $id)
     {
         try {
-            $patient = MotherMedical::where('id',$id)->delete();
-            
-            
-            
+            $patient = MotherMedical::where('id', $id)->delete();
+
             return redirect('patient')->with('message', 'Patient details deleted')->with('type', 'success')->with('heading', 'Deleted Successfully');
-       
-        } catch (\Exception $e) {
+
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
-
-        
 
     }
-    
-     public function patient_mother_visit_delete(Request $request, $id)
+
+    public function patient_mother_visit_delete(Request $request, $id)
     {
         try {
-            $patient = MotherVisit::where('id',$id)->delete();
-            
-            
-            
+            $patient = MotherVisit::where('id', $id)->delete();
+
             return redirect('patient')->with('message', 'Patient details deleted')->with('type', 'success')->with('heading', 'Deleted Successfully');
-       
-        } catch (\Exception $e) {
+
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
-
-        
 
     }
 
@@ -283,7 +267,7 @@ class PatientsController extends Controller
         $page_description = 'Mother Medical Form';
         try {
             $patient = Patient::find($id);
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
         $mother_medical = MotherMedical::where('patient_id', $id)->first();
@@ -434,7 +418,7 @@ class PatientsController extends Controller
                 ]);
             }
 
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
 
@@ -455,7 +439,7 @@ class PatientsController extends Controller
         $page_description = 'AN Mother Visit\'s Form';
         try {
             $patient = Patient::find($id);
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
 
@@ -465,7 +449,7 @@ class PatientsController extends Controller
         $districts = District::all();
         $hospital_types = HospitalType::all();
         $hospitals = Hospital::all();
-        $mother_medical = MotherMedical::where('patient_id',$id)->first();
+        $mother_medical = MotherMedical::where('patient_id', $id)->first();
         $delivery_place = DeliveryPlace::where('patient_id', $patient->id)->first();
 
         if ($request->ajax()) {
@@ -505,7 +489,7 @@ class PatientsController extends Controller
         }
 
         $action = 'patient_add';
-        return view('modules.patient.mother_visit', compact('page_title', 'page_description', 'action', 'patient', 'mother_checkups', 'high_risks', 'post_partums', 'districts', 'hospital_types', 'hospitals', 'delivery_place','mother_medical'));
+        return view('modules.patient.mother_visit', compact('page_title', 'page_description', 'action', 'patient', 'mother_checkups', 'high_risks', 'post_partums', 'districts', 'hospital_types', 'hospitals', 'delivery_place', 'mother_medical'));
     }
 
     // an mother visit add
@@ -592,7 +576,7 @@ class PatientsController extends Controller
                 'hbsag_status' => $request->hbsag_status,
 
             ]);
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
         $message = 'Mother Visit Added';
@@ -688,7 +672,7 @@ class PatientsController extends Controller
             $visit->hbsag_status = $request->hbsag_status;
             $visit->save();
 
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
         $message = 'Mother Visit Updated';
@@ -760,13 +744,13 @@ class PatientsController extends Controller
 
         if ($request->ajax()) {
             $data = DB::table('patients as p')->join('mother_visits as v', 'p.id', '=', 'v.patient_id')->join('h_s_c_s as hsc', 'hsc.id', '=', 'p.hsc_id')->select('p.rch_id', 'hsc.name as hsc_name', 'p.an_mother', 'p.id as patient_id', 'p.husband_name', 'p.mobile', 'p.an_reg_date')->groupBy('p.id')->get();
-            if(!empty($request->search_rch)) {
-                 $data =DB::table('patients as p')->join('mother_visits as v', 'p.id', '=', 'v.patient_id')->join('h_s_c_s as hsc', 'hsc.id', '=', 'p.hsc_id')->select('p.rch_id', 'hsc.name as hsc_name', 'p.an_mother', 'p.id as patient_id', 'p.husband_name', 'p.mobile', 'p.an_reg_date')
+            if (!empty($request->search_rch)) {
+                $data = DB::table('patients as p')->join('mother_visits as v', 'p.id', '=', 'v.patient_id')->join('h_s_c_s as hsc', 'hsc.id', '=', 'p.hsc_id')->select('p.rch_id', 'hsc.name as hsc_name', 'p.an_mother', 'p.id as patient_id', 'p.husband_name', 'p.mobile', 'p.an_reg_date')
                     ->where('p.rch_id', $request->search_rch)
                     ->orWhere('p.rch_id', 'like', '%' . $request->search_rch . '%')
                     ->groupBy('p.id')
                     ->get();
-            } 
+            }
             return Datatables::of($data)->addIndexColumn()
                 ->addColumn('checkbox', function ($row) {
                     $checkbox = '<div class="checkbox text-right align-self-center">
@@ -832,7 +816,7 @@ class PatientsController extends Controller
             $path1 = $request->file('uploaded_file')->store('temp');
             $path = storage_path('app') . '/' . $path1;
             ini_set('max_execution_time', 180);
- 
+
             $data = Excel::toArray([], $path);
 // echo $data;
 //         echo die();
@@ -873,7 +857,7 @@ class PatientsController extends Controller
 
             ini_set('max_execution_time', 60);
 
-        } catch (\Exception $e) {
+        } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
         return redirect()->back()->with('message', 'Records Added')->with('type', 'success')->with('heading', 'New Record');
@@ -928,5 +912,15 @@ class PatientsController extends Controller
         ini_set('max_execution_time', 60);
 
         return 'done';
+    }
+
+    public function search()
+    {
+        $page_title = 'Search';
+        $page_description = 'High risk Search List';
+
+        $action = 'patient_list';
+
+        return view('modules.patient.search', compact('page_title', 'page_description', 'action'));
     }
 }
