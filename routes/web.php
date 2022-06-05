@@ -116,6 +116,9 @@ Route::get('/mother-upload', 'App\Http\Controllers\Admin\PatientsController@moth
 Route::post('/mother-upload', 'App\Http\Controllers\Admin\PatientsController@excel_upload');
 Route::get('/hospital-upload', 'App\Http\Controllers\Admin\PatientsController@hospital_upload');
 
+// search 
+Route::get('/search', 'App\Http\Controllers\Admin\PatientsController@search');
+
 // Home Redirection
 Route::get('/', function () {
     if (Auth::check()) {

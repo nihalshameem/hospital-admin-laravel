@@ -164,7 +164,7 @@
                     <div class="card-body" style="background-color: red;">
                         <div class="media align-items-center">
                             <div class="media-body">
-                                <a href="{{ url('patient?q=high_risk_edd') }}">
+                                <a href="{{ url('search') }}">
                                     <p class="mb-1 text-white"> High Risk EDD</p>
                                 </a>
 
@@ -189,7 +189,9 @@
                     <div class="card-body">
                         <div class="media align-items-center">
                             <div class="media-body">
+                            <a href="{{ url('search') }}">
                                 <p class="mb-1 text-white">High RisK Delivered</p>
+                                </a>
                                 <span>this week</span>
                                 <div class="d-flex flex-wrap">
                                     <h2 class="fs-40 font-w600 text-white mb-0 mr-3">0</h2>
