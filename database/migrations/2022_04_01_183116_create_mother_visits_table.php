@@ -54,6 +54,9 @@ class CreateMotherVisitsTable extends Migration
             $table->string('tt_date', 190)->nullable();
             $table->string('albendazole_date', 190)->nullable();
             $table->string('ifa_date', 190)->nullable();
+            $table->string('ifa_tablet', 190)->nullable();
+            $table->string('fa_date', 190)->nullable();
+            $table->string('fa_tablet', 190)->nullable();
             $table->integer('fundal_size')->nullable();
             $table->integer('calcium_tablet')->nullable();
             $table->string('calcium_date', 190)->nullable();
