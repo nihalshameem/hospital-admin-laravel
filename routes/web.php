@@ -118,7 +118,7 @@ Route::get('/hospital-upload', 'App\Http\Controllers\Admin\PatientsController@ho
 
 // search 
 Route::get('/search', 'App\Http\Controllers\Admin\PatientsController@search');
-Route::get('/search_result', 'App\Http\Controllers\Admin\PatientsController@search_result');
+Route::get('/search/result', 'App\Http\Controllers\Admin\PatientsController@search_result');
 
 // Home Redirection
 Route::get('/', function () {
