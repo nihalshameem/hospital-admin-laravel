@@ -5,7 +5,6 @@
 
 {{-- Content --}}
 @section('content')
-    row
 
 
     <div class="container-fluid" style="background-color: #ffb800;">
