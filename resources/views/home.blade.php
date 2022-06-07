@@ -22,7 +22,7 @@
             <a href="javascript:void(0);" class="settings-icon  ml-3"><i class="flaticon-381-settings-2 mr-0"></i></a>
         </div>
         <div class="row">
-            <div class="col-xl-3 col-xxl-4 col-lg-4">
+            {{-- <div class="col-xl-3 col-xxl-4 col-lg-4">
                 <div class="card">
                     <div class="card-header border-0 pb-0">
                         <h3 class="fs-20 mb-0 text-black">HighRisk AN Mothers</h3>
@@ -45,11 +45,11 @@
                         <div id="line-chart"></div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-9 col-xxl-8 col-lg-8">
+            </div> --}}
+            <div class="col-xl-12 col-xxl-12 col-lg-12">
                 <div class="card">
                     <div class="card-header d-sm-flex d-block border-0 pb-0">
-                        <h3 class="fs-20 mb-3 mb-sm-0 text-black">High RisK EDD</h3>
+                        <h3 class="fs-20 mb-3 mb-sm-0 text-black">High RisK</h3>
                     </div>
                     <div class="card-body">
                         <div id="chartBar"></div>
