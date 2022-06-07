@@ -109,7 +109,7 @@
             var optionsArea = {
                 series: [
                     {
-                        name: "Recovered Patient",
+                        name: "Risk Count",
                         data: yData,
                     },
                 ],
