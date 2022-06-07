@@ -931,7 +931,7 @@ class PatientsController extends Controller
         $to_date = date($request->to_date);
 
         $data = DB::table('patients as p')->join('mother_visits as v', 'p.id', '=', 'v.patient_id')->join('h_s_c_s as hsc', 'hsc.id', '=', 'p.hsc_id')->whereIn('v.high_risk', [1, 2, 3, 4, 5, 6, 7, 8])->where('v.high_risk', 'like', '%' . $request->symptoms . '%')->where('hsc.name', 'like', '%' . $request->hsc_name . '%')->where('p.rch_id', 'like', '%' . $request->rch_id . '%')->select('hsc.name as hsc_name', 'v.high_risk as symptoms', 'p.rch_id as rch_id', 'v.created_at as from_date', 'v.created_at as to_date', 'p.id as id', 'p.an_mother as an_mother')->groupBy('p.id');
-        
+
         if ($request->from_date != '' && $request->to_date) {
             $data = $data->whereBetween(DB::raw('DATE(v.created_at)'), array($from_date, $to_date));
         }
@@ -961,5 +961,20 @@ class PatientsController extends Controller
             ->rawColumns(['checkbox', 'action', 'visit_count'])
             ->make(true);
 
+    }
+
+    public function risk_chart()
+    {
+        $risks = HighRisk::select('id', 'name')->get();
+        $risk = [];
+        $data = [];
+
+        foreach ($risks as $key => $v) {
+            $p = explode(" ", $v->name);
+            $risk[$key] = implode(" ", array_splice($p, 0, 2));
+            $data[$key] = MotherVisit::where('high_risk', $v->id)->groupBy('patient_id')->count();
+        }
+
+        return response()->json(['count' => $data, 'risk' => $risk]);
     }
 }
