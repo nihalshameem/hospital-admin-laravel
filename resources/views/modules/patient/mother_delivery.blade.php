@@ -392,7 +392,7 @@
                                                             <option value="">Select </option>
                                                             @foreach ($methods as $item)
                                                                 <option value="{{ $item->id }}"
-                                                                    {{ @$mother_delivery->method_id === $item->id ? 'selected' : '' }}>
+                                                                    {{ @$mother_delivery->method_id == $item->id ? 'selected' : '' }}>
                                                                     {{ $item->name }}
                                                                 </option>
                                                             @endforeach
