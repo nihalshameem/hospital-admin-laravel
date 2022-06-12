@@ -7,24 +7,25 @@
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="{!! url('/home') !!}">Dashboard</a></li>
-                    
-                    
-                       <li><a href=" https://niraisool.com/excel/index.php">Excel File Upload</a></li>
-                   
+
+
+                    <li><a href=" https://niraisool.com/excel/index.php">Excel File Upload</a></li>
+
                     <!----------
                     <li><a href="{!! url('mother-upload') !!}">Mother Upload</a></li>
                     !---->
-                    
+
                     <li><a href="{!! url('patient') !!}">Mother Registration</a></li>
-                        <li><a href="{!! url('mother-medical') !!}">Mother Medical</a></li>
-                            <li><a href="{!! url('an-mother-visit') !!}">Mother AN Visit</a></li>
-                                <li><a href="{!! url('#') !!}">Reports</a></li>
-                                
+                    <li><a href="{!! url('mother-medical') !!}">Mother Medical</a></li>
+                    <li><a href="{!! url('an-mother-visit') !!}">Mother AN Visit</a></li>
+                    <li><a href="{!! url('mother-delivery') !!}">Mother Delivery</a></li>
+                    <li><a href="{!! url('#') !!}">Reports</a></li>
+
                 </ul>
             </li>
 
         </ul>
 
-      
+
     </div>
 </div>

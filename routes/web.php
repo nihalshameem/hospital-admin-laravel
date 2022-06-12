@@ -96,7 +96,7 @@ Route::get('/patient/{id}', 'App\Http\Controllers\Admin\PatientsController@patie
 Route::post('/patient/{id}', 'App\Http\Controllers\Admin\PatientsController@patient_update');
 Route::get('/patient/delete/{id}', 'App\Http\Controllers\Admin\PatientsController@patient_delete');
 
-// mother register
+// mother medical
 Route::get('/mother-medical', 'App\Http\Controllers\Admin\PatientsController@mother_medical_list');
 Route::get('/patient/mother-medical/{id}', 'App\Http\Controllers\Admin\PatientsController@mother_medical');
 Route::post('/patient/mother-medical/{id}', 'App\Http\Controllers\Admin\PatientsController@mother_medical_update');
@@ -110,13 +110,18 @@ Route::get('/patient/mother-visit/edit/{id}', 'App\Http\Controllers\Admin\Patien
 Route::post('/patient/mother-visit/edit/{id}', 'App\Http\Controllers\Admin\PatientsController@mother_visit_update');
 Route::get('/patient/mother-visit/delete/{id}', 'App\Http\Controllers\Admin\PatientsController@patient_mother_visit_delete');
 
+// mother delivery
+Route::get('/mother-delivery', 'App\Http\Controllers\Admin\PatientsController@mother_delivery_list');
+Route::get('/patient/mother-delivery/{id}', 'App\Http\Controllers\Admin\PatientsController@mother_delivery');
+Route::post('/patient/mother-delivery/{id}', 'App\Http\Controllers\Admin\PatientsController@mother_delivery_update');
+Route::get('/patient/mother-delivery/delete/{id}', 'App\Http\Controllers\Admin\PatientsController@patient_mother_delivery_delete');
 
 // upload
 Route::get('/mother-upload', 'App\Http\Controllers\Admin\PatientsController@mother_upload');
 Route::post('/mother-upload', 'App\Http\Controllers\Admin\PatientsController@excel_upload');
 Route::get('/hospital-upload', 'App\Http\Controllers\Admin\PatientsController@hospital_upload');
 
-// search 
+// search
 Route::get('/search', 'App\Http\Controllers\Admin\PatientsController@search');
 Route::get('/search/result', 'App\Http\Controllers\Admin\PatientsController@search_result');
 Route::get('/risk-chart', 'App\Http\Controllers\Admin\PatientsController@risk_chart');
