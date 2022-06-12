@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\DeliveryDetail;
 use App\Models\DeliveryMethod;
 use App\Models\DeliveryOutcome;
 use App\Models\DeliveryPlace;
@@ -992,7 +993,7 @@ class PatientsController extends Controller
         $patients = Patient::select(['id', 'an_mother as name'])->get();
 
         if ($request->ajax()) {
-            $data = MotherDelivery::select('id', 'vhn_name', 'mother_number', 'reg_date', 'mother_name', 'delivery_date', 'delivery_time_h', 'delivery_time_m')->get();
+            $data = DB::table('delivery_details as d')->join('patients as p', 'p.id', '=', 'd.patient_id')->select('d.id','d.patient_id', 'd.vhn_name', 'd.mother_number', 'd.reg_date', 'p.an_mother as mother_name','p.financial_year', 'd.delivery_date', 'd.delivery_time_h', 'd.delivery_time_m',DB::raw("CONCAT(d.delivery_time_h,' ',d.delivery_time_m) AS delivery_time"))->get();
 
             return Datatables::of($data)->addIndexColumn()
                 ->addColumn('checkbox', function ($row) {
@@ -1037,9 +1038,8 @@ class PatientsController extends Controller
         } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
         }
-        $mother_delivery = MotherMedical::where('patient_id', $id)->first();
+        $mother_delivery = DeliveryDetail::where('patient_id', $id)->first();
         $complications = PregnancyComplication::all();
-        $outcomes = PregnancyOutcome::all();
         $hospital_types = HospitalType::all();
         $districts = District::all();
         $who_conducted_deliveries = WhoConductedDelivery::all();
@@ -1047,7 +1047,134 @@ class PatientsController extends Controller
         $methods = DeliveryMethod::all();
 
         $action = 'patient_add';
-        return view('modules.patient.mother_delivery', compact('page_title', 'page_description', 'action', 'patient', 'mother_delivery', 'complications', 'outcomes', 'hospital_types', 'districts', 'who_conducted_deliveries', 'delivery_outcomes', 'methods'));
+        return view('modules.patient.mother_delivery', compact('page_title', 'page_description', 'action', 'patient', 'mother_delivery', 'complications', 'hospital_types', 'districts', 'who_conducted_deliveries', 'delivery_outcomes', 'methods'));
+
+    }
+
+    // deilvery detail update
+    public function mother_delivery_update($id, Request $request)
+    {
+        $patient_id = $request->patient_id;
+        $vhn_name = $request->vhn_name;
+        $mother_number = $request->mother_number;
+        $reg_date = $request->reg_date;
+        $last_anc_date = $request->last_anc_date;
+        $edd_date = $request->edd_date;
+        $mother_name = $request->mother_name;
+        $delivery_date = $request->delivery_date;
+        $delivery_time_h = $request->delivery_time_h;
+        $delivery_time_m = $request->delivery_time_m;
+        $district_id = $request->district_id;
+        $hospital_type_id = $request->hospital_type_id;
+        $hospital_name = $request->hospital_name;
+        $who_conducted_delivery_id = $request->who_conducted_delivery_id;
+        $delivery_type = $request->delivery_type;
+        $complication = $request->complication;
+        $delivery_outcome_id = $request->delivery_outcome_id;
+        $born_count = $request->born_count;
+        $live_birth = $request->live_birth;
+        $still_birth = $request->still_birth;
+        $method_id = $request->method_id;
+        $method_date = $request->method_date;
+        $discharge_date = $request->discharge_date;
+        $discharge_time_h = $request->discharge_time_h;
+        $discharge_time_m = $request->discharge_time_m;
+        $jsy_payment_status = $request->jsy_payment_status;
+        $jsy_payment_date = $request->jsy_payment_date;
+        $jsy_payment_amount = $request->jsy_payment_amount;
+
+        $mother_delivery = DeliveryDetail::where('patient_id', $id)->first();
+
+        try {
+            if ($mother_delivery) {
+                $mother_delivery->vhn_name = $vhn_name;
+                $mother_delivery->mother_number = $mother_number;
+                $mother_delivery->reg_date = $reg_date;
+                $mother_delivery->last_anc_date = $last_anc_date;
+                $mother_delivery->edd_date = $edd_date;
+                $mother_delivery->mother_name = $mother_name;
+                $mother_delivery->delivery_date = $delivery_date;
+                $mother_delivery->delivery_time_h = $delivery_time_h;
+                $mother_delivery->delivery_time_m = $delivery_time_m;
+                $mother_delivery->district_id = $district_id;
+                $mother_delivery->hospital_type_id = $hospital_type_id;
+                $mother_delivery->hospital_name = $hospital_name;
+                $mother_delivery->who_conducted_delivery_id = $who_conducted_delivery_id;
+                $mother_delivery->delivery_type = $delivery_type;
+                $mother_delivery->complication = $complication;
+                $mother_delivery->delivery_outcome_id = $delivery_outcome_id;
+                $mother_delivery->born_count = $born_count;
+                $mother_delivery->live_birth = $live_birth;
+                $mother_delivery->still_birth = $still_birth;
+                $mother_delivery->method_id = $method_id;
+                $mother_delivery->method_date = $method_date;
+                $mother_delivery->discharge_date = $discharge_date;
+                $mother_delivery->discharge_time_h = $discharge_time_h;
+                $mother_delivery->discharge_time_m = $discharge_time_m;
+                $mother_delivery->jsy_payment_status = $jsy_payment_status;
+                $mother_delivery->jsy_payment_date = $jsy_payment_date;
+                $mother_delivery->jsy_payment_amount = $jsy_payment_amount;
+                $mother_delivery->save();
+            } else {
+                $mother_delivery = DeliveryDetail::create([
+                    'patient_id' => $id,
+                    'vhn_name' => $vhn_name,
+                    'mother_number' => $mother_number,
+                    'reg_date' => $reg_date,
+                    'last_anc_date' => $last_anc_date,
+                    'edd_date' => $edd_date,
+                    'mother_name' => $mother_name,
+                    'delivery_date' => $delivery_date,
+                    'delivery_time_h' => $delivery_time_h,
+                    'delivery_time_m' => $delivery_time_m,
+                    'district_id' => $district_id,
+                    'hospital_type_id' => $hospital_type_id,
+                    'hospital_name' => $hospital_name,
+                    'who_conducted_delivery_id' => $who_conducted_delivery_id,
+                    'delivery_type' => $delivery_type,
+                    'complication' => $complication,
+                    'delivery_outcome_id' => $delivery_outcome_id,
+                    'born_count' => $born_count,
+                    'live_birth' => $live_birth,
+                    'still_birth' => $still_birth,
+                    'method_id' => $method_id,
+                    'method_date' => $method_date,
+                    'discharge_date' => $discharge_date,
+                    'discharge_time_h' => $discharge_time_h,
+                    'discharge_time_m' => $discharge_time_m,
+                    'jsy_payment_status' => $jsy_payment_status,
+                    'jsy_payment_date' => $jsy_payment_date,
+                    'jsy_payment_amount' => $jsy_payment_amount,
+                ]);
+            }
+
+        } catch (\Exception$e) {
+            return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
+        }
+
+        $message = 'Mother delivery details updated';
+        $title = 'Updated Successfully';
+        if ($request->submit_btn == 'save') {
+            return redirect('patient')->with('message', $message)->with('type', 'success')->with('heading', $title);
+        } else {
+            return redirect('patient/mother-delivery/' . $id)->with('message', $message)->with('type', 'success')->with('heading', $title);
+        }
+
+    }
+
+
+
+    // delivery detail delete
+    public function patient_mother_delivery_delete(Request $request, $id)
+    {
+        try {
+            $patient = DeliveryDetail::where('id', $id)->delete();
+
+            return redirect('patient')->with('message', 'Delivery detail deleted')->with('type', 'success')->with('heading', 'Deleted Successfully');
+
+        } catch (\Exception$e) {
+            return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
+        }
 
     }
 }

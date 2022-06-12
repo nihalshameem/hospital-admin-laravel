@@ -54,7 +54,7 @@
                                                     </label>
                                                     <div class="col-lg-6">
                                                         <input type="text" class="form-control" id="rch_id"
-                                                            name="vhn_name" value="{{ $mother_delivery->vhn_name }}">
+                                                            name="vhn_name" value="{{ @$mother_delivery->vhn_name }}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -67,7 +67,7 @@
                                                     <div class="col-lg-6">
                                                         <input type="text" class="form-control" id="mother_number"
                                                             name="mother_number"
-                                                            value="{{ $mother_delivery->mother_number }}">
+                                                            value="{{ @$mother_delivery->mother_number }}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -79,7 +79,7 @@
                                                     </label>
                                                     <div class="col-lg-6">
                                                         <input type="text" class="form-control" id="reg_date"
-                                                            name="reg_date" value="{{ $mother_delivery->reg_date }}">
+                                                            name="reg_date" value="{{ @$mother_delivery->reg_date }}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -141,7 +141,7 @@
                                                     <div class="col-lg-6">
                                                         <input type="text" class="form-control" id="delivery_date"
                                                             name="delivery_date" placeholder="DD/MM/YYYY"
-                                                            value="{{ $mother_delivery->delivery_date }}">
+                                                            value="{{ @$mother_delivery->delivery_date }}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -157,7 +157,7 @@
                                                             data-link="{{ url('patient/an-mother-visit') }}" required>
                                                             @for ($i = 0; $i <= 24; $i++)
                                                                 <option value="{{ $i }}"
-                                                                    {{ $mother_delivery->delivery_time_h === $i ? 'selected' : '' }}>
+                                                                    {{ @$mother_delivery->delivery_time_h === $i ? 'selected' : '' }}>
                                                                     {{ $i }}
                                                                 </option>
                                                             @endfor
@@ -169,7 +169,7 @@
                                                             data-link="{{ url('patient/an-mother-visit') }}" required>
                                                             @for ($i = 0; $i <= 59; $i++)
                                                                 <option value="{{ $i }}"
-                                                                    {{ $mother_delivery->delivery_time_m === $i ? 'selected' : '' }}>
+                                                                    {{ @$mother_delivery->delivery_time_m === $i ? 'selected' : '' }}>
                                                                     {{ $i }}
                                                                 </option>
                                                             @endfor
@@ -226,7 +226,7 @@
                                                     <div class="col-lg-6">
                                                         <input type="text" class="form-control" id="hospital_name"
                                                             name="hospital_name"
-                                                            value="{{ $mother_delivery->hospital_name }}">
+                                                            value="{{ @$mother_delivery->hospital_name }}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -284,7 +284,7 @@
                                                     <div class="col-lg-6">
                                                         <input type="text" class="form-control" id="complication"
                                                             name="complication"
-                                                            value="{{ $mother_delivery->complication }}">
+                                                            value="{{ @$mother_delivery->complication }}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -299,7 +299,7 @@
                                                         <select class="form-control" id="delivery_outcome_id"
                                                             name="delivery_outcome_id">
                                                             <option value="">Select </option>
-                                                            @foreach ($who_conducted_deliveries as $item)
+                                                            @foreach ($delivery_outcomes as $item)
                                                                 <option value="{{ $item->id }}"
                                                                     {{ @$mother_delivery->delivery_outcome_id === $item->id ? 'selected' : '' }}>
                                                                     {{ $item->name }}
@@ -322,7 +322,7 @@
                                                             <option value="">Select No. Baby born in this Delivery</option>
                                                             @for ($i = 1; $i <= 6; $i++)
                                                                 <option value="{{ $i }}"
-                                                                    {{ $mother_delivery->born_count === $i ? 'selected' : '' }}>
+                                                                    {{ @$mother_delivery->born_count == $i ? 'selected' : '' }}>
                                                                     {{ $i }}
                                                                 </option>
                                                             @endfor
@@ -348,7 +348,7 @@
                                                             <option value="">Select Live Birth</option>
                                                             @for ($i = 0; $i <= 3; $i++)
                                                                 <option value="{{ $i }}"
-                                                                    {{ $mother_delivery->live_birth === $i ? 'selected' : '' }}>
+                                                                    {{ @$mother_delivery->live_birth == $i ? 'selected' : '' }}>
                                                                     {{ $i }}
                                                                 </option>
                                                             @endfor
@@ -373,7 +373,7 @@
                                                             <option value="">Select Still Birth</option>
                                                             @for ($i = 0; $i <= 3; $i++)
                                                                 <option value="{{ $i }}"
-                                                                    {{ $mother_delivery->still_birth === $i ? 'selected' : '' }}>
+                                                                    {{ @$mother_delivery->still_birth == $i ? 'selected' : '' }}>
                                                                     {{ $i }}
                                                                 </option>
                                                             @endfor
@@ -409,7 +409,7 @@
                                                     <div class="col-lg-6">
                                                         <input type="text" class="form-control" id="method_date"
                                                             name="method_date" placeholder="DD/MM/YYYY"
-                                                            value="{{ $mother_delivery->method_date }}">
+                                                            value="{{ @$mother_delivery->method_date }}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -437,7 +437,7 @@
                                                     <div class="col-lg-6">
                                                         <input type="text" class="form-control" id="discharge_date"
                                                             name="discharge_date" placeholder="DD/MM/YYYY"
-                                                            value="{{ $mother_delivery->discharge_date }}">
+                                                            value="{{ @$mother_delivery->discharge_date }}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -454,7 +454,7 @@
                                                             data-link="{{ url('patient/an-mother-visit') }}" required>
                                                             @for ($i = 0; $i <= 24; $i++)
                                                                 <option value="{{ $i }}"
-                                                                    {{ $mother_delivery->discharge_time_h === $i ? 'selected' : '' }}>
+                                                                    {{ @$mother_delivery->discharge_time_h === $i ? 'selected' : '' }}>
                                                                     {{ $i }}
                                                                 </option>
                                                             @endfor
@@ -466,7 +466,7 @@
                                                             data-link="{{ url('patient/an-mother-visit') }}" required>
                                                             @for ($i = 0; $i <= 59; $i++)
                                                                 <option value="{{ $i }}"
-                                                                    {{ $mother_delivery->discharge_time_m === $i ? 'selected' : '' }}>
+                                                                    {{ @$mother_delivery->discharge_time_m === $i ? 'selected' : '' }}>
                                                                     {{ $i }}
                                                                 </option>
                                                             @endfor
@@ -488,13 +488,14 @@
                                         <div class="row">
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="district_id"
+                                                    <label class="col-lg-4 col-form-label" for="jsy_payment_status"
                                                         style="font-size: 16px;font-weight: 600;color: black;">JSY Payment
                                                         Received
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <select class="form-control" id="district_id" name="district_id">
+                                                        <select class="form-control" id="jsy_payment_status"
+                                                            name="jsy_payment_status">
                                                             <option value="Yes"
                                                                 {{ @$mother_delivery->jsy_payment_status == 'Yes' ? 'selected' : '' }}>
                                                                 Yes</option>
@@ -517,7 +518,7 @@
                                                     <div class="col-lg-6">
                                                         <input type="text" class="form-control" id="jsy_payment_date"
                                                             name="jsy_payment_date" placeholder="DD/MM/YYYY"
-                                                            value="{{ $mother_delivery->jsy_payment_date }}">
+                                                            value="{{ @$mother_delivery->jsy_payment_date }}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -529,8 +530,8 @@
                                                     </label>
                                                     <div class="col-lg-6">
                                                         <input type="text" class="form-control" id="jsy_payment_amount"
-                                                            name="jsy_payment_amount" placeholder="DD/MM/YYYY"
-                                                            value="{{ $mother_delivery->jsy_payment_amount }}">
+                                                            name="jsy_payment_amount" 
+                                                            value="{{ @$mother_delivery->jsy_payment_amount }}">
                                                     </div>
                                                 </div>
                                             </div>

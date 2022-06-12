@@ -25,7 +25,7 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="table-responsive">
-                    <table id="mother-medical-table" class="table table-striped patient-list mb-4 dataTablesCard fs-14">
+                    <table id="mother-delivery-table" class="table table-striped patient-list mb-4 dataTablesCard fs-14">
                         <thead>
                             <tr>
                                 <th>
@@ -37,11 +37,11 @@
                                     </div>
                                 </th>
                                 <th>Mother ID</th>
-                                <th>Sl.No of RCH Reg</th>
+                                <th>Sl.No of Delivery Mother</th>
                                 <th>Financial Year</th>
                                 <th>Mother Name</th>
-                                <th>MRMBS Eligibility</th>
-                                <th>Date of Reg</th>
+                                <th>Delivery Date</th>
+                                <th>Delivery Time</th>
                                 <th></th>
                                 <th></th>
                             </tr>
@@ -91,14 +91,13 @@
         var search_rch = $('#search_rch').val();
 
 
-        $('#mother-medical-table').DataTable().destroy();
+        $('#mother-delivery-table').DataTable().destroy();
         patient_datatable(search_rch);
     };
 
     function patient_datatable(search_rch = '') {
-        console.log(search_rch);
-        if (jQuery("#mother-medical-table").length > 0) {
-            var table = $("#mother-medical-table").DataTable({
+        if (jQuery("#mother-delivery-table").length > 0) {
+            var table = $("#mother-delivery-table").DataTable({
                 searching: false,
                 paging: true,
                 select: false,
@@ -121,8 +120,8 @@
                         name: "patient_id",
                     },
                     {
-                        data: "pw_rch_reg_number",
-                        name: "pw_rch_reg_number",
+                        data: "mother_number",
+                        name: "mother_number",
                     },
                     {
                         data: "financial_year",
@@ -133,12 +132,12 @@
                         name: "mother_name",
                     },
                     {
-                        data: "eligible_for_mrmbs",
-                        name: "eligible_for_mrmbs",
+                        data: "delivery_date",
+                        name: "delivery_date",
                     },
                     {
-                        data: "an_reg_date",
-                        name: "an_reg_date",
+                        data: "delivery_time",
+                        name: "delivery_time",
                     },
                     {
                         data: "edit",
