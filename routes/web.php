@@ -118,6 +118,14 @@ Route::get('/patient/mother-delivery/edit/{id}', 'App\Http\Controllers\Admin\Pat
 Route::post('/patient/mother-delivery/edit/{id}', 'App\Http\Controllers\Admin\PatientsController@mother_delivery_update');
 Route::get('/patient/mother-delivery/delete/{id}', 'App\Http\Controllers\Admin\PatientsController@patient_mother_delivery_delete');
 
+// infant
+Route::get('/infant', 'App\Http\Controllers\Admin\PatientsController@infant_list');
+Route::get('/patient/infant/{id}', 'App\Http\Controllers\Admin\PatientsController@infant');
+Route::post('/patient/infant/{id}', 'App\Http\Controllers\Admin\PatientsController@infant_add');
+Route::get('/patient/infant/edit/{id}', 'App\Http\Controllers\Admin\PatientsController@infant_edit');
+Route::post('/patient/infant/edit/{id}', 'App\Http\Controllers\Admin\PatientsController@infant_update');
+Route::get('/patient/infant/delete/{id}', 'App\Http\Controllers\Admin\PatientsController@patient_infant_delete');
+
 // upload
 Route::get('/mother-upload', 'App\Http\Controllers\Admin\PatientsController@mother_upload');
 Route::post('/mother-upload', 'App\Http\Controllers\Admin\PatientsController@excel_upload');

@@ -19,6 +19,7 @@
                     <li><a href="{!! url('mother-medical') !!}">Mother Medical</a></li>
                     <li><a href="{!! url('an-mother-visit') !!}">Mother AN Visit</a></li>
                     <li><a href="{!! url('mother-delivery') !!}">Mother Delivery</a></li>
+                    <li><a href="{!! url('infant') !!}">Infant</a></li>
                     <li><a href="{!! url('#') !!}">Reports</a></li>
 
                 </ul>
