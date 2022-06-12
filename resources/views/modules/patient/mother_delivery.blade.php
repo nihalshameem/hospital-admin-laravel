@@ -210,7 +210,7 @@
                                                             <option value="">Select </option>
                                                             @foreach ($hospital_types as $item)
                                                                 <option value="{{ $item->id }}"
-                                                                    {{ @$mother_delivery->hospital_type_id === $item->id ? 'selected' : '' }}>
+                                                                    {{ @$mother_delivery->hospital_type_id == $item->id ? 'selected' : '' }}>
                                                                     {{ $item->name }}
                                                                 </option>
                                                             @endforeach
@@ -243,7 +243,7 @@
                                                             <option value="">Select </option>
                                                             @foreach ($who_conducted_deliveries as $item)
                                                                 <option value="{{ $item->id }}"
-                                                                    {{ @$mother_delivery->who_conducted_delivery_id === $item->id ? 'selected' : '' }}>
+                                                                    {{ @$mother_delivery->who_conducted_delivery_id == $item->id ? 'selected' : '' }}>
                                                                     {{ $item->name }}
                                                                 </option>
                                                             @endforeach
