@@ -25,7 +25,7 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="table-responsive">
-                    <table id="mother-delivery-table" class="table table-striped patient-list mb-4 dataTablesCard fs-14">
+                    <table id="mother-delivery-all-table" class="table table-striped patient-list mb-4 dataTablesCard fs-14">
                         <thead>
                             <tr>
                                 <th>
@@ -37,12 +37,9 @@
                                     </div>
                                 </th>
                                 <th>Mother ID</th>
-                                <th>Sl.No of Delivery Mother</th>
                                 <th>Financial Year</th>
                                 <th>Mother Name</th>
-                                <th>Delivery Date</th>
-                                <th>Delivery Time</th>
-                                <th></th>
+                                <th>Delivery Count</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -91,13 +88,13 @@
         var search_rch = $('#search_rch').val();
 
 
-        $('#mother-delivery-table').DataTable().destroy();
+        $('#mother-delivery-all-table').DataTable().destroy();
         patient_datatable(search_rch);
     };
 
     function patient_datatable(search_rch = '') {
-        if (jQuery("#mother-delivery-table").length > 0) {
-            var table = $("#mother-delivery-table").DataTable({
+        if (jQuery("#mother-delivery-all-table").length > 0) {
+            var table = $("#mother-delivery-all-table").DataTable({
                 searching: false,
                 paging: true,
                 select: false,

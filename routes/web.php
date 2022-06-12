@@ -113,7 +113,9 @@ Route::get('/patient/mother-visit/delete/{id}', 'App\Http\Controllers\Admin\Pati
 // mother delivery
 Route::get('/mother-delivery', 'App\Http\Controllers\Admin\PatientsController@mother_delivery_list');
 Route::get('/patient/mother-delivery/{id}', 'App\Http\Controllers\Admin\PatientsController@mother_delivery');
-Route::post('/patient/mother-delivery/{id}', 'App\Http\Controllers\Admin\PatientsController@mother_delivery_update');
+Route::post('/patient/mother-delivery/{id}', 'App\Http\Controllers\Admin\PatientsController@mother_delivery_add');
+Route::get('/patient/mother-delivery/edit/{id}', 'App\Http\Controllers\Admin\PatientsController@mother_delivery_edit');
+Route::post('/patient/mother-delivery/edit/{id}', 'App\Http\Controllers\Admin\PatientsController@mother_delivery_update');
 Route::get('/patient/mother-delivery/delete/{id}', 'App\Http\Controllers\Admin\PatientsController@patient_mother_delivery_delete');
 
 // upload
