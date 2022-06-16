@@ -30289,3 +30289,12 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
 {
     pointer-events: none;
 }
+
+.custom-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+    display: inline-block;
+    padding-right: 0.5rem;
+    color: #6c757d;
+    content: "\f101";
+    font: normal normal normal 14px/1 FontAwesome;
+    margin-top: 3px;
+}

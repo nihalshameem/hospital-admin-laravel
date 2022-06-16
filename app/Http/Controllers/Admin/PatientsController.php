@@ -1435,4 +1435,21 @@ class PatientsController extends Controller
         }
 
     }
+
+    // PNC Care add form
+    public function pnc_care($id, Request $request)
+    {
+        $page_title = 'PNC Care';
+        $page_description = 'PNC Care Form';
+        try {
+            $patient = Patient::find($id);
+        } catch (\Exception$e) {
+            return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
+        }
+
+        $action = 'patient_add';
+
+        return view('modules.patient.pnc_care.pnc_care', compact('page_title', 'page_description', 'action', 'patient'));
+
+    }
 }
