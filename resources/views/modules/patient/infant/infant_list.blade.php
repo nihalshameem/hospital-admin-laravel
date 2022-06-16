@@ -66,7 +66,7 @@
                         </label>
                         <div class="col-lg-6">
                             <select id="patient_id_select" class="single-select"
-                                data-link="{{ url('patient/mother-delivery') }}" required>
+                                data-link="{{ url('patient/infant') }}" required>
                                 <option value="">Select</option>
                                 @foreach ($patients as $patient)
                                     <option value="{{ $patient->id }}">{{ $patient->name }}</option>
