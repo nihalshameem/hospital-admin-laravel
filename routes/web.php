@@ -126,6 +126,10 @@ Route::get('/patient/infant/edit/{id}', 'App\Http\Controllers\Admin\PatientsCont
 Route::post('/patient/infant/edit/{id}', 'App\Http\Controllers\Admin\PatientsController@infant_update');
 Route::get('/patient/infant/delete/{id}', 'App\Http\Controllers\Admin\PatientsController@patient_infant_delete');
 
+// pnd care
+Route::get('/patient/pnc/{id}', 'App\Http\Controllers\Admin\PatientsController@pnc_care');
+
+
 // upload
 Route::get('/mother-upload', 'App\Http\Controllers\Admin\PatientsController@mother_upload');
 Route::post('/mother-upload', 'App\Http\Controllers\Admin\PatientsController@excel_upload');
