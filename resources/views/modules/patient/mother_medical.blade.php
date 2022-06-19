@@ -141,7 +141,7 @@
                                                         style="font-size: 16px;font-weight: 600;color: black;">EDD Date
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="form-control" id="edd_date"
+                                                        <input type="text" class="datepicker-default form-control" id="edd_date"
                                                             placeholder="YYYY-MM-DD" name="edd_date"
                                                             value="{{ @$mother_medical->edd_date }}">
                                                     </div>

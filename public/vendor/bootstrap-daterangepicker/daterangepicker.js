@@ -543,9 +543,9 @@
 
                 //if both dates are visible already, do nothing
                 if (!this.singleDatePicker && this.leftCalendar.month && this.rightCalendar.month &&
-                    (this.startDate.format('YYYY-MM') == this.leftCalendar.month.format('YYYY-MM') || this.startDate.format('YYYY-MM') == this.rightCalendar.month.format('YYYY-MM'))
+                    (this.startDate.format('MM-YYYY') == this.leftCalendar.month.format('MM-YYYY') || this.startDate.format('MM-YYYY') == this.rightCalendar.month.format('MM-YYYY'))
                     &&
-                    (this.endDate.format('YYYY-MM') == this.leftCalendar.month.format('YYYY-MM') || this.endDate.format('YYYY-MM') == this.rightCalendar.month.format('YYYY-MM'))
+                    (this.endDate.format('MM-YYYY') == this.leftCalendar.month.format('MM-YYYY') || this.endDate.format('MM-YYYY') == this.rightCalendar.month.format('MM-YYYY'))
                     ) {
                     return;
                 }
@@ -558,7 +558,7 @@
                 }
 
             } else {
-                if (this.leftCalendar.month.format('YYYY-MM') != this.startDate.format('YYYY-MM') && this.rightCalendar.month.format('YYYY-MM') != this.startDate.format('YYYY-MM')) {
+                if (this.leftCalendar.month.format('MM-YYYY') != this.startDate.format('MM-YYYY') && this.rightCalendar.month.format('MM-YYYY') != this.startDate.format('MM-YYYY')) {
                     this.leftCalendar.month = this.startDate.clone().date(2);
                     this.rightCalendar.month = this.startDate.clone().date(2).add(1, 'month');
                 }
@@ -664,11 +664,11 @@
                 calendar[row][col] = curDate.clone().hour(hour).minute(minute).second(second);
                 curDate.hour(12);
 
-                if (this.minDate && calendar[row][col].format('YYYY-MM-DD') == this.minDate.format('YYYY-MM-DD') && calendar[row][col].isBefore(this.minDate) && side == 'left') {
+                if (this.minDate && calendar[row][col].format('DD-MM-YYYY') == this.minDate.format('DD-MM-YYYY') && calendar[row][col].isBefore(this.minDate) && side == 'left') {
                     calendar[row][col] = this.minDate.clone();
                 }
 
-                if (this.maxDate && calendar[row][col].format('YYYY-MM-DD') == this.maxDate.format('YYYY-MM-DD') && calendar[row][col].isAfter(this.maxDate) && side == 'right') {
+                if (this.maxDate && calendar[row][col].format('DD-MM-YYYY') == this.maxDate.format('DD-MM-YYYY') && calendar[row][col].isAfter(this.maxDate) && side == 'right') {
                     calendar[row][col] = this.maxDate.clone();
                 }
 
@@ -808,11 +808,11 @@
                         classes.push('off', 'disabled');
 
                     //highlight the currently selected start date
-                    if (calendar[row][col].format('YYYY-MM-DD') == this.startDate.format('YYYY-MM-DD'))
+                    if (calendar[row][col].format('DD-MM-YYYY') == this.startDate.format('DD-MM-YYYY'))
                         classes.push('active', 'start-date');
 
                     //highlight the currently selected end date
-                    if (this.endDate != null && calendar[row][col].format('YYYY-MM-DD') == this.endDate.format('YYYY-MM-DD'))
+                    if (this.endDate != null && calendar[row][col].format('DD-MM-YYYY') == this.endDate.format('DD-MM-YYYY'))
                         classes.push('active', 'end-date');
 
                     //highlight dates in-between the selected dates
@@ -1357,7 +1357,7 @@
             var i = 0;
             for (var range in this.ranges) {
               if (this.timePicker) {
-                    var format = this.timePickerSeconds ? "YYYY-MM-DD HH:mm:ss" : "YYYY-MM-DD HH:mm";
+                    var format = this.timePickerSeconds ? "DD-MM-YYYY HH:mm:ss" : "DD-MM-YYYY HH:mm";
                     //ignore times when comparing dates if time picker seconds is not enabled
                     if (this.startDate.format(format) == this.ranges[range][0].format(format) && this.endDate.format(format) == this.ranges[range][1].format(format)) {
                         customRange = false;
@@ -1366,7 +1366,7 @@
                     }
                 } else {
                     //ignore times when comparing dates if time picker is not enabled
-                    if (this.startDate.format('YYYY-MM-DD') == this.ranges[range][0].format('YYYY-MM-DD') && this.endDate.format('YYYY-MM-DD') == this.ranges[range][1].format('YYYY-MM-DD')) {
+                    if (this.startDate.format('DD-MM-YYYY') == this.ranges[range][0].format('DD-MM-YYYY') && this.endDate.format('DD-MM-YYYY') == this.ranges[range][1].format('DD-MM-YYYY')) {
                         customRange = false;
                         this.chosenLabel = this.container.find('.ranges li:eq(' + i + ')').addClass('active').attr('data-range-key');
                         break;
@@ -1466,7 +1466,7 @@
                 this.setStartDate(start);
                 if (this.singleDatePicker) {
                     this.endDate = this.startDate.clone();
-                } else if (this.endDate && this.endDate.format('YYYY-MM-DD') == start.format('YYYY-MM-DD') && this.endDate.isBefore(start)) {
+                } else if (this.endDate && this.endDate.format('DD-MM-YYYY') == start.format('DD-MM-YYYY') && this.endDate.isBefore(start)) {
                     this.setEndDate(start.clone());
                 }
             } else if (this.endDate) {
