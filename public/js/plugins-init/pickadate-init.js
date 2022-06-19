@@ -3,6 +3,6 @@
 
     //date picker classic default
     $(".datepicker-default").pickadate({
-        format: "yy/mm/dd",
+        format: "dd-mm-yyyy",
     });
 })(jQuery);

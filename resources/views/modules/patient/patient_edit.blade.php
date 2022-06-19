@@ -91,7 +91,7 @@
                                                 Registeration <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="default form-control" placeholder="dd-mm-yyyy" id="an_reg_date"
+                                                <input type="text" class="datepicker-default form-control" placeholder="dd-mm-yyyy" id="an_reg_date"
                                                     name="an_reg_date" 
                                                     value="{{ $patient->an_reg_date }}" style="font-size: 16px;font-weight: 400;color: black;">
                                             </div>
@@ -166,7 +166,7 @@
                                             <label class="col-lg-4 col-form-label" for="dob" style="font-size: 16px;font-weight: 600;color: black;">Date of Birth
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="default form-control" placeholder="dd-mm-yyyy" id="dob"
+                                                  <input type="text" class="datepicker-default form-control" placeholder="dd-mm-yyyy" id="dob"
                                                     name="dob" value="{{ $patient->dob }}" style="font-size: 16px;font-weight: 400;color: black;">
                                             </div>
                                         </div>
@@ -398,4 +398,11 @@
             </div>
         </div>
     </div>
+    	<script>
+			    $("#datepicker").datepicker( {
+    format: "dd-mm-yyyy",
+    startView: "days", 
+    minViewMode: "days"
+});
+			</script>
 @endsection

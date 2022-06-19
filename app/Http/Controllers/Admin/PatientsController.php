@@ -53,8 +53,8 @@ class PatientsController extends Controller
         $action = __FUNCTION__;
 
         if ($request->ajax()) {
-            $start = date('Y-m-d');
-            $end = date('Y-m-d', strtotime($start . '+ 7 days'));
+            $start = date('d-m-Y');
+            $end = date('d-m-Y', strtotime($start . '+ 7 days'));
 
             if ($request->q == 'high_risk') {
                 $data = DB::table('patients as p')->join('mother_visits as v', 'p.id', '=', 'v.patient_id')->join('h_s_c_s as hsc', 'hsc.id', '=', 'p.hsc_id')->whereIn('v.high_risk', [1, 2, 3, 4, 5, 6, 7, 8])->select('p.id', 'p.hsc_id', 'p.rch_id', 'p.an_mother', 'p.husband_name', 'p.an_reg_date', 'hsc.name as hsc_name')->groupBy('p.id')->get();
@@ -843,13 +843,13 @@ class PatientsController extends Controller
                                 'gravida' => $row[7],
                                 'gravida' => $row[8],
                                 'mobile' => $row[9],
-                                'an_reg_date' => date('Y-m-d 00:00:00', strtotime($row[10])),
+                                'an_reg_date' => date('d-m-Y 00:00:00', strtotime($row[10])),
                             );
 
                             if (!empty($patient_data)) {
                                 $patient = Patient::create($patient_data);
                                 DeliveryPlace::create(['patient_id' => $patient->id, 'district' => $district->id]);
-                                MotherMedical::create(['patient_id' => $patient->id, 'lmp_date' => date('Y-m-d 00:00:00', strtotime($row[11])), 'edd_date' => date('Y-m-d 00:00:00', strtotime($row[12]))]);
+                                MotherMedical::create(['patient_id' => $patient->id, 'lmp_date' => date('d-m-Y 00:00:00', strtotime($row[11])), 'edd_date' => date('d-m-Y 00:00:00', strtotime($row[12]))]);
                             }
 
                         }
