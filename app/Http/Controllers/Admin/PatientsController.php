@@ -125,6 +125,7 @@ class PatientsController extends Controller
         try {
             $patient = Patient::create([
                 'hsc_id' => $request->hsc_id,
+                'visit_type' => $request->visit_type,
                 'rch_id' => $request->rch_id,
                 'anc_number' => $request->anc_number,
                 'ec_reg_date' => $request->ec_reg_date,
@@ -184,6 +185,7 @@ class PatientsController extends Controller
             $patient = Patient::find($id);
 
             $patient->hsc_id = $request->hsc_id;
+            $patient->visit_type = $request->visit_type;
             $patient->rch_id = $request->rch_id;
             $patient->anc_number = $request->anc_number;
             $patient->ec_reg_date = $request->ec_reg_date;
@@ -576,6 +578,35 @@ class PatientsController extends Controller
                 'mother_blood_grp_status' => $request->mother_blood_grp_status,
                 'blood_grp' => $request->blood_grp,
                 'hbsag_status' => $request->hbsag_status,
+                'lab_other' => $request->lab_other,
+                'bp' => $request->bp,
+                'rbs' => $request->rbs,
+                'severe' => $request->severe,
+                'other' => $request->other,
+                'thyroid' => $request->thyroid,
+                'ogtt' => $request->ogtt,
+                'ecg' => $request->ecg,
+                'echo' => $request->echo,
+                'fetus' => $request->fetus,
+                'fetal_presentation' => $request->fetal_presentation,
+                'bpd' => $request->bpd,
+                'placemental_position' => $request->placemental_position,
+                'hc' => $request->hc,
+                'ac' => $request->ac,
+                'efw' => $request->efw,
+                'femur' => $request->femur,
+                'gestational_age' => $request->gestational_age,
+                'fetal_heart_rate_bpm' => $request->fetal_heart_rate_bpm,
+                'surgical_scar' => $request->surgical_scar,
+                'head' => $request->head,
+                'abdominal_wall' => $request->abdominal_wall,
+                'abdominal_fetal_presentation' => $request->abdominal_fetal_presentation,
+                'other_drug' => $request->other_drug,
+                'parentral_iron' => $request->parentral_iron,
+                'iron_dose' => $request->iron_dose,
+                'blood_transfusion' => $request->blood_transfusion,
+                'pregnancy_date' => $request->pregnancy_date,
+                'suggested_place' => $request->suggested_place,
 
             ]);
         } catch (\Exception$e) {
@@ -672,6 +703,35 @@ class PatientsController extends Controller
             $visit->mother_blood_grp_status = $request->mother_blood_grp_status;
             $visit->blood_grp = $request->blood_grp;
             $visit->hbsag_status = $request->hbsag_status;
+            $visit->lab_other = $request->lab_other;
+            $visit->bp = $request->bp;
+            $visit->rbs = $request->rbs;
+            $visit->severe = $request->severe;
+            $visit->other = $request->other;
+            $visit->thyroid = $request->thyroid;
+            $visit->ogtt = $request->ogtt;
+            $visit->ecg = $request->ecg;
+            $visit->echo = $request->echo;
+            $visit->fetus = $request->fetus;
+            $visit->fetal_presentation = $request->fetal_presentation;
+            $visit->bpd = $request->bpd;
+            $visit->placemental_position = $request->placemental_position;
+            $visit->hc = $request->hc;
+            $visit->ac = $request->ac;
+            $visit->efw = $request->efw;
+            $visit->femur = $request->femur;
+            $visit->gestational_age = $request->gestational_age;
+            $visit->fetal_heart_rate_bpm = $request->fetal_heart_rate_bpm;
+            $visit->surgical_scar = $request->surgical_scar;
+            $visit->head = $request->head;
+            $visit->abdominal_wall = $request->abdominal_wall;
+            $visit->abdominal_fetal_presentation = $request->abdominal_fetal_presentation;
+            $visit->other_drug = $request->other_drug;
+            $visit->parentral_iron = $request->parentral_iron;
+            $visit->iron_dose = $request->iron_dose;
+            $visit->blood_transfusion = $request->blood_transfusion;
+            $visit->pregnancy_date = $request->pregnancy_date;
+            $visit->suggested_place = $request->suggested_place;
             $visit->save();
 
         } catch (\Exception$e) {
