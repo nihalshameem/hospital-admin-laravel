@@ -16,6 +16,7 @@ class CreatePatientsTable extends Migration
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('hsc_id')->nullable();
+            $table->enum('visit_type', ['resident', 'visitor'])->default('resident')->nullable();
             $table->string('rch_id', 200)->nullable();
             $table->string('anc_number', 100)->nullable();
             $table->string('ec_reg_date', 190)->nullable();

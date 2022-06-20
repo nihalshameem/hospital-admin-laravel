@@ -21,6 +21,20 @@
                             <form class="patient-form" action="{{ url('patient/add') }}" method="POST">
                                 @csrf
                                 {{-- all inputs --}}
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="visit_type">First Choose
+                                    </label>
+                                    <div class="col-lg-6">
+                                        <div class="form-group mb-0">
+                                            <label class="radio-inline mr-3"><input type="radio" name="visit_type"
+                                                    value="resident" checked>
+                                                Resident Mother</label>
+                                            <label class="radio-inline mr-3"><input type="radio" name="visit_type"
+                                                    value="visitor">
+                                                Visitor Mother</label>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group row">
@@ -87,8 +101,13 @@
                                             <label class="col-lg-4 col-form-label" for="financial_year">Financial Year
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="financial_year"
-                                                    name="financial_year" placeholder="YYYY - YYYY">
+                                                <select class="form-control" id="financial_year" name="financial_year">
+                                                    <option value="April 2020 to March 2021">April 2020 to March 2021</option>
+                                                    <option value="April 2021 to March 2022">April 2021 to March 2022</option>
+                                                    <option value="April 2022 to March 2023">April 2022 to March 2023</option>
+                                                    <option value="April 2023 to March 2024">April 2023 to March 2024</option>
+                                                    <option value="April 2024 to March 2025">April 2024 to March 2025</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
