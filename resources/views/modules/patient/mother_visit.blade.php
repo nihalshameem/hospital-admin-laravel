@@ -1322,16 +1322,11 @@
                                                     <div class="col-lg-6">
                                                         <select class="form-control" id="referral_reason" name="referral_reason">
                                                             <option value="">Please Select</option>
-                                                            <option value="Expert Opinion ">Expert Opinion </option>
-                                                            <option value="">Admission and Management at Higher Centre </option>
-                                                            <option value="">Delivery at Higher Centre
-                                                            </option>
-                                                            <option value="">Others
-                                                            </option>
-                                                            <option value="">No Referral
-                                                            </option>
-                                                             
-
+                                                            <option value="Expert Opinion">Expert Opinion</option>
+                                                            <option value="Admission and Management at Higher Centre">Admission and Management at Higher Centre</option>
+                                                            <option value="Delivery at Higher Centre">Delivery at Higher Centre</option>
+                                                            <option value="Others">Others</option>
+                                                            <option value="No Referral">No Referral</option>
                                                         </select>
                                                     </div>
                                                 </div>
