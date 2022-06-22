@@ -41,6 +41,12 @@ class CreatePatientsTable extends Migration
             $table->string('last_visit_date_ec_tracking', 190)->nullable();
             $table->string('an_reg_date', 190)->nullable();
             $table->integer('age')->nullable();
+            $table->string('lmp_date',190)->nullable();
+            $table->string('corrected_lmp_date',190)->nullable();
+            $table->string('edd_date',190)->nullable();
+            $table->string('corrected_edd_date',190)->nullable();
+            $table->string('abortion',190)->nullable();
+            $table->string('neonatal',190)->nullable();
             $table->timestamps();
         });
     }

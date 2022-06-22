@@ -32,5 +32,8 @@ class MotherMedical extends Model
         'eligible_for_mrmbs',
         'hbsag_done',
         'hbsag_status',
+        'surgery_history',
+        'blood_transfusion',
+
     ];
 }

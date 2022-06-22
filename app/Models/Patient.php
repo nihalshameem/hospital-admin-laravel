@@ -40,5 +40,12 @@ class Patient extends Model
         'last_visit_date_ec_tracking',
         'an_reg_date',
         'age',
+        'lmp_date',
+        'corrected_lmp_date',
+        'edd_date',
+        'corrected_edd_date',
+        'abortion',
+        'neonatal',
+
     ];
 }

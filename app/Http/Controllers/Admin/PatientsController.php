@@ -150,6 +150,12 @@ class PatientsController extends Controller
                 'last_visit_date_ec_tracking' => $request->last_visit_date_ec_tracking,
                 'an_reg_date' => $request->an_reg_date,
                 'age' => $request->age,
+                'lmp_date' => $request->lmp_date,
+                'corrected_lmp_date' => $request->corrected_lmp_date,
+                'edd_date' => $request->edd_date,
+                'corrected_edd_date' => $request->corrected_edd_date,
+                'abortion' => $request->abortion,
+                'neonatal' => $request->neonatal,
             ]);
         } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
@@ -210,6 +216,12 @@ class PatientsController extends Controller
             $patient->last_visit_date_ec_tracking = $request->last_visit_date_ec_tracking;
             $patient->an_reg_date = $request->an_reg_date;
             $patient->age = $request->age;
+            $patient->lmp_date = $request->lmp_date;
+            $patient->corrected_lmp_date = $request->corrected_lmp_date;
+            $patient->edd_date = $request->edd_date;
+            $patient->corrected_edd_date = $request->corrected_edd_date;
+            $patient->abortion = $request->abortion;
+            $patient->neonatal = $request->neonatal;
             $patient->save();
             if ($request->submit_btn == 'save') {
                 return redirect('patient')->with('message', 'Patient details updated')->with('type', 'success')->with('heading', 'Updated Successfully');
@@ -316,6 +328,8 @@ class PatientsController extends Controller
         $husband_hiv_screening = $request->husband_hiv_screening;
         $husband_hiv_screeing_date = $request->husband_hiv_screeing_date;
         $husband_hiv_screeing_result = $request->husband_hiv_screeing_result;
+        $surgery_history = $request->surgery_history;
+        $blood_transfusion = $request->blood_transfusion;
 
         $total_pregnancy = $request->total_pregnancy;
         $last_complication_id = $request->last_complication_id;
@@ -358,6 +372,8 @@ class PatientsController extends Controller
                 $mother_medical->husband_hiv_screening = $husband_hiv_screening;
                 $mother_medical->husband_hiv_screeing_date = $husband_hiv_screeing_date;
                 $mother_medical->husband_hiv_screeing_result = $husband_hiv_screeing_result;
+                $mother_medical->surgery_history = $surgery_history;
+                $mother_medical->blood_transfusion = $blood_transfusion;
                 $mother_medical->save();
 
             } else {
@@ -386,6 +402,8 @@ class PatientsController extends Controller
                     'husband_hiv_screening' => $husband_hiv_screening,
                     'husband_hiv_screeing_date' => $husband_hiv_screeing_date,
                     'husband_hiv_screeing_result' => $husband_hiv_screeing_result,
+                    'surgery_history' => $surgery_history,
+                    'blood_transfusion' => $blood_transfusion,
                 ]);
             }
 
@@ -607,6 +625,13 @@ class PatientsController extends Controller
                 'blood_transfusion' => $request->blood_transfusion,
                 'pregnancy_date' => $request->pregnancy_date,
                 'suggested_place' => $request->suggested_place,
+                'husband_vdrl_status' => $request->husband_vdrl_status,
+                'husband_vdrl_date' => $request->husband_vdrl_date,
+                'hbsag_date' => $request->hbsag_date,
+                'today' => $request->today,
+                'crl' => $request->crl,
+                'abdomen_other' => $request->abdomen_other,
+                'referral_reason' => $request->referral_reason,
 
             ]);
         } catch (\Exception$e) {
@@ -732,6 +757,13 @@ class PatientsController extends Controller
             $visit->blood_transfusion = $request->blood_transfusion;
             $visit->pregnancy_date = $request->pregnancy_date;
             $visit->suggested_place = $request->suggested_place;
+            $visit->husband_vdrl_status;
+            $visit->husband_vdrl_date;
+            $visit->hbsag_date;
+            $visit->today;
+            $visit->crl;
+            $visit->abdomen_other;
+            $visit->referral_reason;
             $visit->save();
 
         } catch (\Exception$e) {

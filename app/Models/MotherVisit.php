@@ -122,5 +122,12 @@ class MotherVisit extends Model
         'blood_transfusion',
         'pregnancy_date',
         'suggested_place',
+        'husband_vdrl_status',
+        'husband_vdrl_date',
+        'hbsag_date',
+        'today',
+        'crl',
+        'abdomen_other',
+        'referral_reason',
     ];
 }

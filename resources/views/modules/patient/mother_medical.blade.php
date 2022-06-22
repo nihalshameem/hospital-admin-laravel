@@ -63,44 +63,44 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="mother_name"
-                                                        style="font-size: 16px;font-weight: 600;color: black;">Mother Name
-                                                    </label>
-                                                    <div class="col-lg-6">
-                                                        <input type="text" class="form-control" id="mother_name"
-                                                            name="mother_name" value="{{ $patient->an_mother }}">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="an_reg_date"
-                                                        style="font-size: 16px;font-weight: 600;color: black;">Date of AN
-                                                        Mother
-                                                        Registration
-                                                    </label>
-                                                    <div class="col-lg-6">
-                                                        <input type="text" class="datepicker-default form-control"
-                                                            id="an_reg_date" name="an_reg_date"
-                                                            value="{{ $patient->an_reg_date }}">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="financial_year"
-                                                        style="font-size: 16px;font-weight: 600;color: black;">Financial
-                                                        Year
-                                                    </label>
-                                                    <div class="col-lg-6">
-                                                        <input type="text" class="form-control readonly" id="financial_year"
-                                                            name="financial_year" placeholder="YYYY - YYYY"
-                                                            value="{{ @$patient->financial_year }}">
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <!--<div class="col-xl-6">-->
+                                            <!--    <div class="form-group row">-->
+                                            <!--        <label class="col-lg-4 col-form-label" for="mother_name"-->
+                                            <!--            style="font-size: 16px;font-weight: 600;color: black;">Mother Name-->
+                                            <!--        </label>-->
+                                            <!--        <div class="col-lg-6">-->
+                                            <!--            <input type="text" class="form-control" id="mother_name"-->
+                                            <!--                name="mother_name" value="{{ $patient->an_mother }}">-->
+                                            <!--        </div>-->
+                                            <!--    </div>-->
+                                            <!--</div>-->
+                                            <!--<div class="col-xl-6">-->
+                                            <!--    <div class="form-group row">-->
+                                            <!--        <label class="col-lg-4 col-form-label" for="an_reg_date"-->
+                                            <!--            style="font-size: 16px;font-weight: 600;color: black;">Date of AN-->
+                                            <!--            Mother-->
+                                            <!--            Registration-->
+                                            <!--        </label>-->
+                                            <!--        <div class="col-lg-6">-->
+                                            <!--            <input type="text" class="datepicker-default form-control"-->
+                                            <!--                id="an_reg_date" name="an_reg_date"-->
+                                            <!--                value="{{ $patient->an_reg_date }}">-->
+                                            <!--        </div>-->
+                                            <!--    </div>-->
+                                            <!--</div>-->
+                                            <!--<div class="col-xl-6">-->
+                                            <!--    <div class="form-group row">-->
+                                            <!--        <label class="col-lg-4 col-form-label" for="financial_year"-->
+                                            <!--            style="font-size: 16px;font-weight: 600;color: black;">Financial-->
+                                            <!--            Year-->
+                                            <!--        </label>-->
+                                            <!--        <div class="col-lg-6">-->
+                                            <!--            <input type="text" class="form-control readonly" id="financial_year"-->
+                                            <!--                name="financial_year" placeholder="YYYY - YYYY"-->
+                                            <!--                value="{{ @$patient->financial_year }}">-->
+                                            <!--        </div>-->
+                                            <!--    </div>-->
+                                            <!--</div>-->
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label" for="within_pregnancy_week"
@@ -122,38 +122,38 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="lmp_date"
-                                                        style="font-size: 16px;font-weight: 600;color: black;">LMP Date<span
-                                                            class="text-danger">*</span>
-                                                    </label>
-                                                    <div class="col-lg-6">
-                                                        <input type="text" class="datepicker-default form-control"
-                                                            id="lmp_date" name="lmp_date"
-                                                            value="{{ @$mother_medical->lmp_date }}">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="edd_date"
-                                                        style="font-size: 16px;font-weight: 600;color: black;">EDD Date
-                                                    </label>
-                                                    <div class="col-lg-6">
-                                                        <input type="text" class="datepicker-default form-control" id="edd_date"
-                                                            placeholder="YYYY-MM-DD" name="edd_date"
-                                                            value="{{ @$mother_medical->edd_date }}">
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <!--<div class="col-xl-6">-->
+                                            <!--    <div class="form-group row">-->
+                                            <!--        <label class="col-lg-4 col-form-label" for="lmp_date"-->
+                                            <!--            style="font-size: 16px;font-weight: 600;color: black;">LMP Date<span-->
+                                            <!--                class="text-danger">*</span>-->
+                                            <!--        </label>-->
+                                            <!--        <div class="col-lg-6">-->
+                                            <!--            <input type="text" class="datepicker-default form-control"-->
+                                            <!--                id="lmp_date" name="lmp_date"-->
+                                            <!--                value="{{ @$mother_medical->lmp_date }}">-->
+                                            <!--        </div>-->
+                                            <!--    </div>-->
+                                            <!--</div>-->
+                                            <!--<div class="col-xl-6">-->
+                                            <!--    <div class="form-group row">-->
+                                            <!--        <label class="col-lg-4 col-form-label" for="edd_date"-->
+                                            <!--            style="font-size: 16px;font-weight: 600;color: black;">EDD Date-->
+                                            <!--        </label>-->
+                                            <!--        <div class="col-lg-6">-->
+                                            <!--            <input type="text" class="datepicker-default form-control" id="edd_date"-->
+                                            <!--                placeholder="YYYY-MM-DD" name="edd_date"-->
+                                            <!--                value="{{ @$mother_medical->edd_date }}">-->
+                                            <!--        </div>-->
+                                            <!--    </div>-->
+                                            <!--</div>-->
 
                                         </div>
                                         <div class="row">
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label" for="past_illness_id"
-                                                        style="font-size: 16px;font-weight: 600;color: black;">Past Liness
+                                                        style="font-size: 16px;font-weight: 600;color: black;">Previous Medical Illness
                                                     </label>
                                                     <div class="col-lg-6">
                                                         <select class="form-control" id="past_illness_id"
@@ -170,14 +170,23 @@
                                             </div>
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="other_past_illness">Other
-                                                        Past
-                                                        Illness
+                                                    <label class="col-lg-4 col-form-label" for="surgery_history" style="font-size: 16px;font-weight: 600;color: black;">Previous History Of Surgery
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="form-control" id="other_past_illness"
-                                                            name="other_past_illness"
-                                                            value="{{ @$mother_medical->other_past_illness }}">
+                                                        <input type="text" class="form-control" id="surgery_history"
+                                                            name="surgery_history"
+                                                            value="{{ @$mother_medical->surgery_history }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="blood_transfusion" style="font-size: 16px;font-weight: 600;color: black;">History Of Blood Transfusion
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <input type="text" class="form-control" id="blood_transfusion"
+                                                            name="blood_transfusion"
+                                                            value="{{ @$mother_medical->blood_transfusion }}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -211,34 +220,34 @@
 
                                 <br>
 
-                                <div class="row" style="border: solid 3px #ffb800;padding: 20px;">
-                                    <div class="col-md-12">
+                                <!--<div class="row" style="border: solid 3px #ffb800;padding: 20px;">-->
+                                <!--    <div class="col-md-12">-->
 
 
 
-                                        <center>
-                                            <h3><b>Past Obstetric History</b></h3>
+                                <!--        <center>-->
+                                <!--            <h3><b>Past Obstetric History</b></h3>-->
 
-                                        </center>
-                                        <hr>
+                                <!--        </center>-->
+                                <!--        <hr>-->
 
-                                        <div class="row">
-                                            <div class="offest-xl-2 col-xl-10">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="total_pregnancy"
-                                                        style="font-size: 16px;font-weight: 600;color: black;">Total No Of
-                                                        Pregnancy
-                                                        (Provious)
-                                                    </label>
-                                                    <div class="col-lg-6">
-                                                        <input type="number" class="form-control" name="total_pregnancy"
-                                                            value="{{ $obstetric && $obstetric->total_pregnancy != null ? $obstetric->total_pregnancy : 0 }}">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <!--        <div class="row">-->
+                                <!--            <div class="offest-xl-2 col-xl-10">-->
+                                <!--                <div class="form-group row">-->
+                                <!--                    <label class="col-lg-4 col-form-label" for="total_pregnancy"-->
+                                <!--                        style="font-size: 16px;font-weight: 600;color: black;">Total No Of-->
+                                <!--                        Pregnancy-->
+                                <!--                        (Provious)-->
+                                <!--                    </label>-->
+                                <!--                    <div class="col-lg-6">-->
+                                <!--                        <input type="number" class="form-control" name="total_pregnancy"-->
+                                <!--                            value="{{ $obstetric && $obstetric->total_pregnancy != null ? $obstetric->total_pregnancy : 0 }}">-->
+                                <!--                    </div>-->
+                                <!--                </div>-->
+                                <!--            </div>-->
+                                <!--        </div>-->
+                                <!--    </div>-->
+                                <!--</div>-->
 
                                 <br>
 
@@ -246,7 +255,7 @@
                                     <div class="col-md-12">
 
                                         <center>
-                                            <h3><b>Details Of Last Two Pregnancy</b></h3>
+                                            <h3><b>Details Of Previous Two Pregnancies</b></h3>
                                         </center>
                                         <hr>
 
@@ -255,8 +264,7 @@
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label" for="last_complication_id"
-                                                        style="font-size: 16px;font-weight: 600;color: black;">Last
-                                                        Pregnancy Complication
+                                                        style="font-size: 16px;font-weight: 600;color: black;">Any Complication in Previous Pregnancies 
                                                     </label>
                                                     <div class="col-lg-8">
                                                         <select class="form-control" id="last_complication_id"
@@ -277,8 +285,7 @@
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label" for="present_complication_id"
-                                                        style="font-size: 16px;font-weight: 600;color: black;">Present
-                                                        Pregnancy Complication
+                                                        style="font-size: 16px;font-weight: 600;color: black;"> Complication in Current Pregnancy 
                                                     </label>
                                                     <div class="col-lg-8">
                                                         <select class="form-control" id="present_complication_id"
@@ -302,7 +309,7 @@
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label" for="outcome_id"
-                                                        style="font-size: 16px;font-weight: 600;color: black;">Outcome of
+                                                        style="font-size: 16px;font-weight: 600;color: black;">Outcome of Current
                                                         pregnancy
                                                     </label>
                                                     <div class="col-lg-8">
@@ -331,7 +338,7 @@
 
 
                                         <center>
-                                            <h3><b>Suggested Place Of Delivery</b></h3>
+                                            <h3><b> Preferred / Suggested Place Of Delivery</b></h3>
                                         </center>
 
                                         <hr>
