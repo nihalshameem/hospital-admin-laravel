@@ -127,6 +127,13 @@ class CreateMotherVisitsTable extends Migration
             $table->string('blood_transfusion', 190)->nullable();
             $table->string('pregnancy_date', 190)->nullable();
             $table->string('suggested_place', 190)->nullable();
+            $table->string('husband_vdrl_status', 190)->nullable();
+            $table->string('husband_vdrl_date', 190)->nullable();
+            $table->string('hbsag_date', 190)->nullable();
+            $table->string('today', 190)->nullable();
+            $table->string('crl', 190)->nullable();
+            $table->string('abdomen_other', 190)->nullable();
+            $table->string('referral_reason', 190)->nullable();
             $table->timestamps();
         });
     }
