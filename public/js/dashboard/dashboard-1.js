@@ -115,7 +115,7 @@
                 ],
                 chart: {
                     height: 350,
-                    type: "area",
+                    type: "bar",
                     group: "social",
                     toolbar: {
                         show: false,
@@ -126,11 +126,6 @@
                 },
                 dataLabels: {
                     enabled: false,
-                },
-                stroke: {
-                    width: [2, 2],
-                    colors: ["#F46B68", "#2BC155"],
-                    curve: "straight",
                 },
                 legend: {
                     tooltipHoverFormatter: function (val, opts) {
@@ -144,7 +139,7 @@
                         );
                     },
                     markers: {
-                        fillColors: ["#F46B68", "#2BC155"],
+                        fillColors: ["#F46B68"],
                         width: 19,
                         height: 19,
                         strokeWidth: 0,
@@ -154,7 +149,7 @@
                 markers: {
                     size: 6,
                     border: 0,
-                    colors: ["#F46B68", "#2BC155"],
+                    colors: ["#F46B68"],
                     hover: {
                         size: 6,
                     },
@@ -173,9 +168,8 @@
                     },
                 },
                 fill: {
-                    colors: ["#F46B68", "#2BC155"],
+                    colors: ["#F46B68"],
                     type: "solid",
-                    opacity: 0.07,
                 },
                 grid: {
                     borderColor: "#f1f1f1",
