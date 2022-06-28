@@ -402,6 +402,19 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                             <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="hospital_name"
+                                                        style="font-size: 16px;font-weight: 600;color: black;">Place of
+                                                        Hospital
+                                                    </label>
+                                                    <div class="col-lg-8">
+                                                          <input type="text" class="form-control" id="pw_rch_reg_number"
+                                                    name="pw_rch_reg_number"
+                                                    value="{{ @$mother_medical->pw_rch_reg_number }}">
+                                                    </div>
+                                                </div>
+                                            </div>
 
                                         </div>
 

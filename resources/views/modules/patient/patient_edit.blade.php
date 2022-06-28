@@ -192,20 +192,20 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label"
-                                                        for="corrected_lmp_date"style="font-size: 16px;font-weight: 600;color: black;">Corrected
-                                                        LMP Date
+                                            <!--<div class="col-xl-6">-->
+                                            <!--    <div class="form-group row">-->
+                                            <!--        <label class="col-lg-4 col-form-label"-->
+                                            <!--            for="corrected_lmp_date"style="font-size: 16px;font-weight: 600;color: black;">Corrected-->
+                                            <!--            LMP Date-->
 
-                                                    </label>
-                                                    <div class="col-lg-6">
-                                                        <input type="text" class="form-control"
-                                                            id="corrected_lmp_date" name="corrected_lmp_date"
-                                                            value="{{ @$mother_medical->corrected_lmp_date }}">
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <!--        </label>-->
+                                            <!--        <div class="col-lg-6">-->
+                                            <!--            <input type="text" class="form-control"-->
+                                            <!--                id="corrected_lmp_date" name="corrected_lmp_date"-->
+                                            <!--                value="{{ @$mother_medical->corrected_lmp_date }}">-->
+                                            <!--        </div>-->
+                                            <!--    </div>-->
+                                            <!--</div>-->
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label"

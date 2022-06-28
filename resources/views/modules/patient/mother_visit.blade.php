@@ -427,7 +427,7 @@
 
                                                     <div class="col-lg-6">
                                                         <input type="number" placeholder=""
-                                                            class="form-control" min="1" max="23"
+                                                            class="form-control" 
                                                             id="pregnancy_week" name="pregnancy_week">
                                                     </div>
                                                 </div>

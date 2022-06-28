@@ -58,68 +58,68 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="mother_number"
-                                                        style="font-size: 16px;font-weight: 600;color: black;">Sl.NO Of
-                                                        Delivery Mother
-                                                    </label>
-                                                    <div class="col-lg-6">
-                                                        <input type="text" class="form-control" id="mother_number"
-                                                            name="mother_number"
-                                                            value="{{ @$mother_delivery->mother_number }}">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="reg_date"
-                                                        style="font-size: 16px;font-weight: 600;color: black;">Date of
-                                                        Registration
-                                                    </label>
-                                                    <div class="col-lg-6">
-                                                        <input type="text" class="form-control" id="reg_date"
-                                                            name="reg_date" value="{{ @$mother_delivery->reg_date }}">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="financial_year"
-                                                        style="font-size: 16px;font-weight: 600;color: black;">Financial
-                                                        Year
-                                                    </label>
-                                                    <div class="col-lg-6">
-                                                        <input type="text" class="form-control readonly" id="financial_year"
-                                                            name="financial_year" placeholder="YYYY - YYYY"
-                                                            value="{{ @$patient->financial_year }}">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="last_anc_date"
-                                                        style="font-size: 16px;font-weight: 600;color: black;">Last ANC Date
-                                                    </label>
-                                                    <div class="col-lg-6">
-                                                        <input type="text" class="form-control" id="last_anc_date"
-                                                            name="last_anc_date" placeholder="DD/MM/YYYY"
-                                                            value="{{ @$mother_delivery->last_anc_date }}">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6">
-                                                <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="edd_date"
-                                                        style="font-size: 16px;font-weight: 600;color: black;">EDD Date
-                                                    </label>
-                                                    <div class="col-lg-6">
-                                                        <input type="text" class="form-control" id="edd_date"
-                                                            placeholder="YYYY-MM-DD" name="edd_date"
-                                                            value="{{ @$mother_delivery->edd_date }}">
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <!--<div class="col-xl-6">-->
+                                            <!--    <div class="form-group row">-->
+                                            <!--        <label class="col-lg-4 col-form-label" for="mother_number"-->
+                                            <!--            style="font-size: 16px;font-weight: 600;color: black;">Sl.NO Of-->
+                                            <!--            Delivery Mother-->
+                                            <!--        </label>-->
+                                            <!--        <div class="col-lg-6">-->
+                                            <!--            <input type="text" class="form-control" id="mother_number"-->
+                                            <!--                name="mother_number"-->
+                                            <!--                value="{{ @$mother_delivery->mother_number }}">-->
+                                            <!--        </div>-->
+                                            <!--    </div>-->
+                                            <!--</div>-->
+                                            <!--<div class="col-xl-6">-->
+                                            <!--    <div class="form-group row">-->
+                                            <!--        <label class="col-lg-4 col-form-label" for="reg_date"-->
+                                            <!--            style="font-size: 16px;font-weight: 600;color: black;">Date of-->
+                                            <!--            Registration-->
+                                            <!--        </label>-->
+                                            <!--        <div class="col-lg-6">-->
+                                            <!--            <input type="text" class="form-control" id="reg_date"-->
+                                            <!--                name="reg_date" value="{{ @$mother_delivery->reg_date }}">-->
+                                            <!--        </div>-->
+                                            <!--    </div>-->
+                                            <!--</div>-->
+                                            <!--<div class="col-xl-6">-->
+                                            <!--    <div class="form-group row">-->
+                                            <!--        <label class="col-lg-4 col-form-label" for="financial_year"-->
+                                            <!--            style="font-size: 16px;font-weight: 600;color: black;">Financial-->
+                                            <!--            Year-->
+                                            <!--        </label>-->
+                                            <!--        <div class="col-lg-6">-->
+                                            <!--            <input type="text" class="form-control readonly" id="financial_year"-->
+                                            <!--                name="financial_year" placeholder="YYYY - YYYY"-->
+                                            <!--                value="{{ @$patient->financial_year }}">-->
+                                            <!--        </div>-->
+                                            <!--    </div>-->
+                                            <!--</div>-->
+                                            <!--<div class="col-xl-6">-->
+                                            <!--    <div class="form-group row">-->
+                                            <!--        <label class="col-lg-4 col-form-label" for="last_anc_date"-->
+                                            <!--            style="font-size: 16px;font-weight: 600;color: black;">Last ANC Date-->
+                                            <!--        </label>-->
+                                            <!--        <div class="col-lg-6">-->
+                                            <!--            <input type="text" class="form-control" id="last_anc_date"-->
+                                            <!--                name="last_anc_date" placeholder="DD/MM/YYYY"-->
+                                            <!--                value="{{ @$mother_delivery->last_anc_date }}">-->
+                                            <!--        </div>-->
+                                            <!--    </div>-->
+                                            <!--</div>-->
+                                            <!--<div class="col-xl-6">-->
+                                            <!--    <div class="form-group row">-->
+                                            <!--        <label class="col-lg-4 col-form-label" for="edd_date"-->
+                                            <!--            style="font-size: 16px;font-weight: 600;color: black;">EDD Date-->
+                                            <!--        </label>-->
+                                            <!--        <div class="col-lg-6">-->
+                                            <!--            <input type="text" class="form-control" id="edd_date"-->
+                                            <!--                placeholder="YYYY-MM-DD" name="edd_date"-->
+                                            <!--                value="{{ @$mother_delivery->edd_date }}">-->
+                                            <!--        </div>-->
+                                            <!--    </div>-->
+                                            <!--</div>-->
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label" for="mother_name"
@@ -416,6 +416,104 @@
 
                                         </div>
 
+                                    </div>
+                                </div>
+                                <br>
+
+                                <div class="row" style="border: solid 3px #ffb800;padding: 20px;">
+                                    <div class="col-md-12">
+                                        <center>
+                                            <h3><b>Delivery & Infant Details</b></h3>
+                                        </center>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="birth_term"
+                                                        style="font-size: 16px;font-weight: 600;color: black;">Birth Term
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <input type="text" class="form-control" id="birth_term"
+                                                            name="birth_term" value="{{ @$infant->birth_term }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="infant_sex"
+                                                        style="font-size: 16px;font-weight: 600;color: black;">Sex Baby
+
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <select class="form-control" id="infant_sex" name="infant_sex">
+                                                            <option value="">Select Infant Sex</option>
+                                                            <option value="Male"
+                                                                {{ @$infant->infant_sex == 'Male' ? 'selected' : '' }}>
+                                                                Male
+                                                            </option>
+                                                            <option value="Female"
+                                                                {{ @$infant->infant_sex == 'Female' ? 'selected' : '' }}>
+                                                                Female
+                                                            </option>
+                                                            <option value="Transgender"
+                                                                {{ @$infant->infant_sex == 'Transgender' ? 'selected' : '' }}>
+                                                                Transgender</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                             <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="baby_cry"
+                                                        style="font-size: 16px;font-weight: 600;color: black;">Baby cried
+                                                        immediately at birth <span class="text-danger">*</span>
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <select class="form-control" id="baby_cry" name="baby_cry">
+                                                            <option value="Yes"
+                                                                {{ @$infant->baby_cry == 'Yes' ? 'selected' : '' }}>Yes
+                                                            </option>
+                                                            <option value="No"
+                                                                {{ @$infant->baby_cry == 'No' ? 'selected' : '' }}>No</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                             <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="birth_defect_id"
+                                                        style="font-size: 16px;font-weight: 600;color: black;">Any defect
+                                                        seen at birth
+
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <select class="form-control" id="birth_defect_id"
+                                                            name="birth_defect_id">
+                                                            <option value="">Select defect seen at birth</option>
+                                                            @foreach ($defects as $item)
+                                                                <option value="{{ $item->id }}"
+                                                                    {{ @$infant->birth_defect_id == $item->id ? 'selected' : '' }}>
+                                                                    {{ $item->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="birth_weight"
+                                                        style="font-size: 16px;font-weight: 600;color: black;">Weight at
+                                                        borth(kg) <span class="text-danger">*</span>
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <input type="text" class="form-control" id="birth_weight"
+                                                            name="birth_weight" value="{{ @$infant->birth_weight }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
                                     </div>
                                 </div>
                                 <br>
