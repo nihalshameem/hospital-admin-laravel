@@ -174,7 +174,7 @@
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="form-control" id="lmp_date"
+                                                        <input type="text" class="form-control" id="lmp_date" placeholder="YYYY-MM-DD"
                                                             name="lmp_date" value="{{ @$mother_medical->lmp_date }}">
                                                     </div>
                                                 </div>
@@ -511,7 +511,7 @@
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="form-control" id="bp_diastolic"
+                                                        <input type="text" class="form-control slash-format" id="bp_diastolic"
                                                             name="bp_diastolic" placeholder="Eg :120 / 100"
                                                             value="{{ $patient->bp_diastolic }}"
                                                             style="font-size: 16px;font-weight: 400;color: black;">
