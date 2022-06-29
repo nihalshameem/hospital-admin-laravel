@@ -101,7 +101,7 @@
                                             <!--        </div>-->
                                             <!--    </div>-->
                                             <!--</div>-->
-                                            <div class="col-xl-6">
+                                            {{-- <div class="col-xl-6">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label" for="within_pregnancy_week"
                                                         style="font-size: 16px;font-weight: 600;color: black;">Registerd
@@ -121,7 +121,7 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                             <!--<div class="col-xl-6">-->
                                             <!--    <div class="form-group row">-->
                                             <!--        <label class="col-lg-4 col-form-label" for="lmp_date"-->

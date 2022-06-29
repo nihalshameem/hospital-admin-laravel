@@ -111,6 +111,27 @@
                                             </div>
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="within_pregnancy_week"
+                                                        style="font-size: 16px;font-weight: 600;color: black;">Registerd
+                                                        within 12 Weeks Of Pregnancy
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <select class="form-control" id="within_pregnancy_week"
+                                                            name="within_pregnancy_week">
+                                                            <option value="">Please Select</option>
+                                                            <option value="yes"
+                                                                {{ @$patient->within_pregnancy_week == 'yes' ? 'selected' : '' }}>
+                                                                Yes</option>
+                                                            <option value="no"
+                                                                {{ @$patient->within_pregnancy_week == 'no' ? 'selected' : '' }}>
+                                                                No</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label" for="an_reg_date"
                                                         style="font-size: 16px;font-weight: 600;color: black;">Date of AN
                                                         Registeration <span class="text-danger">*</span>
@@ -174,8 +195,9 @@
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="form-control" id="lmp_date" placeholder="YYYY-MM-DD"
-                                                            name="lmp_date" value="{{ @$mother_medical->lmp_date }}">
+                                                        <input type="text" class="form-control" id="lmp_date"
+                                                            placeholder="YYYY-MM-DD" name="lmp_date"
+                                                            value="{{ @$mother_medical->lmp_date }}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -440,9 +462,8 @@
                                                     </label>
                                                     <div class="col-lg-6">
                                                         <input type="number" class="form-control" id="abortion"
-                                                            name="abortion"
-                                                            value="{{ $patient->abortion }}" min="0"
-                                                            step="1"
+                                                            name="abortion" value="{{ $patient->abortion }}"
+                                                            min="0" step="1"
                                                             style="font-size: 16px;font-weight: 400;color: black;">
                                                     </div>
                                                 </div>
@@ -455,9 +476,8 @@
                                                     </label>
                                                     <div class="col-lg-6">
                                                         <input type="number" class="form-control" id="neonatal"
-                                                            name="neonatal"
-                                                            value="{{ $patient->neonatal }}" min="0"
-                                                            step="1"
+                                                            name="neonatal" value="{{ $patient->neonatal }}"
+                                                            min="0" step="1"
                                                             style="font-size: 16px;font-weight: 400;color: black;">
                                                     </div>
                                                 </div>
@@ -511,8 +531,9 @@
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="form-control slash-format" id="bp_diastolic"
-                                                            name="bp_diastolic" placeholder="Eg :120 / 100"
+                                                        <input type="text" class="form-control slash-format"
+                                                            id="bp_diastolic" name="bp_diastolic"
+                                                            placeholder="Eg :120 / 100"
                                                             value="{{ $patient->bp_diastolic }}"
                                                             style="font-size: 16px;font-weight: 400;color: black;">
                                                     </div>

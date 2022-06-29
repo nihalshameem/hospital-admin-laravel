@@ -46,6 +46,6 @@ class Patient extends Model
         'corrected_edd_date',
         'abortion',
         'neonatal',
-
+        'within_pregnancy_week'
     ];
 }

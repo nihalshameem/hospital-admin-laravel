@@ -35,10 +35,10 @@
                                     <div class="col-lg-6">
                                         <div class="form-group mb-0">
                                             <label class="radio-inline mr-3"><input type="radio" name="visit_type"
-                                                    value="resident{{ @$mother_visit->visit_type === 'resident' ? 'selected' : '' }}">
+                                                    value="resident" {{ @$mother_visit->visit_type === 'resident' ? 'checked' : '' }}>
                                                 Resident Mother</label>
                                             <label class="radio-inline mr-3"><input type="radio" name="visit_type"
-                                                    value="visitor"{{ @$mother_visit->visit_type === 'visitor' ? 'selected' : '' }}>
+                                                    value="visitor" {{ @$mother_visit->visit_type === 'visitor' ? 'checked' : '' }}>
                                                 Visitor Mother</label>
                                         </div>
                                     </div>

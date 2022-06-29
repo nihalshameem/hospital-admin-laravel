@@ -2755,11 +2755,11 @@
                                         </div>
                                     </div>
                                 </th>
-                                <th>Mother ID</th>
-                                <th>Visit Type</th>
                                 <th>Mother Name</th>
-                                <th>Financial Year</th>
-                                <th>Remark</th>
+                                <th>RCH ID</th>
+                                <th>Visit Type</th>
+                                <th>HB Status</th>
+                                <th>GDM Status / Remarks</th>
                                 <th>Result</th>
                                 <th></th>
                                 <th></th>

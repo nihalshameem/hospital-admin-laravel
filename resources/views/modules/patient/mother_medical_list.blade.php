@@ -33,11 +33,12 @@
                                         </div>
                                     </div>
                                 </th>
-                                <th>Mother ID</th>
-                                <th>Sl.No of RCH Reg</th>
-                                <th>Financial Year</th>
+                                <th>RCH ID</th>
+                                <th>HSC Name</th>
                                 <th>Mother Name</th>
-                                <th>MRMBS Eligibility</th>
+                                <th>Husband Name</th>
+                                <th>LMP Date</th>
+                                <th>EDD Date</th>
                                 <th>Date of Reg</th>
                                 <th></th>
                                 <th></th>
