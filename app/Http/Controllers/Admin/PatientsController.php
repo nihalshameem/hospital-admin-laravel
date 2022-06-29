@@ -156,6 +156,7 @@ class PatientsController extends Controller
                 'corrected_edd_date' => $request->corrected_edd_date,
                 'abortion' => $request->abortion,
                 'neonatal' => $request->neonatal,
+                'within_pregnancy_week' => $request->within_pregnancy_week,
             ]);
         } catch (\Exception$e) {
             return redirect()->back()->with('message', $e->getMessage())->with('type', 'error')->with('heading', 'Something Went Wrong!');
@@ -222,6 +223,7 @@ class PatientsController extends Controller
             $patient->corrected_edd_date = $request->corrected_edd_date;
             $patient->abortion = $request->abortion;
             $patient->neonatal = $request->neonatal;
+            $patient->within_pregnancy_week = $request->within_pregnancy_week;
             $patient->save();
             if ($request->submit_btn == 'save') {
                 return redirect('patient')->with('message', 'Patient details updated')->with('type', 'success')->with('heading', 'Updated Successfully');
@@ -475,12 +477,28 @@ class PatientsController extends Controller
         $delivery_place = DeliveryPlace::where('patient_id', $patient->id)->first();
 
         if ($request->ajax()) {
-            $data = MotherVisit::select('id', 'patient_id', 'visit_type', 'an_visit_mother_name', 'financial_year', 'remark', 'result')->where('patient_id', $patient->id)->orderBy('updated_at', 'desc')->get();
+
+            $data = DB::table('patients as p')->join('mother_visits as v', 'p.id', '=', 'v.patient_id')->select('v.id', 'v.an_visit_mother_name', 'p.rch_id', 'v.visit_type', 'v.hb as hb_status', 'v.remark', 'v.result')->groupBy('v.id')->get();
+
+            // $data = MotherVisit::select('id', 'patient_id', 'visit_type', 'an_visit_mother_name', 'financial_year', 'remark', 'result')->where('patient_id', $patient->id)->orderBy('updated_at', 'desc')->get();
             foreach ($data as $key => $item) {
                 $item->result = 'Select ' . $item->result;
             }
 
             return Datatables::of($data)->addIndexColumn()
+                ->editColumn('hb_status', function ($row) {
+                    if ($row->hb_status < 7) {
+                        $status = '<span class="text-danger">' . $row->hb_status . '</span>';
+                    } else if ($row->hb_status > 7 && $row->hb_status <= 9) {
+                        $status = '<span class="text-warning">' . $row->hb_status . '</span>';
+                    } else if ($row->hb_status > 9 && $row->hb_status <= 11) {
+                        $status = '<span class="text-green">' . $row->hb_status . '</span>';
+                    } else {
+                        $status = '<span>' . $row->hb_status . '</span>';
+                    }
+
+                    return $status;
+                })
                 ->addColumn('checkbox', function ($row) {
                     $checkbox = '<div class="checkbox text-right align-self-center">
                                                 <div class="custom-control custom-checkbox ">
@@ -506,7 +524,7 @@ class PatientsController extends Controller
 											</a>';
                     return $delete;
                 })
-                ->rawColumns(['checkbox', 'edit', 'delete'])
+                ->rawColumns(['checkbox', 'edit', 'delete', 'hb_status'])
                 ->make(true);
         }
 
@@ -790,8 +808,7 @@ class PatientsController extends Controller
         $districts = District::all();
 
         if ($request->ajax()) {
-            $data = MotherMedical::select('id', 'patient_id', 'pw_rch_reg_number', 'financial_year', 'mother_name', 'eligible_for_mrmbs', 'an_reg_date')->get();
-            // $data =DB::table('patients as p')->join('mother_visits as v', 'p.id', '=', 'v.patient_id')->join('h_s_c_s as hsc', 'hsc.id', '=', 'p.hsc_id')->select('p.rch_id', 'hsc.name as hsc_name', 'p.an_mother', 'p.id as patient_id', 'p.husband_name', 'p.mobile', 'p.an_reg_date')
+            $data =DB::table('patients as p')->join('mother_medicals as m', 'p.id', '=', 'm.patient_id')->join('h_s_c_s as hsc', 'hsc.id', '=', 'p.hsc_id')->select('m.id','p.rch_id', 'hsc.name as hsc_name', 'p.an_mother', 'p.husband_name', 'm.lmp_date', 'm.edd_date','m.an_reg_date', 'p.id as patient_id', 'p.mobile', 'p.an_reg_date')->groupBy('m.id')->get();
 
             return Datatables::of($data)->addIndexColumn()
                 ->addColumn('checkbox', function ($row) {

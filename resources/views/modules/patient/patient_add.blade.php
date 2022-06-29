@@ -56,7 +56,8 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control readonly" id="rch_id" name="rch_id">
+                                                <input type="text" class="form-control readonly" id="rch_id"
+                                                    name="rch_id">
                                             </div>
                                         </div>
                                     </div>
@@ -69,7 +70,8 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="anc_number" name="anc_number">
+                                                <input type="text" class="form-control" id="anc_number"
+                                                    name="anc_number">
                                             </div>
                                         </div>
                                     </div>
@@ -80,6 +82,25 @@
                                             <div class="col-lg-6">
                                                 <input type="text" class=" form-control" id="ec_reg_date"
                                                     name="ec_reg_date">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="within_pregnancy_week"
+                                                style="font-size: 16px;font-weight: 600;color: black;">Registerd
+                                                within 12 Weeks Of Pregnancy
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <select class="form-control" id="within_pregnancy_week"
+                                                    name="within_pregnancy_week">
+                                                    <option value="">Please Select</option>
+                                                    <option value="yes">
+                                                        Yes</option>
+                                                    <option value="no">
+                                                        No</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -102,11 +123,16 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <select class="form-control" id="financial_year" name="financial_year">
-                                                    <option value="April 2020 to March 2021">April 2020 to March 2021</option>
-                                                    <option value="April 2021 to March 2022">April 2021 to March 2022</option>
-                                                    <option value="April 2022 to March 2023">April 2022 to March 2023</option>
-                                                    <option value="April 2023 to March 2024">April 2023 to March 2024</option>
-                                                    <option value="April 2024 to March 2025">April 2024 to March 2025</option>
+                                                    <option value="April 2020 to March 2021">April 2020 to March 2021
+                                                    </option>
+                                                    <option value="April 2021 to March 2022">April 2021 to March 2022
+                                                    </option>
+                                                    <option value="April 2022 to March 2023">April 2022 to March 2023
+                                                    </option>
+                                                    <option value="April 2023 to March 2024">April 2023 to March 2024
+                                                    </option>
+                                                    <option value="April 2024 to March 2025">April 2024 to March 2025
+                                                    </option>
                                                 </select>
                                             </div>
                                         </div>
@@ -116,7 +142,8 @@
                                             <label class="col-lg-4 col-form-label" for="an_mother">AN Mother
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="an_mother" name="an_mother">
+                                                <input type="text" class="form-control" id="an_mother"
+                                                    name="an_mother">
                                             </div>
                                         </div>
                                     </div>
@@ -148,7 +175,8 @@
                                             <label class="col-lg-4 col-form-label" for="mobile">Mobile No
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="mobile" name="mobile">
+                                                <input type="text" class="form-control" id="mobile"
+                                                    name="mobile">
                                             </div>
                                         </div>
                                     </div>
@@ -253,7 +281,8 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="number" class="form-control" id="pw_height" name="pw_height">
+                                                <input type="number" class="form-control" id="pw_height"
+                                                    name="pw_height">
                                             </div>
                                         </div>
                                     </div>
@@ -265,7 +294,8 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="number" class="form-control" id="bp_diastolic"
-                                                    name="bp_diastolic" min="40" max="100" placeholder="Range 40 to 100">
+                                                    name="bp_diastolic" min="40" max="100"
+                                                    placeholder="Range 40 to 100">
                                             </div>
                                         </div>
                                     </div>
@@ -278,7 +308,8 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="number" class="form-control" id="bp_systolic"
-                                                    name="bp_systolic" min="70" max="190" placeholder="Range 70 to 190">
+                                                    name="bp_systolic" min="70" max="190"
+                                                    placeholder="Range 70 to 190">
                                             </div>
                                         </div>
                                     </div>
@@ -287,8 +318,8 @@
                                             <label class="col-lg-4 col-form-label" for="age">Age
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="number" class="form-control" id="age" name="age" value="0"
-                                                    min="0" step="1">
+                                                <input type="number" class="form-control" id="age" name="age"
+                                                    value="0" min="0" step="1">
                                             </div>
                                         </div>
                                     </div>
@@ -317,10 +348,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                                 <div class="row">
-                                    
+
                                     <div class="col-xl-6">
                                         <div class="form-group row">
                                             <div class="col-lg-8 ml-auto">

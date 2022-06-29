@@ -31,10 +31,10 @@ jQuery(".patient-form").validate({
         mother_weight: {
             required: !0,
         },
-        bp_diastolic: {
-            required: !0,
-            range: [40, 100],
-        },
+        // bp_diastolic: {
+        //     required: !0,
+        //     range: [40, 100],
+        // },
     },
     messages: {
         hsc_id: {
