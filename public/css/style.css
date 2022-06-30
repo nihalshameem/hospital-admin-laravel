@@ -30298,3 +30298,6 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
     font: normal normal normal 14px/1 FontAwesome;
     margin-top: 3px;
 }
+.darker{
+  font-size: 16px;font-weight: 600;color: black;
+}

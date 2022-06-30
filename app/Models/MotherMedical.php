@@ -34,6 +34,17 @@ class MotherMedical extends Model
         'hbsag_status',
         'surgery_history',
         'blood_transfusion',
+        'prev_gravida',
+        'prev_birth_year',
+        'prev_baby_sex',
+        'prev_pregnancy_duration',
+        'prev_delivery_place',
+        'prev_district',
+        'prev_outcome',
+        'prev_weight',
+        'prev_birth_state',
+        'prev_complication',
+        'prev_other_complication',
 
     ];
 }

@@ -332,6 +332,17 @@ class PatientsController extends Controller
         $husband_hiv_screeing_result = $request->husband_hiv_screeing_result;
         $surgery_history = $request->surgery_history;
         $blood_transfusion = $request->blood_transfusion;
+        $prev_gravida = $request->prev_gravida;
+        $prev_birth_year = $request->prev_birth_year;
+        $prev_baby_sex = $request->prev_baby_sex;
+        $prev_pregnancy_duration = $request->prev_pregnancy_duration;
+        $prev_delivery_place = $request->prev_delivery_place;
+        $prev_district = $request->prev_district;
+        $prev_outcome = $request->prev_outcome;
+        $prev_weight = $request->prev_weight;
+        $prev_birth_state = $request->prev_birth_state;
+        $prev_complication = $request->prev_complication;
+        $prev_other_complication = $request->prev_other_complication;
 
         $total_pregnancy = $request->total_pregnancy;
         $last_complication_id = $request->last_complication_id;
@@ -376,6 +387,17 @@ class PatientsController extends Controller
                 $mother_medical->husband_hiv_screeing_result = $husband_hiv_screeing_result;
                 $mother_medical->surgery_history = $surgery_history;
                 $mother_medical->blood_transfusion = $blood_transfusion;
+                $mother_medical->prev_gravida = $prev_gravida;
+                $mother_medical->prev_birth_year = $prev_birth_year;
+                $mother_medical->prev_baby_sex = $prev_baby_sex;
+                $mother_medical->prev_pregnancy_duration = $prev_pregnancy_duration;
+                $mother_medical->prev_delivery_place = $prev_delivery_place;
+                $mother_medical->prev_district = $prev_district;
+                $mother_medical->prev_outcome = $prev_outcome;
+                $mother_medical->prev_weight = $prev_weight;
+                $mother_medical->prev_birth_state = $prev_birth_state;
+                $mother_medical->prev_complication = $prev_complication;
+                $mother_medical->prev_other_complication = $prev_other_complication;
                 $mother_medical->save();
 
             } else {
@@ -406,6 +428,17 @@ class PatientsController extends Controller
                     'husband_hiv_screeing_result' => $husband_hiv_screeing_result,
                     'surgery_history' => $surgery_history,
                     'blood_transfusion' => $blood_transfusion,
+                    'prev_gravida' => $prev_gravida,
+                    'prev_birth_year' => $prev_birth_year,
+                    'prev_baby_sex' => $prev_baby_sex,
+                    'prev_pregnancy_duration' => $prev_pregnancy_duration,
+                    'prev_delivery_place' => $prev_delivery_place,
+                    'prev_district' => $prev_district,
+                    'prev_outcome' => $prev_outcome,
+                    'prev_weight' => $prev_weight,
+                    'prev_birth_state' => $prev_birth_state,
+                    'prev_complication' => $prev_complication,
+                    'prev_other_complication' => $prev_other_complication,
                 ]);
             }
 
@@ -808,7 +841,7 @@ class PatientsController extends Controller
         $districts = District::all();
 
         if ($request->ajax()) {
-            $data =DB::table('patients as p')->join('mother_medicals as m', 'p.id', '=', 'm.patient_id')->join('h_s_c_s as hsc', 'hsc.id', '=', 'p.hsc_id')->select('m.id','p.rch_id', 'hsc.name as hsc_name', 'p.an_mother', 'p.husband_name', 'm.lmp_date', 'm.edd_date','m.an_reg_date', 'p.id as patient_id', 'p.mobile', 'p.an_reg_date')->groupBy('m.id')->get();
+            $data = DB::table('patients as p')->join('mother_medicals as m', 'p.id', '=', 'm.patient_id')->join('h_s_c_s as hsc', 'hsc.id', '=', 'p.hsc_id')->select('m.id', 'p.rch_id', 'hsc.name as hsc_name', 'p.an_mother', 'p.husband_name', 'm.lmp_date', 'm.edd_date', 'm.an_reg_date', 'p.id as patient_id', 'p.mobile', 'p.an_reg_date')->groupBy('m.id')->get();
 
             return Datatables::of($data)->addIndexColumn()
                 ->addColumn('checkbox', function ($row) {
