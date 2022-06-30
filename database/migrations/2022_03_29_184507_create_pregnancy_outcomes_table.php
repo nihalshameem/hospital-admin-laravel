@@ -25,6 +25,8 @@ class CreatePregnancyOutcomesTable extends Migration
             ['name' => 'MTP'],
             ['name' => 'SB'],
             ['name' => 'LB'],
+            ['name' => 'Live & Still Birth'],
+            ['name' => 'IUD'],
         ]);
     }
 

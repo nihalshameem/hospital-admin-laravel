@@ -153,7 +153,8 @@
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label" for="past_illness_id"
-                                                        style="font-size: 16px;font-weight: 600;color: black;">Previous Medical Illness
+                                                        style="font-size: 16px;font-weight: 600;color: black;">Previous
+                                                        Medical Illness
                                                     </label>
                                                     <div class="col-lg-6">
                                                         <select class="form-control" id="past_illness_id"
@@ -170,7 +171,9 @@
                                             </div>
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="surgery_history" style="font-size: 16px;font-weight: 600;color: black;">Previous History Of Surgery
+                                                    <label class="col-lg-4 col-form-label" for="surgery_history"
+                                                        style="font-size: 16px;font-weight: 600;color: black;">Previous
+                                                        History Of Surgery
                                                     </label>
                                                     <div class="col-lg-6">
                                                         <input type="text" class="form-control" id="surgery_history"
@@ -181,7 +184,9 @@
                                             </div>
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="blood_transfusion" style="font-size: 16px;font-weight: 600;color: black;">History Of Blood Transfusion
+                                                    <label class="col-lg-4 col-form-label" for="blood_transfusion"
+                                                        style="font-size: 16px;font-weight: 600;color: black;">History Of
+                                                        Blood Transfusion
                                                     </label>
                                                     <div class="col-lg-6">
                                                         <input type="text" class="form-control" id="blood_transfusion"
@@ -255,6 +260,229 @@
                                     <div class="col-md-12">
 
                                         <center>
+                                            <h3><b>Details Of Previous Pregnancies</b></h3>
+                                        </center>
+                                        <hr>
+
+
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label darker"
+                                                        for="prev_gravida">Gravida
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    <div class="col-lg-8">
+                                                        <select class="form-control" id="prev_gravida"
+                                                            name="prev_gravida">
+                                                            @for ($i = 0; $i <= 10; $i++)
+                                                                <option value="{{ $i }}"
+                                                                    {{ @$mother_medical->prev_gravida == $i ? 'selected' : '' }}>
+                                                                    {{ $i }}
+                                                                </option>
+                                                            @endfor
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="prev_birth_year"
+                                                        style="font-size: 16px;font-weight: 600;color: black;">Year Of
+                                                        Birth
+                                                    </label>
+                                                    <div class="col-lg-8">
+                                                        <select class="form-control" id="prev_birth_year"
+                                                            name="prev_birth_year">
+                                                            @for ($i = 1980; $i <= 2010; $i++)
+                                                                <option value="{{ $i }}"
+                                                                    {{ @$mother_medical->prev_birth_year === $i ? 'selected' : '' }}>
+                                                                    {{ $i }}
+                                                                </option>
+                                                            @endfor
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="prev_baby_sex"
+                                                        style="font-size: 16px;font-weight: 600;color: black;">Sex of the
+                                                        Baby
+                                                    </label>
+                                                    <div class="col-lg-8">
+                                                        <select class="form-control" id="prev_baby_sex"
+                                                            name="prev_baby_sex">
+                                                            <option value="Male"
+                                                                {{ @$mother_medical->prev_baby_sex === 'Male' ? 'selected' : '' }}>
+                                                                Male</option>
+                                                            <option value="Female"
+                                                                {{ @$mother_medical->prev_baby_sex === 'Female' ? 'selected' : '' }}>
+                                                                Female</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="prev_pregnancy_duration"
+                                                        style="font-size: 16px;font-weight: 600;color: black;">Duration of
+                                                        pregnancy
+                                                    </label>
+                                                    <div class="col-lg-8">
+                                                        <select class="form-control" id="prev_pregnancy_duration"
+                                                            name="prev_pregnancy_duration">
+                                                            <option value="term"
+                                                                {{ @$mother_medical->prev_pregnancy_duration === 'term' ? 'selected' : '' }}>
+                                                                term</option>
+                                                            <option value="preterm"
+                                                                {{ @$mother_medical->prev_pregnancy_duration === 'preterm' ? 'selected' : '' }}>
+                                                                preterm</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="prev_delivery_place"
+                                                        style="font-size: 16px;font-weight: 600;color: black;">Place of
+                                                        delivery
+                                                    </label>
+                                                    <div class="col-lg-8">
+                                                        <select class="form-control" id="prev_delivery_place"
+                                                            name="prev_delivery_place">
+                                                            <option value="Medical College"
+                                                                {{ @$mother_medical->prev_delivery_place === 'Medical College' ? 'selected' : '' }}>
+                                                                Medical College</option>
+                                                            <option value="GH"
+                                                                {{ @$mother_medical->prev_delivery_place === 'GH' ? 'selected' : '' }}>
+                                                                GH</option>
+                                                            <option value="PHC"
+                                                                {{ @$mother_medical->prev_delivery_place === 'PHC' ? 'selected' : '' }}>
+                                                                PHC</option>
+                                                            <option value="HSC"
+                                                                {{ @$mother_medical->prev_delivery_place === 'HSC' ? 'selected' : '' }}>
+                                                                HSC</option>
+                                                            <option value="Home"
+                                                                {{ @$mother_medical->prev_delivery_place === 'Home' ? 'selected' : '' }}>
+                                                                Home</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="prev_district"
+                                                        style="font-size: 16px;font-weight: 600;color: black;">District
+                                                    </label>
+                                                    <div class="col-lg-8">
+                                                        <select class="form-control" id="prev_district"
+                                                            name="prev_district">
+                                                            <option value="">Select </option>
+                                                            @foreach ($districts as $item)
+                                                                <option value="{{ $item->id }}"
+                                                                    {{ @$mother_medical->prev_district == $item->id ? 'selected' : '' }}>
+                                                                    {{ $item->name }}
+                                                                </option>
+                                                            @endforeach
+                                                            <option value="">Others </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="prev_outcome"
+                                                        style="font-size: 16px;font-weight: 600;color: black;">Outcome
+                                                    </label>
+                                                    <div class="col-lg-8">
+                                                        <select class="form-control" id="prev_outcome"
+                                                            name="prev_outcome">
+                                                            <option value="">Select </option>
+                                                            @foreach ($outcomes as $item)
+                                                                <option value="{{ $item->id }}"
+                                                                    {{ @$mother_medical->prev_outcome == $item->id ? 'selected' : '' }}>
+                                                                    {{ $item->name }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="prev_weight"
+                                                        style="font-size: 16px;font-weight: 600;color: black;">Weight (kg)
+                                                    </label>
+                                                    <div class="col-lg-8">
+                                                        <input type="text" class="form-control mt-2"
+                                                            name="prev_weight"
+                                                            value="{{ @$mother_medical->prev_weight }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="prev_birth_state"
+                                                        style="font-size: 16px;font-weight: 600;color: black;">Current
+                                                        state of birth
+                                                    </label>
+                                                    <div class="col-lg-8">
+                                                        <select class="form-control" id="prev_birth_state"
+                                                            name="prev_birth_state">
+                                                            <option value="Alive"
+                                                                {{ @$mother_medical->prev_birth_state === 'Alive' ? 'selected' : '' }}>
+                                                                Alive</option>
+                                                            <option value="Dead"
+                                                                {{ @$mother_medical->prev_birth_state === 'Dead' ? 'selected' : '' }}>
+                                                                Dead</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="prev_complication"
+                                                        style="font-size: 16px;font-weight: 600;color: black;">Complication
+                                                        in Pregnancies
+                                                    </label>
+                                                    <div class="col-lg-8">
+                                                        <select class="form-control" id="prev_complication"
+                                                            name="prev_complication">
+                                                            <option value="">Select </option>
+                                                            @foreach ($complications as $item)
+                                                                <option value="{{ $item->id }}"
+                                                                    {{ @$mother_medical->prev_complication == $item->id ? 'selected' : '' }}>
+                                                                    {{ $item->name }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                        <input type="text" class="form-control mt-2"
+                                                            name="prev_other_complication"
+                                                            value="{{ @$mother_medical->prev_other_complication }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+
+                                <div class="row" style="border: solid 3px #ffb800;padding: 20px;">
+                                    <div class="col-md-12">
+
+                                        <center>
                                             <h3><b>Details Of Previous Two Pregnancies</b></h3>
                                         </center>
                                         <hr>
@@ -264,7 +492,8 @@
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label" for="last_complication_id"
-                                                        style="font-size: 16px;font-weight: 600;color: black;">Any Complication in Previous Pregnancies 
+                                                        style="font-size: 16px;font-weight: 600;color: black;">Any
+                                                        Complication in Previous Pregnancies
                                                     </label>
                                                     <div class="col-lg-8">
                                                         <select class="form-control" id="last_complication_id"
@@ -285,7 +514,8 @@
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label" for="present_complication_id"
-                                                        style="font-size: 16px;font-weight: 600;color: black;"> Complication in Current Pregnancy 
+                                                        style="font-size: 16px;font-weight: 600;color: black;">
+                                                        Complication in Current Pregnancy
                                                     </label>
                                                     <div class="col-lg-8">
                                                         <select class="form-control" id="present_complication_id"
@@ -309,7 +539,8 @@
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label" for="outcome_id"
-                                                        style="font-size: 16px;font-weight: 600;color: black;">Outcome of Current
+                                                        style="font-size: 16px;font-weight: 600;color: black;">Outcome of
+                                                        Current
                                                         pregnancy
                                                     </label>
                                                     <div class="col-lg-8">
@@ -402,16 +633,16 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                             <div class="col-xl-6">
+                                            <div class="col-xl-6">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label" for="hospital_name"
                                                         style="font-size: 16px;font-weight: 600;color: black;">Place of
                                                         Hospital
                                                     </label>
                                                     <div class="col-lg-8">
-                                                          <input type="text" class="form-control" id="pw_rch_reg_number"
-                                                    name="pw_rch_reg_number"
-                                                    value="{{ @$mother_medical->pw_rch_reg_number }}">
+                                                        <input type="text" class="form-control" id="pw_rch_reg_number"
+                                                            name="pw_rch_reg_number"
+                                                            value="{{ @$mother_medical->pw_rch_reg_number }}">
                                                     </div>
                                                 </div>
                                             </div>

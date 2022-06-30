@@ -43,6 +43,17 @@ class CreateMotherMedicalsTable extends Migration
             $table->enum('husband_hiv_screeing_result', ['positive', 'negative'])->nullable()->default('negative');
             $table->enum('surgery_history', 190)->nullable();
             $table->enum('blood_transfusion', 190)->nullable();
+            $table->enum('prev_gravida', 190)->nullable();
+            $table->enum('prev_birth_year', 190)->nullable();
+            $table->enum('prev_baby_sex', 190)->nullable();
+            $table->enum('prev_pregnancy_duration', 190)->nullable();
+            $table->enum('prev_delivery_place', 190)->nullable();
+            $table->enum('prev_district', 190)->nullable();
+            $table->enum('prev_outcome', 190)->nullable();
+            $table->enum('prev_weight', 190)->nullable();
+            $table->enum('prev_birth_state', 190)->nullable();
+            $table->enum('prev_complication', 190)->nullable();
+            $table->enum('prev_other_complication', 190)->nullable();
             $table->timestamps();
         });
     }
