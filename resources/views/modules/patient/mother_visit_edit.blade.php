@@ -100,7 +100,7 @@
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="form-control" id="lmp_date"
+                                                        <input type="text" class="datepicker-default form-control" id="lmp_date"
                                                             name="lmp_date" value="{{ @$mother_visit->lmp_date }}">
                                                     </div>
                                                 </div>
@@ -112,7 +112,7 @@
                                                         Date<span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="form-control" id="edd_date"
+                                                        <input type="text" class="datepicker-default form-control" id="edd_date"
                                                             placeholder="YYYY-MM-DD" name="edd_date"
                                                             value="{{ @$mother_visit->edd_date }}">
                                                     </div>

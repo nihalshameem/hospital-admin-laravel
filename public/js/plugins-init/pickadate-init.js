@@ -3,6 +3,8 @@
 
     //date picker classic default
     $(".datepicker-default").pickadate({
-        format: "dd-mm-yyyy",
+        format: "yyyy-mm-dd",
+        selectMonths: true,
+        selectYears: true,
     });
 })(jQuery);
