@@ -60,7 +60,7 @@ class ReportsController extends Controller
         $action = 'patient_list';
 
         if ($request->ajax()) {
-            $data = DB::table('patients as p')->join('delivery_places as d', 'p.id', '=', 'd.patient_id')->join('hospital_types as ht', 'ht.id', '=', 'd.hospital_type_id')->join('h_s_c_s as hsc', 'hsc.id', '=', 'p.hsc_id')->join('mother_visits as v', 'p.id', '=', 'v.patient_id')->whereIn('v.high_risk', [1, 2, 3, 4, 5, 6, 7, 8])->join('high_risks as hr', 'hr.id', '=', 'v.high_risk')->select('p.id as id', 'hsc.name as hsc_name', 'p.rch_id', 'p.an_mother', 'p.husband_name', 'p.mobile', 'p.gravida', 'p.para', 'hr.name as high_risk', 'p.lmp_date', 'p.edd_date', 'p.an_reg_date as reg_date')->where('ht.name', 'phc')->groupBy('p.id')->get();
+            $data = DB::table('patients as p')->join('delivery_places as d', 'p.id', '=', 'd.patient_id')->join('hospital_types as ht', 'ht.id', '=', 'd.hospital_type_id')->join('h_s_c_s as hsc', 'hsc.id', '=', 'p.hsc_id')->join('mother_visits as v', 'p.id', '=', 'v.patient_id')->whereIn('v.high_risk', [1, 2, 3, 4, 5, 6, 7, 8])->join('high_risks as hr','hr.id','=','v.high_risk')->select('p.id as id', 'hsc.name as hsc_name', 'p.rch_id', 'p.an_mother', 'p.husband_name', 'p.mobile', 'p.gravida', 'p.para','hr.name as high_risk','p.lmp_date','p.edd_date','p.an_reg_date as reg_date')->where('ht.name', 'phc')->groupBy('p.id')->get();
             return Datatables::of($data)->addIndexColumn()
                 ->addColumn('view', function ($row) {
                     $view = '<a href="' . url('patient/an-mother-visit/' . $row->id) . '" ><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

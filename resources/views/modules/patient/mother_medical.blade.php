@@ -479,86 +479,86 @@
                                 </div>
                                 <br>
 
-                                <!--<div class="row" style="border: solid 3px #ffb800;padding: 20px;">-->
-                                <!--    <div class="col-md-12">-->
+                                <div class="row" style="border: solid 3px #ffb800;padding: 20px;">
+                                    <div class="col-md-12">
 
-                                <!--        <center>-->
-                                <!--            <h3><b>Details Of Previous Two Pregnancies</b></h3>-->
-                                <!--        </center>-->
-                                <!--        <hr>-->
+                                        <center>
+                                            <h3><b>Details Of Previous Two Pregnancies</b></h3>
+                                        </center>
+                                        <hr>
 
 
-                                <!--        <div class="row">-->
-                                <!--            <div class="col-xl-6">-->
-                                <!--                <div class="form-group row">-->
-                                <!--                    <label class="col-lg-4 col-form-label" for="last_complication_id"-->
-                                <!--                        style="font-size: 16px;font-weight: 600;color: black;">Any-->
-                                <!--                        Complication in Previous Pregnancies-->
-                                <!--                    </label>-->
-                                <!--                    <div class="col-lg-8">-->
-                                <!--                        <select class="form-control" id="last_complication_id"-->
-                                <!--                            name="last_complication_id">-->
-                                <!--                            <option value="">Select </option>-->
-                                <!--                            @foreach ($complications as $item)-->
-                                <!--                                <option value="{{ $item->id }}"-->
-                                <!--                                    {{ @$obstetric->last_complication_id == $item->id ? 'selected' : '' }}>-->
-                                <!--                                    {{ $item->name }}</option>-->
-                                <!--                            @endforeach-->
-                                <!--                        </select>-->
-                                <!--                        <input type="text" class="form-control mt-2"-->
-                                <!--                            name="last_other_complication"-->
-                                <!--                            value="{{ @$obstetric->last_other_complication }}">-->
-                                <!--                    </div>-->
-                                <!--                </div>-->
-                                <!--            </div>-->
-                                <!--            <div class="col-xl-6">-->
-                                <!--                <div class="form-group row">-->
-                                <!--                    <label class="col-lg-4 col-form-label" for="present_complication_id"-->
-                                <!--                        style="font-size: 16px;font-weight: 600;color: black;">-->
-                                <!--                        Complication in Current Pregnancy-->
-                                <!--                    </label>-->
-                                <!--                    <div class="col-lg-8">-->
-                                <!--                        <select class="form-control" id="present_complication_id"-->
-                                <!--                            name="present_complication_id">-->
-                                <!--                            <option value="">Select </option>-->
-                                <!--                            @foreach ($complications as $item)-->
-                                <!--                                <option value="{{ $item->id }}"-->
-                                <!--                                    {{ @$obstetric->present_complication_id == $item->id ? 'selected' : '' }}>-->
-                                <!--                                    {{ $item->name }}</option>-->
-                                <!--                            @endforeach-->
-                                <!--                        </select>-->
-                                <!--                        <input type="text" class="form-control mt-2"-->
-                                <!--                            name="present_other_complication"-->
-                                <!--                            value="{{ @$obstetric->present_other_complication }}">-->
-                                <!--                    </div>-->
-                                <!--                </div>-->
-                                <!--            </div>-->
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="last_complication_id"
+                                                        style="font-size: 16px;font-weight: 600;color: black;">Any
+                                                        Complication in Previous Pregnancies
+                                                    </label>
+                                                    <div class="col-lg-8">
+                                                        <select class="form-control" id="last_complication_id"
+                                                            name="last_complication_id">
+                                                            <option value="">Select </option>
+                                                            @foreach ($complications as $item)
+                                                                <option value="{{ $item->id }}"
+                                                                    {{ @$obstetric->last_complication_id == $item->id ? 'selected' : '' }}>
+                                                                    {{ $item->name }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                        <input type="text" class="form-control mt-2"
+                                                            name="last_other_complication"
+                                                            value="{{ @$obstetric->last_other_complication }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="present_complication_id"
+                                                        style="font-size: 16px;font-weight: 600;color: black;">
+                                                        Complication in Current Pregnancy
+                                                    </label>
+                                                    <div class="col-lg-8">
+                                                        <select class="form-control" id="present_complication_id"
+                                                            name="present_complication_id">
+                                                            <option value="">Select </option>
+                                                            @foreach ($complications as $item)
+                                                                <option value="{{ $item->id }}"
+                                                                    {{ @$obstetric->present_complication_id == $item->id ? 'selected' : '' }}>
+                                                                    {{ $item->name }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                        <input type="text" class="form-control mt-2"
+                                                            name="present_other_complication"
+                                                            value="{{ @$obstetric->present_other_complication }}">
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                <!--        </div>-->
-                                <!--        <div class="row">-->
-                                <!--            <div class="col-xl-6">-->
-                                <!--                <div class="form-group row">-->
-                                <!--                    <label class="col-lg-4 col-form-label" for="outcome_id"-->
-                                <!--                        style="font-size: 16px;font-weight: 600;color: black;">Outcome of-->
-                                <!--                        Current-->
-                                <!--                        pregnancy-->
-                                <!--                    </label>-->
-                                <!--                    <div class="col-lg-8">-->
-                                <!--                        <select class="form-control" id="outcome_id" name="outcome_id">-->
-                                <!--                            <option value="">Select </option>-->
-                                <!--                            @foreach ($outcomes as $item)-->
-                                <!--                                <option value="{{ $item->id }}"-->
-                                <!--                                    {{ @$obstetric->outcome_id == $item->id ? 'selected' : '' }}>-->
-                                <!--                                    {{ $item->name }}</option>-->
-                                <!--                            @endforeach-->
-                                <!--                        </select>-->
-                                <!--                    </div>-->
-                                <!--                </div>-->
-                                <!--            </div>-->
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="outcome_id"
+                                                        style="font-size: 16px;font-weight: 600;color: black;">Outcome of
+                                                        Current
+                                                        pregnancy
+                                                    </label>
+                                                    <div class="col-lg-8">
+                                                        <select class="form-control" id="outcome_id" name="outcome_id">
+                                                            <option value="">Select </option>
+                                                            @foreach ($outcomes as $item)
+                                                                <option value="{{ $item->id }}"
+                                                                    {{ @$obstetric->outcome_id == $item->id ? 'selected' : '' }}>
+                                                                    {{ $item->name }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                <!--        </div>-->
-                                <!--    </div>-->
-                                <!--</div>-->
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <br>
 
