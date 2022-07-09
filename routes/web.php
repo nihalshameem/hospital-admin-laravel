@@ -129,7 +129,6 @@ Route::get('/patient/infant/delete/{id}', 'App\Http\Controllers\Admin\PatientsCo
 // pnd care
 Route::get('/patient/pnc/{id}', 'App\Http\Controllers\Admin\PatientsController@pnc_care');
 
-
 // upload
 Route::get('/mother-upload', 'App\Http\Controllers\Admin\PatientsController@mother_upload');
 Route::post('/mother-upload', 'App\Http\Controllers\Admin\PatientsController@excel_upload');
@@ -157,4 +156,10 @@ Route::get('/clear-cache', function () {
     Artisan::call('config:cache');
     Artisan::call('route:cache');
     return "Cache is cleared";
+});
+
+// report
+Route::group(['prefix' => 'report'], function () {
+    Route::get('/mother-phc', 'App\Http\Controllers\Admin\ReportsController@mother_phc');
+    Route::get('/high-risk-phc', 'App\Http\Controllers\Admin\ReportsController@high_risk_phc');
 });
