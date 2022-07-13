@@ -187,6 +187,7 @@
                                                 </div>
                                             </div>
 
+                                            
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label"
@@ -195,9 +196,8 @@
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="form-control" id="lmp_date"
-                                                            placeholder="YYYY-MM-DD" name="lmp_date"
-                                                            value="{{ @$mother_medical->lmp_date }}">
+                                                        <input type="text" class="datepicker-default form-control" id="lmp_date"
+                                                            name="lmp_date" value="{{ @$patient->lmp_date }}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -208,9 +208,9 @@
                                                         Date<span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="form-control" id="edd_date"
+                                                        <input type="text" class="datepicker-default form-control" id="edd_date"
                                                             placeholder="YYYY-MM-DD" name="edd_date"
-                                                            value="{{ @$mother_medical->edd_date }}">
+                                                            value="{{ @$patient->edd_date }}">
                                                     </div>
                                                 </div>
                                             </div>

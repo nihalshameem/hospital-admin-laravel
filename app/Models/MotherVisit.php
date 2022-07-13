@@ -120,6 +120,7 @@ class MotherVisit extends Model
         'parentral_iron',
         'iron_dose',
         'blood_transfusion',
+        'blood_transfusion_week',
         'pregnancy_date',
         'suggested_place',
         'husband_vdrl_status',

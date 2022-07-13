@@ -252,7 +252,7 @@
                                                     <div class="col-lg-6">
                                                         <input type="date" class="form-control"
                                                             id="wife_hiv_screeing_date" name="wife_hiv_screeing_date"
-                                                            value="{{ @$mother_visit->wife_hiv_screening_date }}">
+                                                            value="{{ @$mother_visit->wife_hiv_screeing_date }}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -289,7 +289,7 @@
                                                         <input type="date" class="form-control"
                                                             id="husband_hiv_screeing_date"
                                                             name="husband_hiv_screeing_date"
-                                                            value="{{ @$mother_visit->husband_hiv_screening_date }}">
+                                                            value="{{ @$mother_visit->husband_hiv_screeing_date }}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -881,10 +881,10 @@
                                                         <select class="form-control" name="fetus_place">
                                                             <option value="">Please Select</option>
                                                             <option value="Intra-uterine"
-                                                                {{ @$mother_visit->fetus === 'Intra-uterine' ? 'selected' : '' }}>
+                                                                {{ @$mother_visit->fetus_place === 'Intra-uterine' ? 'selected' : '' }}>
                                                                 Intra uterine </option>
                                                             <option value="Extra-uterine"
-                                                                {{ @$mother_visit->fetus === 'Extra-uterine' ? 'selected' : '' }}>
+                                                                {{ @$mother_visit->fetus_place === 'Extra-uterine' ? 'selected' : '' }}>
                                                                 Extra uterine</option>
 
                                                         </select>
@@ -960,22 +960,22 @@
                                                         <select class="form-control" name="placemental_position">
                                                             <option value="">Please Select</option>
                                                             <option value="Anterior"
-                                                                {{ @$mother_visit->placement_position === 'Anterior' ? 'selected' : '' }}>
+                                                                {{ @$mother_visit->placemental_position === 'Anterior' ? 'selected' : '' }}>
                                                                 Anterior </option>
                                                             <option value="Posterior"
-                                                                {{ @$mother_visit->placement_position === 'Posterior' ? 'selected' : '' }}>
+                                                                {{ @$mother_visit->placemental_position === 'Posterior' ? 'selected' : '' }}>
                                                                 Posterior</option>
                                                             <option value="Anterio-posterior"
-                                                                {{ @$mother_visit->placement_position === 'Anterio-posterior' ? 'selected' : '' }}>
+                                                                {{ @$mother_visit->placemental_position === 'Anterio-posterior' ? 'selected' : '' }}>
                                                                 Anterio-posterior </option>
                                                             <option value="fundo-posterior"
-                                                                {{ @$mother_visit->placement_position === 'fundo-posterior' ? 'selected' : '' }}>
+                                                                {{ @$mother_visit->placemental_position === 'fundo-posterior' ? 'selected' : '' }}>
                                                                 fundo-posterior</option>
                                                             <option value="Lowlying"
-                                                                {{ @$mother_visit->placement_position === 'Lowlying' ? 'selected' : '' }}>
+                                                                {{ @$mother_visit->placemental_position === 'Lowlying' ? 'selected' : '' }}>
                                                                 Lowlying</option>
                                                             <option value="others"
-                                                                {{ @$mother_visit->placement_position === 'others' ? 'selected' : '' }}>
+                                                                {{ @$mother_visit->placemental_position === 'others' ? 'selected' : '' }}>
                                                                 others</option>
                                                         </select>
                                                     </div>
@@ -983,15 +983,15 @@
                                             </div>
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="an_mother_weight"
+                                                    <label class="col-lg-4 col-form-label" for="hc"
                                                         style="font-size: 16px;font-weight: 600;color: black;">HC (Head
                                                         circumference) in mm
 
                                                     </label>
                                                     <div class="col-lg-6">
                                                         <input type="number" class="form-control" placeholder=" "
-                                                            id="an_mother_weight" name="an_mother_weight"
-                                                            value={{ @$mother_visit->an_mother_weight }}>
+                                                            id="hc" name="hc"
+                                                            value={{ @$mother_visit->hc }}>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1415,13 +1415,13 @@
                                                     <div class="col-lg-6">
                                                         <input type="number" class="form-control" placeholder=" "
                                                             id="blood_transfusion" name="blood_transfusion"
-                                                            value="{{ @$mother->blood_transfusion }}">
+                                                            value="{{ @$mother_visit->blood_transfusion }}">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="pregnancy_week"
+                                                    <label class="col-lg-4 col-form-label" for="blood_transfusion_week"
                                                         style="font-size: 16px;font-weight: 600;color: black;">Blood
                                                         Transfusion (Wks of
                                                         Pregnancy)
@@ -1429,8 +1429,8 @@
                                                     </label>
                                                     <div class="col-lg-6">
                                                         <input type="number" class="form-control" placeholder=" "
-                                                            id="pregnancy_week" name="pregnancy_week"
-                                                            value="{{ @$mother->pregnancy_week }}">
+                                                            id="blood_transfusion_week" name="blood_transfusion_week"
+                                                            value="{{ @$mother_visit->blood_transfusion_week }}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1443,7 +1443,7 @@
                                                     <div class="col-lg-6">
                                                         <input type="date" class="form-control" placeholder=" "
                                                             id="pregnancy_date" name="pregnancy_date"
-                                                            value="{{ @$mother->pregnancy_date }}">
+                                                            value="{{ @$mother_visit->pregnancy_date }}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1573,7 +1573,7 @@
                                                             <option value="">Select </option>
                                                             @foreach ($hospital_types as $item)
                                                                 <option value="{{ $item->id }}"
-                                                                    {{ @$delivery_place->hospital_type_id == $item->id ? 'selected' : '' }}>
+                                                                    {{ @$mother_visit->referral_facility == $item->id ? 'selected' : '' }}>
                                                                     {{ $item->name }}</option>
                                                             @endforeach
                                                         </select>
