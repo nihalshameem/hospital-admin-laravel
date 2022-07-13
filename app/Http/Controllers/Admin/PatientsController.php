@@ -674,6 +674,7 @@ class PatientsController extends Controller
                 'parentral_iron' => $request->parentral_iron,
                 'iron_dose' => $request->iron_dose,
                 'blood_transfusion' => $request->blood_transfusion,
+                'blood_transfusion_week' => $request->blood_transfusion_week,
                 'pregnancy_date' => $request->pregnancy_date,
                 'suggested_place' => $request->suggested_place,
                 'husband_vdrl_status' => $request->husband_vdrl_status,
@@ -683,6 +684,10 @@ class PatientsController extends Controller
                 'crl' => $request->crl,
                 'abdomen_other' => $request->abdomen_other,
                 'referral_reason' => $request->referral_reason,
+                'afi' => $request->afi,
+                'viability' => $request->viability,
+                'fetus_place' => $request->fetus_place,
+                'placement_position' => $request->placement_position,
 
             ]);
         } catch (\Exception$e) {
@@ -702,6 +707,7 @@ class PatientsController extends Controller
     // an mother visit update
     public function mother_visit_update(Request $request, $id)
     {
+        // return $request;
         try {
             $visit = MotherVisit::find($id);
             $visit->visit_type = $request->visit_type;
@@ -806,15 +812,20 @@ class PatientsController extends Controller
             $visit->parentral_iron = $request->parentral_iron;
             $visit->iron_dose = $request->iron_dose;
             $visit->blood_transfusion = $request->blood_transfusion;
+            $visit->blood_transfusion_week = $request->blood_transfusion_week;
             $visit->pregnancy_date = $request->pregnancy_date;
             $visit->suggested_place = $request->suggested_place;
-            $visit->husband_vdrl_status;
-            $visit->husband_vdrl_date;
-            $visit->hbsag_date;
-            $visit->today;
-            $visit->crl;
-            $visit->abdomen_other;
-            $visit->referral_reason;
+            $visit->husband_vdrl_status = $request->husband_vdrl_status;
+            $visit->husband_vdrl_date = $request->husband_vdrl_date;
+            $visit->hbsag_date = $request->hbsag_date;
+            $visit->today = $request->today;
+            $visit->crl = $request->crl;
+            $visit->abdomen_other = $request->abdomen_other;
+            $visit->referral_reason = $request->referral_reason;
+            $visit->afi = $request->afi;
+            $visit->viability = $request->viability;
+            $visit->fetus_place = $request->fetus_place;
+            $visit->placement_position = $request->placement_position;
             $visit->save();
 
         } catch (\Exception$e) {
