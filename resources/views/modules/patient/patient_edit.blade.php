@@ -21,7 +21,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header" style="background-color: #ffb800;">
-                        <h4 class="card-title">Mother Registration</h4>
+                        <h4 class="card-title">Mother Registrationss</h4>
                     </div>
                     <div class="card-body">
                         <div class="form-validation">
@@ -187,7 +187,6 @@
                                                 </div>
                                             </div>
 
-                                            
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
                                                     <label class="col-lg-4 col-form-label"
@@ -196,8 +195,9 @@
                                                         <span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="datepicker-default form-control" id="lmp_date"
-                                                            name="lmp_date" value="{{ @$patient->lmp_date }}">
+                                                        <input type="text" class="form-control" id="lmp_date"
+                                                            placeholder="YYYY-MM-DD" name="lmp_date"
+                                                            value="{{ $patient->lmp_date }}">
                                                     </div>
                                                 </div>
                                             </div>
@@ -208,7 +208,7 @@
                                                         Date<span class="text-danger">*</span>
                                                     </label>
                                                     <div class="col-lg-6">
-                                                        <input type="text" class="datepicker-default form-control" id="edd_date"
+                                                        <input type="text" class="form-control" id="edd_date"
                                                             placeholder="YYYY-MM-DD" name="edd_date"
                                                             value="{{ @$patient->edd_date }}">
                                                     </div>
@@ -613,11 +613,24 @@
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script>
-        $("#datepicker").datepicker({
-            format: "dd-mm-yyyy",
-            startView: "days",
-            minViewMode: "days"
+        $( document ).ready(function() {
+            $('#lmp_date').on('input',function(){
+              let lmp_date = $('#lmp_date').val()
+              if (lmp_date.includes('-') && lmp_date.split('-').length==3){
+                  let dt =new Date(...lmp_date.split('-').reverse());
+                  let EDD_date = new Date(dt.setMonth(dt.getMonth() + 9)); 
+                  let date1 = EDD_date.toLocaleString("en-IN", {timeZone: "Asia/Kolkata"}).split(',')[0]
+                  $('#edd_date').val(date1.split('/').join('-'))
+              } else if (lmp_date.includes('/') && lmp_date.split('/').length==3){
+                  let dt =new Date(...lmp_date.split('/').reverse());
+                  let EDD_date = new Date(dt.setMonth(dt.getMonth() + 9));  
+                  let date1 = EDD_date.toLocaleString("en-IN", {timeZone: "Asia/Kolkata"}).split(',')[0]
+                  $('#edd_date').val(date1.split('/').join('-'))
+              }
+            })
         });
+        
     </script>
 @endsection

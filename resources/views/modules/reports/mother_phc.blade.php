@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="table-responsive">
-                    <table id="report-mother-phc-table" class="table table-striped patient-list mb-4 dataTablesCard fs-14">
+                    <table id="report-mother-phc-table-excel" class="table table-striped patient-list mb-4 dataTablesCard fs-14">
                         <thead>
                             <tr>
                                 <th>Sl. No</th>

@@ -148,6 +148,7 @@ Route::get('/', function () {
     }
 });
 
+
 // Cache Clearing
 Route::get('/clear-cache', function () {
     Artisan::call('cache:clear');
@@ -162,4 +163,7 @@ Route::get('/clear-cache', function () {
 Route::group(['prefix' => 'report'], function () {
     Route::get('/mother-phc', 'App\Http\Controllers\Admin\ReportsController@mother_phc');
     Route::get('/high-risk-phc', 'App\Http\Controllers\Admin\ReportsController@high_risk_phc');
+    Route::get('/an-clinic-visits', 'App\Http\Controllers\Admin\ReportsController@an_clinic_visits');
+    Route::get('/an-mother-visits', 'App\Http\Controllers\Admin\ReportsController@an_mother_visits');
+    Route::get('/an-mother-visits/result', 'App\Http\Controllers\Admin\ReportsController@search_result');
 });

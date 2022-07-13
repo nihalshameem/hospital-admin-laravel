@@ -30301,3 +30301,14 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
 .darker{
   font-size: 16px;font-weight: 600;color: black;
 }
+
+
+.dt-button.buttons-html5 {
+    background: #e6f3e96b;
+    border-color: #4ebd4b;
+	padding: 6px 2.5rem;
+    border-radius: 9.75rem;
+    font-weight: 600;
+    font-size: 1rem;
+	margin-bottom: 0.5rem !important;
+}

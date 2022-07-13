@@ -674,7 +674,6 @@ class PatientsController extends Controller
                 'parentral_iron' => $request->parentral_iron,
                 'iron_dose' => $request->iron_dose,
                 'blood_transfusion' => $request->blood_transfusion,
-                'blood_transfusion_week' => $request->blood_transfusion_week,
                 'pregnancy_date' => $request->pregnancy_date,
                 'suggested_place' => $request->suggested_place,
                 'husband_vdrl_status' => $request->husband_vdrl_status,
@@ -684,10 +683,6 @@ class PatientsController extends Controller
                 'crl' => $request->crl,
                 'abdomen_other' => $request->abdomen_other,
                 'referral_reason' => $request->referral_reason,
-                'afi' => $request->afi,
-                'viability' => $request->viability,
-                'fetus_place' => $request->fetus_place,
-                'placement_position' => $request->placement_position,
 
             ]);
         } catch (\Exception$e) {
@@ -707,7 +702,6 @@ class PatientsController extends Controller
     // an mother visit update
     public function mother_visit_update(Request $request, $id)
     {
-        // return $request;
         try {
             $visit = MotherVisit::find($id);
             $visit->visit_type = $request->visit_type;
@@ -812,20 +806,15 @@ class PatientsController extends Controller
             $visit->parentral_iron = $request->parentral_iron;
             $visit->iron_dose = $request->iron_dose;
             $visit->blood_transfusion = $request->blood_transfusion;
-            $visit->blood_transfusion_week = $request->blood_transfusion_week;
             $visit->pregnancy_date = $request->pregnancy_date;
             $visit->suggested_place = $request->suggested_place;
-            $visit->husband_vdrl_status = $request->husband_vdrl_status;
-            $visit->husband_vdrl_date = $request->husband_vdrl_date;
-            $visit->hbsag_date = $request->hbsag_date;
-            $visit->today = $request->today;
-            $visit->crl = $request->crl;
-            $visit->abdomen_other = $request->abdomen_other;
-            $visit->referral_reason = $request->referral_reason;
-            $visit->afi = $request->afi;
-            $visit->viability = $request->viability;
-            $visit->fetus_place = $request->fetus_place;
-            $visit->placement_position = $request->placement_position;
+            $visit->husband_vdrl_status;
+            $visit->husband_vdrl_date;
+            $visit->hbsag_date;
+            $visit->today;
+            $visit->crl;
+            $visit->abdomen_other;
+            $visit->referral_reason;
             $visit->save();
 
         } catch (\Exception$e) {
@@ -1120,14 +1109,14 @@ class PatientsController extends Controller
 
     public function risk_chart()
     {
-        $risks = HighRisk::select('id', 'name')->get();
+        $risks = HighRisk::where('name', '!=' , 'None')->get();
         $risk = [];
         $data = [];
 
         foreach ($risks as $key => $v) {
             $p = explode(" ", $v->name);
             $risk[$key] = implode(" ", array_splice($p, 0, 2));
-            $data[$key] = MotherVisit::where('high_risk', $v->id)->groupBy('patient_id')->count();
+            $data[$key] = MotherVisit::where('high_risk', $v->id)->count();
         }
 
         return response()->json(['count' => $data, 'risk' => $risk]);
@@ -1141,7 +1130,7 @@ class PatientsController extends Controller
 
         $action = 'patient_list';
         $districts = District::all();
-        $patients = Patient::select(['id', 'an_mother as name'])->get();
+        $patients = Patient::select(['id', 'an_mother as name', 'rch_id'])->get();
 
         if ($request->ajax()) {
             $data = DB::table('delivery_details as d')->join('patients as p', 'p.id', '=', 'd.patient_id')->selectRaw("COUNT('d.*') as delivery_count,d.id, d.patient_id, d.vhn_name, d.mother_number, d.reg_date, p.an_mother as mother_name, p.financial_year, d.delivery_date")->groupBy('p.id')->get();
@@ -1166,7 +1155,6 @@ class PatientsController extends Controller
                 ->rawColumns(['checkbox', 'edit'])
                 ->make(true);
         }
-
         return view('modules.patient.mother_delivery_list', compact('page_title', 'page_description', 'action', 'districts', 'patients'));
     }
 
@@ -1255,9 +1243,43 @@ class PatientsController extends Controller
                 'discharge_date' => $request->discharge_date,
                 'discharge_time_h' => $request->discharge_time_h,
                 'discharge_time_m' => $request->discharge_time_m,
-                'jsy_payment_status' => $request->jsy_payment_status,
-                'jsy_payment_date' => $request->jsy_payment_date,
-                'jsy_payment_amount' => $request->jsy_payment_amount,
+                
+                 'birth_term`' => $request->birth_term,
+                  'baby_sex' => $request->baby_sex,
+                   'baby_cry' => $request->baby_cry,
+                    'birth_weight' => $request->birth_weight,
+                     'order_live' => $request->order_live,
+                      'admission' => $request->admission,
+                       'reason_admission' => $request->reason_admission,
+                        'ref_hospital' => $request->ref_hospital,
+                         'reason_ref' => $request->reason_ref,
+                          'mather_status' => $request->mather_status,
+                           'baby_status' => $request->baby_status,
+                           
+                 'opv_o_dose' => $request->opv_o_dose,
+                  'bcg_dose' => $request->bcg_dose,
+                   'hep_o_dose' => $request->hep_o_dose,
+                   'vitk_dose' => $request->vitk_dose,
+                 
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+               // 'jsy_payment_status' => $request->jsy_payment_status,
+                //'jsy_payment_date' => $request->jsy_payment_date,
+                //'jsy_payment_amount' => $request->jsy_payment_amount,
             ]);
 
         } catch (\Exception$e) {
@@ -1303,6 +1325,7 @@ class PatientsController extends Controller
         $mother_delivery = DeliveryDetail::find($id);
 
         try {
+            
             $mother_delivery->vhn_name = $request->vhn_name;
             $mother_delivery->mother_number = $request->mother_number;
             $mother_delivery->reg_date = $request->reg_date;
@@ -1327,9 +1350,32 @@ class PatientsController extends Controller
             $mother_delivery->discharge_date = $request->discharge_date;
             $mother_delivery->discharge_time_h = $request->discharge_time_h;
             $mother_delivery->discharge_time_m = $request->discharge_time_m;
-            $mother_delivery->jsy_payment_status = $request->jsy_payment_status;
-            $mother_delivery->jsy_payment_date = $request->jsy_payment_date;
-            $mother_delivery->jsy_payment_amount = $request->jsy_payment_amount;
+            
+            
+            
+            $mother_delivery->birth_term = $request->birth_term;
+            $mother_delivery->baby_sex = $request->baby_sex;
+            $mother_delivery->baby_cry = $request->baby_cry;
+            $mother_delivery->birth_weight = $request->birth_weight;
+            $mother_delivery->order_live = $request->order_live;
+            $mother_delivery->admission = $request->admission;
+            $mother_delivery->reason_admission = $request->reason_admission;
+            $mother_delivery->ref_hospital = $request->ref_hospital;
+            $mother_delivery->reason_ref = $request->reason_ref;
+            $mother_delivery->mather_status = $request->mather_status;
+            $mother_delivery->baby_status = $request->baby_status;
+            $mother_delivery->opv_o_dose = $request->opv_o_dose;
+            $mother_delivery->bcg_dose = $request->bcg_dose;
+            $mother_delivery-> hep_o_dose = $request->hep_o_dose;
+            $mother_delivery->vitk_dose = $request->vitk_dose;
+            
+            
+            
+            
+            
+            //$mother_delivery->jsy_payment_status = $request->jsy_payment_status;
+            //$mother_delivery->jsy_payment_date = $request->jsy_payment_date;
+            //$mother_delivery->jsy_payment_amount = $request->jsy_payment_amount;
             $mother_delivery->save();
 
         } catch (\Exception$e) {

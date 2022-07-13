@@ -69,7 +69,7 @@
                                 data-link="{{ url('patient/mother-delivery') }}" required>
                                 <option value="">Select</option>
                                 @foreach ($patients as $patient)
-                                    <option value="{{ $patient->id }}">{{ $patient->name }}</option>
+                                    <option value="{{ $patient->id }}">{{ $patient->rch_id }}</option>
                                 @endforeach
                             </select>
                         </div>

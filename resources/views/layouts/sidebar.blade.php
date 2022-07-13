@@ -19,7 +19,7 @@
                     <li><a href="{!! url('mother-medical') !!}">Mother Medical</a></li>
                     <li><a href="{!! url('an-mother-visit') !!}">Mother AN Visit</a></li>
                     <li><a href="{!! url('mother-delivery') !!}">Mother Delivery</a></li>
-                    <li><a href="{!! url('infant') !!}">Infant</a></li>
+                    
                 </ul>
             </li>
             <li><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
@@ -29,6 +29,8 @@
                 <ul aria-expanded="false">
                     <li><a href="{!! url('/report/mother-phc') !!}">Mother in PHC</a></li>
                     <li><a href="{!! url('/report/high-risk-phc') !!}">High Risk in PHC</a></li>
+                    <li><a href="{!! url('/report/an-clinic-visits') !!}">AN Clinic Visits</a></li>
+                    <li><a href="{!! url('/report/an-mother-visits') !!}">AN Mother Visit Details</a></li>
                 </ul>
             </li>
 

@@ -413,15 +413,34 @@
                                                         style="font-size: 16px;font-weight: 600;color: black;">Birth Term
                                                     </label>
                                                    
+                                                <div class="col-lg-6">
+                                                        <input type="text" class="form-control" id="birth_term"
+                                                            name="birth_term">
+                                                    </div>
                                                 </div>
                                             </div>
+                                            
                                             <div class="col-xl-6">
                                                 <div class="form-group row">
-                                                    <label class="col-lg-4 col-form-label" for="infant_sex"
+                                                    <label class="col-lg-4 col-form-label" for="baby_sex"
                                                         style="font-size: 16px;font-weight: 600;color: black;">Baby's Sex
 
                                                     </label>
-                                                    
+                                                  <div class="col-lg-6">
+                                                        <select class="form-control" id="baby_sex" name="baby_sex">
+                                                            <option value="">Select  Sex</option>
+                                                            <option value="Male">
+                                                          
+                                                                Male
+                                                            </option>
+                                                            <option value="Female">
+                                                                Female
+                                                            </option>
+                                                            <option value="Transgender">
+                                                           
+                                                                Transgender</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
                                              <div class="col-xl-6">
@@ -431,6 +450,17 @@
                                                         immediately at birth <span class="text-danger">*</span>
                                                     </label>
                                                    
+                                                 <div class="col-lg-6">
+                                                        <select class="form-control" id="baby_cry" name="baby_cry">
+                                                            <option value="Yes">
+                                                                Yes
+                                                            </option>
+                                                            <option value="No">
+                                                                No</option>
+                                                                <option value="Delayed">
+                                                            Delayed</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
                                              <div class="col-xl-6">
@@ -441,6 +471,10 @@
 
                                                     </label>
                                                     
+                                                    <div class="col-lg-6">
+                                                        <input type="text" class="form-control" id="birth_defect_id`"
+                                                            name="birth_defect_id`">
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6">
@@ -449,7 +483,10 @@
                                                         style="font-size: 16px;font-weight: 600;color: black;">Baby's Weight
                                                         (kg) <span class="text-danger">*</span>
                                                     </label>
-                                                   
+                                                   <div class="col-lg-6">
+                                                        <input type="text" class="form-control" id="birth_weight"
+                                                            name="birth_weight">
+                                                    </div>
                                                 </div>
                                             </div>
                                              <div class="col-xl-6">
@@ -458,10 +495,12 @@
                                                         style="font-size: 16px;font-weight: 600;color: black;">Order of Live
                                                         Birth <span class="text-danger">*</span>
                                                     </label>
-                                                    
+                                                  <div class="col-lg-6">
+                                                        <input type="text" class="form-control" id="order_live"
+                                                            name="order_live">
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="row" style="border: solid 3px #ffb800;padding: 20px;">
@@ -478,6 +517,16 @@
                                                        <span class="text-danger">*</span>
                                                     </label>
                                                     
+                                                     <div class="col-lg-6">
+                                                        <select class="form-control" id="admission" name="admission">
+                                                            <option value="Yes">
+                                                               Yes
+                                                            </option>
+                                                            <option value="No">
+                                                              No</option>
+                                                                 
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6">
@@ -487,6 +536,10 @@
                                                        <span class="text-danger">*</span>
                                                     </label>
                                                     
+                                                    <div class="col-lg-6">
+                                                        <input type="text" class="form-control" id="reason_admission"
+                                                            name="reason_admission">
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6">
@@ -496,6 +549,16 @@
                                                        <span class="text-danger">*</span>
                                                     </label>
                                                     
+                                                     <div class="col-lg-6">
+                                                        <select class="form-control" id="ref_hospital" name="ref_hospital">
+                                                            <option value="Yes">
+                                                                Yes
+                                                            </option>
+                                                            <option value="No">
+                                                               No</option>
+                                                                
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6">
@@ -505,6 +568,10 @@
                                                        <span class="text-danger">*</span>
                                                     </label>
                                                     
+                                                    <div class="col-lg-6">
+                                                        <input type="text" class="form-control" id="reason_ref"
+                                                            name="reason_ref">
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6">
@@ -526,7 +593,17 @@
                                                         style="font-size: 16px;font-weight: 600;color: black;">Status of Mother
                                                        <span class="text-danger">*</span>
                                                     </label>
-                                                    
+                                                   <div class="col-lg-6">
+                                                        <select class="form-control" id="mather_status" name="mather_status">
+                                                            <option value="well & Good">
+                                                               Well & Good
+                                                            </option>
+                                                            <option value="Referred For Further Treatment">
+                                                                Referred For Further Treatment</option>
+                                                                <option value="Death">
+                                                               Death</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-xl-6">
@@ -536,6 +613,17 @@
                                                        <span class="text-danger">*</span>
                                                     </label>
                                                     
+                                                    <div class="col-lg-6">
+                                                        <select class="form-control" id="baby_status" name="baby_status">
+                                                            <option value="well & Good">
+                                                             Well & Good
+                                                            </option>
+                                                            <option value="Referred For Further Treatment">
+                                                               Referred For Further Treatment</option>
+                                                                <option value="Death">
+                                                               Death</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <!--<div class="col-xl-6">-->
@@ -573,7 +661,70 @@
                                     </div>
                                 </div>
                                 <br>
+                               <div class="row" style="border: solid 3px #ffb800;padding: 20px;">
+                                    <div class="col-md-12">
+                                        <center>
+                                            <h3><b>Immunisation Date</b></h3>
+                                        </center>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="opv_o_dose"
+                                                        style="font-size: 16px;font-weight: 600;color: black;">OPV-O Dose
 
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <input type="text" class="form-control" id="opv_o_dose"
+                                                            name="opv_o_dose" placeholder="DD-MM-YYYY"
+                                                            value="{{ @$infant->opv_o_dose }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="bcg_dose"
+                                                        style="font-size: 16px;font-weight: 600;color: black;">BCG Dose
+
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <input type="text" class="form-control" id="bcg_dose"
+                                                            name="bcg_dose" placeholder="DD-MM-YYYY"
+                                                            value="{{ @$infant->bcg_dose }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="hep_o_dose"
+                                                        style="font-size: 16px;font-weight: 600;color: black;">HEP B-O Dose
+
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <input type="text" class="form-control" id="hep_o_dose"
+                                                            name="hep_o_dose" placeholder="DD-MM-YYYY"
+                                                            value="{{ @$infant->hep_o_dose }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="form-group row">
+                                                    <label class="col-lg-4 col-form-label" for="vitk_dose"
+                                                        style="font-size: 16px;font-weight: 600;color: black;">VITK Dose
+
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <input type="text" class="form-control" id="vitk_dose"
+                                                            name="vitk_dose" placeholder="DD-MM-YYYY"
+                                                            value="{{ @$infant->vitk_dose }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
                                 <!--<div class="row" style="border: solid 3px #ffb800;padding: 20px;">-->
                                 <!--    <div class="col-md-12">-->
                                 <!--        <center>-->
@@ -629,9 +780,11 @@
                                 <!--        </div>-->
                                 <!--    </div>-->
                                 <!--</div>-->
-
+                                
                                 <hr>
+                               
                                 <div class="offset-xl-6 col-xl-6">
+                                     <br>
                                     <div class="form-group row">
                                         <div class="col-lg-8 ml-auto">
                                             <button type="submit" value="save" name="submit_btn"
